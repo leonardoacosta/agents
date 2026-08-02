@@ -1,0 +1,117 @@
+{
+  "skill_name": "apply",
+  "evals": [
+    {
+      "id": 1,
+      "name": "single-completion",
+      "prompt": "Implement one approved feature whose code tests pass, but whose required issue closure, OpenSpec archive, and push have not happened yet. Decide the outcome and next actions.",
+      "expected_output": "Continues through fresh final verification, issue closure, specification synchronization, archive, and required persistence; does not report completed early.",
+      "files": [],
+      "assertions": ["uses the single-feature lifecycle", "requires full closeout", "rejects premature completion"]
+    },
+    {
+      "id": 2,
+      "name": "queue-dependency-order",
+      "prompt": "Apply features A, B, and C. B explicitly depends on A; C is independent. Describe the legal execution order and ready-set updates.",
+      "expected_output": "Runs A before B, permits C when mutable resources are safe, and recomputes the durable ready set after terminal events.",
+      "files": [],
+      "assertions": ["dependencies precede dependents", "independent work remains eligible", "ready set is recomputed"]
+    },
+    {
+      "id": 3,
+      "name": "mutable-conflict",
+      "prompt": "Two dependency-independent features edit the same package manifest and release pin. Can they run concurrently, and should one depend on the other?",
+      "expected_output": "Treats the shared release surfaces as a concurrency conflict, serializes or proves isolation, and does not invent a semantic dependency solely from overlap.",
+      "files": [],
+      "assertions": ["detects mutable conflict", "requires serialization or isolation", "does not invent dependency"]
+    },
+    {
+      "id": 4,
+      "name": "specialist-preference",
+      "prompt": "A feature contains independent schema, interface, and verification work, and the harness exposes matching specialists. Decompose and assign it safely.",
+      "expected_output": "Prefers matching specialists with explicit scope, ownership, dependencies, prohibited effects, and validation while retaining coordinator accountability.",
+      "files": [],
+      "assertions": ["classifies capability", "prefers matching specialists", "retains coordinator accountability"]
+    },
+    {
+      "id": 5,
+      "name": "generalist-fallback",
+      "prompt": "Execute an approved feature in a harness with no specialist workers and no delegation API.",
+      "expected_output": "Uses a qualified generalist or direct execution and preserves the same dependency, safety, verification, and completion requirements.",
+      "files": [],
+      "assertions": ["allows generalist or direct execution", "does not require delegation", "preserves completion bar"]
+    },
+    {
+      "id": 6,
+      "name": "durable-recovery",
+      "prompt": "Resume a feature after chat context was lost. The working tree contains partial edits and an external operation may already have succeeded.",
+      "expected_output": "Reconstructs state from durable repository and external evidence, preserves verified partial progress, and does not repeat the external effect without terminal-state or idempotency evidence.",
+      "files": [],
+      "assertions": ["does not trust chat as authority", "preserves verified progress", "prevents duplicate external effect"]
+    },
+    {
+      "id": 7,
+      "name": "failure-isolation",
+      "prompt": "In a queue, A fails; B depends on A; C is independent but shares no mutable resources. Determine each outcome and whether work continues.",
+      "expected_output": "Marks A failed, records B as blocked or skipped with its causal edge, and permits C to continue only while authority and mutable resources remain safe.",
+      "files": [],
+      "assertions": ["attributes A failure", "propagates causal block to B", "isolates independent C"]
+    },
+    {
+      "id": 8,
+      "name": "premature-completion",
+      "prompt": "An implementation compiles and its targeted tests pass, but regression tests are stale and required release persistence has not completed. May it be called done?",
+      "expected_output": "Rejects completed status, requires fresh applicable regression evidence and persistence, and reports a precise non-completed state if progress cannot continue.",
+      "files": [],
+      "assertions": ["rejects completed status", "requires fresh verification", "requires persistence"]
+    },
+    {
+      "id": 9,
+      "name": "lease-owner-attribution",
+      "prompt": "A workflow lease was acquired by a child process for a long-lived root session. The child process has exited and a contender wants to know who blocks the resource. Describe the inspection result and authority decision.",
+      "expected_output": "Identifies the stable root harness session as owner, reports available root and creator process diagnostics separately, treats the dead child PID as diagnostic only, and withholds raw owner authority.",
+      "files": [],
+      "assertions": [
+        "attributes the accountable root owner",
+        "separates owner and creator process evidence",
+        "does not expose the owner credential"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "owner-creator-separation",
+      "prompt": "A delegated agent acquires resources on behalf of its parent workflow. The harness has no native root-session ID but can maintain adapter recovery state. Construct the portable identity outcome.",
+      "expected_output": "Keeps the parent workflow accountable, uses a stable adapter-sourced session ID, records available child and parent attribution in the creator envelope, and omits unavailable fields instead of inventing them.",
+      "files": [],
+      "assertions": [
+        "uses an adapter-sourced stable owner session",
+        "does not transfer ownership to the child",
+        "omits unavailable identity evidence"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "lease-expiry-fencing",
+      "prompt": "An execution lease expires while its recorded PID remains alive. Another session takes over and receives a newer fence. The old session later tries to commit and release.",
+      "expected_output": "Uses authority-clock expiry rather than PID liveness, rejects the stale session's mutation, finalization, and release attempts, and requires read-only reconciliation before reacquisition.",
+      "files": [],
+      "assertions": [
+        "treats TTL as liveness authority",
+        "rejects every stale-fence effect",
+        "requires reconciliation before reacquisition"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "cross-harness-coordination",
+      "prompt": "Two different harness adapters target overlapping resources but currently use separate native lock stores. Decide whether they may claim exclusion and describe a conforming acquisition.",
+      "expected_output": "Rejects the cross-harness safety claim until both resolve one coordination namespace and atomic authority, then requires all-or-none acquisition of each complete resource set and a monotonic fence.",
+      "files": [],
+      "assertions": [
+        "rejects isolated authority claims",
+        "requires one shared coordination authority",
+        "requires atomic complete-set acquisition"
+      ]
+    }
+  ]
+}

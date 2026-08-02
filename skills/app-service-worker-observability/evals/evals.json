@@ -1,0 +1,23 @@
+{
+  "skill_name": "app-service-worker-observability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our .NET 8 BackgroundService on Windows App Service sometimes dies during startup before anything reaches Application Insights. Review our proposed observability setup and describe the source-controlled Azure and application changes needed.",
+      "expected_output": "Covers early host telemetry wiring, durable App Service diagnostic settings, bounded non-production filesystem logging, detailed errors, failed-request tracing, and reversible time-bounded escalation controls.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a production-safe observability baseline to a Linux App Service worker deployment. We need useful incident diagnostics without claiming Windows-only features work.",
+      "expected_output": "Uses Application Insights plus console/application resource logs and a durable sink, explicitly identifies detailed errors and failed-request tracing as Windows-only, and keeps temporary controls bounded and source-controlled.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "A teammate enabled verbose App Service logs manually in the portal last week. Define a safer repeatable escalation and rollback contract for the repository.",
+      "expected_output": "Defaults escalation off and requires reviewed IaC, ownership, incident linkage, expiry, bounded retention, verification, and an explicit rollback to off.",
+      "files": []
+    }
+  ]
+}

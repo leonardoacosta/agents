@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generic Azure CI/CD flow</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+</head>
+<body>
+  <main class="az-page">
+    <h1 class="az-title">Generic CI/CD delivery flow</h1>
+    <p class="az-lede">Composable delivery stages; transition policy and target names come from the diagram owner.</p>
+
+    <section class="az-flow" aria-label="Delivery flow">
+      <article class="az-stage az-resource az-resource--devops">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-git-repo"></use></svg>
+        <span class="az-resource__name">source</span><span class="az-resource__meta">Repository</span>
+      </article>
+      <article class="az-stage az-resource az-resource--devops">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-build-pipeline"></use></svg>
+        <span class="az-resource__name">validate + build</span><span class="az-resource__meta">Checks and package</span>
+      </article>
+      <article class="az-stage az-resource az-resource--devops">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-acr"></use></svg>
+        <span class="az-resource__name">versioned-artifact</span><span class="az-resource__meta">Immutable output</span>
+      </article>
+      <article class="az-stage az-stage--gated az-resource az-resource--identity">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-approval"></use></svg>
+        <span class="az-resource__name">approval</span><span class="az-resource__meta">Optional policy gate</span>
+      </article>
+      <article class="az-stage az-resource az-resource--compute">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-release-pipeline"></use></svg>
+        <span class="az-resource__name">&lt;deployment-target&gt;</span><span class="az-resource__meta">Azure workload</span>
+      </article>
+    </section>
+
+    <ul class="az-connector-key" aria-label="Delivery connector meanings">
+      <li><span class="az-line az-line--delivery"></span>automatic delivery →</li>
+      <li><span class="az-line az-line--approval"></span>gated transition →</li>
+    </ul>
+  </main>
+</body>
+</html>

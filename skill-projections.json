@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "managedBy": "agents-skill-projections/v1",
+  "release": {
+    "source": "https://github.com/leonardoacosta/skills.git",
+    "revision": "1a453e0fb32f2df45ca9979212196762a7da35ab"
+  },
+  "harnesses": {
+    "amp": { "root": ".config/agents/skills", "skills": [] },
+    "antigravity-cli": { "root": ".gemini/antigravity-cli/skills", "skills": [] },
+    "claude-code": {
+      "root": ".claude/skills",
+      "skills": [
+        "brainstorming", "improve", "open-work", "receiving-code-review", "systematic-debugging",
+        "test-driven-development", "verification-before-completion", "writing-plans"
+      ]
+    },
+    "codex": {
+      "root": ".codex/skills",
+      "skills": [
+        "better-auth-best-practices", "brainstorming", "c4-architecture",
+        "crafting-effective-readmes", "database-schema-designer", "drizzle-best-practices",
+        "env-and-secrets", "find-skills", "firecrawl", "frontend-api-contracts", "frontend-design", "improve",
+        "nextjs-app-router", "open-work", "openapi-to-typescript", "qa-test-planner", "react-dev",
+        "receiving-code-review", "reducing-entropy", "service-layer-style", "shadcn", "simplify",
+        "skill-creator", "skill-judge", "system-architect", "systematic-debugging",
+        "t3-monorepo-patterns", "test-driven-development", "trpc-patterns",
+        "vercel-react-best-practices", "verification-before-completion", "webapp-testing",
+        "writing-plans"
+      ]
+    },
+    "cursor": {
+      "root": ".cursor/skills",
+      "skills": ["firecrawl"]
+    },
+    "gemini-cli": { "root": ".gemini/skills", "skills": [] },
+    "github-copilot": {
+      "root": ".copilot/skills",
+      "skills": ["firecrawl"]
+    },
+    "opencode": {
+      "root": ".config/opencode/skills",
+      "skills": ["firecrawl"]
+    },
+    "pi": {
+      "root": ".pi/agent/skills",
+      "skills": ["open-work"]
+    },
+    "zed": { "root": ".agents/skills", "nativeCanonical": true, "skills": [] }
+  }
+}

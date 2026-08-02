@@ -1,0 +1,184 @@
+:root {
+  color-scheme: light;
+  --az-canvas: #ffffff;
+  --az-ink: #212121;
+  --az-muted: #57606a;
+  --az-rule: #d1d1d1;
+  --az-boundary: #7f7f7f;
+  --az-blue: #0078d4;
+  --az-blue-dark: #235dc1;
+  --az-blue-pale: #eef5fb;
+  --az-display: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --az-mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+  --fam-compute-stroke: #c8460e;
+  --fam-compute-fill: #fde6d4;
+  --fam-data-stroke: #107c10;
+  --fam-data-fill: #d7ebd7;
+  --fam-identity-stroke: #886200;
+  --fam-identity-fill: #fbeec7;
+  --fam-integration-stroke: #5933a3;
+  --fam-integration-fill: #ece4f7;
+  --fam-network-stroke: #006da3;
+  --fam-network-fill: #d4e9f6;
+  --fam-monitor-stroke: #3a3d99;
+  --fam-monitor-fill: #dadcf2;
+  --fam-governance-stroke: #5a6470;
+  --fam-governance-fill: #ebedf0;
+  --fam-devops-stroke: #a02763;
+  --fam-devops-fill: #f6d8e6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--az-canvas);
+  color: var(--az-ink);
+  font-family: var(--az-display);
+}
+
+.az-page {
+  width: min(1180px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 34px 0 50px;
+}
+
+.az-title {
+  margin: 0 0 6px;
+  color: var(--az-blue-dark);
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+
+.az-lede { margin: 0 0 24px; color: var(--az-muted); font-size: 13px; }
+
+.az-layout { display: grid; gap: 20px; }
+.az-layout--columns { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+.az-envelope {
+  position: relative;
+  padding: 22px 18px 18px;
+  background: #fff;
+}
+
+.az-envelope__label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  padding: 2px 8px;
+  background: #fff;
+  color: var(--az-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.az-subscription { border: 1px dashed var(--az-boundary); }
+.az-resource-group { border: 1px dashed var(--az-boundary); background: #fafbfd; }
+.az-vnet { border: 2px solid var(--az-blue); background: var(--az-blue-pale); }
+.az-vnet--hub { border-color: var(--az-blue-dark); }
+.az-vnet--spoke { border-color: var(--az-blue); }
+.az-subnet { border: 1px dashed var(--az-blue); background: #fff; }
+
+.az-stack { display: grid; gap: 12px; }
+.az-row { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; }
+
+.az-resource {
+  --family-stroke: var(--fam-governance-stroke);
+  --family-fill: var(--fam-governance-fill);
+  display: grid;
+  grid-template-columns: 24px minmax(120px, 1fr) auto;
+  grid-template-areas: "icon name badge" "icon meta badge";
+  min-width: 190px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--family-stroke) 38%, var(--az-rule));
+  border-left: 4px solid var(--family-stroke);
+  background: color-mix(in srgb, var(--family-fill) 28%, #fff);
+  box-shadow: 0 2px 7px rgb(0 0 0 / .06);
+}
+
+.az-resource--compute { --family-stroke: var(--fam-compute-stroke); --family-fill: var(--fam-compute-fill); }
+.az-resource--data { --family-stroke: var(--fam-data-stroke); --family-fill: var(--fam-data-fill); }
+.az-resource--identity { --family-stroke: var(--fam-identity-stroke); --family-fill: var(--fam-identity-fill); }
+.az-resource--integration { --family-stroke: var(--fam-integration-stroke); --family-fill: var(--fam-integration-fill); }
+.az-resource--network { --family-stroke: var(--fam-network-stroke); --family-fill: var(--fam-network-fill); }
+.az-resource--monitor { --family-stroke: var(--fam-monitor-stroke); --family-fill: var(--fam-monitor-fill); }
+.az-resource--governance { --family-stroke: var(--fam-governance-stroke); --family-fill: var(--fam-governance-fill); }
+.az-resource--devops { --family-stroke: var(--fam-devops-stroke); --family-fill: var(--fam-devops-fill); }
+
+.az-resource__icon { grid-area: icon; width: 19px; height: 19px; color: var(--family-stroke); align-self: center; }
+.az-resource__name { grid-area: name; font: 600 11px/1.25 var(--az-mono); }
+.az-resource__meta { grid-area: meta; color: var(--az-muted); font-size: 9.5px; font-style: italic; }
+
+.az-badge {
+  grid-area: badge;
+  align-self: center;
+  margin-left: 8px;
+  padding: 2px 5px;
+  border: 1px solid currentColor;
+  color: var(--fam-network-stroke);
+  background: #fff;
+  font: 700 8px/1 var(--az-display);
+}
+
+.az-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  align-items: center;
+  gap: 30px;
+}
+
+.az-stage { position: relative; min-width: 0; }
+.az-stage:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  color: var(--fam-devops-stroke);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.az-stage--gated:not(:last-child)::after { color: #c87900; }
+
+.az-connector-key {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px 20px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.az-connector-key li { display: flex; align-items: center; gap: 8px; color: var(--az-muted); font-size: 11px; }
+.az-line { width: 44px; height: 0; border-top: 2px solid var(--az-blue); }
+.az-line--network { border-color: var(--az-blue-dark); }
+.az-line--data { border-color: var(--fam-data-stroke); }
+.az-line--secret { border-top-style: dashed; border-color: var(--fam-identity-stroke); }
+.az-line--event { border-top-style: dotted; border-color: var(--fam-integration-stroke); }
+.az-line--telemetry { border-top-style: dashed; border-color: var(--fam-monitor-stroke); }
+.az-line--delivery { border-color: var(--fam-devops-stroke); }
+.az-line--approval { border-top-style: dashed; border-color: #c87900; }
+
+.az-family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.az-note {
+  padding: 10px 12px;
+  border-left: 3px solid var(--az-blue);
+  background: #f4f8fc;
+  color: var(--az-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 680px) {
+  .az-page { width: min(100% - 24px, 1180px); }
+  .az-flow { grid-template-columns: 1fr; gap: 22px; }
+  .az-stage:not(:last-child)::after { top: auto; right: 50%; bottom: -22px; transform: translateX(50%) rotate(90deg); }
+}

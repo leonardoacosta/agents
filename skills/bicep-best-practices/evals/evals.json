@@ -1,0 +1,53 @@
+{
+  "skill_name": "bicep-best-practices",
+  "evals": [
+    {
+      "id": 1,
+      "name": "redundant-parameter",
+      "prompt": "A Bicep module takes a storageAccountName parameter, but every caller computes the same value from workload and environment. Review the interface.",
+      "expected_output": "Removes the redundant parameter, derives the stable name in one place, and retains an override only if callers demonstrate a real exception.",
+      "files": [],
+      "assertions": ["checks all callers", "minimizes the parameter surface", "uses stable derivation"]
+    },
+    {
+      "id": 2,
+      "name": "shared-environment-fact",
+      "prompt": "Several modules independently accept the same region and monitoring resource-group values for each environment. Refactor the repeated configuration.",
+      "expected_output": "Moves shared environment facts to one typed configuration source, derives repeated forms once, and avoids pass-through parameters.",
+      "files": [],
+      "assertions": ["uses one source of truth", "distinguishes values from facts", "avoids repeated derivation"]
+    },
+    {
+      "id": 3,
+      "name": "tag-union-preservation",
+      "prompt": "A cleanup replaces union(sharedTags, { resourceRole: 'api' }) with sharedTags because sharedTags is no longer passed as a parameter. Review the change.",
+      "expected_output": "Rejects the tag loss and preserves union() while changing only the source of sharedTags.",
+      "files": [],
+      "assertions": ["preserves resource-specific keys", "uses union()", "separates interface cleanup from deployed data"]
+    },
+    {
+      "id": 4,
+      "name": "cross-domain-resource-id",
+      "prompt": "A module accepts a Log Analytics customer ID string to populate an Azure resource ID property, even though the workspace name and resource group are known. Correct the reference.",
+      "expected_output": "Uses an existing symbolic resource or correctly scoped resourceId(), supplies the ARM resource ID, and removes the derivable ID parameter.",
+      "files": [],
+      "assertions": ["does not use a customer identifier", "uses existing or resourceId()", "handles scope explicitly"]
+    },
+    {
+      "id": 5,
+      "name": "runtime-guid-bcp120",
+      "prompt": "A role assignment resource is named with guid(identityModule.outputs.principalId, roleDefinitionId) and the compiler reports BCP120. Fix the design.",
+      "expected_output": "Recognizes the deployment-time module output, moves the naming expression to a boundary where principalId is a parameter, and keeps guid() inputs compile-time resolvable.",
+      "files": [],
+      "assertions": ["explains BCP120", "does not suppress the diagnostic", "uses compile-time-resolvable naming inputs"]
+    },
+    {
+      "id": 6,
+      "name": "build-what-if-validation",
+      "prompt": "A parameter and comment refactor builds locally. Decide whether it is ready to merge and specify the remaining validation.",
+      "expected_output": "Requires linter review, az bicep build for every touched entry point, and a scoped what-if with zero unexplained property drift; comments must retain only non-obvious safety or intent.",
+      "files": [],
+      "assertions": ["runs compiler and linter gates", "requires deployment what-if", "reviews comments and drift"]
+    }
+  ]
+}

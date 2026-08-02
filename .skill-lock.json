@@ -1,0 +1,954 @@
+{
+  "version": 3,
+  "skills": {
+    "algorithmic-art": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/algorithmic-art/SKILL.md",
+      "skillFolderHash": "22db2d12091c56340987a877047435ba84a1cdb2",
+      "installedAt": "2026-02-06T19:51:37.652Z",
+      "updatedAt": "2026-02-06T19:51:37.652Z"
+    },
+    "mcp-builder": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/mcp-builder/SKILL.md",
+      "skillFolderHash": "9173e2c2107aac82d4ca6c726d71e89d11760470",
+      "installedAt": "2026-02-06T19:51:37.939Z",
+      "updatedAt": "2026-02-06T19:51:37.939Z"
+    },
+    "web-artifacts-builder": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/web-artifacts-builder/SKILL.md",
+      "skillFolderHash": "9ecbeae7c17caa478c5b753ba1bd258688075b5f",
+      "installedAt": "2026-02-06T19:51:38.185Z",
+      "updatedAt": "2026-02-06T19:51:38.185Z"
+    },
+    "datadog-cli": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/datadog-cli/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-02-06T19:51:50.928Z",
+      "updatedAt": "2026-02-06T19:51:50.928Z"
+    },
+    "design-system-starter": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/design-system-starter/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-02-06T19:51:51.099Z",
+      "updatedAt": "2026-02-06T19:51:51.099Z"
+    },
+    "mermaid-diagrams": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/mermaid-diagrams/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-02-06T19:51:52.283Z",
+      "updatedAt": "2026-02-06T19:51:52.283Z"
+    },
+    "firecrawl-agent": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-agent/SKILL.md",
+      "skillFolderHash": "b5972ad13d2012e0955f24e2a827c2a29b2c660d",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-crawl": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-crawl/SKILL.md",
+      "skillFolderHash": "19bce21f5282b9cb05cab4eb18c3eb03320f7ffe",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-download": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-download/SKILL.md",
+      "skillFolderHash": "72cb858405657604c26ba2b475077bece2dd71d9",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-interact": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-interact/SKILL.md",
+      "skillFolderHash": "d8e1c2ab5e08b8b53e0672a2e91db6cd10aae473",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-map": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-map/SKILL.md",
+      "skillFolderHash": "813ca82cb8ceb8154db84c2283fc9410ea03fdc8",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-monitor": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-monitor/SKILL.md",
+      "skillFolderHash": "3b67b1ce6ae2fbcc7d89aedb03333b81324265cb",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-parse": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-parse/SKILL.md",
+      "skillFolderHash": "08002a7145c72111951ce45eefd0450fe53d869a",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-scrape": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-scrape/SKILL.md",
+      "skillFolderHash": "25dbaedc6bf048d1fb79fdb5598a6a70805bde44",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-search": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "firecrawl-search/SKILL.md",
+      "skillFolderHash": "6d24f9cc8d61aa46f91c250c45e4dc500e2f452d",
+      "installedAt": "2026-07-26T17:56:24.186Z",
+      "updatedAt": "2026-07-26T17:56:24.186Z"
+    },
+    "firecrawl-build": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/skills.git",
+      "skillPath": "firecrawl-build/SKILL.md",
+      "skillFolderHash": "fcb134b22a9f5c1c350ea3aa681d35ec7e8970bd",
+      "installedAt": "2026-07-26T17:56:24.473Z",
+      "updatedAt": "2026-07-26T17:56:24.473Z",
+      "localPatch": {
+        "reason": "pinned firecrawl-cli@latest -> @1.19.6; upstream ships @latest, which makes the documented install non-reproducible (openspec add-agents-target-to-plugin-pack task 4.1)",
+        "patchedAt": "2026-07-30",
+        "upstreamFolderHash": "fcb134b22a9f5c1c350ea3aa681d35ec7e8970bd"
+      }
+    },
+    "firecrawl-build-interact": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/skills.git",
+      "skillPath": "firecrawl-build-interact/SKILL.md",
+      "skillFolderHash": "1bee70db795f496782dc397f96536024e738893e",
+      "installedAt": "2026-07-26T17:56:24.473Z",
+      "updatedAt": "2026-07-26T17:56:24.473Z"
+    },
+    "firecrawl-build-onboarding": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/skills.git",
+      "skillPath": "firecrawl-build-onboarding/SKILL.md",
+      "skillFolderHash": "594f49bb8986967d9a5f99697fd486d83a2415fe",
+      "installedAt": "2026-07-26T17:56:24.473Z",
+      "updatedAt": "2026-07-26T17:56:24.473Z",
+      "localPatch": {
+        "reason": "pinned firecrawl-cli@latest -> @1.19.6; upstream ships @latest, which makes the documented install non-reproducible (openspec add-agents-target-to-plugin-pack task 4.1)",
+        "patchedAt": "2026-07-30",
+        "upstreamFolderHash": "594f49bb8986967d9a5f99697fd486d83a2415fe"
+      }
+    },
+    "firecrawl-build-scrape": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/skills.git",
+      "skillPath": "firecrawl-build-scrape/SKILL.md",
+      "skillFolderHash": "63f56028fe3cb8b75b5fef5eb2833cf03b8363d4",
+      "installedAt": "2026-07-26T17:56:24.473Z",
+      "updatedAt": "2026-07-26T17:56:24.473Z"
+    },
+    "firecrawl-build-search": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/skills.git",
+      "skillPath": "firecrawl-build-search/SKILL.md",
+      "skillFolderHash": "753ef32c49fc6b025db1f3f020a393bcec379f76",
+      "installedAt": "2026-07-26T17:56:24.473Z",
+      "updatedAt": "2026-07-26T17:56:24.473Z"
+    },
+    "firecrawl-research-index": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/skills.git",
+      "skillPath": "firecrawl-research-index/SKILL.md",
+      "skillFolderHash": "162f8a5fa52813b06b16adb59e38b617103188e4",
+      "installedAt": "2026-07-26T17:56:24.473Z",
+      "updatedAt": "2026-07-26T17:56:24.473Z"
+    },
+    "firecrawl-company-directories": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-company-directories/SKILL.md",
+      "skillFolderHash": "01dcc1fbd0741400e52f496e5190eba22104a96f",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-competitive-intel": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-competitive-intel/SKILL.md",
+      "skillFolderHash": "621cf8bfc72aa294a8cab334652a7b4bab6f9797",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-dashboard-reporting": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-dashboard-reporting/SKILL.md",
+      "skillFolderHash": "f9c206253379edfcdf8c97b33cbb69312e6c466f",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-deep-research": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-deep-research/SKILL.md",
+      "skillFolderHash": "0a32cccf6930c517ed8d5a102d4f25417269552a",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-demo-walkthrough": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-demo-walkthrough/SKILL.md",
+      "skillFolderHash": "590a69155c6e905c964d9b7d9f7fb55935331fb5",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-knowledge-base": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-knowledge-base/SKILL.md",
+      "skillFolderHash": "1f01565aef29a2de4786291008e071137809f25c",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-knowledge-ingest": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-knowledge-ingest/SKILL.md",
+      "skillFolderHash": "ad5c7bb10919121f371534a43ab3c35d2f4408e0",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-lead-gen": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-lead-gen/SKILL.md",
+      "skillFolderHash": "3353f42ad183225b80077350813bb0e0aa82100e",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-lead-research": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-lead-research/SKILL.md",
+      "skillFolderHash": "166a7ca070bf043e81874afa72665037a9feaa2a",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-market-research": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-market-research/SKILL.md",
+      "skillFolderHash": "016ee912e6a3327b1b9e419dac4f339fee7d9a24",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-qa": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-qa/SKILL.md",
+      "skillFolderHash": "e63645c4bf63689f995286d981f0aaaed002fc36",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-research-papers": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-research-papers/SKILL.md",
+      "skillFolderHash": "fa3f4799276eb254c25b5f33c7b213442ab6c278",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-seo-audit": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-seo-audit/SKILL.md",
+      "skillFolderHash": "5337ce43a057826ef50661eb2c4752d7a1e06cc2",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-shop": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-shop/SKILL.md",
+      "skillFolderHash": "84377c5a5ef7d99aba80654b12fdc724a7c8850f",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-website-design-clone": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-website-design-clone/SKILL.md",
+      "skillFolderHash": "96b5aff11578c55d52562bde396e8b79dcb5f901",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "firecrawl-workflows": {
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "firecrawl-workflows/SKILL.md",
+      "skillFolderHash": "7eb8f2230ffcb421672e5ed092c4b3c48c7f9527",
+      "installedAt": "2026-07-26T17:56:24.741Z",
+      "updatedAt": "2026-07-26T17:56:24.741Z"
+    },
+    "animation-vocabulary": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-design/skills/animation-vocabulary/SKILL.md",
+      "skillFolderHash": "d3126b9d367a80152b56dbc5402e5df18b4f449b",
+      "installedAt": "2026-08-02T22:12:51.448Z",
+      "updatedAt": "2026-08-02T22:12:51.448Z"
+    },
+    "ascii-wireframe": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-design/skills/ascii-wireframe/SKILL.md",
+      "skillFolderHash": "2c7067ebbcf12bd7d49298dd36694f1e008fc386",
+      "installedAt": "2026-08-02T22:12:51.449Z",
+      "updatedAt": "2026-08-02T22:12:51.449Z"
+    },
+    "c4-architecture": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-design/skills/c4-architecture/SKILL.md",
+      "skillFolderHash": "d588eed6c573dd6b266cd24dd0176eea4c89ca3f",
+      "installedAt": "2026-08-02T22:12:51.449Z",
+      "updatedAt": "2026-08-02T22:12:51.449Z"
+    },
+    "frontend-design": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-design/skills/frontend-design/SKILL.md",
+      "skillFolderHash": "11db1e78c619162fc556b073022130dc62a231f0",
+      "installedAt": "2026-08-02T22:12:51.449Z",
+      "updatedAt": "2026-08-02T22:12:51.449Z"
+    },
+    "motion-and-transitions": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-design/skills/motion-and-transitions/SKILL.md",
+      "skillFolderHash": "fcdbb1c15acfaea16099c41ef58b75977f7e1b6e",
+      "installedAt": "2026-08-02T22:12:51.450Z",
+      "updatedAt": "2026-08-02T22:12:51.450Z"
+    },
+    "wayfinder": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-design/skills/wayfinder/SKILL.md",
+      "skillFolderHash": "d5e938241d0ebbfaed7d10106fd39f813c856b8a",
+      "installedAt": "2026-08-02T22:12:51.450Z",
+      "updatedAt": "2026-08-02T22:12:51.450Z"
+    },
+    "agent-instruction-pairing": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "meta/skills/agent-instruction-pairing/SKILL.md",
+      "skillFolderHash": "1df92d5a660a9e71e0ab0a173b38898bd33fe148",
+      "installedAt": "2026-08-02T22:12:51.450Z",
+      "updatedAt": "2026-08-02T22:12:51.450Z"
+    },
+    "evaluation-domains": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "meta/skills/evaluation-domains/SKILL.md",
+      "skillFolderHash": "051ebe583204ca52c4fbb838dc7573589b3e8a99",
+      "installedAt": "2026-08-02T22:12:51.450Z",
+      "updatedAt": "2026-08-02T22:12:51.450Z"
+    },
+    "find-skills": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "meta/skills/find-skills/SKILL.md",
+      "skillFolderHash": "87c89cb6b10ff03253f375219859f1c94a409a78",
+      "installedAt": "2026-08-02T22:12:51.450Z",
+      "updatedAt": "2026-08-02T22:12:51.450Z"
+    },
+    "skill-creator": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "meta/skills/skill-creator/SKILL.md",
+      "skillFolderHash": "e93059b1650d103d77baa385a5184ec1e530e241",
+      "installedAt": "2026-08-02T22:12:51.451Z",
+      "updatedAt": "2026-08-02T22:12:51.451Z"
+    },
+    "skill-intake-lifecycle": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "meta/skills/skill-intake-lifecycle/SKILL.md",
+      "skillFolderHash": "084d40dcb3979e1cc58c299a8b1faba79fbb57ef",
+      "installedAt": "2026-08-02T22:12:51.452Z",
+      "updatedAt": "2026-08-02T22:12:51.452Z"
+    },
+    "skill-judge": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "meta/skills/skill-judge/SKILL.md",
+      "skillFolderHash": "8b9a3abf103833965784ee045fcddfdef39b2abf",
+      "installedAt": "2026-08-02T22:12:51.452Z",
+      "updatedAt": "2026-08-02T22:12:51.452Z"
+    },
+    "better-auth-best-practices": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/better-auth-best-practices/SKILL.md",
+      "skillFolderHash": "56b55380a43df9bbcf8eee3e31936224bb22dff9",
+      "installedAt": "2026-08-02T22:12:51.452Z",
+      "updatedAt": "2026-08-02T22:12:51.452Z"
+    },
+    "database-schema-designer": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/database-schema-designer/SKILL.md",
+      "skillFolderHash": "dca3bceaa96afdea0d6cb36be8bad92a8d113bfa",
+      "installedAt": "2026-08-02T22:12:51.452Z",
+      "updatedAt": "2026-08-02T22:12:51.452Z"
+    },
+    "drizzle": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/drizzle/SKILL.md",
+      "skillFolderHash": "cfd4870ebcc7f44ce3b79c91eae83f80f961112b",
+      "installedAt": "2026-08-02T22:12:51.453Z",
+      "updatedAt": "2026-08-02T22:12:51.453Z"
+    },
+    "drizzle-best-practices": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/drizzle-best-practices/SKILL.md",
+      "skillFolderHash": "9008a40ff252cb1735c54ade0a240d9def35e095",
+      "installedAt": "2026-08-02T22:12:51.453Z",
+      "updatedAt": "2026-08-02T22:12:51.453Z"
+    },
+    "env-and-secrets": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/env-and-secrets/SKILL.md",
+      "skillFolderHash": "1d45fc3b50b41205b917469191ed3f6172ef8fa4",
+      "installedAt": "2026-08-02T22:12:51.453Z",
+      "updatedAt": "2026-08-02T22:12:51.453Z"
+    },
+    "eslint-audit": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/eslint-audit/SKILL.md",
+      "skillFolderHash": "d5ca135cb72b775e384f2117d0bc1264cc4cc1f7",
+      "installedAt": "2026-08-02T22:12:51.453Z",
+      "updatedAt": "2026-08-02T22:12:51.453Z"
+    },
+    "frontend-api-contracts": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/frontend-api-contracts/SKILL.md",
+      "skillFolderHash": "4609ed9aacd50c9de8c9d4ae857815e3782dca56",
+      "installedAt": "2026-08-02T22:12:51.453Z",
+      "updatedAt": "2026-08-02T22:12:51.453Z"
+    },
+    "openapi-to-typescript": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/openapi-to-typescript/SKILL.md",
+      "skillFolderHash": "d2ee21f092855bda3277c9eef912eada32d014f6",
+      "installedAt": "2026-08-02T22:12:51.454Z",
+      "updatedAt": "2026-08-02T22:12:51.454Z"
+    },
+    "service-layer-style": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/service-layer-style/SKILL.md",
+      "skillFolderHash": "a7f1619996c49f6cb6aee979641ecd8394e78f29",
+      "installedAt": "2026-08-02T22:12:51.454Z",
+      "updatedAt": "2026-08-02T22:12:51.454Z"
+    },
+    "state-handling": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/state-handling/SKILL.md",
+      "skillFolderHash": "5619944c0ad918bfdde1b63996912ac40a354b9a",
+      "installedAt": "2026-08-02T22:12:51.454Z",
+      "updatedAt": "2026-08-02T22:12:51.454Z"
+    },
+    "t3-code-patterns": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/t3-code-patterns/SKILL.md",
+      "skillFolderHash": "dce4a89f4af3253f3663ae5359ca8fef6ad1ef40",
+      "installedAt": "2026-08-02T22:12:51.454Z",
+      "updatedAt": "2026-08-02T22:12:51.454Z"
+    },
+    "t3-monorepo-patterns": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/t3-monorepo-patterns/SKILL.md",
+      "skillFolderHash": "734876315ae96c5fa89eefcab7f22d192255dd3e",
+      "installedAt": "2026-08-02T22:12:51.454Z",
+      "updatedAt": "2026-08-02T22:12:51.454Z"
+    },
+    "t3-testing-patterns": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/t3-testing-patterns/SKILL.md",
+      "skillFolderHash": "3e8162307ee7376ed299a4908ee1abb8864845d0",
+      "installedAt": "2026-08-02T22:12:51.455Z",
+      "updatedAt": "2026-08-02T22:12:51.455Z"
+    },
+    "trpc-patterns": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "t3-stack-kit/skills/trpc-patterns/SKILL.md",
+      "skillFolderHash": "f375073cca8952398612c53ff901e004f375f732",
+      "installedAt": "2026-08-02T22:12:51.455Z",
+      "updatedAt": "2026-08-02T22:12:51.455Z"
+    },
+    "animejs": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/animejs/SKILL.md",
+      "skillFolderHash": "394a03486f34c5f8601d9a7fb599c59b680f6e2a",
+      "installedAt": "2026-08-02T22:12:51.455Z",
+      "updatedAt": "2026-08-02T22:12:51.455Z"
+    },
+    "nextjs-app-router": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/nextjs-app-router/SKILL.md",
+      "skillFolderHash": "75d127a2c43a5eb1edfbda8bc35be5d959fbd3be",
+      "installedAt": "2026-08-02T22:12:51.455Z",
+      "updatedAt": "2026-08-02T22:12:51.455Z"
+    },
+    "playwright-auth": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/playwright-auth/SKILL.md",
+      "skillFolderHash": "757352d3817f514ebd1123fe8eb02690a812d01a",
+      "installedAt": "2026-08-02T22:12:51.456Z",
+      "updatedAt": "2026-08-02T22:12:51.456Z"
+    },
+    "qa-test-planner": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/qa-test-planner/SKILL.md",
+      "skillFolderHash": "05e3169c977824859572df49531db93337d5cb98",
+      "installedAt": "2026-08-02T22:12:51.457Z",
+      "updatedAt": "2026-08-02T22:12:51.457Z"
+    },
+    "react-dev": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/react-dev/SKILL.md",
+      "skillFolderHash": "e2cf4ae3ce457fbb5f9810356c12f9e0b2e53a61",
+      "installedAt": "2026-08-02T22:12:51.457Z",
+      "updatedAt": "2026-08-02T22:12:51.457Z"
+    },
+    "reui-gantt-calendar-patterns": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/reui-gantt-calendar-patterns/SKILL.md",
+      "skillFolderHash": "93c084aa9edf7af79ea6c055609942900f3f7e30",
+      "installedAt": "2026-08-02T22:12:51.457Z",
+      "updatedAt": "2026-08-02T22:12:51.457Z"
+    },
+    "shadcn": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/shadcn/SKILL.md",
+      "skillFolderHash": "b4644e0629415e8669e0b57e652b30347358fbe4",
+      "installedAt": "2026-08-02T22:12:51.457Z",
+      "updatedAt": "2026-08-02T22:12:51.457Z"
+    },
+    "vercel": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/vercel/SKILL.md",
+      "skillFolderHash": "a13b100071e894a0107d29da693643b8e4358686",
+      "installedAt": "2026-08-02T22:12:51.458Z",
+      "updatedAt": "2026-08-02T22:12:51.458Z"
+    },
+    "vercel-platforms": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/vercel-platforms/SKILL.md",
+      "skillFolderHash": "dc47454d9aac02696a7ed6dafd4790bf407e2198",
+      "installedAt": "2026-08-02T22:12:51.458Z",
+      "updatedAt": "2026-08-02T22:12:51.458Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/vercel-react-best-practices/SKILL.md",
+      "skillFolderHash": "0c545e623098fbe88e48b6b4aed991f32249204a",
+      "installedAt": "2026-08-02T22:12:51.458Z",
+      "updatedAt": "2026-08-02T22:12:51.458Z"
+    },
+    "webapp-testing": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "web-frontend-kit/skills/webapp-testing/SKILL.md",
+      "skillFolderHash": "62863fe0244bbfad8f2debda2d8124f6ff9e6e82",
+      "installedAt": "2026-08-02T22:12:51.459Z",
+      "updatedAt": "2026-08-02T22:12:51.459Z"
+    },
+    "apply": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/apply/SKILL.md",
+      "skillFolderHash": "68ee40a8ca32dc11736cc69a731cc28a2beaf705",
+      "installedAt": "2026-08-02T22:12:51.459Z",
+      "updatedAt": "2026-08-02T22:12:51.459Z"
+    },
+    "blueprint": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/blueprint/SKILL.md",
+      "skillFolderHash": "d0a311558cea8d5245303842c62aff85b6397c05",
+      "installedAt": "2026-08-02T22:12:51.459Z",
+      "updatedAt": "2026-08-02T22:12:51.459Z"
+    },
+    "brainstorming": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/brainstorming/SKILL.md",
+      "skillFolderHash": "7c7f8b59eb29d645bd96d236afee56496fb1f044",
+      "installedAt": "2026-08-02T22:12:51.459Z",
+      "updatedAt": "2026-08-02T22:12:51.459Z"
+    },
+    "change-disposition": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/change-disposition/SKILL.md",
+      "skillFolderHash": "0d68bc69c9b88a7c016b9e31babfabd28507d2cd",
+      "installedAt": "2026-08-02T22:12:51.460Z",
+      "updatedAt": "2026-08-02T22:12:51.460Z"
+    },
+    "crafting-effective-readmes": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/crafting-effective-readmes/SKILL.md",
+      "skillFolderHash": "f8462a4362f133b01ab0605a3c19e3476e45b350",
+      "installedAt": "2026-08-02T22:12:51.461Z",
+      "updatedAt": "2026-08-02T22:12:51.461Z"
+    },
+    "extend-before-create": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/extend-before-create/SKILL.md",
+      "skillFolderHash": "efba8a4db37c8d5a777e39cc512d70ebdc1ae502",
+      "installedAt": "2026-08-02T22:12:51.461Z",
+      "updatedAt": "2026-08-02T22:12:51.461Z"
+    },
+    "fallow": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/fallow/SKILL.md",
+      "skillFolderHash": "2dfbae45a5522e43b8011423d2012eebeff51e4b",
+      "installedAt": "2026-08-02T22:12:51.461Z",
+      "updatedAt": "2026-08-02T22:12:51.461Z"
+    },
+    "improve": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/improve/SKILL.md",
+      "skillFolderHash": "2af057393f5d5b05a2439ef3398ba0621ba860ee",
+      "installedAt": "2026-08-02T22:12:51.461Z",
+      "updatedAt": "2026-08-02T22:12:51.461Z"
+    },
+    "open-work": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/open-work/SKILL.md",
+      "skillFolderHash": "4e5476a4763b09862688271dd9e579010d605fe9",
+      "installedAt": "2026-08-02T22:12:51.462Z",
+      "updatedAt": "2026-08-02T22:12:51.462Z"
+    },
+    "receiving-code-review": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/receiving-code-review/SKILL.md",
+      "skillFolderHash": "460cbb82eaa924943aff857288b4deb8ada4a4b8",
+      "installedAt": "2026-08-02T22:12:51.462Z",
+      "updatedAt": "2026-08-02T22:12:51.462Z"
+    },
+    "reducing-entropy": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/reducing-entropy/SKILL.md",
+      "skillFolderHash": "d8710ed1e61dbe286bb3b8cbdefeb4f23ebf8ab5",
+      "installedAt": "2026-08-02T22:12:51.462Z",
+      "updatedAt": "2026-08-02T22:12:51.462Z"
+    },
+    "simplify": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/simplify/SKILL.md",
+      "skillFolderHash": "1e4d7614a989dcb022cb0b3a0e74ee5ece479b15",
+      "installedAt": "2026-08-02T22:12:51.462Z",
+      "updatedAt": "2026-08-02T22:12:51.462Z"
+    },
+    "system-architect": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/system-architect/SKILL.md",
+      "skillFolderHash": "e7607085931b931699410b82fac7cd975897fe5a",
+      "installedAt": "2026-08-02T22:12:51.463Z",
+      "updatedAt": "2026-08-02T22:12:51.463Z"
+    },
+    "systematic-debugging": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/systematic-debugging/SKILL.md",
+      "skillFolderHash": "cd39bc0c3907ace2c8ed695e901a665ade489363",
+      "installedAt": "2026-08-02T22:12:51.463Z",
+      "updatedAt": "2026-08-02T22:12:51.463Z"
+    },
+    "test-driven-development": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/test-driven-development/SKILL.md",
+      "skillFolderHash": "1acb9f8100a8eb4df068d8ce438d0d61c8663890",
+      "installedAt": "2026-08-02T22:12:51.463Z",
+      "updatedAt": "2026-08-02T22:12:51.463Z"
+    },
+    "verification-before-completion": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/verification-before-completion/SKILL.md",
+      "skillFolderHash": "635cb504e0111ce6f73a21e6fad390796a07884d",
+      "installedAt": "2026-08-02T22:12:51.464Z",
+      "updatedAt": "2026-08-02T22:12:51.464Z"
+    },
+    "writing-plans": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/writing-plans/SKILL.md",
+      "skillFolderHash": "a464654823c6bbe80acd127c6e3047778c74c805",
+      "installedAt": "2026-08-02T22:12:51.465Z",
+      "updatedAt": "2026-08-02T22:12:51.465Z"
+    },
+    "dotenvx-secrets": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-security/skills/dotenvx-secrets/SKILL.md",
+      "skillFolderHash": "c8109e4cb75cfb9c77ea204024600c278405e421",
+      "installedAt": "2026-08-02T22:12:51.465Z",
+      "updatedAt": "2026-08-02T22:12:51.465Z"
+    },
+    "secrets-handling": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-security/skills/secrets-handling/SKILL.md",
+      "skillFolderHash": "3fcab757275243ea1164dbbc1ce7554c0826a2b0",
+      "installedAt": "2026-08-02T22:12:51.466Z",
+      "updatedAt": "2026-08-02T22:12:51.466Z"
+    },
+    "swift": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "swift-kit/skills/swift/SKILL.md",
+      "skillFolderHash": "006effa82ace32b20d1e19103d0ef7aa9f3477dc",
+      "installedAt": "2026-08-02T22:12:51.466Z",
+      "updatedAt": "2026-08-02T22:12:51.466Z"
+    },
+    "dotnet": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "dotnet-kit/skills/dotnet/SKILL.md",
+      "skillFolderHash": "e9d64339c3a5db7fd8baedfb906a71425034385c",
+      "installedAt": "2026-08-02T22:12:51.466Z",
+      "updatedAt": "2026-08-02T22:12:51.466Z"
+    },
+    "app-service-worker-observability": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "azure-kit/skills/app-service-worker-observability/SKILL.md",
+      "skillFolderHash": "64c935bbfbffc2d19cdb1c844d8ffcbdc99de5d5",
+      "installedAt": "2026-08-02T22:12:51.466Z",
+      "updatedAt": "2026-08-02T22:12:51.466Z"
+    },
+    "azure-diagnostics": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "azure-kit/skills/azure-diagnostics/SKILL.md",
+      "skillFolderHash": "48a17618b4ac3699d52a2f6e86c9e43cad899565",
+      "installedAt": "2026-08-02T22:12:51.466Z",
+      "updatedAt": "2026-08-02T22:12:51.466Z"
+    },
+    "azure-topology-style": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "azure-kit/skills/azure-topology-style/SKILL.md",
+      "skillFolderHash": "f30d24273f4c14775d538b8b1cf1eff71237b6df",
+      "installedAt": "2026-08-02T22:12:51.467Z",
+      "updatedAt": "2026-08-02T22:12:51.467Z"
+    },
+    "bicep-best-practices": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "azure-kit/skills/bicep-best-practices/SKILL.md",
+      "skillFolderHash": "7476b98f6228e1b3146e4621d33e8b71b5c207f9",
+      "installedAt": "2026-08-02T22:12:51.467Z",
+      "updatedAt": "2026-08-02T22:12:51.467Z"
+    },
+    "docker": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "runtime-kit/skills/docker/SKILL.md",
+      "skillFolderHash": "ae1a629c32df4f59e1b88bf48a84266948cdffdb",
+      "installedAt": "2026-08-02T22:12:51.467Z",
+      "updatedAt": "2026-08-02T22:12:51.467Z"
+    },
+    "termcast-tui-patterns": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "runtime-kit/skills/termcast-tui-patterns/SKILL.md",
+      "skillFolderHash": "e3ff82c333324d4724c10b866b470a9dac459452",
+      "installedAt": "2026-08-02T22:12:51.467Z",
+      "updatedAt": "2026-08-02T22:12:51.467Z"
+    },
+    "bun": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "bun-effect-kit/skills/bun/SKILL.md",
+      "skillFolderHash": "e5af176c0b8a12e9ab06ce66d6a8f78d62f76574",
+      "installedAt": "2026-08-02T22:12:51.468Z",
+      "updatedAt": "2026-08-02T22:12:51.468Z"
+    },
+    "effect": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "bun-effect-kit/skills/effect/SKILL.md",
+      "skillFolderHash": "290007465a992bf4c7608e7da7610552da5d12ed",
+      "installedAt": "2026-08-02T22:12:51.468Z",
+      "updatedAt": "2026-08-02T22:12:51.468Z"
+    },
+    "firecrawl": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "firecrawl-kit/skills/firecrawl/SKILL.md",
+      "skillFolderHash": "3afd63f057bf21733a729c2cad29cd7c3c0dc358",
+      "installedAt": "2026-08-02T22:12:51.468Z",
+      "updatedAt": "2026-08-02T22:12:51.468Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  }
+}

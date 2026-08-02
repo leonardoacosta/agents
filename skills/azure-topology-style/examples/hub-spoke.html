@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generic Azure hub and spoke</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+</head>
+<body>
+  <main class="az-page">
+    <h1 class="az-title">Generic hub-and-spoke topology</h1>
+    <p class="az-lede">Logical containment and connectivity roles without deployment-specific naming.</p>
+
+    <section class="az-envelope az-subscription">
+      <span class="az-envelope__label">Subscription · &lt;subscription&gt;</span>
+      <div class="az-layout az-layout--columns">
+        <section class="az-envelope az-resource-group">
+          <span class="az-envelope__label">Resource Group · connectivity</span>
+          <div class="az-envelope az-vnet az-vnet--hub">
+            <span class="az-envelope__label">VNet · hub</span>
+            <div class="az-envelope az-subnet">
+              <span class="az-envelope__label">Subnet · shared-services</span>
+              <div class="az-stack">
+                <article class="az-resource az-resource--network">
+                  <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-firewall"></use></svg>
+                  <span class="az-resource__name">traffic-inspection</span><span class="az-resource__meta">Network · Firewall</span>
+                </article>
+                <article class="az-resource az-resource--network">
+                  <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-private-dns"></use></svg>
+                  <span class="az-resource__name">private-name-resolution</span><span class="az-resource__meta">Network · Private DNS</span>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="az-envelope az-resource-group">
+          <span class="az-envelope__label">Resource Group · application</span>
+          <div class="az-envelope az-vnet az-vnet--spoke">
+            <span class="az-envelope__label">VNet · spoke</span>
+            <div class="az-envelope az-subnet">
+              <span class="az-envelope__label">Subnet · workload</span>
+              <div class="az-stack">
+                <article class="az-resource az-resource--compute">
+                  <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-container-apps"></use></svg>
+                  <span class="az-resource__name">application</span><span class="az-resource__meta">Compute · Container Apps</span>
+                </article>
+                <article class="az-resource az-resource--data">
+                  <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-storage"></use></svg>
+                  <span class="az-resource__name">application-storage</span><span class="az-resource__meta">Data · Storage</span>
+                  <span class="az-badge">PE</span>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <p class="az-note">Hub ↔ spoke: bidirectional VNet peering. Application → storage: private data path.</p>
+    </section>
+  </main>
+</body>
+</html>

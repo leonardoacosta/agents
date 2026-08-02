@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Azure topology reference</title>
+  <link rel="stylesheet" href="../assets/tokens.css">
+</head>
+<body>
+  <main class="az-page">
+    <h1 class="az-title">Azure topology reference</h1>
+    <p class="az-lede">Generic semantic families, resource cards, containers, and connector intents.</p>
+
+    <section class="az-family-grid" aria-label="Resource families">
+      <article class="az-resource az-resource--compute">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-app-service"></use></svg>
+        <span class="az-resource__name">web-application</span><span class="az-resource__meta">Compute · App Service</span>
+      </article>
+      <article class="az-resource az-resource--data">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-sql-database"></use></svg>
+        <span class="az-resource__name">application-data</span><span class="az-resource__meta">Data · SQL Database</span>
+        <span class="az-badge">PE</span>
+      </article>
+      <article class="az-resource az-resource--identity">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-key-vault"></use></svg>
+        <span class="az-resource__name">secrets-store</span><span class="az-resource__meta">Identity · Key Vault</span>
+      </article>
+      <article class="az-resource az-resource--integration">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-apim"></use></svg>
+        <span class="az-resource__name">api-gateway</span><span class="az-resource__meta">Integration · API Management</span>
+      </article>
+      <article class="az-resource az-resource--network">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-vnet"></use></svg>
+        <span class="az-resource__name">application-network</span><span class="az-resource__meta">Network · Virtual Network</span>
+      </article>
+      <article class="az-resource az-resource--monitor">
+        <svg class="az-resource__icon" aria-hidden="true"><use href="../assets/azure-icons.svg#az-app-insights"></use></svg>
+        <span class="az-resource__name">application-telemetry</span><span class="az-resource__meta">Monitor · Application Insights</span>
+      </article>
+    </section>
+
+    <ul class="az-connector-key" aria-label="Connector meanings">
+      <li><span class="az-line"></span>application dependency →</li>
+      <li><span class="az-line az-line--network"></span>network peering ↔</li>
+      <li><span class="az-line az-line--data"></span>data access →</li>
+      <li><span class="az-line az-line--secret"></span>secret or identity flow →</li>
+      <li><span class="az-line az-line--event"></span>event or queue →</li>
+      <li><span class="az-line az-line--telemetry"></span>telemetry →</li>
+    </ul>
+  </main>
+</body>
+</html>

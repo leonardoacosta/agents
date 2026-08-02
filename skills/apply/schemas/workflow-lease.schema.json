@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skills.local/schemas/workflow-lease.schema.json",
+  "title": "Portable workflow lease record",
+  "description": "Durable, inspectable lease state. Owner identity and creator attribution remain immutable for a lease lifetime.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "lease_id",
+    "coordination_namespace",
+    "resources",
+    "state",
+    "owner",
+    "creator",
+    "acquired_at",
+    "renewed_at",
+    "expires_at",
+    "owner_credential_digest",
+    "fence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "lease_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coordination_namespace": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "state": {
+      "enum": [
+        "declared",
+        "acquiring",
+        "leased",
+        "executing",
+        "finalizing",
+        "released",
+        "fenced"
+      ]
+    },
+    "owner": {
+      "$ref": "#/$defs/owner"
+    },
+    "creator": {
+      "$ref": "#/$defs/creator"
+    },
+    "acquired_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "renewed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "owner_credential_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "fence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "identity_capabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "workflow_labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "processDiagnostics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host_id", "boot_id", "pid", "started_at"],
+      "properties": {
+        "host_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["harness_id", "session_id", "session_id_source"],
+      "properties": {
+        "harness_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_id_source": {
+          "enum": ["native", "adapter"]
+        },
+        "process": {
+          "$ref": "#/$defs/processDiagnostics"
+        }
+      }
+    },
+    "creator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "process": {
+          "$ref": "#/$defs/processDiagnostics"
+        }
+      }
+    }
+  }
+}
