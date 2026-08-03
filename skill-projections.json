@@ -3,7 +3,7 @@
   "managedBy": "agents-skill-projections/v1",
   "release": {
     "source": "https://github.com/leonardoacosta/skills.git",
-    "revision": "1a453e0fb32f2df45ca9979212196762a7da35ab"
+    "revision": "8574cc30f9900f160ff8083a4529b150592d1861"
   },
   "harnesses": {
     "amp": { "root": ".config/agents/skills", "skills": [] },
