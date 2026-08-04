@@ -29,6 +29,23 @@
 
 set -euo pipefail
 
+# Runtime-neutral delegation route. Looks unreferenced from inside this package
+# and is NOT: the consuming harness's scripts/bin/openspec-status is a thin
+# wrapper that exec's this file with "$@" untouched, so every argument here is
+# caller-visible surface. This branch is the documented seam into the runtime
+# package's openspec-status implementation and carries recorded freeze evidence.
+# Deleting it does not error — the unknown first arg falls through to table
+# output — so the failure is silent. Audited and kept 2026-08-04.
+if [[ "${1:-}" == "--runtime-spike-json" ]]; then
+  shift
+  [[ $# -eq 0 ]] || { echo 'usage: openspec-status --runtime-spike-json' >&2; exit 2; }
+  : "${RUNTIME_PACKAGE_ROOT:?RUNTIME_PACKAGE_ROOT is required for the runtime spike}"
+  exec node --experimental-strip-types "$RUNTIME_PACKAGE_ROOT/src/openspec-status.ts" \
+    --project-root "$PWD" --package-root "$RUNTIME_PACKAGE_ROOT" \
+    --config-root "${XDG_CONFIG_HOME:-$HOME/.config}/open-work" \
+    --state-root "${XDG_STATE_HOME:-$HOME/.local/state}/open-work"
+fi
+
 # Canonical bead-ID grammar, shared with scripts/lib/beads-helpers.sh's
 # `BEADS_ID_RE` (bash) and scripts/bin/spec-sync's `BEADS_ID_RE` (Python) — see
 # openspec/changes/shared-bead-id-marker-parser/. Sourcing beads-helpers.sh here
