@@ -71,6 +71,22 @@ Renew and release require both valid owner authority and the current fence. Repe
 release returns the already-closed result. A wrong owner, stale credential, stale fence, or expired
 execution lease cannot renew, release, mutate, finalize, commit, push, deploy, or publish.
 
+## Hand off to a successor
+
+A workflow that stops before completion and names a successor has ended its own execution rather
+than paused it. Planned succession is a `release` carrying a non-completed terminal outcome; it is
+never an expiry, a takeover, or a silent hold. Emit that release before instructing the successor
+to resume.
+
+Owner-bound renewal must cease when succession is announced. Renewal follows workflow progress,
+not session activity. An adapter that renews from continued session traffic keeps extending a
+lease the former owner no longer executes against, holding resources for a workflow that already
+ended and forcing the successor to wait out an expiry that reflects nothing.
+
+The successor acquires normally against the released resources and reconstructs progress from
+durable state. A successor forced to wait for expiry after an announced handoff is evidence that
+the predecessor failed to release, not a coordination outcome to design around.
+
 ## Inspect without leaking authority
 
 A conflict response should identify:
