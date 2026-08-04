@@ -29,16 +29,6 @@
 
 set -euo pipefail
 
-if [[ "${1:-}" == "--runtime-spike-json" ]]; then
-  shift
-  [[ $# -eq 0 ]] || { echo 'usage: openspec-status --runtime-spike-json' >&2; exit 2; }
-  : "${RUNTIME_PACKAGE_ROOT:?RUNTIME_PACKAGE_ROOT is required for the runtime spike}"
-  exec node --experimental-strip-types "$RUNTIME_PACKAGE_ROOT/src/openspec-status.ts" \
-    --project-root "$PWD" --package-root "$RUNTIME_PACKAGE_ROOT" \
-    --config-root "${XDG_CONFIG_HOME:-$HOME/.config}/open-work" \
-    --state-root "${XDG_STATE_HOME:-$HOME/.local/state}/open-work"
-fi
-
 # Canonical bead-ID grammar, shared with scripts/lib/beads-helpers.sh's
 # `BEADS_ID_RE` (bash) and scripts/bin/spec-sync's `BEADS_ID_RE` (Python) — see
 # openspec/changes/shared-bead-id-marker-parser/. Sourcing beads-helpers.sh here
@@ -60,8 +50,20 @@ done
 set -- "${_ARGS[@]}"
 
 # ── GUARD: prevent concurrent invocations ────────────────────────────────────
-LOCKFILE="/tmp/openspec-status.lock"
-$NO_ENRICH && LOCKFILE="/tmp/openspec-status-noenrich.lock"
+# Scoped to THIS repository, not the machine. A single fixed /tmp path made every
+# project on the host contend for one lock: a consumer's bounded retry budget
+# (open-items retries 4x/0.5s) could never outwait an unrelated repo's 60-90s
+# enriched run, and the proposals section silently degraded to "lock contention?".
+# A lock file owned by another user on a shared host also fails `exec` outright
+# under `set -e`. cksum (POSIX, present on Linux and macOS) keys the path; a
+# collision merely restores the old shared-lock behavior for two repos, never
+# worse. XDG_RUNTIME_DIR is per-user and tmpfs-backed where available.
+LOCK_DIR="${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}/openspec-status"
+mkdir -p "$LOCK_DIR"
+_lock_repo="$(git rev-parse --show-toplevel 2>/dev/null || printf '%s' "$PWD")"
+_lock_key="$(printf '%s' "$_lock_repo" | cksum | cut -d' ' -f1)"
+LOCKFILE="$LOCK_DIR/${_lock_repo##*/}-${_lock_key}.lock"
+$NO_ENRICH && LOCKFILE="$LOCK_DIR/${_lock_repo##*/}-${_lock_key}-noenrich.lock"
 exec 9>"$LOCKFILE"
 if ! flock -n 9; then
   # Skipping is harmless for the informational modes (table / --json / --queue): the

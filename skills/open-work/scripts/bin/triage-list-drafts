@@ -133,12 +133,11 @@ def fetch_bead_statuses(feature_ids):
 
 
 def parse_frontmatter(text):
-    """Return (frontmatter_dict_or_none, body_offset). Minimal YAML-ish parser
-    sufficient for `key: value` lines (no nested structures). Returns
-    (None, 0) if no frontmatter block is present."""
+    """Return the frontmatter dict, or None when the block is absent. Minimal
+    YAML-ish parser sufficient for `key: value` lines (no nested structures)."""
     m = FRONTMATTER_RE.match(text)
     if not m:
-        return None, 0
+        return None
     block = m.group(1)
     fm = {}
     for line in block.split("\n"):
@@ -245,7 +244,7 @@ def next_order_code(changes_dir, today_mmdd):
                     text = f.read()
             except OSError:
                 continue
-            fm, _ = parse_frontmatter(text)
+            fm = parse_frontmatter(text)
             order = (fm or {}).get("order")
             if not order or not order.startswith(today_mmdd):
                 continue
@@ -359,7 +358,7 @@ def collect_drafts(changes_dir):
                 text = f.read()
         except OSError:
             continue
-        fm, _body_offset = parse_frontmatter(text)
+        fm = parse_frontmatter(text)
         ctx_match = CONTEXT_RE.search(text)
         ctx_text = ctx_match.group(1) if ctx_match else ""
         deps = extract_depends(ctx_text)

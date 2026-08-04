@@ -58,7 +58,7 @@ def render(data):
     section(lines, "Archive-ready proposals", [bullet(p.get("name"), f"{p.get('tasks', '0/0')} tasks") for p in proposals if p.get("state") == "done"])
 
     warnings = list(data.get("source_warnings") or [])
-    for source in ("beads", "proposals", "plans"):
+    for source in ("beads", "proposals", "plans", "docs_plan"):
         value = data.get(source) or {}
         if value.get("available") is False:
             warnings.append(f"{source} unavailable" + (f": {value['error']}" if value.get("error") else ""))
