@@ -9,6 +9,7 @@
 | Labels, comments, progress, truncation | `tests/producers.test.sh` disposition and cap assertions |
 | Source-local, read-only helper execution | `tests/producers.test.sh` mode and path assertions |
 | Router, modes, headings, capabilities, action ordering | `tests/skill-contract.test.sh` |
+| Cross-repository dispatch requires separate confirmation before mutation | `tests/skill-contract.test.sh` exact action-policy assertion |
 | Codex interface metadata | `tests/check-interface.py` |
 | Equivalent harness reports and no-mutation boundaries | `tests/cross-harness.test.sh` |
 | Authored roster, payload policy, and version agreement | `scripts/tests/authored-packages.test.sh` |

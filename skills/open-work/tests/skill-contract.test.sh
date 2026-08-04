@@ -30,6 +30,7 @@ grep -Fq 'blocked > in_progress > disposition > human_only > open' "$skill_root/
 grep -Fq 'archive -> disposition -> dispatch -> apply' "$skill_root/references/actions.md"
 grep -Fq 'at most five workers' "$skill_root/references/actions.md"
 grep -Fq 'same-repository items sequentially' "$skill_root/references/actions.md"
+[[ "$(tr '\n' ' ' < "$skill_root/references/actions.md")" == *'Cross-repository items require a separate explicit confirmation before any mutation in that repository.'* ]]
 grep -Fq 'one consolidated' "$skill_root/references/actions.md"
 grep -Fq 'perform no mutation' "$skill_root/references/capabilities.md"
 
