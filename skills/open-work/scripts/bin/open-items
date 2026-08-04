@@ -64,9 +64,23 @@ another project's registry code — rendered as an inline note on an
 otherwise-open bead, not a separate bucket (feedback_ask_before_git_ops
 still applies at dispatch time).
 
+Arguments: --json (accepted; output is always JSON), --live-beads (query `bd`
+instead of the committed export), --limit=N (item-table cap, default
+ITEM_CAP; --limit=0 emits every retained bead — this is the "full list"
+command references/rendering.md tells the renderer to name when `truncated`).
+
+Counts vs items: `total_open`, `by_status`, `by_priority`, and `bucket_counts`
+always describe EVERY retained bead; only `items` is capped. The compact-shape
+headline in references/rendering.md mixes the two ("<total> remain unresolved:
+<open> open, <in_progress> in progress, <blocked> blocked"), so a bucket tally
+restricted to the visible page would render arithmetic that does not add up.
+
 Contract (rules/TOOLING.md § Scripts-as-data-producers): --json on stdout,
-exit 0 on ALL runtime failures (error key instead), no stderr chatter.
-Consumed by commands/open.md via a ```! preprocessor block.
+exit 0 on ALL runtime failures (error key instead), no stderr chatter. Each
+source is additionally isolated (see _guarded) so an unreadable file in one
+scanner degrades that key alone instead of collapsing the whole document to a
+bare {"error": ...}. Consumed by commands/open.md via a ```! preprocessor
+block.
 """
 import json
 import os
@@ -128,6 +142,15 @@ _CROSS_REPO_RE = (
 # no slash path, no colon-scoped prefix, and short. Not precise — that's why
 # ambiguous items get a live bd show rather than a final classification here.
 _HAS_SCOPE_MARKER_RE = re.compile(r"`[^`]+`|/[\w.-]+/|^\[[\w-]+\]|:\s")
+_WHITESPACE_RE = re.compile(r"\s+")
+
+
+def _one_line(text, limit=110):
+    """Every `bucket_reason` lands in a one-line markdown bullet
+    (references/rendering.md § Exact compact shape). Free-text sources —
+    a multi-paragraph HITL disposition comment — would otherwise inject raw
+    newlines that split one bead across several bullets. Bounded like titles."""
+    return _WHITESPACE_RE.sub(" ", text).strip()[:limit]
 
 
 def _looks_ambiguous(title):
@@ -150,7 +173,8 @@ def _hitl_standing_state(item, verb):
         m = _HITL_COMMENT_RE.match(c.get("text") or "")
         if m and m.group(1) == verb:
             date = (c.get("created_at") or "")[5:10]  # YYYY-MM-DD... -> MM-DD
-            return f"{verb} {date}: {m.group(2)}".strip() if date else f"{verb}: {m.group(2)}".strip()
+            body = m.group(2)
+            return _one_line(f"{verb} {date}: {body}" if date else f"{verb}: {body}")
     return f"{verb} (no disposition comment found)"
 
 
@@ -187,7 +211,7 @@ def sh(args, cwd, timeout=20):
         return 1, ""
 
 
-def scan_beads(root, live_beads=False):
+def scan_beads(root, live_beads=False, item_cap=ITEM_CAP):
     if not os.path.isdir(os.path.join(root, ".beads")):
         return {"available": False, "source": "live" if live_beads else "cached"}
     open_states = ("open", "in_progress", "blocked")
@@ -215,17 +239,21 @@ def scan_beads(root, live_beads=False):
         return {"available": True, "total_open": 0,
                 "counts_source": "issues.jsonl (missing)",
                 "source": "cached",
-                "by_status": {}, "by_priority": {}, "truncated": False, "items": [],
+                "by_status": {}, "by_priority": {}, "truncated": False,
+                "item_cap": item_cap, "items": [],
+                "bucket_counts": {"open": 0, "in_progress": 0, "blocked": 0, "human_only": 0},
+                "containers": [],
                 "active_epics": 0, "active_proposal_linked": 0, "merge_slot_held": None}
     else:
         all_records = []
-        for line in open(jsonl, encoding="utf-8", errors="replace"):
-            try:
-                row = json.loads(line)
-            except ValueError:
-                continue
-            if isinstance(row, dict):
-                all_records.append(row)
+        with open(jsonl, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                try:
+                    row = json.loads(line)
+                except ValueError:
+                    continue
+                if isinstance(row, dict):
+                    all_records.append(row)
         counts_source = "issues.jsonl (last bd flush)"
     by_status, by_priority, total, active_epics = {}, {}, 0, 0
     containers = []
@@ -321,9 +349,18 @@ def scan_beads(root, live_beads=False):
     records.sort(key=lambda i: (_prio(i), i.get("id") or ""))
     bucket_counts = {"open": 0, "in_progress": 0, "blocked": 0, "human_only": 0}
     items = []
-    for i in records[:ITEM_CAP]:
+    # Classify EVERY retained bead, then cap only the rendered rows. Counting
+    # buckets off records[:cap] made the headline sentence contradict itself
+    # the moment a repo carried more open beads than the cap ("45 items remain
+    # unresolved: 30 open, 0 blocked" — the 15 truncated rows vanished from the
+    # tally, and since records are priority-sorted the losses were exactly the
+    # low-priority blocked/human-only rows the summary exists to surface).
+    # Classification is regex-over-title plus an in-memory comment scan; no I/O.
+    for idx, i in enumerate(records):
         bucket, reason, ambiguous, cross_repo, dispositioned = _classify_bucket(i, blocked_by)
         bucket_counts[bucket] += 1
+        if item_cap and idx >= item_cap:
+            continue
         items.append({
             "id": i.get("id"),
             "priority": i.get("priority"),
@@ -347,7 +384,8 @@ def scan_beads(root, live_beads=False):
         "containers": containers,
         "active_proposal_linked": active_proposal_linked,
         "merge_slot_held": merge_slot_held,
-        "truncated": total > ITEM_CAP,
+        "truncated": bool(item_cap) and total > item_cap,
+        "item_cap": item_cap,
         "bucket_counts": bucket_counts,
         "items": items,
     }
@@ -561,13 +599,38 @@ def scan_docs_plan(root):
     return {"available": True, "items": items}
 
 
+def _parse_args(argv):
+    """-> (live_beads, item_cap, unknown_args). item_cap 0 means "no cap"."""
+    live_beads, item_cap, unknown_args = False, ITEM_CAP, []
+    for arg in argv:
+        if arg == "--json":
+            continue
+        if arg == "--live-beads":
+            live_beads = True
+        elif arg.startswith("--limit=") and arg.split("=", 1)[1].isdigit():
+            item_cap = int(arg.split("=", 1)[1])
+        else:
+            unknown_args.append(arg)
+    return live_beads, item_cap, unknown_args
+
+
+def _guarded(scan, fallback):
+    """Per-source isolation, matching this module's "each source degrades
+    independently" contract. Without it a single unreadable file (a chmod-000
+    plans/README.md, a docs/plan entry mid-rename) escapes to main's catch-all
+    and replaces the ENTIRE inventory with {"error": ...} — every other source
+    is lost to a fault it had nothing to do with."""
+    try:
+        return scan()
+    except Exception as e:
+        return dict(fallback, error=str(e))
+
+
 def main():
-    allowed_args = {"--json", "--live-beads"}
-    unknown_args = [arg for arg in sys.argv[1:] if arg not in allowed_args]
+    live_beads, item_cap, unknown_args = _parse_args(sys.argv[1:])
     if unknown_args:
         print(json.dumps({"error": "unsupported arguments", "arguments": unknown_args}))
         return
-    live_beads = "--live-beads" in sys.argv[1:]
     rc, out = sh(["git", "rev-parse", "--show-toplevel"], os.getcwd())
     if rc != 0 or not out.strip():
         print(json.dumps({"error": "not a git repository", "cwd": os.getcwd()}))
@@ -578,11 +641,14 @@ def main():
         "project": os.path.basename(root),
         "root": root,
         "head": head.strip(),
-        "beads": scan_beads(root, live_beads=live_beads),
-        "proposals": scan_proposals(root),
-        "plans": scan_plans(root),
-        "plans_scratch": scan_plans_scratch(root),
-        "docs_plan": scan_docs_plan(root),
+        "beads": _guarded(
+            lambda: scan_beads(root, live_beads=live_beads, item_cap=item_cap),
+            {"available": False, "source": "live" if live_beads else "cached"},
+        ),
+        "proposals": _guarded(lambda: scan_proposals(root), {"available": False}),
+        "plans": _guarded(lambda: scan_plans(root), {"available": False}),
+        "plans_scratch": _guarded(lambda: scan_plans_scratch(root), {"unindexed": 0, "oldest_days": 0}),
+        "docs_plan": _guarded(lambda: scan_docs_plan(root), {"available": False}),
     }
     b, p, pl = result["beads"], result["proposals"], result["plans"]
     result["summary"] = {

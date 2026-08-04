@@ -106,6 +106,56 @@ truncated_output="$(
     python3 "$open_items" --json --live-beads
 )"
 jq -e '.beads.total_open == 31 and .beads.truncated == true and (.beads.items | length) == 30' <<<"$truncated_output" >/dev/null
+# Buckets describe every retained bead, not just the visible page: the compact
+# headline pairs total_open with these counts, so a capped tally renders
+# arithmetic that does not add up.
+jq -e '
+  .beads.item_cap == 30 and
+  ([.beads.bucket_counts[]] | add) == .beads.total_open and
+  .beads.bucket_counts.open == 31
+' <<<"$truncated_output" >/dev/null
+
+# --limit=0 is the full-list command the renderer names when truncated is true.
+unlimited_output="$(
+  cd "$project"
+  PATH="$fake_bin:$PATH" FAKE_BD_ARGS="$fixture/bd.args" FAKE_BD_JSON="$large_live_json" \
+    python3 "$open_items" --json --live-beads --limit=0
+)"
+jq -e '
+  .beads.truncated == false and .beads.item_cap == 0 and
+  (.beads.items | length) == 31 and
+  ([.beads.bucket_counts[]] | add) == .beads.total_open
+' <<<"$unlimited_output" >/dev/null
+jq -e '.error == "unsupported arguments" and (.arguments == ["--limit=all"])' \
+  <<<"$(cd "$project" && python3 "$open_items" --json --limit=all)" >/dev/null
+
+# A multi-paragraph disposition comment must stay one renderable bullet line.
+multiline_json="$(jq '
+  map(if .id == "live-answered"
+      then .comments = [{text:"HITL answered: first line\n\nsecond line", created_at:"2026-08-02T12:00:00Z"}]
+      else . end)' <<<"$live_json")"
+multiline_output="$(
+  cd "$project"
+  PATH="$fake_bin:$PATH" FAKE_BD_ARGS="$fixture/bd.args" FAKE_BD_JSON="$multiline_json" \
+    python3 "$open_items" --json --live-beads
+)"
+jq -e '([.beads.items[] | select(.id=="live-answered") | .bucket_reason]
+       == ["answered 08-02: first line second line"])' <<<"$multiline_output" >/dev/null
+
+# One unreadable source degrades that key alone — never the whole document.
+if [[ "$(id -u)" != 0 ]]; then
+  mkdir -p "$project/plans"
+  printf '| # | Title | Status |\n| 001 | a plan | OPEN |\n' >"$project/plans/README.md"
+  chmod 000 "$project/plans/README.md"
+  isolation_output="$(cd "$project" && OPEN_WORK_ROOT="$skill_root/scripts" python3 "$open_items" --json)"
+  chmod 644 "$project/plans/README.md"
+  rm -rf "$project/plans"
+  jq -e '
+    .plans.available == false and (.plans.error | length) > 0 and
+    .beads.available == true and (.beads.items | length) > 0 and
+    (has("error") | not)
+  ' <<<"$isolation_output" >/dev/null
+fi
 
 no_beads="$fixture/no-beads"
 mkdir -p "$no_beads"
@@ -122,4 +172,7 @@ echo 'PASS: live Beads is authoritative and never falls back to cached JSONL'
 echo 'PASS: cached mode remains explicit and source-labelled'
 echo 'PASS: bucket precedence, containers, proposal suppression, and no-Beads behavior hold'
 echo 'PASS: disposition comments, progress, truncation, and source-local execution hold'
+echo 'PASS: bucket counts cover every retained bead and --limit=0 lifts the cap'
+echo 'PASS: free-text disposition text renders on one line'
+echo 'PASS: an unreadable source degrades alone, not the whole inventory'
 echo 'PASS: packaged helper source is interpreter-invoked read-only content'

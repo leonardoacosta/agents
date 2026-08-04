@@ -52,7 +52,9 @@ second count summary, duplicate descriptions, or render the same item under mult
 Use a table only for a path whose truncation or multiple blocked/human-only reasons cannot fit safely
 in one bullet. Columns are `ID | P | Title`, plus `Blocked by` or `Why | Default action` as applicable.
 Do not also emit compact duplicates for that path. When `truncated` is true, state the visible and
-total counts and identify the full-list command without silently implying completeness.
+total counts and identify the full-list command — `open-items --json --live-beads --limit=0` — without
+silently implying completeness. `item_cap` is the visible-row limit; the headline counts and
+`bucket_counts` always describe every retained bead, so quote them as-is rather than recounting rows.
 
 ## Proposals and warnings
 

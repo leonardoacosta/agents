@@ -30,8 +30,12 @@ interpreters; executable bits are neither required nor permitted for packaged as
 
 ```bash
 python3 "${OPEN_WORK_ROOT}/bin/open-items" --json --live-beads
-bash "${OPEN_WORK_ROOT}/bin/triage-list-drafts" --json --include-approved
+python3 "${OPEN_WORK_ROOT}/bin/triage-list-drafts" --json --include-approved
 ```
+
+Both producers are Python; invoke each under the interpreter its shebang names. Running one under
+`bash` does not merely fail — `bash` reads `import json` as ImageMagick's `import(1)`, emits
+X-server errors, and still exits 0, so the caller cannot tell that garbage from a clean run.
 
 Run each producer once. Never replace failed live Beads data with `.beads/issues.jsonl`. Treat every
 source independently: retain available sources and one bounded warning for each unavailable source.
