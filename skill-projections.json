@@ -13,13 +13,6 @@
         "cc:scripts/lib/compose-stack.sh:139"
       ]
     },
-    "effect": {
-      "cause": ["composition-binding"],
-      "reason": "cc carries category/level/engineer/gate at column 0; upstream nests them under metadata:, invisible to compose-stack.sh's column-0 frontmatter regex, so compose_stack exits 3 'missing required frontmatter field: category'.",
-      "evidence": [
-        "cc:scripts/lib/compose-stack.sh:139"
-      ]
-    },
     "find-skills": {
       "cause": ["neutral-variant-twin"],
       "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
@@ -199,6 +192,7 @@
         "drizzle",
         "drizzle-best-practices",
         "durable-objects",
+        "effect",
         "eslint-audit",
         "evaluation-domains",
         "extend-before-create",
