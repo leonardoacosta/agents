@@ -148,7 +148,7 @@ def parse_frontmatter(text):
             continue
         key, _, value = line.partition(":")
         fm[key.strip()] = value.strip()
-    return fm, m.end()
+    return fm
 
 
 def extract_depends(context_text):

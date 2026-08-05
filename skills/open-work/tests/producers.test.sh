@@ -163,6 +163,32 @@ git -C "$no_beads" init -q
 no_beads_output="$(cd "$no_beads" && OPEN_WORK_ROOT="$skill_root/scripts" python3 "$open_items" --json --live-beads)"
 jq -e '.beads.available == false and .beads.source == "live"' <<<"$no_beads_output" >/dev/null
 
+# triage-list-drafts frontmatter regression. No fixture previously gave that producer a
+# proposal.md WITH frontmatter, so parse_frontmatter's return shape was uncovered: a
+# tuple-returning success path crashed both `--next-order-code` and the main draft scan
+# with AttributeError, while every existing test stayed green because collect_drafts
+# skips a directory that has no proposal.md.
+triage_bin="$skill_root/scripts/bin/triage-list-drafts"
+triage_fixture="$fixture/triage-repo"
+mkdir -p "$triage_fixture/openspec/changes/sample-change"
+git -C "$triage_fixture" init -q
+printf -- '---\norder: 0804a\nafter: other-slug -- waits on the other one\n---\n\n# Proposal\n\n## Context\n- depends on: `other-slug`\n' \
+  >"$triage_fixture/openspec/changes/sample-change/proposal.md"
+printf -- '## DB Batch\n\n- [ ] 1.1 do the thing\n' \
+  >"$triage_fixture/openspec/changes/sample-change/tasks.md"
+
+triage_out="$(cd "$triage_fixture" && python3 "$triage_bin" --json)"
+jq -e '
+  (.drafts | length) == 1 and
+  (.drafts[0].order == "0804a") and
+  (.drafts[0].after == "other-slug") and
+  (.drafts[0].depends_on == ["other-slug"]) and
+  (has("error") | not)
+' <<<"$triage_out" >/dev/null
+
+order_out="$(cd "$triage_fixture" && python3 "$triage_bin" --next-order-code --json)"
+jq -e '.order_code == "0804b" and (has("error") | not)' <<<"$order_out" >/dev/null
+
 find "$skill_root/scripts" -type f -perm /111 -print -quit | grep -q . && {
   echo 'FAIL: packaged helper source must remain non-executable' >&2
   exit 1
@@ -175,4 +201,5 @@ echo 'PASS: disposition comments, progress, truncation, and source-local executi
 echo 'PASS: bucket counts cover every retained bead and --limit=0 lifts the cap'
 echo 'PASS: free-text disposition text renders on one line'
 echo 'PASS: an unreadable source degrades alone, not the whole inventory'
+echo 'PASS: triage-list-drafts parses frontmatter and allocates the next order code'
 echo 'PASS: packaged helper source is interpreter-invoked read-only content'
