@@ -7,21 +7,21 @@
   },
   "exclusions": {
     "dotnet": {
-      "cause": "composition-binding",
-      "reason": "cc carries category/level/engineer/gate at column 0; upstream carries no composition keys at all, so compose-stack.sh's column-0 frontmatter regex finds nothing and compose_stack exits 3 'missing required frontmatter field: category'.",
+      "cause": ["composition-binding", "content-superset"],
+      "reason": "cc carries category/level/engineer/gate at column 0; upstream carries no composition keys at all, so compose-stack.sh's column-0 frontmatter regex finds nothing and compose_stack exits 3 'missing required frontmatter field: category'. cc's copy is also a content superset: 98 lines vs upstream's 93, with 3 B&B-satellite-fleet references (description, intro, bb-azure-ops routing row) that upstream's neutral 0-reference copy omits entirely.",
       "evidence": [
         "cc:scripts/lib/compose-stack.sh:139"
       ]
     },
     "effect": {
-      "cause": "composition-binding",
+      "cause": ["composition-binding"],
       "reason": "cc carries category/level/engineer/gate at column 0; upstream nests them under metadata:, invisible to compose-stack.sh's column-0 frontmatter regex, so compose_stack exits 3 'missing required frontmatter field: category'.",
       "evidence": [
         "cc:scripts/lib/compose-stack.sh:139"
       ]
     },
     "find-skills": {
-      "cause": "neutral-variant-twin",
+      "cause": ["neutral-variant-twin"],
       "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
       "evidence": [
         "cc:scripts/config/agents-neutral-substitutions.json",
@@ -32,7 +32,7 @@
       ]
     },
     "frontend-design": {
-      "cause": "neutral-variant-twin",
+      "cause": ["neutral-variant-twin"],
       "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
       "evidence": [
         "cc:scripts/config/agents-neutral-substitutions.json",
@@ -43,14 +43,14 @@
       ]
     },
     "monitor-patterns": {
-      "cause": "cc-harness-binding",
+      "cause": ["cc-harness-binding"],
       "reason": "cc's copy was deliberately shrunk to a harness binding that defers the portable concept to the promoted runtime-kit release; symlinking would replace the binding with the concept it points at.",
       "evidence": [
         "cc@b4381cef"
       ]
     },
     "qa-test-planner": {
-      "cause": "neutral-variant-twin",
+      "cause": ["neutral-variant-twin"],
       "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
       "evidence": [
         "cc:scripts/config/agents-neutral-substitutions.json",
@@ -61,14 +61,14 @@
       ]
     },
     "ratchet-ops": {
-      "cause": "cc-harness-binding",
+      "cause": ["cc-harness-binding"],
       "reason": "cc's copy was deliberately shrunk to a harness binding that defers the portable model to the promoted leo-core:ratchet-ops release; symlinking would replace the binding with the concept it points at.",
       "evidence": [
         "cc@b4381cef"
       ]
     },
     "reducing-entropy": {
-      "cause": "neutral-variant-twin",
+      "cause": ["neutral-variant-twin"],
       "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
       "evidence": [
         "cc:scripts/config/agents-neutral-substitutions.json",
@@ -79,14 +79,14 @@
       ]
     },
     "swift": {
-      "cause": "composition-binding",
-      "reason": "cc carries category/level/engineer/gate at column 0; upstream nests them under metadata:, invisible to compose-stack.sh's column-0 frontmatter regex, so compose_stack exits 3 'missing required frontmatter field: category'.",
+      "cause": ["composition-binding", "content-superset"],
+      "reason": "cc carries category/level/engineer/gate at column 0; upstream nests them under metadata:, invisible to compose-stack.sh's column-0 frontmatter regex, so compose_stack exits 3 'missing required frontmatter field: category'. cc's copy is also a content superset: 127 lines vs upstream's 82, with nx-fleet-specific sections (XcodeGen project.yml source-of-truth, headless Linux->Mac SSH compile verification, signing/capability registration, the codesign GUI/501 bridge, an nx quick reference, and a `## NEVER` section) that upstream's neutral, repository-agnostic copy omits or genericizes away.",
       "evidence": [
         "cc:scripts/lib/compose-stack.sh:139"
       ]
     },
     "t3-monorepo-patterns": {
-      "cause": "neutral-variant-twin",
+      "cause": ["neutral-variant-twin"],
       "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
       "evidence": [
         "cc:scripts/config/agents-neutral-substitutions.json",
