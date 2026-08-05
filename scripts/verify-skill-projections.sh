@@ -37,6 +37,17 @@ jq -e '
   ([.harnesses[] | .root | strings | select(startswith("/") or contains(".."))] | length == 0)
 ' "$manifest" >/dev/null || fail "manifest does not satisfy schema v1"
 
+# Every exclusion must carry a non-empty cause list — it is the machine-readable reason the
+# divergence exists, and downstream tooling (debt-harvest, doctrine audits) keys off it.
+invalid_exclusion_causes="$(jq -r '
+  (.exclusions // {}) as $ex
+  | [ $ex | to_entries[]
+      | select((.value.cause // []) | type != "array" or length == 0)
+      | .key ]
+  | join(", ")
+' "$manifest")"
+[[ -z "$invalid_exclusion_causes" ]] || fail "exclusions missing or empty cause list: $invalid_exclusion_causes"
+
 # An exclusion records a skill whose local copy diverges from the canonical store on purpose, so
 # projecting it would destroy the divergence. Absent allowedHarnesses, no harness may project it.
 projected_exclusions="$(jq -r '
