@@ -57,6 +57,7 @@ run_self_test() {
   cp "$manifest" "$fixture/agents/skill-projections.json"
   source_lock="$(resolve_lock_file)"
   cp "$source_lock" "$fixture/agents/.skill-lock.json"
+  [[ -r "$agents_root/skills-lock.json" ]] && cp "$agents_root/skills-lock.json" "$fixture/agents/skills-lock.json"
   while IFS= read -r skill; do mkdir -p "$fixture/agents/skills/$skill"; done < <(jq -r '[.harnesses[].skills[]] | unique[]' "$manifest")
   revision="$(jq -r '.release.revision' "$manifest")"
   ln -s missing-target "$fixture/home/.codex/skills/frontend-design"
@@ -75,6 +76,13 @@ run_self_test() {
   jq -s -e '[.[] | select(.action == "protected-conflict" and .harness == "cursor" and .skill == "firecrawl")] | length == 1' <<<"$output" >/dev/null || fail "self-test did not preserve regular-directory conflict"
   [[ -d "$fixture/home/.cursor/skills/firecrawl" && ! -L "$fixture/home/.cursor/skills/firecrawl" ]] || fail "self-test overwrote protected directory"
   [[ "$(realpath -e "$fixture/home/.codex/skills/firecrawl")" == "$fixture/agents/skills/firecrawl" ]] || fail "self-test did not create canonical link"
+  # A skill pinned only by skills-lock.json (vendored third-party upstream, absent from the
+  # installer lock) must project exactly like a release-pinned one.
+  jq -e '.skills.cloudflare.sourceType == "github"' "$fixture/agents/skills-lock.json" >/dev/null \
+    && ! jq -e '.skills.cloudflare' "$fixture/agents/.skill-lock.json" >/dev/null 2>&1 \
+    || fail "self-test fixture does not isolate a vendored-only projection"
+  [[ "$(realpath -e "$fixture/home/.codex/skills/cloudflare")" == "$fixture/agents/skills/cloudflare" ]] \
+    || fail "self-test did not project a vendored-lane skill"
 
   output_again="$("$0" --write --verified-release "$revision" --audited-release "$revision" --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json" --lock-file "$fixture/agents/.skill-lock.json")"
   jq -s -e '[.[] | select(.action == "create" or .action == "replace")] | length == 0' <<<"$output_again" >/dev/null || fail "self-test write mode is not idempotent"
@@ -132,7 +140,25 @@ store="$(realpath -e "$agents_root/skills")" || fail "canonical skill store does
 lock_file="$(resolve_lock_file)"
 [[ -r "$lock_file" ]] || fail "materialization lock is not readable: $lock_file"
 expected_source="$(jq -r '.release.source' "$manifest")"
+vendor_lock="$agents_root/skills-lock.json"
 projection_home="$(realpath -m "$projection_home")"
+
+# A projection is legitimate under either provenance ledger. The installer-owned lock pins
+# skills materialized from the manifest's own release; skills-lock.json pins skills vendored
+# into this repository from a third-party upstream. Requiring the first alone stranded the
+# vendored lane outside projection entirely -- it could be materialized but never linked.
+skill_is_pinned() {
+  local skill="$1"
+  jq -e --arg skill "$skill" --arg source "$expected_source" \
+    '.skills[$skill].sourceUrl == $source' "$lock_file" >/dev/null 2>&1 && return 0
+  [[ -r "$vendor_lock" ]] || return 1
+  jq -e --arg skill "$skill" '
+    .skills[$skill]
+    | (.sourceType == "github")
+      and (.source | type == "string" and length > 0)
+      and (.computedHash | type == "string" and length > 0)
+  ' "$vendor_lock" >/dev/null 2>&1
+}
 
 while IFS= read -r harness; do
   [[ "$(jq -r --arg h "$harness" '.harnesses[$h].nativeCanonical // false' "$manifest")" == true ]] && continue
@@ -147,8 +173,8 @@ while IFS= read -r harness; do
   while IFS= read -r skill; do
     candidate="$root/$skill"
     target="$store/$skill"
-    if ! jq -e --arg skill "$skill" --arg source "$expected_source" '.skills[$skill].sourceUrl == $source' "$lock_file" >/dev/null; then
-      emit "source-unpinned" "$harness" "$skill" "$candidate" "lock does not pin this projection to the manifest source"
+    if ! skill_is_pinned "$skill"; then
+      emit "source-unpinned" "$harness" "$skill" "$candidate" "neither lock pins this projection"
     elif [[ ! -d "$target" ]]; then
       emit "source-missing" "$harness" "$skill" "$candidate" "canonical materialization is absent"
     elif [[ -L "$candidate" ]]; then
