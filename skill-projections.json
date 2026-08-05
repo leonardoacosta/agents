@@ -5,6 +5,98 @@
     "source": "https://github.com/leonardoacosta/skills.git",
     "revision": "e1de9d9680ab028e4d0777ae23009081e43582ac"
   },
+  "exclusions": {
+    "dotnet": {
+      "cause": "composition-binding",
+      "reason": "cc carries category/level/engineer/gate at column 0; upstream carries no composition keys at all, so compose-stack.sh's column-0 frontmatter regex finds nothing and compose_stack exits 3 'missing required frontmatter field: category'.",
+      "evidence": [
+        "cc:scripts/lib/compose-stack.sh:139"
+      ]
+    },
+    "effect": {
+      "cause": "composition-binding",
+      "reason": "cc carries category/level/engineer/gate at column 0; upstream nests them under metadata:, invisible to compose-stack.sh's column-0 frontmatter regex, so compose_stack exits 3 'missing required frontmatter field: category'.",
+      "evidence": [
+        "cc:scripts/lib/compose-stack.sh:139"
+      ]
+    },
+    "find-skills": {
+      "cause": "neutral-variant-twin",
+      "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
+      "evidence": [
+        "cc:scripts/config/agents-neutral-substitutions.json",
+        "cc:scripts/tests/agents-neutral-bodies.test.sh"
+      ],
+      "allowedHarnesses": [
+        "codex"
+      ]
+    },
+    "frontend-design": {
+      "cause": "neutral-variant-twin",
+      "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
+      "evidence": [
+        "cc:scripts/config/agents-neutral-substitutions.json",
+        "cc:scripts/tests/agents-neutral-bodies.test.sh"
+      ],
+      "allowedHarnesses": [
+        "codex"
+      ]
+    },
+    "monitor-patterns": {
+      "cause": "cc-harness-binding",
+      "reason": "cc's copy was deliberately shrunk to a harness binding that defers the portable concept to the promoted runtime-kit release; symlinking would replace the binding with the concept it points at.",
+      "evidence": [
+        "cc@b4381cef"
+      ]
+    },
+    "qa-test-planner": {
+      "cause": "neutral-variant-twin",
+      "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
+      "evidence": [
+        "cc:scripts/config/agents-neutral-substitutions.json",
+        "cc:scripts/tests/agents-neutral-bodies.test.sh"
+      ],
+      "allowedHarnesses": [
+        "codex"
+      ]
+    },
+    "ratchet-ops": {
+      "cause": "cc-harness-binding",
+      "reason": "cc's copy was deliberately shrunk to a harness binding that defers the portable model to the promoted leo-core:ratchet-ops release; symlinking would replace the binding with the concept it points at.",
+      "evidence": [
+        "cc@b4381cef"
+      ]
+    },
+    "reducing-entropy": {
+      "cause": "neutral-variant-twin",
+      "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
+      "evidence": [
+        "cc:scripts/config/agents-neutral-substitutions.json",
+        "cc:scripts/tests/agents-neutral-bodies.test.sh"
+      ],
+      "allowedHarnesses": [
+        "codex"
+      ]
+    },
+    "swift": {
+      "cause": "composition-binding",
+      "reason": "cc carries category/level/engineer/gate at column 0; upstream nests them under metadata:, invisible to compose-stack.sh's column-0 frontmatter regex, so compose_stack exits 3 'missing required frontmatter field: category'.",
+      "evidence": [
+        "cc:scripts/lib/compose-stack.sh:139"
+      ]
+    },
+    "t3-monorepo-patterns": {
+      "cause": "neutral-variant-twin",
+      "reason": "cc commits a SKILL.agents.md twin beside SKILL.md; symlinking deletes the twin and reds the twin-body test. codex projects the upstream neutral variant legitimately, so the exclusion is scoped away from it.",
+      "evidence": [
+        "cc:scripts/config/agents-neutral-substitutions.json",
+        "cc:scripts/tests/agents-neutral-bodies.test.sh"
+      ],
+      "allowedHarnesses": [
+        "codex"
+      ]
+    }
+  },
   "harnesses": {
     "amp": {
       "root": ".config/agents/skills",
@@ -17,22 +109,67 @@
     "claude-code": {
       "root": ".claude/skills",
       "skills": [
+        "agent-instruction-pairing",
         "agents-sdk",
+        "animation-vocabulary",
+        "animejs",
+        "ascii-wireframe",
+        "autoresearch-loop",
+        "better-auth-best-practices",
+        "blueprint",
         "brainstorming",
+        "bun",
+        "c4-architecture",
         "cloudflare",
         "cloudflare-email-service",
         "cloudflare-one",
         "cloudflare-one-migrations",
+        "crafting-effective-readmes",
+        "database-schema-designer",
+        "docker",
+        "dotenvx-secrets",
+        "drizzle",
+        "drizzle-best-practices",
         "durable-objects",
+        "eslint-audit",
+        "evaluation-domains",
+        "extend-before-create",
+        "fallow",
+        "firecrawl",
+        "frontend-api-contracts",
         "improve",
+        "merge-to-main",
+        "motion-and-transitions",
+        "nextjs-app-router",
         "open-work",
+        "openapi-to-typescript",
+        "playwright-auth",
+        "react-dev",
         "receiving-code-review",
+        "reui-gantt-calendar-patterns",
         "sandbox-sdk",
+        "secrets-handling",
+        "service-layer-style",
+        "shadcn",
+        "simplify",
+        "skill-creator",
+        "skill-judge",
+        "state-handling",
+        "system-architect",
         "systematic-debugging",
+        "t3-code-patterns",
+        "t3-testing-patterns",
+        "termcast-tui-patterns",
         "test-driven-development",
+        "trpc-patterns",
         "turnstile-spin",
+        "vercel",
+        "vercel-platforms",
+        "vercel-react-best-practices",
         "verification-before-completion",
+        "wayfinder",
         "web-perf",
+        "webapp-testing",
         "workers-best-practices",
         "wrangler",
         "writing-plans"

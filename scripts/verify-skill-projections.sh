@@ -37,6 +37,19 @@ jq -e '
   ([.harnesses[] | .root | strings | select(startswith("/") or contains(".."))] | length == 0)
 ' "$manifest" >/dev/null || fail "manifest does not satisfy schema v1"
 
+# An exclusion records a skill whose local copy diverges from the canonical store on purpose, so
+# projecting it would destroy the divergence. Absent allowedHarnesses, no harness may project it.
+projected_exclusions="$(jq -r '
+  (.exclusions // {}) as $ex
+  | [ .harnesses | to_entries[] as $h
+      | $h.value.skills[]? as $skill
+      | ($ex[$skill] // empty) as $rule
+      | select(($rule.allowedHarnesses // []) | index($h.key) | not)
+      | "\($h.key)/\($skill) (\($rule.cause))" ]
+  | join(", ")
+' "$manifest")"
+[[ -z "$projected_exclusions" ]] || fail "excluded skills appear in harness rosters: $projected_exclusions"
+
 agents_root="$(realpath -e "$agents_root")" || fail "agents root does not exist: $agents_root"
 store="$(realpath -e "$agents_root/skills")" || fail "canonical skill store does not exist: $agents_root/skills"
 projection_home="$(realpath -m "$projection_home")"
