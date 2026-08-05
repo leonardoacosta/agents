@@ -30,7 +30,7 @@ json_entry() {
 [[ -r "$manifest" ]] || fail "manifest is not readable: $manifest"
 [[ -n "$projection_home" ]] || fail "HOME must be set, or pass --home"
 jq -e '
-  .schemaVersion == 1 and
+  .schemaVersion == 2 and
   .managedBy == "agents-skill-projections/v1" and
   (.release.revision | type == "string" and length == 40) and
   (.harnesses | keys | sort == ["amp", "antigravity-cli", "claude-code", "codex", "cursor", "gemini-cli", "github-copilot", "opencode", "pi", "zed"]) and

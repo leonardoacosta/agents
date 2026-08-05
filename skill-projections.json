@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "managedBy": "agents-skill-projections/v1",
   "release": {
     "source": "https://github.com/leonardoacosta/skills.git",
@@ -95,6 +95,74 @@
       "allowedHarnesses": [
         "codex"
       ]
+    }
+  },
+  "bindings": {
+    "react-dev": {
+      "category": "UI",
+      "level": "library",
+      "engineer": "ui-engineer",
+      "gate": "pnpm tsc --noEmit"
+    },
+    "bun": {
+      "category": "Service",
+      "level": "library",
+      "engineer": "api-engineer",
+      "gate": "bun typecheck"
+    },
+    "docker": {
+      "category": "Deploy",
+      "level": "library",
+      "engineer": "deploy-engineer",
+      "gate": "docker build --check ."
+    },
+    "dotnet": {
+      "category": "Framework",
+      "level": "framework",
+      "engineer": "dotnet-azure-specialist",
+      "gate": "dotnet build"
+    },
+    "drizzle": {
+      "category": "DB",
+      "level": "library",
+      "engineer": "db-engineer",
+      "gate": "bunx drizzle-kit check"
+    },
+    "effect": {
+      "category": "Framework",
+      "level": "framework",
+      "engineer": "api-engineer",
+      "gate": "bun typecheck"
+    },
+    "meta": {
+      "category": "Meta",
+      "level": "framework",
+      "engineer": "general-purpose",
+      "gate": "bash -n scripts/**/*.sh && openspec validate --strict"
+    },
+    "trpc-patterns": {
+      "category": "API",
+      "level": "library",
+      "engineer": "api-engineer",
+      "gate": "pnpm tsc --noEmit"
+    },
+    "vercel": {
+      "category": "Deploy",
+      "level": "library",
+      "engineer": "deploy-engineer",
+      "gate": "vercel inspect"
+    },
+    "t3-code-patterns": {
+      "category": "Framework",
+      "level": "framework",
+      "engineer": "ui-engineer",
+      "gate": "pnpm tsc --noEmit"
+    },
+    "t3-testing-patterns": {
+      "category": "E2E",
+      "level": "library",
+      "engineer": "tdd-test-writer",
+      "gate": "pnpm lint"
     }
   },
   "harnesses": {
