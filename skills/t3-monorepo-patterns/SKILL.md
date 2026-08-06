@@ -90,6 +90,26 @@ Key rules:
 - `db:generate` and `db:migrate` always set `"cache": false` — they have side effects.
 - `outputs` drives what Turborepo caches. Omitting outputs = nothing cached for that task.
 
+### Turbopack Build & Dev Caches (Next.js apps)
+
+Turbopack (default bundler since Next.js 16) maintains its own persistent caches, independent of
+Turborepo's task cache above:
+
+- **Build cache** — `experimental: { turbopackFileSystemCacheForBuild: true }` in `next.config.ts`
+  lets `next build` reuse previously-compiled work from disk. The mechanism is CI persisting the
+  generated `.next` directory between runs — the same directory `outputs: [".next/**"]` above
+  already restores on a Turborepo cache hit.
+  **Open question, not a documented recipe:** whether the Turbopack filesystem cache lives inside
+  `.next` such that a Turborepo `outputs` restore preserves it, or whether it needs a separate CI
+  cache step (e.g. keyed on `.next/cache`), is not established. Do not invent an answer — verify
+  against the installed Next.js version before relying on either shape.
+- **Dev memory eviction** is on by default in current Next.js releases and requires the dev
+  filesystem cache to also be enabled (both are on by default). Don't disable the dev filesystem
+  cache without expecting dev-server memory growth to come back.
+- **`turbopackLocalPostcssConfig`** (experimental) resolves the nearest `postcss.config.*` to each
+  CSS file instead of only the project root — relevant once a monorepo has per-package PostCSS
+  transforms instead of one shared root config.
+
 ---
 
 ## 3. TypeScript Project References

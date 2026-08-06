@@ -1,15 +1,15 @@
 ---
 name: nextjs-app-router
-description: Next.js 15 App Router patterns including route handlers, streaming, Server Actions, caching strategies, and middleware. Use when building Next.js pages, implementing data fetching, configuring middleware, debugging stale data, migrating from Next.js 14 to 15 (async params), or diagnosing caching issues (fetch cache, ISR, Router Cache, unstable_cache).
+description: Next.js 16 App Router patterns including route handlers, streaming, Server Actions, the 'use cache' caching model, Cache Components, Instant Navigations, and proxy.ts. Use when building Next.js pages, implementing data fetching, configuring route protection, debugging stale or over-cached data, adopting Cache Components (cacheComponents, partialPrefetching), or migrating off Next.js 15 (proxy.ts rename, catchError/retry, root params).
 source: ~/.agents/skills@2026-07-13
 user-invocable: false
 paths: ["apps/*/src/app/**"]
 ---
 
 
-# Next.js 15 App Router Patterns
+# Next.js 16 App Router Patterns
 
-> Covers App Router-specific patterns for Next.js 15, React 19, TypeScript, Tailwind, tRPC, Better Auth, Vercel.
+> Covers App Router-specific patterns for Next.js 16, React 19, TypeScript, Tailwind, tRPC, Better Auth, Vercel.
 > This skill fills the gap left by `react-dev` — focus here is on routing, caching, and server/client boundaries.
 
 ## Data Fetching Hierarchy
@@ -38,25 +38,29 @@ export const getSession = cache(async () => auth());
 
 ### Stale Data Triage
 
-Data looks stale? Work through this:
+Next.js 16 is **dynamic by default — no hidden or implicit caching.** A route only serves stale
+data when something explicitly opted into caching. Work through this:
 
 ```
 Data not updating?
 ├── Server Component with fetch()?
-│   └── fetch() is cached indefinitely by default
-│       Fix: { cache: "no-store" } or { next: { revalidate: N } }
-├── Page on Vercel showing old content?
-│   └── Vercel ISR caches pages for 30s by default
-│       Fix: export const revalidate = 0; at top of page
+│   └── fetch() is NOT cached by default in Next.js 16 — check for:
+│       ├── { next: { revalidate: N } } or { cache: "force-cache" } on the call
+│       └── an ancestor route/function wrapped in 'use cache'
+│           Fix: remove the cache config, or set { next: { revalidate: 0 } }
+├── Route wrapped in 'use cache', or calling a function that is?
+│   └── 'use cache' holds the result until revalidateTag()/revalidatePath(), or its
+│       own revalidate window, fires
+│       Fix: revalidateTag("your-tag") after the mutation, or shorten `revalidate`
 ├── tRPC query returning old data?
 │   └── React Query staleTime or gcTime too high
 │       Fix: staleTime: 0 for real-time data
 ├── Mutated data not reflected?
 │   └── Missing revalidation after Server Action
 │       Fix: revalidatePath() or revalidateTag() after mutation
-└── unstable_cache returning stale results?
-    └── Tag not invalidated
-        Fix: revalidateTag("your-tag") in Server Action
+└── Page not updating on Vercel specifically?
+    └── Only relevant if the route opted into 'use cache' with a revalidate window
+        Fix: shorten the window, or revalidateTag() the route's cache
 ```
 
 ## Streaming + Suspense
@@ -159,17 +163,18 @@ A `"use client"` chrome component (needs `usePathname` for the active-tab state)
 > causing each tab click to remount the card and re-fire toolbar queries. Moving the shared
 > chrome to `layout.tsx` preserved it across sibling-route navigation.
 
-### Next.js 15 Async Params
+### Async `params` (legacy migration note)
 
-In Next.js 15, `params` and `searchParams` are now `Promise` — this is the #1 TypeScript migration gotcha:
+`params` and `searchParams` became a `Promise` in Next.js 15 — still true in 16, but this is two
+minors old and no longer the headline migration. Relevant only when touching pre-15 code:
 
 ```typescript
-// Next.js 14 pattern — breaks in 15
+// Next.js 14 pattern — breaks from 15 onward
 export default function Page({ params }: { params: { id: string } }) {
   return <div>{params.id}</div>;  // TS error: params is Promise
 }
 
-// Next.js 15 — await params
+// Next.js 15+ — await params
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   return <div>{id}</div>;
@@ -214,33 +219,43 @@ export async function addToCart(input: unknown) {
 
 ## Caching Gotchas
 
-The most common source of stale-data bugs in App Router:
+Next.js 16 is **dynamic by default, with no hidden or implicit *data* caching** — that claim is
+about `fetch()` and DB queries, not about rendering mode. The static-vs-dynamic rendering model is
+unchanged: a route with no dynamic APIs still prerenders at build time, and `cookies()`,
+`headers()`, and `searchParams` still de-opt it to per-request rendering, same as before 16. What
+changed is that `fetch()` no longer caches its response implicitly, and `unstable_cache()`/ISR's
+implicit page-level cache are both replaced by one explicit primitive: `'use cache'`.
 
-| Behavior | Default | Override |
-|----------|---------|----------|
-| `fetch()` in Server Component | Cached indefinitely | `{ cache: "no-store" }` or `{ next: { revalidate: 60 } }` |
-| Page on Vercel | Cached 30s (ISR) | `export const revalidate = 0` at top of page file |
-| DB query via tRPC/Drizzle | Not cached | `unstable_cache()` with a tag |
+| Behavior | Default | Opt into caching |
+|----------|---------|-------------------|
+| `fetch()` in Server Component | NOT cached — runs every request | `{ next: { revalidate: N } }`, or wrap the caller in `'use cache'` |
+| Route using `cookies()`/`headers()`/`searchParams` | Rendered dynamically, per request | `'use cache'` around the specific data/component that doesn't need the dynamic API |
+| Route with no dynamic APIs | Prerendered at build (static) | Already as cached as it gets — add `'use cache'` + a `revalidate` window only to update it on a schedule without a full rebuild |
+| DB query via tRPC/Drizzle | Not cached | `'use cache'` around the query function |
 
-**Dynamic rendering is triggered automatically by:** `cookies()`, `headers()`, `searchParams` prop, `noStore()`.
+**`cookies()`/`headers()`/`searchParams` still de-opt a route to request-time rendering.** That
+de-opt is exactly the regression the `instant()` Playwright helper (§ Instant Navigations below;
+also see `t3-testing-patterns` skill) exists to catch when a shared header component grows one of
+these calls.
 
 ```typescript
-// Opt page out of Vercel edge cache
-export const revalidate = 0;
+// Cache an expensive DB query — explicit opt-in, not a global default
+import { cacheTag } from "next/cache";
 
-// Cache an expensive DB query with manual invalidation
-import { unstable_cache } from "next/cache";
+async function getCachedProducts() {
+  'use cache';
+  cacheTag('products');
+  return db.query.product.findMany();
+}
 
-const getCachedProducts = unstable_cache(
-  async () => db.query.product.findMany(),
-  ["products"],
-  { tags: ["products"], revalidate: 3600 }
-);
-
-// Invalidate from a Server Action
+// Invalidate from a Server Action after a mutation
 import { revalidateTag } from "next/cache";
 revalidateTag("products");
 ```
+
+`'use cache'` can wrap a file, a Server Component, or a plain async function — the directive's
+scope is the cache entry's scope. Requires `cacheComponents: true` in `next.config.ts` (see
+§ Instant Navigations below).
 
 ### revalidatePath vs revalidateTag
 
@@ -251,6 +266,104 @@ revalidateTag("products");
 | `revalidateTag("products")` | Multiple routes display product data (`/products`, `/dashboard`, `/search`) |
 
 **Rule of thumb:** If the data appears on >1 route, use tags. Tags are cheaper (invalidate specific cache entries) vs path (re-renders entire route segment).
+
+## Instant Navigations
+
+Every server `await` on a navigation is now a three-way choice, not just "block until done":
+
+```
+Route awaits data on navigation?
+├── Show a loading state instantly, stream the rest?
+│   └── Stream — wrap in <Suspense fallback={<Skeleton />}>
+├── Show previously-cached UI instantly, update in the background?
+│   └── Cache — wrap the data/component in 'use cache'
+└── Must this navigation wait for fresh server data, every time?
+    └── Block — export const instant = false on the route
+        (e.g. a blog that must never show a stale post while a new one publishes)
+```
+
+Stream and Cache both feel instant/SPA-like to the user; Block is a deliberate, explicit opt-out
+— not the default.
+
+### Enable it
+
+```ts
+// next.config.ts
+const nextConfig: NextConfig = { cacheComponents: true, partialPrefetching: true };
+```
+
+- `cacheComponents` turns on the `'use cache'` model (§ Caching Gotchas above).
+- `partialPrefetching` extends prefetching from "the whole page" to "the reusable shell" — below.
+
+### Prefetching is per-route, not per-link
+
+Pre-16.3, Next.js sent one prefetch request per `<Link>` in the viewport — a sidebar with twenty
+links sent twenty requests. With `partialPrefetching`, Next.js prefetches a reusable **shell**
+once per route (one shell for `/chat/[id]`, one for `/dashboard`), cached on the client, instead
+of once per link.
+
+This isn't all-or-nothing: `<Link prefetch={true}>` still works and, combined with `'use cache'`,
+adds deeper per-link prefetching on top of the route-shell baseline.
+
+```tsx
+// Baseline: route shell prefetched automatically, no per-link config needed
+<Link href={`/chat/${id}`}>{title}</Link>
+
+// Opt a specific link into deeper prefetching
+<Link href={`/chat/${id}`} prefetch={true}>{title}</Link>
+```
+
+### Block a route deliberately
+
+```tsx
+// A route that must never show a stale/loading shell
+export const instant = false;
+```
+
+## Error Boundaries
+
+`catchError` (stable as of Next.js 16.3; shipped as `unstable_catchError`/`unstable_retry` in
+16.2 — rename only, same shape) is preferred over `error.tsx`'s `reset()` for most recovery
+scenarios:
+
+```tsx
+import { catchError, type ErrorInfo } from "next/error";
+
+function CustomErrorBoundary(props: { title: string }, { error, retry }: ErrorInfo) {
+  return (
+    <div>
+      <p>{props.title}: {error.message}</p>
+      <button onClick={() => retry()}>Try again</button>
+    </div>
+  );
+}
+export default catchError(CustomErrorBoundary);
+```
+
+- **Framework-aware**: `redirect()`/`notFound()` throw special errors under the hood — `catchError`
+  handles those without your boundary accidentally catching them.
+- **`retry()` over `reset()`**: `reset()` only clears error state and re-renders children — it
+  doesn't help when the error originated in data fetching or the RSC phase. `retry()` calls
+  `router.refresh()` and `reset()` inside a transition, re-fetching data and re-rendering the
+  segment.
+- If you see `unstable_catchError`/`unstable_retry` imported from `next/error`, that's the 16.2
+  spelling — rename to `catchError`/`retry` on Next.js ≥ 16.3.
+
+## Root Params
+
+`next/root-params` reads a root-level dynamic segment (e.g. `[lang]`) without prop-drilling it
+through every layout and page below it:
+
+```tsx
+import { lang } from "next/root-params";
+
+export default async function Page() {
+  const locale = await lang();
+  // ...
+}
+```
+
+Server Components only today — no Client Component equivalent yet.
 
 ## Better Auth + App Router
 
@@ -264,16 +377,18 @@ if (!session) redirect("/login");
 <ClientComponent userId={session.user.id} role={session.user.role} />
 ```
 
-- **Bulk route protection**: `middleware.ts` — runs at edge before render
+- **Bulk route protection**: `proxy.ts` — runs at edge before render. Renamed from
+  `middleware.ts` in Next.js 16 (file and exported function both renamed; logic is identical —
+  see `vercel-platforms` skill § Gotchas for the same rename)
 - **Per-route logic**: layout-level `auth()` check with `redirect()`
 - Never expose session tokens or full user objects to Client Components — they ship to the browser
 
 ```typescript
-// middleware.ts — protect all /dashboard/* routes
+// proxy.ts — protect all /dashboard/* routes (Next.js 16; was middleware.ts pre-16)
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const token = req.cookies.get("session")?.value;
   if (!token && req.nextUrl.pathname.startsWith("/dashboard")) {
     return NextResponse.redirect(new URL("/login", req.url));
@@ -287,11 +402,11 @@ export const config = { matcher: ["/dashboard/:path*"] };
 ```
 Protecting routes?
 ├── Bulk route protection (all /dashboard/*)?
-│   └── middleware.ts — runs at edge, before any rendering
+│   └── proxy.ts — runs at edge, before any rendering
 ├── Per-page with different logic per role?
 │   └── Layout-level auth() check + redirect()
 ├── Protecting a Server Action?
-│   └── auth() check inside the action — middleware doesn't cover actions
+│   └── auth() check inside the action — proxy.ts doesn't cover actions
 └── Protecting an API route handler?
     └── auth() check inside the handler — same as Server Actions
 ```
@@ -301,8 +416,8 @@ Protecting routes?
 - **NEVER** use `useEffect` for initial data fetching — **WHY:** Server Components fetch data during render with zero client JS. useEffect fetches AFTER hydration, causing a loading flash and doubling time-to-data.
 - **NEVER** `await` sequential independent fetches — **WHY:** `const a = await getA(); const b = await getB();` takes `timeA + timeB`. `Promise.all([getA(), getB()])` takes `max(timeA, timeB)`.
 - **NEVER** put secrets in Client Components — **WHY:** `"use client"` components ship their entire module to the browser. Environment variables, API keys, and session tokens become visible in the JS bundle.
-- **NEVER** use `{ params }` without `await` in Next.js 15 — **WHY:** `params` is now a `Promise`. Accessing `.id` directly gives `undefined` or a TS error. Always `const { id } = await params;` in Server Components or `use(params)` in Client Components.
-- **NEVER** assume `fetch()` returns fresh data — **WHY:** App Router caches ALL `fetch()` calls indefinitely by default. This is the #1 source of "my data is stale" bugs. Use `{ cache: "no-store" }` for real-time data.
+- **NEVER** use `{ params }` without `await` in Next.js 15+ — **WHY:** `params` is a `Promise`. Accessing `.id` directly gives `undefined` or a TS error. Always `const { id } = await params;` in Server Components or `use(params)` in Client Components.
+- **NEVER** assume `fetch()` or a route is cached by default — **WHY:** Next.js 16 is dynamic by default with no hidden caching. Data goes stale only when something explicitly opted in — a `{ next: { revalidate } }` fetch, or a `'use cache'` function/route. Check for those before assuming a cache is the problem.
 - **NEVER** use `revalidatePath("/", "layout")` as a default — **WHY:** It invalidates ALL cached data across ALL routes. Use targeted `revalidateTag()` for specific data, or `revalidatePath("/specific-route")` for one page.
 - **NEVER** mix `"use server"` and `"use client"` in the same file — **WHY:** A file is either a Server Module or Client Module. Mixing directives is a build error.
 
@@ -371,6 +486,9 @@ CSS targets `::view-transition-old(.class)` / `::view-transition-new(.class)` / 
 - `useRouter().push()` and `.replace()` also accept `transitionTypes`
 - Without browser support the app works normally (progressive enhancement)
 - Safari may animate differently for some patterns
+- `transitionTypes` is App Router-only — the Pages Router doesn't use React Transitions for
+  navigation, so the prop is silently ignored there. A shared `<Link>` wrapper passing
+  `transitionTypes` is safe to use across both routers without a router check.
 
 See also: `motion-and-transitions` skill for component-local CSS transitions (modals, dropdowns, badges).
 

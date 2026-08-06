@@ -113,6 +113,39 @@ baseline improves by more than three points or during the quarterly review.
 - For logged-out coverage, set anonymous storage state explicitly rather than inheriting a default
   authenticated persona.
 
+## Instant Navigation Regression Guard
+
+`@next/playwright`'s `instant()` helper asserts what a navigation shows *before* the network
+settles — catching Instant Navigations regressions unit tests can't see. Two named causes worth a
+guard comment when touching shared server code:
+
+- A `cookies()`/`headers()` call added to a shared layout or header de-opts every route beneath it
+  to request-time rendering.
+- A `<Suspense>` boundary moved during a refactor, turning an instant shell into a blocking wait.
+
+```ts
+import { expect, test } from "@fixtures/base";
+import { instant } from "@next/playwright";
+
+test("chat detail navigation is instant", async ({ page }) => {
+  await page.goto("/chat");
+
+  // Assertions inside the callback are the instant contract — must hold before network settles
+  await instant(page, async () => {
+    await page.click('a[href="/chat/123"]');
+    await expect(page.locator("h1")).toContainText("Conversation");
+    await expect(page.getByText("Loading messages…")).toBeVisible();
+  });
+
+  // Assertions after the callback may depend on streamed/network content
+  await expect(page.getByText("42 messages")).toBeVisible();
+});
+```
+
+> `instant()`'s exact signature is documented from release-note code samples, not verified
+> against installed typings — check it against the `@next/playwright` version actually installed
+> before relying on it.
+
 ## Cross-References
 
 - `t3-code-patterns` — database imports, env validation, type ownership, and Better Auth scoping

@@ -14,6 +14,12 @@ Popular icon and component libraries can have **up to 10,000 re-exports** in the
 
 **Why tree-shaking doesn't help:** When a library is marked as external (not bundled), the bundler can't optimize it. If you bundle it to enable tree-shaking, builds become substantially slower analyzing the entire module graph.
 
+> **Turbopack update (Next.js 16.2+):** Turbopack now tree-shakes destructured dynamic imports
+> (`const { cat } = await import('./lib')`) the same way it does static imports. That closes one
+> specific workaround — using a dynamic import just to dodge a barrel file's cost — but it does
+> NOT fix the barrel file itself: importing from the barrel still loads its entire re-export
+> surface before the bundler gets a chance to shake anything. The rule below is unchanged.
+
 **Incorrect (imports entire library):**
 
 ```tsx

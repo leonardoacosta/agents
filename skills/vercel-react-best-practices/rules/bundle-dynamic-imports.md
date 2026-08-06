@@ -34,3 +34,9 @@ function CodePanel({ code }: { code: string }) {
   return <MonacoEditor value={code} />
 }
 ```
+
+> **Turbopack update (Next.js 16.2+):** destructured dynamic imports
+> (`const { X } = await import('./lib')`) are now tree-shaken the same as static imports. If you
+> were reaching for `next/dynamic` purely to dodge a barrel file's tree-shaking cost, that
+> workaround is obsolete — see `bundle-barrel-imports.md`. The lazy-loading use case above (keep a
+> heavy component out of the initial render) is a separate concern and still applies.

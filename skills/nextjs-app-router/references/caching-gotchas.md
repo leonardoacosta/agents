@@ -1,78 +1,105 @@
 
 # Caching Gotchas — Extended Reference
 
-## The 5 Caching Layers
+## The Caching Layers
 
-Next.js App Router has 5 independent caching layers. Each can serve stale data independently:
+Next.js 16 is **dynamic by default, with no hidden or implicit *data* caching.** That claim is
+about `fetch()` and DB queries — the static-vs-dynamic rendering model is unchanged. A route with
+no dynamic APIs still prerenders at build time; `cookies()`, `headers()`, and `searchParams` still
+de-opt it to per-request rendering, same as before 16. Once a route or function has opted into
+caching, there are two layers left, and both require an explicit opt-in:
 
 | Layer | Scope | Default | Invalidation |
 |-------|-------|---------|--------------|
 | **React cache()** | Per-request | Deduplicates within single render | Automatic (request-scoped) |
-| **fetch() cache** | Across requests | Cached indefinitely | `revalidate: N`, `cache: "no-store"`, `revalidateTag()` |
-| **Full Route Cache** | Vercel edge | Static pages cached at build | `revalidatePath()`, `revalidateTag()`, `export const revalidate = 0` |
-| **Router Cache** | Client browser | 30s dynamic, 5min static | `router.refresh()`, navigation, `revalidatePath()` from Server Action |
-| **unstable_cache** | Server process | Until explicitly invalidated | `revalidateTag("tag")` |
+| **fetch() (no cache config)** | Across requests | NOT cached — runs every request | n/a — pass `{ next: { revalidate: N } }` to opt in |
+| **`'use cache'`** | Server + client (route/component/function) | NOT cached unless the directive is present; once present, cached until invalidated/expired | `revalidateTag()`, `revalidatePath()`, or the entry's `revalidate` window |
+| **Router Cache (client)** | Client browser | Caches instant-navigation shells, not stale application data | Navigation, `router.refresh()`, `revalidatePath()` from a Server Action |
+
+`unstable_cache()` and the old implicit Full Route Cache (ISR-by-default) are both superseded by
+`'use cache'` — one primitive replaces both.
 
 ## Common Traps
 
-### Trap 1: fetch() caches by default
+### Trap 1: assuming fetch() is cached (it isn't)
+
 ```typescript
-// This response is cached FOREVER until you redeploy
+// This runs on every single request — nothing is cached
 const res = await fetch("https://api.example.com/data");
 
-// Fix: opt out of caching
-const res = await fetch("https://api.example.com/data", { cache: "no-store" });
-
-// Fix: time-based revalidation (60 seconds)
+// Opt in to caching explicitly
 const res = await fetch("https://api.example.com/data", { next: { revalidate: 60 } });
 ```
 
-### Trap 2: Vercel ISR serves stale pages
+Defensive `{ cache: "no-store" }` calls left over from a Next.js 15 app are now a no-op — dynamic
+is already the default. Harmless, but worth deleting as noise once you've confirmed nothing else
+in the call chain wraps the fetch in `'use cache'`.
+
+### Trap 2: a page silently stays cached because of `'use cache'`
+
 ```typescript
-// Page is cached for 30s on Vercel, even with fresh DB queries
-export default async function ProductsPage() {
-  const products = await db.query.product.findMany(); // Fresh query...
-  return <ProductList products={products} />;          // ...but Vercel serves cached HTML
+// Fresh DB query... but cached anyway, because of the directive
+async function getProducts() {
+  'use cache';
+  return db.query.product.findMany();
 }
 
-// Fix: opt out of ISR for this page
-export const revalidate = 0;
-// or use dynamic rendering triggers: cookies(), headers(), searchParams
+export default async function ProductsPage() {
+  const products = await getProducts();     // served from cache, not the DB
+  return <ProductList products={products} />;
+}
+
+// Fix: shorten or remove the cache window, or invalidate explicitly
+import { revalidateTag } from "next/cache";
+revalidateTag("products");
 ```
 
-### Trap 3: Router Cache shows old data after navigation
+Unlike Next.js 15's implicit ISR, this trap only exists where a `'use cache'` directive was
+written on purpose — grep for `'use cache'` when triaging "why is this stale" against a 16 app;
+absence of the directive means the page is not the cause.
+
+### Trap 3: Router Cache shows a stale shell after navigation
+
 ```typescript
 // User navigates /products -> /products/123 -> back to /products
-// Products page shows cached version, not fresh data!
+// Client-cached shell reappears before the fresh server render lands
 
 // Fix 1: In Server Action after mutation
 "use server";
 export async function deleteProduct(id: string) {
   await db.delete(product).where(eq(product.id, id));
-  revalidatePath("/products");  // Busts both server AND client cache
+  revalidatePath("/products");  // busts both server and client cache
 }
 
 // Fix 2: Client-side forced refresh
-router.refresh();  // Refetches current route from server
+router.refresh();  // refetches current route from server
 ```
 
-### Trap 4: unstable_cache without tags
+### Trap 4: `'use cache'` without a tag has no invalidation path
+
 ```typescript
-// Cached forever — no way to invalidate!
-const getProducts = unstable_cache(async () => db.query.product.findMany());
+// Cached, but nothing can ever invalidate it by name
+async function getProducts() {
+  'use cache';
+  return db.query.product.findMany();
+}
 
-// Fix: always add tags
-const getProducts = unstable_cache(
-  async () => db.query.product.findMany(),
-  ["products"],          // cache key
-  { tags: ["products"], revalidate: 3600 }  // tag + TTL
-);
+// Fix: tag it so a Server Action can target it
+import { cacheTag } from "next/cache";
 
-// Invalidate from Server Action
+async function getProducts() {
+  'use cache';
+  cacheTag("products");
+  return db.query.product.findMany();
+}
+
+// Invalidate from a Server Action
+import { revalidateTag } from "next/cache";
 revalidateTag("products");
 ```
 
 ### Trap 5: React.cache() doesn't cache across requests
+
 ```typescript
 // This only deduplicates within a SINGLE request/render
 import { cache } from "react";
@@ -82,12 +109,14 @@ const getUser = cache(async (id: string) => fetchUser(id));
 // Request 1: getUser("123") -> returns cached (same request!)
 // Request 2: getUser("123") -> fetches from DB again (new request!)
 
-// For cross-request caching, use unstable_cache:
-const getUser = unstable_cache(
-  async (id: string) => fetchUser(id),
-  ["user"],
-  { tags: [`user-${id}`], revalidate: 300 }
-);
+// For cross-request caching, wrap in 'use cache' instead:
+import { cacheTag } from "next/cache";
+
+async function getUser(id: string) {
+  'use cache';
+  cacheTag(`user-${id}`);
+  return fetchUser(id);
+}
 ```
 
 ## Decision: Which Cache to Use
@@ -98,9 +127,7 @@ Need to cache?
 │   └── React.cache() — per-request dedup, automatic cleanup
 ├── Same data across multiple user requests?
 │   ├── External API with fetch()? -> { next: { revalidate: N, tags: [...] } }
-│   └── DB query via ORM? -> unstable_cache with tags + TTL
-├── Entire page rarely changes?
-│   └── export const revalidate = 3600; (ISR)
+│   └── DB query, page, or component? -> 'use cache' + cacheTag()
 └── Data must always be fresh?
-    └── No caching: { cache: "no-store" } or export const revalidate = 0;
+    └── Do nothing — dynamic (no cache directive, no cache config) is the Next.js 16 default
 ```

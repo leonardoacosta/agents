@@ -3,7 +3,7 @@
   "managedBy": "agents-skill-projections/v1",
   "release": {
     "source": "https://github.com/leonardoacosta/skills.git",
-    "revision": "e1de9d9680ab028e4d0777ae23009081e43582ac"
+    "revision": "c11c370fdd4ae12a59b6ffb2c72f4ffc61c3529c"
   },
   "exclusions": {
     "dotnet": {
@@ -203,6 +203,7 @@
         "merge-to-main",
         "motion-and-transitions",
         "nextjs-app-router",
+        "nextjs-upgrade-audit",
         "open-work",
         "openapi-to-typescript",
         "playwright-auth",
@@ -259,6 +260,7 @@
         "frontend-design",
         "improve",
         "nextjs-app-router",
+        "nextjs-upgrade-audit",
         "open-work",
         "openapi-to-typescript",
         "qa-test-planner",
