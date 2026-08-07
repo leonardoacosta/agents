@@ -66,6 +66,7 @@ run_self_test() {
 
   output="$("$0" --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json" --lock-file "$fixture/agents/.skill-lock.json")"
   jq -s -e '[.[] | select(.action == "create" and .harness == "codex" and .skill == "firecrawl")] | length == 1' <<<"$output" >/dev/null || fail "self-test dry run did not plan a recorded missing projection"
+  jq -s -e '[.[] | select(.action == "create" and .harness == "codex" and .skill == "nextjs-upgrade-audit")] | length == 1' <<<"$output" >/dev/null || fail "self-test dry run rejected a release-manifest projection without an installer lock pin"
   jq -s -e '[.[] | select(.action == "replace" and .harness == "codex" and .skill == "frontend-design")] | length == 1' <<<"$output" >/dev/null || fail "self-test dry run did not plan recorded dangling-link repair"
   [[ ! -e "$fixture/home/.codex/skills/firecrawl" ]] || fail "self-test dry run mutated a projection"
   if "$0" --write --verified-release "$revision" --audited-release invalid --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json" --lock-file "$fixture/agents/.skill-lock.json" >/dev/null 2>&1; then
@@ -76,6 +77,8 @@ run_self_test() {
   jq -s -e '[.[] | select(.action == "protected-conflict" and .harness == "cursor" and .skill == "firecrawl")] | length == 1' <<<"$output" >/dev/null || fail "self-test did not preserve regular-directory conflict"
   [[ -d "$fixture/home/.cursor/skills/firecrawl" && ! -L "$fixture/home/.cursor/skills/firecrawl" ]] || fail "self-test overwrote protected directory"
   [[ "$(realpath -e "$fixture/home/.codex/skills/firecrawl")" == "$fixture/agents/skills/firecrawl" ]] || fail "self-test did not create canonical link"
+  [[ "$(realpath -e "$fixture/home/.codex/skills/nextjs-upgrade-audit")" == "$fixture/agents/skills/nextjs-upgrade-audit" ]] \
+    || fail "self-test did not create a release-manifest projection without an installer lock pin"
   # A skill pinned only by skills-lock.json (vendored third-party upstream, absent from the
   # installer lock) must project exactly like a release-pinned one.
   jq -e '.skills.cloudflare.sourceType == "github"' "$fixture/agents/skills-lock.json" >/dev/null \
@@ -143,21 +146,13 @@ expected_source="$(jq -r '.release.source' "$manifest")"
 vendor_lock="$agents_root/skills-lock.json"
 projection_home="$(realpath -m "$projection_home")"
 
-# A projection is legitimate under either provenance ledger. The installer-owned lock pins
-# skills materialized from the manifest's own release; skills-lock.json pins skills vendored
-# into this repository from a third-party upstream. Requiring the first alone stranded the
-# vendored lane outside projection entirely -- it could be materialized but never linked.
-skill_is_pinned() {
+# The release manifest is the authority for projection membership. Write mode separately requires
+# matching verified-release and audited-release attestations, so an obsolete installer lock must
+# not strand a manifest-recorded skill. The provenance ledgers remain supporting evidence for
+# materialization audits and third-party updates; they are not a second projection allowlist.
+skill_is_authorized() {
   local skill="$1"
-  jq -e --arg skill "$skill" --arg source "$expected_source" \
-    '.skills[$skill].sourceUrl == $source' "$lock_file" >/dev/null 2>&1 && return 0
-  [[ -r "$vendor_lock" ]] || return 1
-  jq -e --arg skill "$skill" '
-    .skills[$skill]
-    | (.sourceType == "github")
-      and (.source | type == "string" and length > 0)
-      and (.computedHash | type == "string" and length > 0)
-  ' "$vendor_lock" >/dev/null 2>&1
+  jq -e --arg skill "$skill" '[.harnesses[].skills[]] | index($skill) != null' "$manifest" >/dev/null
 }
 
 while IFS= read -r harness; do
@@ -173,8 +168,8 @@ while IFS= read -r harness; do
   while IFS= read -r skill; do
     candidate="$root/$skill"
     target="$store/$skill"
-    if ! skill_is_pinned "$skill"; then
-      emit "source-unpinned" "$harness" "$skill" "$candidate" "neither lock pins this projection"
+    if ! skill_is_authorized "$skill"; then
+      emit "source-unpinned" "$harness" "$skill" "$candidate" "skill is absent from the release manifest"
     elif [[ ! -d "$target" ]]; then
       emit "source-missing" "$harness" "$skill" "$candidate" "canonical materialization is absent"
     elif [[ -L "$candidate" ]]; then

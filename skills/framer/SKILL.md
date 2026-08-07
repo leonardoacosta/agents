@@ -1,7 +1,7 @@
 ---
 name: framer
 description: >
-  Use when the user wants to design, edit, or publish a website or web page — creating layouts, editing sections, updating text or images, managing CMS collections and content, syncing external data, creating or modifying code components, managing color and text styles, handling localization, or publishing deployments. Trigger when the user mentions Framer, references their website or web pages, asks to edit designs, update site content, or work with any Framer project — even if they don't explicitly say 'Framer'.
+  Use when the user wants to design, edit, analyze, or publish a website or web page — creating layouts, editing sections, updating text or images, querying site analytics, managing CMS collections and content, syncing external data, creating or modifying code components, managing color and text styles, handling localization, or publishing deployments. Trigger when the user mentions Framer, references their website or web pages, asks to edit designs, update site content, analyze site traffic or conversions, or work with any Framer project — even if they don't explicitly say 'Framer'.
   **Mandatory precondition**: run `npx @framer/agent@latest setup` and let it complete **BEFORE** loading this skill.
 allowed-tools:
   - 'Bash(npx @framer/agent:*)'
@@ -16,12 +16,14 @@ If you didn't run this command before loading the skill, run it now:
 ```bash
 npx @framer/agent@latest setup
 ```
+You do not need to ever re-run `setup` within a conversation.
 
 ## Capabilities
 
 What you can do with the Framer CLI:
 
 - **Canvas Editing**: For design tasks — creating or editing pages, sections, layouts, recreating designs from screenshots, etc.
+- **Analytics**: Query traffic, visitors, page views, conversions, and events.
 - **CMS**: Create, read, update, delete collections and items. Sync external databases.
 - **Styles**: Manage color and text styles. Sync design systems.
 - **Code Components**: Create, edit, type-check, and add custom React components to the canvas.
@@ -47,7 +49,7 @@ npx @framer/agent@latest project list
 
 Use that list to infer the likely project from the names and recency. If the right project is already known, use its project ID with `session new`. If there are multiple possible matches, clarify with the user. Only ask the user for a Project URL if there is no clear match. Avoid talking about the technical contents of returned data like IDs.
 
-Each session maintains a persistent connection to a Framer project. Use sessions to keep state separate between different tasks, persist data across multiple execute calls, and reuse the `framer` API instance without reconnecting.
+Each session maintains a persistent connection to a Framer project. Reuse it for every task and follow-up on that project throughout the conversation to preserve state. Creating a replacement session may cause the next edit to create another branch when auto-branching is enabled.
 
 Create a session against an existing project:
 
@@ -93,9 +95,9 @@ projects/<safeProjectId>/
 The generated `project-inventory.md` includes a snapshot of project context from `framer.agent.getContext()`, including pages, components, CMS data, styles, fonts, icons, and IDs when available.
 The source template for generated project files lives at `projects/__template__/`. Files ending in `.template.md` are rendered into generated files without the `.template` marker.
 
-Before editing, read `projects/<safeProjectId>/index.md` first. It contains a **task map**: read every item marked required in its "Always" row, including `prompt/critical-reminders.md`, then the row that matches your work — and every additional row a multi-domain task touches. The map routes you to the exact `prompt/` sections, `recipes.md` entries, and implementation guides for that task; read only what the map points to.
+Always read `projects/<safeProjectId>/index.md`. It contains a **task map**: read every item in its "Anything" row, including `prompt/critical-reminders.md`, then the row that matches your work — and every additional row a multi-domain task touches. The map routes you to the exact `prompt/` sections, `recipes.md` entries, and implementation guides for that task; read only what the map points to.
 
-Read `projects/<safeProjectId>/project-inventory.md` before using project-specific IDs, page paths, component names, CMS collection names, style preset names, or icon names. Treat it as a generated snapshot; when the project may have changed, use `npx @framer/agent@latest read-project` for fresh live project state.
+Read `projects/<safeProjectId>/project-inventory.md` before using project-specific IDs, page paths, component names, CMS collection names, style preset names, or icon names. Treat it as a generated snapshot; when the project may have changed, use the live tree-inspection methods below before relying on IDs or names.
 
 Use `projects/<safeProjectId>/recipes.md` as reference material for static CMS, image, plugin data, localization, and limitations examples. Do not read all recipes by default; follow the pointers in the task map.
 
@@ -107,35 +109,29 @@ If the user explicitly asks to prompt the Framer agent, use `startConversation`,
 
 ## Required Workflow
 
-Every connected-project task follows these steps:
+Every connected-project conversation follows these steps:
 
-1. Run `session new` and keep the returned session ID.
+1. Run `session new` once, then reuse the returned session ID for every subsequent message and change in that conversation.
 2. Read the generated project `index.md` and follow its task map to the relevant sections.
-3. Look up current API docs before every new API method use.
-4. Execute code through the CLI with `-s <sessionId>`.
-5. Store reusable results in `state`.
-6. Review or read back changes before reporting completion.
+3. Execute code through the CLI with `-s <sessionId>`.
+4. Store reusable results in `state`.
+5. Review or read back changes before reporting completion.
 
 ### API Documentation
 
-Run `npx @framer/agent@latest docs` before writing code that uses a method you have not already verified in this task. Do not guess method names or signatures.
+Use `npx @framer/agent@latest docs` only for regular `framer.*` plugin API methods whose signatures are not already present in the generated project prompt.
 
 ```bash
-npx @framer/agent@latest docs
 npx @framer/agent@latest docs Collection
 npx @framer/agent@latest docs Collection.getItems
-npx @framer/agent@latest docs framer.agent.applyChanges
 ```
-
-`docs` with no arguments lists available methods. Looking up a class shows its full definition without expanding referenced types. Looking up a specific method or type automatically expands referenced types recursively.
 
 ### Method Selection
 
 Prefer `framer.agent.*` methods over regular plugin API methods when an agent-specific method exists.
 
-- Use `npx @framer/agent@latest read-project` and `npx @framer/agent@latest apply-changes` when possible. It is still ok to call `framer.agent.readProject` or `framer.agent.applyChanges` in exec scripts if the task needs more complex logic than a plain CLI call.
-- Use `framer.agent.getNode`, `getNodes`, `getNodesOfTypes`, `getDescendantsOfTypes`, `getDescendantReferencesOfTypes`, `getRect`, `getScopeNode`, `getGroundNode`, `getParentNode`, `getAncestors`, `serialize`, `serializeNodes`, and `paginate` for project tree reads. In exec scripts, use the VM globals `walkWithSkipChildren` and `getInnerText` for local traversal of serialized nodes.
-- Do not use `npx @framer/agent@latest read-project` or `framer.agent.readProject` for node tree reads unless you have just checked current docs and confirmed the exact query type. Query shapes such as `{ type: "node-by-id" }` are not valid for the current local API.
+- Use `npx @framer/agent@latest apply-changes` when possible. It is still ok to call `framer.agent.applyChanges` in exec scripts if the task needs more complex logic than a plain CLI call.
+- Use `framer.agent.getNode`, `getNodes`, `getNodesOfTypes`, `getDescendantsOfTypes`, `getDescendantReferencesOfTypes`, `getRect`, `getScopeNode`, `getGroundNode`, `getParentNode`, `getAncestors`, `serialize`, `serializeNodes`, and `paginate` for live project tree reads. In exec scripts, use the VM globals `walkWithSkipChildren` and `getInnerText` for local traversal of serialized nodes.
 - Use `framer.agent.readComponentControls`, `readIconSetControls`, `readIcons`, `readLayoutTemplateControls`, and `readShaderControls` for reading controls of components, icon sets, icons, layout templates, and shaders.
 - Use `framer.agent.applyChanges` for page, layout, style, CMS-on-canvas, component, and design-token edits when possible. Do not use low-level node APIs like `createNode`, `setAttributes`, or `setRect` for design/layout work.
 - Use `framer.agent.publish` for publishing. Do not use `publish`, `getDeployments`, or `deploy` for normal agent publishing flows.
@@ -145,15 +141,30 @@ Prefer `framer.agent.*` methods over regular plugin API methods when an agent-sp
 
 ### Execute Code
 
-Prefer writing code to a unique file under `/tmp/framer/` and executing it with `-f`. Do not create code files with shell heredocs or `cat`.
-
-Name files `<sessionId>-<short-summary>.js`, for example `1-read-collections.js`.
+For multiline or non-trivial code, use one `exec` call and send the code on stdin. In POSIX shells, use a quoted heredoc so the shell cannot expand `$`, backticks, or command substitutions in the JavaScript:
 
 ```bash
-npx @framer/agent@latest exec -s 1 -f /tmp/framer/1-read-collections.js
+npx @framer/agent@latest exec -s 1 <<'FRAMER_EXEC'
+const collections = await framer.getCollections();
+state.collections = collections;
+console.log(collections);
+FRAMER_EXEC
 ```
 
-For short snippets, `exec` also accepts `-e <code>` or code piped on stdin.
+In Windows PowerShell, use the equivalent single-quoted here-string to prevent interpolation and pipe it to `exec`:
+
+```powershell
+@'
+const projectInfo = await framer.getProjectInfo();
+console.log(projectInfo);
+'@ | npx @framer/agent@latest exec -s 1
+```
+
+For genuinely short snippets, use `-e <code>`:
+
+```bash
+npx @framer/agent@latest exec -s 1 -e 'console.log(await framer.getProjectInfo())'
+```
 
 ### Use `state`
 

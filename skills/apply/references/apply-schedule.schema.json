@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agents.local/schemas/apply-schedule.schema.json",
+  "title": "Canonical Apply Scheduling Sidecar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sources", "requires", "inputs", "writes", "preferences", "projection", "extensions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proposal_sha256", "tasks_contract_sha256", "base_commits"],
+      "properties": {
+        "proposal_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "tasks_contract_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "base_commits": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{40}$"}}
+      }
+    },
+    "requires": {"type": "array", "items": {"$ref": "#/$defs/requirement"}},
+    "inputs": {"type": "array", "items": {"$ref": "#/$defs/input"}},
+    "writes": {"type": "array", "items": {"$ref": "#/$defs/write"}},
+    "preferences": {"type": "array", "items": {"$ref": "#/$defs/preference"}},
+    "projection": {
+      "type": "object", "additionalProperties": false,
+      "required": ["feature_bead", "managed_requires"],
+      "properties": {"feature_bead": {"type": ["string", "null"]}, "managed_requires": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}
+    },
+    "extensions": {"type": "object", "additionalProperties": {"type": "object"}}
+  },
+  "$defs": {
+    "consume": {"type": "object", "additionalProperties": false, "required": ["path", "contract"], "properties": {"path": {"type": "string", "minLength": 1}, "contract": {"type": "string", "minLength": 1}}},
+    "requirement": {
+      "type": "object", "additionalProperties": false, "required": ["change", "outcome", "consumes", "reason"],
+      "properties": {
+        "change": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        "outcome": {"type": "object", "required": ["kind"], "additionalProperties": false, "properties": {"kind": {"enum": ["tasks", "implementation", "feature-complete", "external-capability"]}, "tasks": {"type": "array", "items": {"type": "string", "pattern": "^\\d+(?:\\.\\d+)+$"}, "uniqueItems": true}}},
+        "consumes": {"type": "array", "items": {"$ref": "#/$defs/consume"}},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "input": {"type": "object", "additionalProperties": false, "required": ["path", "git_blob", "contract"], "properties": {"path": {"type": "string", "minLength": 1}, "git_blob": {"type": "string", "pattern": "^[0-9a-f]{40,64}$"}, "contract": {"type": "string", "minLength": 1}}},
+    "write": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string", "minLength": 1}}},
+    "preference": {"type": "object", "additionalProperties": false, "required": ["relation", "change", "reason"], "properties": {"relation": {"enum": ["before", "after"]}, "change": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"}, "reason": {"type": "string", "minLength": 1}}}
+  }
+}

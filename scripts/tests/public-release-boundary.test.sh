@@ -83,8 +83,9 @@ done
 
 [[ -z "$(find "$repo_root" -path "$repo_root/.git" -prune -o -type f -name '*.pyc' -print)" ]] \
   || fail 'generated Python bytecode remains'
-[[ -z "$(find "$repo_root/skills/framer/projects" -mindepth 1 -maxdepth 1 -type d ! -name '__template__' -print)" ]] \
-  || fail 'generated Framer project context remains'
+[[ -z "$(git -C "$repo_root" ls-files 'skills/framer/projects/*' \
+  | grep -v '^skills/framer/projects/__template__/' || true)" ]] \
+  || fail 'tracked generated Framer project context remains'
 if grep -RIlE '/home/[^/]+/dev/agents' "$repo_root/skills" >/dev/null; then
   fail 'a personal absolute agents path remains'
 fi

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agents.local/schemas/wave-plan.schema.json",
+  "title": "Canonical Apply Wave Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "plan_id", "status", "plan_revision", "spec_names", "dependency_map", "conflict_map", "waves", "provenance", "lineage", "revision_audit", "extensions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "plan_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["pending", "queued", "paused", "in_progress", "completed", "imported"]},
+    "plan_revision": {"type": "integer", "minimum": 1},
+    "spec_names": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "dependency_map": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}},
+    "conflict_map": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}},
+    "waves": {"type": "array", "items": {"type": "object"}},
+    "provenance": {"type": "object"},
+    "lineage": {"type": "object", "additionalProperties": false, "required": ["predecessor", "migration_source"], "properties": {"predecessor": {"type": ["string", "null"]}, "migration_source": {"type": ["string", "null"]}}},
+    "revision_audit": {"type": "array", "items": {"type": "object"}},
+    "pending_replan": {"type": ["object", "null"]},
+    "extensions": {"type": "object", "additionalProperties": {"type": "object"}},
+    "generated_at": {"type": "string"}, "generated_by": {"type": "string"}, "run_id": {"type": "string"},
+    "current_wave": {"type": "integer"}, "current_phase": {"type": ["string", "null"]},
+    "completed_waves": {"type": "array"}, "completed_specs": {"type": "array"}, "failed_specs": {"type": "array"},
+    "decisions": {"type": "array"}, "runtime": {"type": "object"}, "run_policy": {"type": "object"},
+    "dynamic": {"type": "object"}, "mega_batch_state": {"type": "object"}, "smoke_verification": {"type": "object"}
+  }
+}

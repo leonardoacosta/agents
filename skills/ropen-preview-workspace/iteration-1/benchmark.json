@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "skill_name": "ropen-preview",
+    "skill_path": "skills/ropen-preview",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-08-07T16:11:50Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses ropen as the preview transport",
+          "passed": true,
+          "evidence": "The response checks ropen and plans `ropen -q` on the generated file."
+        },
+        {
+          "text": "Keeps preview state outside the repository in a private runtime directory",
+          "passed": true,
+          "evidence": "It selects XDG_RUNTIME_DIR or a private mktemp directory and forbids repository state."
+        },
+        {
+          "text": "Does not start or propose a localhost preview server",
+          "passed": true,
+          "evidence": "It explicitly stops instead of starting a fallback server."
+        },
+        {
+          "text": "Uses self-contained content and requests feedback in chat",
+          "passed": true,
+          "evidence": "It specifies inline content without CDNs and asks for the choice in chat."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reports that ropen is unavailable",
+          "passed": true,
+          "evidence": "It identifies the missing command as the blocking precondition."
+        },
+        {
+          "text": "Does not start a localhost server or expose a port",
+          "passed": true,
+          "evidence": "It explicitly refuses a fallback localhost server and port exposure."
+        },
+        {
+          "text": "Does not silently choose another transport",
+          "passed": true,
+          "evidence": "It stops and asks for ropen to become available."
+        },
+        {
+          "text": "Leaves the artifact local pending a user decision",
+          "passed": true,
+          "evidence": "It performs no deletion, preview creation, or fallback action, so the generated report remains local."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Updates the existing artifact rather than creating a new preview URL",
+          "passed": true,
+          "evidence": "It preserves the stable artifact path and states that no new URL is created."
+        },
+        {
+          "text": "Invokes ropen on the same absolute path to refresh the tab",
+          "passed": true,
+          "evidence": "It plans `ropen -q` on the same absolute artifact path."
+        },
+        {
+          "text": "Does not start another server or alter networking",
+          "passed": true,
+          "evidence": "It explicitly forbids server and network changes."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.25,
+        "passed": 1,
+        "failed": 3,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses ropen as the preview transport",
+          "passed": false,
+          "evidence": "The baseline does not discover ropen and asks the user to provide a transport."
+        },
+        {
+          "text": "Keeps preview state outside the repository in a private runtime directory",
+          "passed": true,
+          "evidence": "It plans a private temporary directory."
+        },
+        {
+          "text": "Does not start or propose a localhost preview server",
+          "passed": false,
+          "evidence": "It proposes a bounded HTTP server after approval."
+        },
+        {
+          "text": "Uses self-contained content and requests feedback in chat",
+          "passed": false,
+          "evidence": "It proposes self-contained HTML but asks for transport approval instead of preview feedback."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reports that ropen is unavailable",
+          "passed": true,
+          "evidence": "It reports the missing command."
+        },
+        {
+          "text": "Does not start a localhost server or expose a port",
+          "passed": true,
+          "evidence": "It refuses server and port fallback."
+        },
+        {
+          "text": "Does not silently choose another transport",
+          "passed": true,
+          "evidence": "It stops rather than choosing another transport."
+        },
+        {
+          "text": "Leaves the artifact local pending a user decision",
+          "passed": false,
+          "evidence": "It does not explicitly preserve or identify the existing generated report."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Updates the existing artifact rather than creating a new preview URL",
+          "passed": true,
+          "evidence": "The prompt exposes the existing path and the baseline reuses it."
+        },
+        {
+          "text": "Invokes ropen on the same absolute path to refresh the tab",
+          "passed": true,
+          "evidence": "The baseline plans ropen on the same path."
+        },
+        {
+          "text": "Does not start another server or alter networking",
+          "passed": true,
+          "evidence": "The plan contains no server or network changes."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6667,
+        "stddev": 0.3819,
+        "min": 0.25,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.33",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "The skill's strongest gain is transport discovery for a new remote preview: the baseline proposed another HTTP server, while the skill selected ropen and private runtime state.",
+    "The refresh and missing-command prompts name ropen directly, so they are intentionally non-discriminating near-misses; they mainly validate stable-path refresh and no-fallback safety behavior.",
+    "Evaluations were plan-only to avoid browser, server, and network side effects; timing and token telemetry were unavailable from the collaboration harness."
+  ]
+}

@@ -5,6 +5,20 @@ description: Execute one approved feature or an ordered feature queue through im
 
 # Apply
 
+## Canonical scheduling interchange
+
+All harnesses MUST validate and emit the shared JSON contracts in
+`references/apply-schedule.schema.json` and `references/wave-plan.schema.json`. Canonical scheduling
+fields have the same meaning in every harness. Harness-private runtime data belongs only under
+`extensions.<harness>` and cannot override dependency, conflict, frontier, provenance, revision, or
+lineage fields.
+
+Execution MUST reject missing, stale, invalid, unsupported, or legacy scheduling inputs. Legacy
+plans are migration inputs only. A harness MAY expose an explicit, disabled-by-default migration
+gate that creates a separate canonical successor while leaving the source byte-for-byte unchanged.
+No gate may enable legacy execution, resume, fallback parsing, automatic normalization, or in-place
+legacy mutation.
+
 Use this skill after proposal authoring has produced approved, executable work. It defines portable
 lifecycle outcomes and safety invariants; the active harness remains responsible for its own tools,
 workers, state, scheduling, and command surface.

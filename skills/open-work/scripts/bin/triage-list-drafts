@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # triage-list-drafts — Scan openspec/changes/<slug>/proposal.md and emit JSON list
-# of candidate proposals in topological order by `depends on:` hints.
+# of candidate proposals in topological order by canonical scheduling sidecars.
 #
 # Convention: scripts-as-data-producers:
 #   * --json on stdout is the only contract.
@@ -359,9 +359,24 @@ def collect_drafts(changes_dir):
         except OSError:
             continue
         fm = parse_frontmatter(text)
-        ctx_match = CONTEXT_RE.search(text)
-        ctx_text = ctx_match.group(1) if ctx_match else ""
-        deps = extract_depends(ctx_text)
+        sidecar_path = os.path.join(slug_dir, ".apply-schedule.json")
+        try:
+            with open(sidecar_path, encoding="utf-8") as sidecar_file:
+                schedule = json.load(sidecar_file)
+        except FileNotFoundError as exc:
+            raise ValueError(f"{entry}: canonical scheduling sidecar is missing; run /feature --continue {entry}") from exc
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ValueError(f"{entry}: invalid canonical scheduling sidecar: {exc}") from exc
+        required = {"schema_version", "sources", "requires", "inputs", "writes", "preferences", "projection", "extensions"}
+        unknown = set(schedule) - required
+        if schedule.get("schema_version") != 1 or not required.issubset(schedule) or unknown:
+            raise ValueError(f"{entry}: unsupported or noncanonical scheduling sidecar")
+        deps = []
+        for requirement in schedule.get("requires", []):
+            change = requirement.get("change") if isinstance(requirement, dict) else None
+            if not isinstance(change, str):
+                raise ValueError(f"{entry}: invalid requires entry in canonical scheduling sidecar")
+            deps.append(change)
         after_slug, after_reason = parse_after(fm)
         sum_match = SUMMARY_RE.search(text)
         summary = first_paragraph(sum_match.group(1) if sum_match else "")
