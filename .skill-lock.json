@@ -657,6 +657,15 @@
       "skillFolderHash": "3afd63f057bf21733a729c2cad29cd7c3c0dc358",
       "installedAt": "2026-08-02T22:12:51.468Z",
       "updatedAt": "2026-08-02T22:12:51.468Z"
+    },
+    "scheduled-jobs": {
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
+      "skillPath": "leo-core/skills/scheduled-jobs/SKILL.md",
+      "skillFolderHash": "eae4b79ea91715a853d2e1894ff550ede950417f93a23e7a2857aeef9280ba86",
+      "installedAt": "2026-08-07T04:24:39.000Z",
+      "updatedAt": "2026-08-07T04:24:39.000Z"
     }
   },
   "dismissed": {
