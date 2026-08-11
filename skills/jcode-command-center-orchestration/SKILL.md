@@ -19,8 +19,8 @@ version-sensitive Orca commands. Load the matching generic Orca skill for mechan
 
 - Jcode owns initiatives, milestones, blockers, schedules, permissions, approvals,
   idempotency, rollback intent, checkpoints, and durable outcomes.
-- Orca owns canonical repository/project identity, worktrees, Runs, Tasks, Dispatches,
-  workers, terminals, gates, messages, and runtime health.
+- Orca owns distinct canonical Project, Repository, and host/setup identity plus worktrees,
+  Runs, Tasks, Dispatches, workers, terminals, gates, messages, and runtime health.
 - Browser and desktop UI state is transient. It cannot settle durable outcomes.
 - A runtime observation is evidence, not authority. Settle Jcode state only from a verified,
   correlated receipt that satisfies the declared preconditions.
@@ -51,16 +51,17 @@ selection matrix, schedule interaction, replay behavior, cleanup, and recovery.
 Keep these domains distinct:
 
 - Jcode initiative ID and Jcode run ID
-- Orca canonical repository/project ID
-- Orca Run ID
-- Task ID and Dispatch ID
-- worktree and terminal handles
+- Orca Project ID, Repository ID, and environment/host ProjectHostSetup ID
+- Orca Run ID as a namespace and inbox, not a scheduler
+- Task ID for the work contract and Dispatch ID for one attempt and its lifecycle
+- worktree and terminal handles for placement and routing
 - correlation ID and idempotency ID
 - runtime ID only as runtime-health metadata
 
-Never place Orca runtime ID in a project-ID field. Resolve canonical identity through the
-version-matched Orca repository/project lookup. Zero matches, multiple matches, command
-failure, or an unknown schema means unresolved identity and a fail-closed result.
+Never place Orca runtime ID in a project-ID field. Resolve Project, Repository, and host/setup
+identity separately through the version-matched Orca lookup surfaces. Scope paths to the
+selected environment and host setup. Zero matches, multiple matches, command failure, or an
+unknown schema means unresolved identity and a fail-closed result.
 
 ## Mutate safely
 
@@ -68,10 +69,17 @@ Before mutation, record durable intent, authorization, preconditions, correlatio
 idempotency. Offer only capabilities verified from the selected Orca runtime and adapter.
 Do not invent a CLI command from memory.
 
+Before selecting an executable pattern, report the capabilities exposed by both the live Orca
+runtime and the installed Jcode adapter. The currently shipped status-only adapter is
+observation-only: launch, retry, and cancel remain unavailable until separately implemented
+and verified. Never infer adapter support from Orca CLI support alone.
+
 On retry or cancellation, compare the current observed state with the command precondition.
 On crash recovery, reconcile the stored idempotency envelope against Orca evidence before
-issuing another dispatch. On partial cleanup, record each released resource and mark the
-remainder recovery-required.
+issuing another dispatch. If worker termination is uncertain, abandon or fence the Dispatch
+rather than claiming it stopped. Retain resources intentionally for live debugging. Release a
+worker, terminal, or worktree only after settlement and verified cleanup evidence. Record each
+released resource and mark any remainder recovery-required.
 
 Read [references/capability-and-evidence.md](references/capability-and-evidence.md) before
 implementing or approving a mutation.

@@ -53,21 +53,30 @@ same way in POSIX shells, PowerShell, and cmd.exe.
 If the selected executable cannot run, report its exact error and stop. Do not fall through
 to another executable, which could silently target a different Orca build.
 
-## Direct Jcode launch for model-specific workers
+## Model-specific supervised workers
 
-When the user specifies a model, provider, or effort that Orca's built-in launcher cannot
-express, do not route the work through a coordinator prompt merely to make that coordinator
-delegate it. Launch the requested Jcode CLI directly in the isolated worktree instead:
+Prefer Orca's native supervised launcher whenever it can express the requested worker:
 
-1. Create the Orca child worktree first.
-2. Start the worker with the requested model at process startup, not in the task prompt. For Codex through Herdr, pass CLI arguments after `--`, for example:
-   `herdr agent start <name> --kind codex --pane <pane> --timeout 120000 -- -m gpt-5.5 -c model_reasoning_effort="low"`
-   Use the configured OAuth profile/provider for the session, or pass the explicit Codex `-p <profile>` when the provider/profile is not the default. Verify the rendered status line shows the requested model before sending work. A prompt saying “use GPT-5.5” does not change the running Jcode model. It only instructs the current model to delegate, which is a different and usually needless hop.
-3. Send the full task contract directly to that instance, including scope, checklist rules, validation commands, commit/no-merge policy, and reporting fields.
-4. Keep the Orca task graph as the coordination and audit record. If the Herdr terminal handle is not addressable by Orca's supervised-worker API, record the terminal/worktree IDs and update the Orca task status/result manually from the coordinator.
-5. Launch a separate direct Jcode reviewer in another terminal for review. Never use a Claude model when the user has prohibited it.
+```text
+ORCA orchestration worker-start ... --model <id> --effort <level>
+```
 
-This avoids a needless coordinator delegation hop while preserving isolated worktrees, model fidelity, dependency gates, verification evidence, and merge decisions. Treat the direct Jcode instance as the worker and the main thread as the supervisor, not as an intermediate prompt relay.
+Read the version-matched orchestration guide for the complete current call shape. Native
+`worker-start` preserves Dispatch provenance, lifecycle ownership, messaging, gates, and
+recovery. Do not bypass it merely to select a model or effort level.
+
+Use a direct Jcode or Codex launch only when the current Orca launcher cannot express a
+required provider or process argument. In that exceptional path:
+
+1. Create or reuse the Orca worktree first.
+2. Record that the worker is outside Orca's supervised-worker lifecycle.
+3. Preserve the Task, Dispatch, worktree, terminal, model, and correlation identifiers.
+4. Do not imply worker messaging, heartbeats, stop, abandon, retain, release, or recovery are
+   available unless separately verified.
+5. Reconcile the external result into Orca and Jcode only from explicit evidence.
+
+A direct launch trades lifecycle integration for an otherwise unsupported process shape. It is
+not the default optimization path.
 
 ## Headless runtime recovery
 

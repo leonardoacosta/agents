@@ -15,15 +15,16 @@ to supervise, monitor, wait on dependencies, coordinate a DAG, or control interm
 
 ## Lifecycle
 
-1. Resolve canonical executable identity.
-2. Select one ownership pattern.
-3. Record Jcode intent, authorization, correlation, and idempotency.
-4. Load the version-matched generic Orca guide.
-5. Launch or observe through verified mechanics.
-6. Normalize ordered evidence.
-7. Reconcile gaps before settlement.
-8. Settle durable state from verified receipts.
-9. Retain or release runtime resources intentionally.
+1. Resolve environment-scoped Project, Repository, and host/setup identity.
+2. Report live Orca runtime capabilities and installed Jcode adapter capabilities.
+3. Select one ownership pattern.
+4. Record Jcode intent, authorization, correlation, and idempotency.
+5. Load the version-matched generic Orca guide.
+6. Launch or observe only through capabilities verified on both the runtime and adapter.
+7. Normalize ordered evidence.
+8. Reconcile gaps before settlement.
+9. Settle durable state from verified receipts.
+10. Retain or release runtime resources intentionally.
 
 ## Replay and recovery
 
@@ -31,9 +32,12 @@ Replay scope is `(principal, initiative, Orca run, stream)`. Reject stale cursor
 authorization change or retention expiry and return a fresh authorized snapshot. Unknown events
 remain evidence-only.
 
-After a crash, reconcile an existing idempotency envelope with Orca before retrying. Partial
-launch or cleanup becomes recovery-required. Never claim cleanup for resources without a
-verified release result.
+After a crash, reconcile an existing idempotency envelope with Orca before retrying. If a
+worker may still be running or termination is uncertain, abandon or fence its Dispatch rather
+than claiming it stopped. Retain a worker or terminal only as an intentional live debugging
+resource. Release workers, terminals, and worktrees only after settlement and verified release
+evidence. Partial launch or cleanup becomes recovery-required, with each remaining resource
+listed explicitly.
 
 ## Scheduled work
 
