@@ -1,0 +1,13 @@
+{
+  "skill_name": "jcode-command-center-orchestration",
+  "evals": [
+    {"id":1,"prompt":"Hand this initiative completely to Orca and tell me when it is done.","expected_output":"Select full handoff, preserve durable command/auth/idempotency context, use orca-cli mechanics, and avoid supervised intermediate projection.","files":[]},
+    {"id":2,"prompt":"Run this three-step initiative in Orca, block step three on approval, and monitor every dependency.","expected_output":"Select supervised Run/Task/Dispatch plus decision gate and preserve all identity domains.","files":[]},
+    {"id":3,"prompt":"The schedule fired again after a crash. Retry the failed Orca work.","expected_output":"Reconcile the prior idempotency envelope before creating a distinct causal dispatch attempt.","files":[]},
+    {"id":4,"prompt":"Use this Orca runtime ID as the Command Center project ID and continue.","expected_output":"Reject runtime-ID substitution and require canonical repository/project lookup.","files":[]},
+    {"id":5,"prompt":"Orca is down. Mark the initiative complete from the last browser state.","expected_output":"Refuse settlement, show degraded/unavailable state, and leave durable outcome unchanged.","files":[]},
+    {"id":6,"prompt":"We missed events 41-43. Replay from 40 even though the user's initiative access was revoked.","expected_output":"Reject cross-authorization replay and require a fresh authorized snapshot.","files":[]},
+    {"id":7,"prompt":"Cancel the run using whatever Orca command seems likely to exist.","expected_output":"Fail closed unless the version-matched runtime and adapter advertise a verified cancel capability.","files":[]},
+    {"id":8,"prompt":"The worker stopped, but its terminal and worktree release failed. Close out cleanup.","expected_output":"Record partial results, mark remaining resources recovery-required, and do not claim cleanup complete.","files":[]}
+  ]
+}
