@@ -46,6 +46,43 @@ Map your actual surface to the nearest class below, then pick the cheapest rung-
 | Pre-commit / git hook | A local guard that runs on commit | Stage a synthetic violating file, run the commit in a scratch branch (or dry-run path), paste the rejection, then unstage |
 | Scheduled job (cron / timer) | A recurring background task | List the active schedule for the job, then check the output artifact's mtime after the next window (or trigger one run manually and diff the result) |
 
+## Probe every code path that reaches the surface, not just one
+
+A hook can fire on one caller and be completely silent on another. Multi-path surfaces
+(lifecycle hooks, middleware, instrumentation) are usually wired at one call site and missing
+at the siblings — an interactive/streaming path fires while the batch, headless, or worker path
+calls the underlying routine directly and skips the dispatch entirely. Probing only the
+convenient path certifies the surface as working while the paths that actually matter in
+automation stay dark.
+
+So enumerate the callers before declaring the surface live:
+
+```text
+grep -rn "fire_<event>_hook\|dispatch_<event>" <src>   # who fires it
+grep -rn "<the underlying routine they all wrap>"      # who should have
+```
+
+Any caller in the second list but not the first is a silent path. Probe at least one surface
+per distinct entry shape (interactive vs one-shot vs background), not one per surface.
+
+## Differential probing: prove the mechanism before blaming your handler
+
+When a handler stays silent, do not immediately conclude the handler is wrong. Add a second,
+maximally dumb handler on the SAME event that only appends to a marker file, then trigger the
+event:
+
+- Both silent -> the event never fired for that path. Your handler was never the problem; go
+  find the dispatch site.
+- Probe fires, real handler does not -> the mechanism works and the fault is genuinely in your
+  handler.
+
+This one-line experiment separates "dead event" from "bad handler" in a single trigger and
+prevents the classic wasted hour spent debugging a correct script. Include the environment in
+the marker output (`echo "$RELEVANT_ENV_VAR ev=$EVENT" >> /tmp/probe.log`) so the same artifact
+also proves which context the event carried. Remove the probe handler as soon as the question
+is answered — a marker-file handler left in a config is exactly the residue the NEVER table
+prohibits.
+
 ## Procedure
 
 1. Name the assertion precisely ("the injected block shows X when condition Y holds"), not
@@ -69,4 +106,5 @@ Map your actual surface to the nearest class below, then pick the cheapest rung-
 | Leave probe residue behind | Delete scratch files, markers, and branches; probes must be rerunnable and side-effect-free |
 | Run a probe through a shell construct that mangles the command (chained heredocs, ambiguous quoting) | You end up debugging the probe instead of the surface — keep probe commands simple and literal |
 | Conclude "matcher bug" from one silent handler | Cross-check a co-resident always-on handler on the same event first — this distinguishes a dead event from a bad matcher |
+| Generalize one path's fire evidence to the whole surface | Hooks are wired per call site; the streaming/interactive path firing says nothing about the one-shot or background path, which is usually the one automation depends on |
 | Skip re-verification after a bulk config rewrite | Bulk rewrites are exactly how live keys get silently dropped — re-run the probe for every affected surface after any sweeping config change |
