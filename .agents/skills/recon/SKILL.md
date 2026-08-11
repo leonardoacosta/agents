@@ -24,13 +24,23 @@ not to this skill package or the calling harness.
 Resolve one invocation before reading or acquiring evidence:
 
 1. Prefer `command -v recon`. Accept it only when `recon --version` succeeds and
-   `recon doctor --json --vault "$RECON_VAULT"` reports `ready` for the declared canonical vault.
+   `recon doctor --json` reports `ready`. Activation READS the resolved workspace; it never supplies
+   one. Pass `--profile <name>` to select a scope, and `--vault` only when the caller explicitly
+   supplied a root — do not synthesize `--vault "$RECON_VAULT"` when that variable is unset, which
+   resolves an empty path instead of the configured root. `doctor`'s `workspace` object names the
+   root and which source chose it (`cli`, `env:RECON_VAULT`, `profile`, `default:RECON_HOME/vault`,
+   or `unset`); report that source rather than inferring one.
 2. If no installed command is usable, accept an explicitly supplied `RECON_HOME` only when it is a
-   readable canonical checkout containing `pyproject.toml` and `recon/cli.py`. Use
-   `PYTHONPATH="$RECON_HOME" python3 -m recon.cli` and run the same version and doctor checks.
+   readable canonical checkout containing `go.mod` and `cmd/recon/main.go`. Use
+   `go run -C "$RECON_HOME" ./cmd/recon` and run the same version and doctor checks.
 3. Otherwise return a bounded `runtime-only` or `unavailable` result naming the failed check and
    the explicit Recon installation documentation. Do not install software, create a vault, change
    configuration, or authenticate. Do not guess a path such as `$HOME/dev/recon`.
+
+An unconfigured workspace is a reportable state, not a gap to close. Never run `recon configure`,
+never create a profile, a config file, or a layer directory, and never write to
+`$XDG_CONFIG_HOME/recon/config.toml`. `configure` requires an explicit `--yes` precisely so that an
+automated caller cannot initialize by omission — report `unset` and stop.
 
 Use the resolved invocation consistently below wherever an example says `recon`.
 
