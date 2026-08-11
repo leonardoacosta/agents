@@ -28,7 +28,7 @@ version-sensitive Orca commands. Load the matching generic Orca skill for mechan
 Read [references/authority-and-identifiers.md](references/authority-and-identifiers.md) before
 mapping identifiers or accepting a runtime-driven state transition.
 
-## Select exactly one pattern
+## Select exactly one ownership pattern
 
 1. **Full handoff**: true ownership transfer. Use `orca-cli` mechanics. Jcode records the
    durable command envelope, authorization/idempotency context, correlation, and verified
@@ -38,7 +38,11 @@ mapping identifiers or accepting a runtime-driven state transition.
 3. **Direct terminal action**: narrow operator-driven work with no durable DAG. Use
    `orca-cli`; record only the durable action and resulting evidence required by policy.
 4. **Observation only**: project runtime state without mutation.
-5. **Decision gate**: persist authorized approval in Jcode before forwarding it to Orca.
+
+Apply a **decision gate** as an orthogonal control when an ownership pattern must pause for
+authorized human approval. Persist the approval in Jcode before forwarding it to Orca. A gate
+does not replace the selected ownership pattern. For example, a supervised Run/Task/Dispatch
+may also carry a decision gate.
 
 Never silently downgrade a selected pattern. If the required runtime capability is missing,
 return an unavailable or unsupported result and leave durable state unchanged.

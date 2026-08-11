@@ -37,10 +37,16 @@ for pattern in \
   'Full handoff' \
   'Supervised Run/Task/Dispatch' \
   'Direct terminal action' \
-  'Observation only' \
-  'Decision gate'; do
+  'Observation only'; do
   require_text "$pattern" "$skill_file"
 done
+
+require_text 'Select exactly one ownership pattern' "$skill_file"
+require_text 'decision gate.*orthogonal control' "$skill_file"
+require_text 'does not replace the selected ownership pattern' "$skill_file"
+require_text 'decision gate is an orthogonal control, not a fifth ownership pattern' \
+  "$skill_root/references/patterns-and-lifecycle.md"
+require_text 'supervised Run/Task/Dispatch plus decision gate' "$evals_file"
 
 require_text 'Jcode.*durable authority' "$skill_file"
 require_text 'Orca.*runtime authority' "$skill_file"

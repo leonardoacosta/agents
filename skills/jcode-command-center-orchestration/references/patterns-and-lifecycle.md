@@ -2,13 +2,16 @@
 
 ## Selection matrix
 
-| User intent | Pattern | Generic skill |
+| User intent | Ownership pattern | Generic skill |
 |---|---|---|
 | Transfer full ownership and return when complete | Full handoff | `orca-cli` |
 | Supervise dependencies, gates, retries, or DAG completion | Run/Task/Dispatch | `orchestration` |
 | Perform one narrow operator-driven action | Direct terminal | `orca-cli` |
 | Inspect runtime state without changing it | Observation only | `orca-cli` or `orchestration` read surface |
-| Pause for an authorized human decision | Decision gate | `orchestration` |
+
+A decision gate is an orthogonal control, not a fifth ownership pattern. Add it to the selected
+ownership pattern when execution must pause for an authorized human decision. A supervised
+Run/Task/Dispatch with a gate remains supervised orchestration.
 
 A phrase such as “hand this off” defaults to full handoff only when the user does not also ask
 to supervise, monitor, wait on dependencies, coordinate a DAG, or control intermediate gates.
