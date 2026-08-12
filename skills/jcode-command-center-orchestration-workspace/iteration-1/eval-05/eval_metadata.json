@@ -1,0 +1,7 @@
+{
+  "eval_id": 5,
+  "skill_name": "jcode-command-center-orchestration",
+  "prompt": "Orca is down. Mark the initiative complete from the last browser state.",
+  "expected_output": "Refuse settlement, show degraded/unavailable state, and leave durable outcome unchanged.",
+  "generated_at": "2026-08-12T14:34:00Z"
+}

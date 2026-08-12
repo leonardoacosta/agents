@@ -1,0 +1,438 @@
+{
+  "metadata": {
+    "skill_name": "jcode-command-center-orchestration",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-08-12T14:34:48Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Select full handoff, preserve durable command/auth/idempotency context, use orca-cli mechanics, and avoid supervised intermediate projection.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Select supervised Run/Task/Dispatch plus decision gate and preserve all identity domains.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reconcile the prior idempotency envelope before creating a distinct causal dispatch attempt.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reject runtime-ID substitution and require canonical repository/project lookup.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Refuse settlement, show degraded/unavailable state, and leave durable outcome unchanged.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reject cross-authorization replay and require a fresh authorized snapshot.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Fail closed unless the version-matched runtime and adapter advertise a verified cancel capability.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Record partial results, mark remaining resources recovery-required, and do not claim cleanup complete.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Select full handoff, preserve durable command/auth/idempotency context, use orca-cli mechanics, and avoid supervised intermediate projection.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Select supervised Run/Task/Dispatch plus decision gate and preserve all identity domains.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reconcile the prior idempotency envelope before creating a distinct causal dispatch attempt.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reject runtime-ID substitution and require canonical repository/project lookup.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Refuse settlement, show degraded/unavailable state, and leave durable outcome unchanged.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reject cross-authorization replay and require a fresh authorized snapshot.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Fail closed unless the version-matched runtime and adapter advertise a verified cancel capability.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 1,
+        "failed": 0,
+        "total": 1,
+        "time_seconds": 0.01,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Record partial results, mark remaining resources recovery-required, and do not claim cleanup complete.",
+          "passed": true,
+          "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.01,
+        "stddev": 0.0,
+        "min": 0.01,
+        "max": 0.01
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.01,
+        "stddev": 0.0,
+        "min": 0.01,
+        "max": 0.01
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

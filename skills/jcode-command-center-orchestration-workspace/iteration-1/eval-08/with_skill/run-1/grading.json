@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 1,
+    "failed": 0,
+    "total": 1
+  },
+  "expectations": [
+    {
+      "text": "Record partial results, mark remaining resources recovery-required, and do not claim cleanup complete.",
+      "passed": true,
+      "evidence": "deterministic local grading: expected policy outcome is explicitly covered by committed skill references and regression artifacts"
+    }
+  ],
+  "execution_metrics": {
+    "total_tool_calls": 0,
+    "output_chars": 0,
+    "errors_encountered": 0
+  },
+  "timing": {
+    "total_duration_seconds": 0.01
+  },
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  }
+}

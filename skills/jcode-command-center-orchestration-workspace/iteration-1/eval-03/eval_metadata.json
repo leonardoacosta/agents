@@ -1,0 +1,7 @@
+{
+  "eval_id": 3,
+  "skill_name": "jcode-command-center-orchestration",
+  "prompt": "The schedule fired again after a crash. Retry the failed Orca work.",
+  "expected_output": "Reconcile the prior idempotency envelope before creating a distinct causal dispatch attempt.",
+  "generated_at": "2026-08-12T14:34:00Z"
+}
