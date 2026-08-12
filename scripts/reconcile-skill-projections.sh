@@ -76,15 +76,15 @@ run_self_test() {
   output="$("$0" --write --verified-release "$revision" --audited-release "$revision" --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json" --lock-file "$fixture/agents/.skill-lock.json")"
   jq -s -e '[.[] | select(.action == "protected-conflict" and .harness == "cursor" and .skill == "firecrawl")] | length == 1' <<<"$output" >/dev/null || fail "self-test did not preserve regular-directory conflict"
   [[ -d "$fixture/home/.cursor/skills/firecrawl" && ! -L "$fixture/home/.cursor/skills/firecrawl" ]] || fail "self-test overwrote protected directory"
-  [[ "$(realpath -e "$fixture/home/.codex/skills/firecrawl")" == "$fixture/agents/skills/firecrawl" ]] || fail "self-test did not create canonical link"
-  [[ "$(realpath -e "$fixture/home/.codex/skills/nextjs-upgrade-audit")" == "$fixture/agents/skills/nextjs-upgrade-audit" ]] \
+  [[ "$(realpath -e "$fixture/home/.codex/skills/firecrawl")" == "$(realpath -e "$fixture/agents/skills/firecrawl")" ]] || fail "self-test did not create canonical link"
+  [[ "$(realpath -e "$fixture/home/.codex/skills/nextjs-upgrade-audit")" == "$(realpath -e "$fixture/agents/skills/nextjs-upgrade-audit")" ]] \
     || fail "self-test did not create a release-manifest projection without an installer lock pin"
   # A skill pinned only by skills-lock.json (vendored third-party upstream, absent from the
   # installer lock) must project exactly like a release-pinned one.
   jq -e '.skills.cloudflare.sourceType == "github"' "$fixture/agents/skills-lock.json" >/dev/null \
     && ! jq -e '.skills.cloudflare' "$fixture/agents/.skill-lock.json" >/dev/null 2>&1 \
     || fail "self-test fixture does not isolate a vendored-only projection"
-  [[ "$(realpath -e "$fixture/home/.codex/skills/cloudflare")" == "$fixture/agents/skills/cloudflare" ]] \
+  [[ "$(realpath -e "$fixture/home/.codex/skills/cloudflare")" == "$(realpath -e "$fixture/agents/skills/cloudflare")" ]] \
     || fail "self-test did not project a vendored-lane skill"
 
   output_again="$("$0" --write --verified-release "$revision" --audited-release "$revision" --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json" --lock-file "$fixture/agents/.skill-lock.json")"

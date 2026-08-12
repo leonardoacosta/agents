@@ -6,22 +6,53 @@ default_agents_root="$(cd -- "$script_dir/.." && pwd)"
 manifest="$default_agents_root/skill-projections.json"
 agents_root="$default_agents_root"
 projection_home="${HOME:-}"
+self_test=false
 
 usage() {
   printf 'usage: %s [--home <path>] [--agents-root <path>] [--manifest <path>]\n' "${0##*/}" >&2
 }
+
+fail() { printf 'ERROR %s\n' "$*" >&2; exit 1; }
 
 while (($#)); do
   case "$1" in
     --home) projection_home="$2"; shift 2 ;;
     --agents-root) agents_root="$2"; shift 2 ;;
     --manifest) manifest="$2"; shift 2 ;;
+    --self-test) self_test=true; shift ;;
     -h|--help) usage; exit 0 ;;
     *) usage; exit 64 ;;
   esac
 done
 
-fail() { printf 'ERROR %s\n' "$*" >&2; exit 1; }
+run_self_test() {
+  local fixture report
+  fixture="$(mktemp -d)"
+  trap 'rm -rf "$fixture"' RETURN
+  mkdir -p "$fixture/agents/skills" "$fixture/home/.codex/skills" "$fixture/home/.config/opencode/skills"
+  cp "$manifest" "$fixture/agents/skill-projections.json"
+  while IFS= read -r skill; do mkdir -p "$fixture/agents/skills/$skill"; done < <(jq -r '[.harnesses[].skills[]] | unique[]' "$manifest")
+  ln -s "$(realpath --relative-to="$fixture/home/.codex/skills" "$fixture/agents/skills/firecrawl")" "$fixture/home/.codex/skills/firecrawl"
+  ln -s /unrecorded-target "$fixture/home/.codex/skills/user-added"
+  report="$($0 --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json")"
+  jq -e '
+    (.harnesses | length == 10) and
+    ([.harnesses[] | select(.harness == "codex") | .entries[] | select(.skill == "firecrawl" and .state == "healthy")] | length == 1) and
+    ([.harnesses[] | select(.harness == "codex") | .entries[] | select(.skill == "user-added" and .state == "protected-conflict")] | length == 1) and
+    ([.harnesses[] | select(.harness == "opencode") | .entries[] | select(.skill == "firecrawl" and .state == "missing")] | length == 1)
+  ' <<<"$report" >/dev/null || fail "self-test did not classify expected projection states"
+  mkdir -p "$fixture/agents/skills/firecrawl-build"
+  printf '%s\n' '---' 'name: firecrawl-build' 'description: contains an unquoted colon: invalid' '---' >"$fixture/agents/skills/firecrawl-build/SKILL.md"
+  if "$0" --home "$fixture/home" --agents-root "$fixture/agents" --manifest "$fixture/agents/skill-projections.json" >/dev/null 2>&1; then
+    fail "self-test accepted malformed materialized Firecrawl frontmatter"
+  fi
+  printf 'PASS verify-skill-projections self-test\n'
+}
+
+if [[ "$self_test" == true ]]; then
+  run_self_test
+  exit 0
+fi
 json_entry() {
   jq -cn --arg skill "$1" --arg state "$2" --arg path "$3" --arg detail "$4" \
     '{skill: $skill, state: $state, path: $path, detail: $detail}'
