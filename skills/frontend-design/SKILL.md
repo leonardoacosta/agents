@@ -5,8 +5,9 @@ description:
   to build web components, pages, artifacts, posters, or applications (websites, landing pages,
   dashboards, React components, HTML/CSS layouts), when styling/beautifying any web UI, when
   applying a color/font theme to slides/docs/HTML, or when reviewing UI against Vercel Web Interface
-  Guidelines (accessibility, UX audit, design review). Generates creative polished code, applies
-  pre-built themes, and avoids generic AI aesthetics.
+  Guidelines (accessibility, UX audit, design review). For changes to existing interfaces, defaults
+  to a low-fidelity before-and-after comparison and an approval gate before implementation. Generates
+  creative polished code, applies pre-built themes, and avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash, WebFetch
 ---
@@ -80,6 +81,33 @@ This skill is not just a generator — it is a diagnostic. Three modes:
 
 **Always name the sin before fixing it.** "This is a purple-gradient hero (#7c3aed→#2563eb), the
 default AI palette" builds more trust than "let's improve the colors."
+
+## Default: Compare Before Implementing
+
+When changing an existing interface, assume the user wants to approve the direction before code is
+modified. The default deliverable is a **low-fidelity before-and-after comparison**, not an immediate
+production implementation.
+
+1. Inspect the real current interface and relevant source. Do not reconstruct the "before" state
+   from memory or generic placeholders.
+2. Create a self-contained comparison artifact in `docs/diagrams/` with side-by-side **Before** and
+   **After** panels. Show desktop and mobile when responsive behavior matters.
+3. Keep the mockups low fidelity. Communicate information hierarchy, grouping, labels, actions,
+   responsive behavior, and interaction states without spending time on production polish.
+4. Include a concise verdict, ranked findings, 2–3 viable approaches with trade-offs, and a clearly
+   marked recommendation. End with explicit approval choices such as **Approve**, **Revise**, or
+   **Choose another approach**.
+5. Open or publish the artifact so the user can review it. Then stop at the approval gate. Do not
+   edit production UI until the user approves a direction.
+
+Model the comparison shape on a practical design-review page: anchored summary, paired desktop and
+mobile screens, findings tied to visible evidence, alternatives, recommendation, and a final approval
+section. The artifact should make the proposed behavioral and information-hierarchy changes obvious
+without pretending to be the finished interface.
+
+Skip this gate only when the user explicitly asks for direct implementation, explicitly approves an
+already-presented design, or requests a tightly scoped spot-fix with no meaningful design choice.
+When uncertain, present the comparison first.
 
 ### Severity (audit/spot-fix)
 
