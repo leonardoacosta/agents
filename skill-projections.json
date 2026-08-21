@@ -170,6 +170,7 @@
     "claude-code": {
       "root": ".claude/skills",
       "skills": [
+        "anydesign",
         "agent-instruction-pairing",
         "agents-sdk",
         "animation-vocabulary",
@@ -244,6 +245,7 @@
     "codex": {
       "root": ".codex/skills",
       "skills": [
+        "anydesign",
         "agents-sdk",
         "better-auth-best-practices",
         "brainstorming",
