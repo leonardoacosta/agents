@@ -6,6 +6,12 @@
       "source": "cloudflare/skills",
       "sourceType": "github"
     },
+    "anydesign": {
+      "computedHash": "7834e1fc79a3ad4a0c40030e3552245ab1806759d67598d41a7c5953c661349f",
+      "skillPath": "skills/anydesign/SKILL.md",
+      "source": "uxKero/anydesign",
+      "sourceType": "github"
+    },
     "cloudflare": {
       "computedHash": "89bcccbb0b6dc77bec5e348f54a5ed8f1943d6ce56c33231a71fd2cd6bb05714",
       "skillPath": "skills/cloudflare/SKILL.md",
