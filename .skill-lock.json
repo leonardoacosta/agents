@@ -173,6 +173,9 @@
       "updatedAt": "2026-08-02T22:12:51.459Z",
       "computedHash": "0099385b282abdb7357cb8ef660cd12dcd909f31b66146d4a6707f903c19c508"
     },
+    "build-iterated-agentic-loop": {
+      "computedHash": "dea5c29e2cb6133896b0bb518775e18863df377ebe0198f8d867e28e52155671"
+    },
     "bun": {
       "source": "leonardoacosta/skills",
       "sourceType": "github",
@@ -250,6 +253,9 @@
     },
     "depot-github-actions": {
       "computedHash": "0ba39df24ff21dd7023194d0a30237ef81ea15683072448a35a6ef9d5a3c6571"
+    },
+    "design-control-loop": {
+      "computedHash": "8ebd113502a4331818c6e77b60051796a598160ba03e2eaa61ff959bd237653c"
     },
     "design-system-starter": {
       "source": "softaworks/agent-toolkit",
@@ -459,6 +465,9 @@
     "geist-design": {
       "computedHash": "51c7099d9eda3841dda55d180d1199b116c21cc15b8d619b21b980c332d8ea9d"
     },
+    "gk-cli": {
+      "computedHash": "fb553e05cf57aadb4696f164f81e99576299f6706fa1dae093e47c76b9328cff"
+    },
     "improve": {
       "source": "leonardoacosta/skills",
       "sourceType": "github",
@@ -497,6 +506,9 @@
       "installedAt": "2026-02-06T19:51:52.283Z",
       "updatedAt": "2026-02-06T19:51:52.283Z",
       "computedHash": "79bca3c767a821a28aa7d83a9673010b2066afa4889923ea5946153c8967e824"
+    },
+    "markdown-graphs": {
+      "computedHash": "e88b21bf140deb051aa92e39138fb11aad32572e497f94363b77d11f6e30100b"
     },
     "monitor-patterns": {
       "computedHash": "23aebbecd086750cb6eaf7d983351727b7163774bc05ab85404f98fa11062eb7"
@@ -685,6 +697,9 @@
       "installedAt": "2026-08-02T22:12:51.457Z",
       "updatedAt": "2026-08-02T22:12:51.457Z",
       "computedHash": "35e6e51e9ec2ca870b78f8d0bb4e8e7ef51b6d8b626474671f6bdaf5dccedc5a"
+    },
+    "show-me": {
+      "computedHash": "b245f9a98002700de6bbceb8305cd91b0452a4b5e34aa1eb0f93de413b676c07"
     },
     "simplify": {
       "source": "leonardoacosta/skills",
@@ -923,6 +938,15 @@
     "writing-fragments": {
       "computedHash": "e4b43b03cdd131adb0e6f2a2281ce18c04046f63e8bb619dadfa90074881cc32"
     },
+    "writing-for-agents": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "installedAt": "2026-09-06T14:38:00.000Z",
+      "updatedAt": "2026-09-06T14:38:00.000Z",
+      "computedHash": "482e371e48efc2dbb401aef7d124467f523c52b2bf9c486dedf60e2f48a7ce98"
+    },
     "writing-plans": {
       "source": "leonardoacosta/skills",
       "sourceType": "github",
@@ -935,6 +959,15 @@
     },
     "writing-shape": {
       "computedHash": "43ab317c84a521a022decd5ee855c52e3638bb891579a1177a9d34555d591669"
+    },
+    "gk-personal": {
+      "computedHash": "613d50d515569ddebf3e11408039b76efb60dd803e221fce5f47578778d768a6"
+    },
+    "priceless-deployment": {
+      "computedHash": "a320febe2d474760581090d147513f5ca9c120b950926db1801a118ae9bdd493"
+    },
+    "priceless-dotenvx": {
+      "computedHash": "5906249ad4ef50eb7b7b52dacf62c1c92edddd852a37d42fa50d6d7bba927128"
     }
   },
   "dismissed": {
