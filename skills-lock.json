@@ -77,6 +77,12 @@
       "skillPath": "skills/wrangler/SKILL.md",
       "source": "cloudflare/skills",
       "sourceType": "github"
+    },
+    "atlas-publish": {
+      "computedHash": "e818aeb0f83a34fbfae644e2ec10bdeb3fff07415a56b7a5a483de5592423749",
+      "skillPath": "skills/atlas-publish/SKILL.md",
+      "source": "leonardoacosta/atlas",
+      "sourceType": "github"
     }
   },
   "version": 1
