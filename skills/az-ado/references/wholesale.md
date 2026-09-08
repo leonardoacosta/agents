@@ -32,15 +32,16 @@ Prod needs explicit approval and its existing gate. Preserve manual triggers,
 service-connection validation and what-if gates. Follow to terminal state and
 verify runtime health; a queue ID is not deployment success.
 
-## Unresolved live access
+## Verified live access correction
 
-On 2026-09-08, native version/help JSON worked but three board query attempts
-returned exit 0 with empty stdout/stderr, including an unfiltered project query.
-This is not evidence of an empty project or a validated login. `az ado -h` was
-unrecognized. Missing corporate skills and unexplained transport/profile behavior
-remain access gaps; this new skill does not magically resolve them.
+On 2026-09-08, native flat WIQL queries with `@project` returned no output.
+Inspection of azure-devops 1.0.8 work_item.py showed `query_by_wiql` receives no
+project context and empty matches return None. Using the literal project name
+returned 872 project items under the documented native profile. Both O365 and
+BBAdmin assignees were present. The earlier missing-login diagnosis no longer
+explains the current query behavior.
 
-Next probe: compare the user's working native command, executable and approved
-profile/transport settings without exposing credentials. Only resume live reads
-when new evidence makes the probe distinct. No board writes were made during
-skill discovery.
+Use `[System.TeamProject] = 'Wholesale Architecture'` in this native WIQL path.
+Account for the implementation's 1,000-item detail cap. Exit zero alone still
+does not prove inventory completeness. Keep exact identities verified from live
+responses before writes. No assignments or board structure were changed.

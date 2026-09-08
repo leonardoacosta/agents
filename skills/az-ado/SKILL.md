@@ -49,6 +49,7 @@ assignee or final state matches the request.
 ## Board and identity workflow
 
 - `az boards query` accepts WIQL through `--wiql`, or a saved query ID/path. It supports flat queries only. `--query` is output filtering with JMESPath, not WIQL.
+- Extension 1.0.8 does not pass project context to `query_by_wiql`. Use an explicit escaped project-name literal in WIQL rather than `@project` for this path, even with `--project`. Verified against Wholesale on 2026-09-08: the macro returned no output, the literal returned 872 items. Empty matches return Python None and hence empty stdout. The implementation caps detail retrieval at 1,000 items; partition large inventories by ordered ID bounds and verify exhaustion.
 - Discover the process's actual types, states, fields and backlog settings before mapping Epic, Feature, Story, Task or Bug. Do not assume Bug placement or state names.
 - Inventory first, deduplicate second, propose changes third, write only within approved scope. Preserve IDs and history. Read exact work items and relations to build hierarchy. Do not use flat-query output as proof of every relationship.
 - Resolve assignees to an exact verified identity. `az devops user show --user` accepts email or user ID. `user list` defaults to 100, supports `--top`/`--skip`, and excludes users added through AAD groups. A missing user in that list is not proof the identity does not exist.
