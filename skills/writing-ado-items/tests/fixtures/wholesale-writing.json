@@ -1,0 +1,47 @@
+{
+  "title_cases": [
+    {
+      "name": "removes_change_noise_and_announcements",
+      "input": "Execute CHG-1234 Fortify - B3 Admin Tool (DOC project) deployment",
+      "expected": "B3 Admin tool deployment automation",
+      "body_retains": ["CHG-1234", "DOC project"]
+    },
+    {
+      "name": "preserves_routing_identifier",
+      "input": "PIPS velocity sync retry handling",
+      "expected": "PIPS velocity sync retry handling"
+    },
+    {
+      "name": "keeps_application_specific_fortify_context",
+      "input": "Fortify Claims automation timeout handling",
+      "expected": "Claims automation timeout handling",
+      "route": "Claims application"
+    },
+    {
+      "name": "preserves_technical_braces",
+      "input": "Refresh route lookup-values/{id}",
+      "expected": "Refresh route lookup-values/{id}"
+    },
+    {
+      "name": "preserves_compound_identifiers",
+      "input": "Review decus-direct decus-shared doc-db Doc-cadence integration",
+      "expected": "Review decus-direct decus-shared doc-db Doc-cadence integration"
+    },
+    {
+      "name": "rewrites_dangling_project_announcement",
+      "input": "Get up to speed on DOC project",
+      "expected": "Review application architecture and delivery workflow"
+    }
+  ],
+  "routing_cases": [
+    {"title": "PRimate", "type": "Feature", "parent": "WHS-346"},
+    {"title": "Shared Fortify library upgrade", "type": "Story", "parent": "Fortify"},
+    {"title": "Email Scheduler retry policy", "type": "Story", "parent": "Email Scheduler"},
+    {"title": "Legacy Subscription renewal", "type": "Story", "parent": "All-Wholesale"}
+  ],
+  "ownership_cases": [
+    {"owner": "O365", "action": "create", "allowed": true},
+    {"owner": "BBAdmin", "action": "create", "allowed": false},
+    {"owner": "Other verified owner", "action": "reassign", "allowed": false}
+  ]
+}
