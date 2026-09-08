@@ -481,9 +481,6 @@
     "interface-review": {
       "computedHash": "990922d6e92eb99a2ca0fb77547ccddf4fa4532c6a8fce9f8da736d96171e2ac"
     },
-    "jcode-command-center-orchestration": {
-      "computedHash": "21dbb6a453f279c3930a7dc30d6796331907ceb3cc8cd321c6791e49b7ae5d75"
-    },
     "mcp-builder": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -561,12 +558,6 @@
       "installedAt": "2026-08-02T22:12:51.454Z",
       "updatedAt": "2026-08-02T22:12:51.454Z",
       "computedHash": "d15375b6906e1b84e1902004f5a2b9c81f99b51b96790f1250703ebfa96009b3"
-    },
-    "orca-cli": {
-      "computedHash": "4f98825d145b16585adfb9ff1cfd466417da70cac1364d10d2a00489eb35ed42"
-    },
-    "orchestration": {
-      "computedHash": "1be3766b2e6b0f4dd8fa4ab14b8ac9cc3a30175f1c9429258e167c2330dcc620"
     },
     "playwright-auth": {
       "source": "leonardoacosta/skills",
