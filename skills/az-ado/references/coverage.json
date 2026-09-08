@@ -1,0 +1,3389 @@
+{
+  "captured": "2026-09-08",
+  "azure_cli": "2.90.0",
+  "extension": "1.0.8",
+  "help_pages": 269,
+  "commands": [
+    {
+      "command": "az devops",
+      "children": [
+        "az devops admin",
+        "az devops extension",
+        "az devops migrations",
+        "az devops project",
+        "az devops security",
+        "az devops service-endpoint",
+        "az devops team",
+        "az devops user",
+        "az devops wiki",
+        "az devops configure",
+        "az devops invoke",
+        "az devops login",
+        "az devops logout"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops admin",
+      "children": [
+        "az devops admin banner"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops extension",
+      "children": [
+        "az devops extension disable",
+        "az devops extension enable",
+        "az devops extension install",
+        "az devops extension list",
+        "az devops extension search",
+        "az devops extension show",
+        "az devops extension uninstall"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops migrations",
+      "children": [
+        "az devops migrations cutover",
+        "az devops migrations pipelines",
+        "az devops migrations abandon",
+        "az devops migrations create",
+        "az devops migrations list",
+        "az devops migrations pause",
+        "az devops migrations resume",
+        "az devops migrations status"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops project",
+      "children": [
+        "az devops project create",
+        "az devops project delete",
+        "az devops project list",
+        "az devops project show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops security",
+      "children": [
+        "az devops security group",
+        "az devops security permission"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops service-endpoint",
+      "children": [
+        "az devops service-endpoint azurerm",
+        "az devops service-endpoint github",
+        "az devops service-endpoint create",
+        "az devops service-endpoint delete",
+        "az devops service-endpoint list",
+        "az devops service-endpoint show",
+        "az devops service-endpoint update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops team",
+      "children": [
+        "az devops team create",
+        "az devops team delete",
+        "az devops team list",
+        "az devops team list-member",
+        "az devops team show",
+        "az devops team update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops user",
+      "children": [
+        "az devops user add",
+        "az devops user list",
+        "az devops user remove",
+        "az devops user show",
+        "az devops user update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops wiki",
+      "children": [
+        "az devops wiki page",
+        "az devops wiki create",
+        "az devops wiki delete",
+        "az devops wiki list",
+        "az devops wiki show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops configure",
+      "children": [],
+      "flags": [
+        "--defaults",
+        "--list",
+        "--use-git-aliases"
+      ]
+    },
+    {
+      "command": "az devops invoke",
+      "children": [],
+      "flags": [
+        "--accept-media-type",
+        "--api-version",
+        "--area",
+        "--detect",
+        "--encoding",
+        "--http-method",
+        "--in-file",
+        "--media-type",
+        "--org",
+        "--organization",
+        "--out-file",
+        "--query-parameters",
+        "--resource",
+        "--route-parameters"
+      ]
+    },
+    {
+      "command": "az devops login",
+      "children": [],
+      "flags": [
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops logout",
+      "children": [],
+      "flags": [
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops admin banner",
+      "children": [
+        "az devops admin banner add",
+        "az devops admin banner list",
+        "az devops admin banner remove",
+        "az devops admin banner show",
+        "az devops admin banner update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops extension disable",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--extension-id",
+        "--org",
+        "--organization",
+        "--publisher-id"
+      ]
+    },
+    {
+      "command": "az devops extension enable",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--extension-id",
+        "--org",
+        "--organization",
+        "--publisher-id"
+      ]
+    },
+    {
+      "command": "az devops extension install",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--extension-id",
+        "--org",
+        "--organization",
+        "--publisher-id"
+      ]
+    },
+    {
+      "command": "az devops extension list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--include-built-in",
+        "--include-disabled",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops extension search",
+      "children": [],
+      "flags": [
+        "--search-query"
+      ]
+    },
+    {
+      "command": "az devops extension show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--extension-id",
+        "--org",
+        "--organization",
+        "--publisher-id"
+      ]
+    },
+    {
+      "command": "az devops extension uninstall",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--extension-id",
+        "--org",
+        "--organization",
+        "--publisher-id",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops migrations cutover",
+      "children": [
+        "az devops migrations cutover approve",
+        "az devops migrations cutover cancel",
+        "az devops migrations cutover review",
+        "az devops migrations cutover set"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops migrations pipelines",
+      "children": [
+        "az devops migrations pipelines delete",
+        "az devops migrations pipelines list",
+        "az devops migrations pipelines retry",
+        "az devops migrations pipelines submit",
+        "az devops migrations pipelines update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops migrations abandon",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--remove-read-only",
+        "--repository-id",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops migrations create",
+      "children": [],
+      "flags": [
+        "--agent-pool",
+        "--auto-discover",
+        "--cutover-date",
+        "--detect",
+        "--enable-auto-discover-pipelines",
+        "--enable-boards-gh",
+        "--enable-boards-github-connection",
+        "--org",
+        "--organization",
+        "--pipeline-ids",
+        "--pipeline-sc-id",
+        "--pipeline-service-connection-",
+        "--pipeline-service-connection-id",
+        "--repository-id",
+        "--skip-validation",
+        "--target-owner-user-id",
+        "--target-repository",
+        "--validate-only"
+      ]
+    },
+    {
+      "command": "az devops migrations list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--include-all",
+        "--include-inactive",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops migrations pause",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations resume",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--migration",
+        "--org",
+        "--organization",
+        "--repository-id",
+        "--validate-only"
+      ]
+    },
+    {
+      "command": "az devops migrations status",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops project create",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--process",
+        "--source-control",
+        "--visibility"
+      ]
+    },
+    {
+      "command": "az devops project delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops project list",
+      "children": [],
+      "flags": [
+        "--continuation-token",
+        "--detect",
+        "--get-default-team-image-url",
+        "--org",
+        "--organization",
+        "--skip",
+        "--state-filter",
+        "--top"
+      ]
+    },
+    {
+      "command": "az devops project show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops security group",
+      "children": [
+        "az devops security group membership",
+        "az devops security group create",
+        "az devops security group delete",
+        "az devops security group list",
+        "az devops security group show",
+        "az devops security group update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops security permission",
+      "children": [
+        "az devops security permission namespace",
+        "az devops security permission list",
+        "az devops security permission reset",
+        "az devops security permission reset-all",
+        "az devops security permission show",
+        "az devops security permission update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops service-endpoint azurerm",
+      "children": [
+        "az devops service-endpoint azurerm create"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops service-endpoint github",
+      "children": [
+        "az devops service-endpoint github create"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops service-endpoint create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--encoding",
+        "--org",
+        "--organization",
+        "--project",
+        "--service-endpoint-configuration"
+      ]
+    },
+    {
+      "command": "az devops service-endpoint delete",
+      "children": [],
+      "flags": [
+        "--deep",
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops service-endpoint list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops service-endpoint show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops service-endpoint update",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--enable-for-all",
+        "--id",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops team create",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops team delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops team list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--skip",
+        "--top"
+      ]
+    },
+    {
+      "command": "az devops team list-member",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--skip",
+        "--team",
+        "--top"
+      ]
+    },
+    {
+      "command": "az devops team show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az devops team update",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az devops user add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--email-id",
+        "--license-type",
+        "--org",
+        "--organization",
+        "--send-email-invite"
+      ]
+    },
+    {
+      "command": "az devops user list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--skip",
+        "--top"
+      ]
+    },
+    {
+      "command": "az devops user remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--user",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops user show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--user"
+      ]
+    },
+    {
+      "command": "az devops user update",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--license-type",
+        "--org",
+        "--organization",
+        "--user"
+      ]
+    },
+    {
+      "command": "az devops wiki page",
+      "children": [
+        "az devops wiki page create",
+        "az devops wiki page delete",
+        "az devops wiki page show",
+        "az devops wiki page update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops wiki create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--mapped-path",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository",
+        "--type",
+        "--version",
+        "--wiki-type"
+      ]
+    },
+    {
+      "command": "az devops wiki delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--wiki",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops wiki list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--scope"
+      ]
+    },
+    {
+      "command": "az devops wiki show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--open",
+        "--org",
+        "--organization",
+        "--project",
+        "--wiki"
+      ]
+    },
+    {
+      "command": "az devops admin banner add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--expiration",
+        "--id",
+        "--message",
+        "--org",
+        "--organization",
+        "--type"
+      ]
+    },
+    {
+      "command": "az devops admin banner list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops admin banner remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops admin banner show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops admin banner update",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--expiration",
+        "--id",
+        "--message",
+        "--org",
+        "--organization",
+        "--type"
+      ]
+    },
+    {
+      "command": "az devops migrations cutover approve",
+      "children": [],
+      "flags": [
+        "--accept-failures",
+        "--detect",
+        "--org",
+        "--organization",
+        "--pipelines-verified",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations cutover cancel",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations cutover review",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations cutover set",
+      "children": [],
+      "flags": [
+        "--date",
+        "--detect",
+        "--org",
+        "--organization",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations pipelines delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--migration-id",
+        "--org",
+        "--organization",
+        "--repository-id",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops migrations pipelines list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations pipelines retry",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--pipeline-ids",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az devops migrations pipelines submit",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--pipeline-",
+        "--pipeline-ids",
+        "--repository-id",
+        "--repository-mapping",
+        "--service-connection-id"
+      ]
+    },
+    {
+      "command": "az devops migrations pipelines update",
+      "children": [],
+      "flags": [
+        "--add-ids",
+        "--detect",
+        "--org",
+        "--organization",
+        "--remove-ids",
+        "--repository-id",
+        "--repository-mapping",
+        "--retry-ids",
+        "--service-connection-id"
+      ]
+    },
+    {
+      "command": "az devops security group membership",
+      "children": [
+        "az devops security group membership add",
+        "az devops security group membership list",
+        "az devops security group membership remove"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops security group create",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--email-id",
+        "--groups",
+        "--name",
+        "--org",
+        "--organization",
+        "--origin-id",
+        "--project",
+        "--scope"
+      ]
+    },
+    {
+      "command": "az devops security group delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops security group list",
+      "children": [],
+      "flags": [
+        "--continuation-token",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--scope",
+        "--subject-types"
+      ]
+    },
+    {
+      "command": "az devops security group show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops security group update",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--id",
+        "--name",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops security permission namespace",
+      "children": [
+        "az devops security permission namespace list",
+        "az devops security permission namespace show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az devops security permission list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--namespace-id",
+        "--org",
+        "--organization",
+        "--recurse",
+        "--subject",
+        "--token"
+      ]
+    },
+    {
+      "command": "az devops security permission reset",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--namespace-id",
+        "--org",
+        "--organization",
+        "--permission-bit",
+        "--subject",
+        "--token"
+      ]
+    },
+    {
+      "command": "az devops security permission reset-all",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--namespace-id",
+        "--org",
+        "--organization",
+        "--subject",
+        "--token",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops security permission show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--namespace-id",
+        "--org",
+        "--organization",
+        "--subject",
+        "--token"
+      ]
+    },
+    {
+      "command": "az devops security permission update",
+      "children": [],
+      "flags": [
+        "--allow-bit",
+        "--deny-bit",
+        "--detect",
+        "--id",
+        "--merge",
+        "--namespace-id",
+        "--org",
+        "--organization",
+        "--subject",
+        "--token"
+      ]
+    },
+    {
+      "command": "az devops service-endpoint azurerm create",
+      "children": [],
+      "flags": [
+        "--azure-rm-service-principal-certificate-path",
+        "--azure-rm-service-principal-id",
+        "--azure-rm-subscription-id",
+        "--azure-rm-subscription-name",
+        "--azure-rm-tenant-id",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops service-endpoint github create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--github-url",
+        "--name",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az devops wiki page create",
+      "children": [],
+      "flags": [
+        "--comment",
+        "--content",
+        "--detect",
+        "--encoding",
+        "--file-path",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--wiki"
+      ]
+    },
+    {
+      "command": "az devops wiki page delete",
+      "children": [],
+      "flags": [
+        "--comment",
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--wiki",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops wiki page show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--include-content",
+        "--open",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--recursion-level",
+        "--version",
+        "--wiki"
+      ]
+    },
+    {
+      "command": "az devops wiki page update",
+      "children": [],
+      "flags": [
+        "--comment",
+        "--content",
+        "--detect",
+        "--encoding",
+        "--file-path",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--version",
+        "--wiki"
+      ]
+    },
+    {
+      "command": "az devops security group membership add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--member-id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops security group membership list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--relationship"
+      ]
+    },
+    {
+      "command": "az devops security group membership remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--member-id",
+        "--org",
+        "--organization",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az devops security permission namespace list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--local-only",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az devops security permission namespace show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--namespace-id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az boards",
+      "children": [
+        "az boards area",
+        "az boards iteration",
+        "az boards work-item",
+        "az boards query"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards area",
+      "children": [
+        "az boards area project",
+        "az boards area team"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards iteration",
+      "children": [
+        "az boards iteration project",
+        "az boards iteration team"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards work-item",
+      "children": [
+        "az boards work-item relation",
+        "az boards work-item create",
+        "az boards work-item delete",
+        "az boards work-item show",
+        "az boards work-item update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards query",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--wiql"
+      ]
+    },
+    {
+      "command": "az boards area project",
+      "children": [
+        "az boards area project create",
+        "az boards area project delete",
+        "az boards area project list",
+        "az boards area project show",
+        "az boards area project update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards area team",
+      "children": [
+        "az boards area team add",
+        "az boards area team list",
+        "az boards area team remove",
+        "az boards area team update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards iteration project",
+      "children": [
+        "az boards iteration project create",
+        "az boards iteration project delete",
+        "az boards iteration project list",
+        "az boards iteration project show",
+        "az boards iteration project update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards iteration team",
+      "children": [
+        "az boards iteration team add",
+        "az boards iteration team list",
+        "az boards iteration team list-work-items",
+        "az boards iteration team remove",
+        "az boards iteration team set-backlog-iteration",
+        "az boards iteration team set-default-iteration",
+        "az boards iteration team show-backlog-iteration",
+        "az boards iteration team show-default-iteration"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards work-item relation",
+      "children": [
+        "az boards work-item relation add",
+        "az boards work-item relation list-type",
+        "az boards work-item relation remove",
+        "az boards work-item relation show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az boards work-item create",
+      "children": [],
+      "flags": [
+        "--area",
+        "--assigned-to",
+        "--description",
+        "--detect",
+        "--discussion",
+        "--fields",
+        "--iteration",
+        "--open",
+        "--org",
+        "--organization",
+        "--project",
+        "--reason",
+        "--title",
+        "--type"
+      ]
+    },
+    {
+      "command": "az boards work-item delete",
+      "children": [],
+      "flags": [
+        "--destroy",
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az boards work-item show",
+      "children": [],
+      "flags": [
+        "--as-of",
+        "--detect",
+        "--expand",
+        "--fields",
+        "--id",
+        "--open",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az boards work-item update",
+      "children": [],
+      "flags": [
+        "--area",
+        "--assigned-to",
+        "--description",
+        "--detect",
+        "--discussion",
+        "--fields",
+        "--id",
+        "--iteration",
+        "--open",
+        "--org",
+        "--organization",
+        "--reason",
+        "--state",
+        "--title"
+      ]
+    },
+    {
+      "command": "az boards area project create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--path",
+        "--project"
+      ]
+    },
+    {
+      "command": "az boards area project delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az boards area project list",
+      "children": [],
+      "flags": [
+        "--depth",
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project"
+      ]
+    },
+    {
+      "command": "az boards area project show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az boards area project update",
+      "children": [],
+      "flags": [
+        "--child-id",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--path",
+        "--project"
+      ]
+    },
+    {
+      "command": "az boards area team add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--include-sub-areas",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--set-as-default",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards area team list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards area team remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards area team update",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--include-sub-areas",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--set-as-default",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration project create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--finish-date",
+        "--name",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--start-date"
+      ]
+    },
+    {
+      "command": "az boards iteration project delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az boards iteration project list",
+      "children": [],
+      "flags": [
+        "--depth",
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project"
+      ]
+    },
+    {
+      "command": "az boards iteration project show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az boards iteration project update",
+      "children": [],
+      "flags": [
+        "--child-id",
+        "--detect",
+        "--finish-date",
+        "--name",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--start-date"
+      ]
+    },
+    {
+      "command": "az boards iteration team add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration team list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--team",
+        "--timeframe"
+      ]
+    },
+    {
+      "command": "az boards iteration team list-work-items",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration team remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration team set-backlog-iteration",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration team set-default-iteration",
+      "children": [],
+      "flags": [
+        "--default-iteration-macro",
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration team show-backlog-iteration",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards iteration team show-default-iteration",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--team"
+      ]
+    },
+    {
+      "command": "az boards work-item relation add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--relation-type",
+        "--target-id",
+        "--target-url"
+      ]
+    },
+    {
+      "command": "az boards work-item relation list-type",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az boards work-item relation remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--relation-type",
+        "--target-id",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az boards work-item relation show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az repos",
+      "children": [
+        "az repos import",
+        "az repos policy",
+        "az repos pr",
+        "az repos ref",
+        "az repos create",
+        "az repos delete",
+        "az repos list",
+        "az repos show",
+        "az repos update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos import",
+      "children": [
+        "az repos import create"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy",
+      "children": [
+        "az repos policy approver-count",
+        "az repos policy build",
+        "az repos policy case-enforcement",
+        "az repos policy comment-required",
+        "az repos policy file-size",
+        "az repos policy merge-strategy",
+        "az repos policy required-reviewer",
+        "az repos policy work-item-linking",
+        "az repos policy create",
+        "az repos policy delete",
+        "az repos policy list",
+        "az repos policy show",
+        "az repos policy update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos pr",
+      "children": [
+        "az repos pr policy",
+        "az repos pr reviewer",
+        "az repos pr work-item",
+        "az repos pr checkout",
+        "az repos pr create",
+        "az repos pr list",
+        "az repos pr set-vote",
+        "az repos pr show",
+        "az repos pr update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos ref",
+      "children": [
+        "az repos ref create",
+        "az repos ref delete",
+        "az repos ref list",
+        "az repos ref lock",
+        "az repos ref unlock"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az repos delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az repos list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az repos show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--open",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos update",
+      "children": [],
+      "flags": [
+        "--default-branch",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos import create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--git-service-endpoint-id",
+        "--git-source-url",
+        "--git-url",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository",
+        "--requires-authorization",
+        "--user-name"
+      ]
+    },
+    {
+      "command": "az repos policy approver-count",
+      "children": [
+        "az repos policy approver-count create",
+        "az repos policy approver-count update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy build",
+      "children": [
+        "az repos policy build create",
+        "az repos policy build update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy case-enforcement",
+      "children": [
+        "az repos policy case-enforcement create",
+        "az repos policy case-enforcement update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy comment-required",
+      "children": [
+        "az repos policy comment-required create",
+        "az repos policy comment-required update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy file-size",
+      "children": [
+        "az repos policy file-size create",
+        "az repos policy file-size update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy merge-strategy",
+      "children": [
+        "az repos policy merge-strategy create",
+        "az repos policy merge-strategy update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy required-reviewer",
+      "children": [
+        "az repos policy required-reviewer create",
+        "az repos policy required-reviewer update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy work-item-linking",
+      "children": [
+        "az repos policy work-item-linking create",
+        "az repos policy work-item-linking update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos policy create",
+      "children": [],
+      "flags": [
+        "--config",
+        "--detect",
+        "--org",
+        "--organization",
+        "--policy-configuration",
+        "--project"
+      ]
+    },
+    {
+      "command": "az repos policy delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az repos policy list",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project"
+      ]
+    },
+    {
+      "command": "az repos policy update",
+      "children": [],
+      "flags": [
+        "--config",
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-configuration",
+        "--policy-id",
+        "--project"
+      ]
+    },
+    {
+      "command": "az repos pr policy",
+      "children": [
+        "az repos pr policy list",
+        "az repos pr policy queue"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos pr reviewer",
+      "children": [
+        "az repos pr reviewer add",
+        "az repos pr reviewer list",
+        "az repos pr reviewer remove"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos pr work-item",
+      "children": [
+        "az repos pr work-item add",
+        "az repos pr work-item list",
+        "az repos pr work-item remove"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az repos pr checkout",
+      "children": [],
+      "flags": [
+        "--id",
+        "--remote-name"
+      ]
+    },
+    {
+      "command": "az repos pr create",
+      "children": [],
+      "flags": [
+        "--auto-complete",
+        "--bypass-policy",
+        "--bypass-policy-reason",
+        "--delete-source-branch",
+        "--description",
+        "--detect",
+        "--draft",
+        "--labels",
+        "--merge-commit-message",
+        "--open",
+        "--optional-reviewers",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository",
+        "--required-reviewers",
+        "--reviewers",
+        "--source-branch",
+        "--squash",
+        "--target-branch",
+        "--title",
+        "--transition-work-items",
+        "--work-items"
+      ]
+    },
+    {
+      "command": "az repos pr list",
+      "children": [],
+      "flags": [
+        "--creator",
+        "--detect",
+        "--include-links",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository",
+        "--reviewer",
+        "--skip",
+        "--source-branch",
+        "--status",
+        "--target-branch",
+        "--top"
+      ]
+    },
+    {
+      "command": "az repos pr set-vote",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--vote"
+      ]
+    },
+    {
+      "command": "az repos pr show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--open",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az repos pr update",
+      "children": [],
+      "flags": [
+        "--auto-complete",
+        "--bypass-policy",
+        "--bypass-policy-reason",
+        "--delete-source-branch",
+        "--description",
+        "--detect",
+        "--draft",
+        "--id",
+        "--merge-commit-message",
+        "--org",
+        "--organization",
+        "--squash",
+        "--status",
+        "--title",
+        "--transition-work-items"
+      ]
+    },
+    {
+      "command": "az repos ref create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--object-id",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos ref delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--object-id",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos ref list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--filter",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos ref lock",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos ref unlock",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository"
+      ]
+    },
+    {
+      "command": "az repos policy approver-count create",
+      "children": [],
+      "flags": [
+        "--allow-downvotes",
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--creator-vote-counts",
+        "--detect",
+        "--enabled",
+        "--minimum-approver-count",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-id",
+        "--reset-on-source-push"
+      ]
+    },
+    {
+      "command": "az repos policy approver-count update",
+      "children": [],
+      "flags": [
+        "--allow-downvotes",
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--creator-vote-counts",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--minimum-approver-count",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--repository-id",
+        "--reset-on-source-push"
+      ]
+    },
+    {
+      "command": "az repos policy build create",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--build-definition-id",
+        "--detect",
+        "--display-name",
+        "--enabled",
+        "--manual-queue-only",
+        "--org",
+        "--organization",
+        "--path-filter",
+        "--project",
+        "--queue-on-source-update-only",
+        "--repository-id",
+        "--valid-duration"
+      ]
+    },
+    {
+      "command": "az repos policy build update",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--build-definition-id",
+        "--detect",
+        "--display-name",
+        "--enabled",
+        "--id",
+        "--manual-queue-only",
+        "--org",
+        "--organization",
+        "--path-filter",
+        "--policy-id",
+        "--project",
+        "--queue-on-source-update-only",
+        "--repository-id",
+        "--valid-duration"
+      ]
+    },
+    {
+      "command": "az repos policy case-enforcement create",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--detect",
+        "--enabled",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy case-enforcement update",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy comment-required create",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy comment-required update",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy file-size create",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--detect",
+        "--enabled",
+        "--maximum-git-blob-size",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-id",
+        "--use-uncompressed-size"
+      ]
+    },
+    {
+      "command": "az repos policy file-size update",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--maximum-git-blob-size",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--repository-id",
+        "--use-uncompressed-size"
+      ]
+    },
+    {
+      "command": "az repos policy merge-strategy create",
+      "children": [],
+      "flags": [
+        "--allow-no-fast-forward",
+        "--allow-rebase",
+        "--allow-rebase-merge",
+        "--allow-squash",
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy merge-strategy update",
+      "children": [],
+      "flags": [
+        "--allow-no-fast-forward",
+        "--allow-rebase",
+        "--allow-rebase-merge",
+        "--allow-squash",
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy required-reviewer create",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--message",
+        "--org",
+        "--organization",
+        "--path-filter",
+        "--project",
+        "--repository-id",
+        "--required-reviewer-ids"
+      ]
+    },
+    {
+      "command": "az repos policy required-reviewer update",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--message",
+        "--org",
+        "--organization",
+        "--path-filter",
+        "--policy-id",
+        "--project",
+        "--repository-id",
+        "--required-reviewer-ids"
+      ]
+    },
+    {
+      "command": "az repos policy work-item-linking create",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos policy work-item-linking update",
+      "children": [],
+      "flags": [
+        "--blocking",
+        "--branch",
+        "--branch-match-type",
+        "--detect",
+        "--enabled",
+        "--id",
+        "--org",
+        "--organization",
+        "--policy-id",
+        "--project",
+        "--repository-id"
+      ]
+    },
+    {
+      "command": "az repos pr policy list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--skip",
+        "--top"
+      ]
+    },
+    {
+      "command": "az repos pr policy queue",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--evaluation-id",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az repos pr reviewer add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--required",
+        "--reviewers"
+      ]
+    },
+    {
+      "command": "az repos pr reviewer list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az repos pr reviewer remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--reviewers"
+      ]
+    },
+    {
+      "command": "az repos pr work-item add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--work-items"
+      ]
+    },
+    {
+      "command": "az repos pr work-item list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization"
+      ]
+    },
+    {
+      "command": "az repos pr work-item remove",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--work-items"
+      ]
+    },
+    {
+      "command": "az pipelines",
+      "children": [
+        "az pipelines agent",
+        "az pipelines build",
+        "az pipelines folder",
+        "az pipelines pool",
+        "az pipelines queue",
+        "az pipelines release",
+        "az pipelines runs",
+        "az pipelines variable",
+        "az pipelines variable-group",
+        "az pipelines create",
+        "az pipelines delete",
+        "az pipelines list",
+        "az pipelines run",
+        "az pipelines show",
+        "az pipelines update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines agent",
+      "children": [
+        "az pipelines agent list",
+        "az pipelines agent show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines build",
+      "children": [
+        "az pipelines build definition",
+        "az pipelines build tag",
+        "az pipelines build cancel",
+        "az pipelines build list",
+        "az pipelines build queue",
+        "az pipelines build show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines folder",
+      "children": [
+        "az pipelines folder create",
+        "az pipelines folder delete",
+        "az pipelines folder list",
+        "az pipelines folder update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines pool",
+      "children": [
+        "az pipelines pool list",
+        "az pipelines pool show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines queue",
+      "children": [
+        "az pipelines queue list",
+        "az pipelines queue show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines release",
+      "children": [
+        "az pipelines release definition",
+        "az pipelines release create",
+        "az pipelines release list",
+        "az pipelines release show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines runs",
+      "children": [
+        "az pipelines runs artifact",
+        "az pipelines runs tag",
+        "az pipelines runs list",
+        "az pipelines runs show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines variable",
+      "children": [
+        "az pipelines variable create",
+        "az pipelines variable delete",
+        "az pipelines variable list",
+        "az pipelines variable update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines variable-group",
+      "children": [
+        "az pipelines variable-group variable",
+        "az pipelines variable-group create",
+        "az pipelines variable-group delete",
+        "az pipelines variable-group list",
+        "az pipelines variable-group show",
+        "az pipelines variable-group update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines create",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--description",
+        "--detect",
+        "--folder-path",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--queue-id",
+        "--repository",
+        "--repository-type",
+        "--service-connection",
+        "--skip-first-run",
+        "--skip-run",
+        "--yaml-path",
+        "--yml-path"
+      ]
+    },
+    {
+      "command": "az pipelines delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az pipelines list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--folder-path",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--query-order",
+        "--repository",
+        "--repository-type",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines run",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--commit-id",
+        "--detect",
+        "--folder-path",
+        "--id",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--parameters",
+        "--project",
+        "--variables"
+      ]
+    },
+    {
+      "command": "az pipelines show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--folder-path",
+        "--id",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines update",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--description",
+        "--detect",
+        "--id",
+        "--new-folder-path",
+        "--new-name",
+        "--org",
+        "--organization",
+        "--project",
+        "--queue-id",
+        "--yaml-path",
+        "--yml-path"
+      ]
+    },
+    {
+      "command": "az pipelines agent list",
+      "children": [],
+      "flags": [
+        "--agent-name",
+        "--demands",
+        "--detect",
+        "--include-assigned-request",
+        "--include-capabilities",
+        "--include-last-completed-request",
+        "--org",
+        "--organization",
+        "--pool-id"
+      ]
+    },
+    {
+      "command": "az pipelines agent show",
+      "children": [],
+      "flags": [
+        "--agent-id",
+        "--detect",
+        "--id",
+        "--include-assigned-request",
+        "--include-capabilities",
+        "--include-last-completed-request",
+        "--org",
+        "--organization",
+        "--pool-id"
+      ]
+    },
+    {
+      "command": "az pipelines build definition",
+      "children": [
+        "az pipelines build definition list",
+        "az pipelines build definition show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines build tag",
+      "children": [
+        "az pipelines build tag add",
+        "az pipelines build tag delete",
+        "az pipelines build tag list"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines build cancel",
+      "children": [],
+      "flags": [
+        "--build-id",
+        "--detect",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines build list",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--definition-ids",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--reason",
+        "--requested-for",
+        "--result",
+        "--status",
+        "--tags",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines build queue",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--commit-id",
+        "--definition-id",
+        "--definition-name",
+        "--detect",
+        "--id",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--project",
+        "--queue-id",
+        "--variables"
+      ]
+    },
+    {
+      "command": "az pipelines build show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines folder create",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines folder delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az pipelines folder list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--query-order"
+      ]
+    },
+    {
+      "command": "az pipelines folder update",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--new-description",
+        "--new-path",
+        "--org",
+        "--organization",
+        "--path",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines pool list",
+      "children": [],
+      "flags": [
+        "--action",
+        "--detect",
+        "--org",
+        "--organization",
+        "--pool-name",
+        "--pool-type"
+      ]
+    },
+    {
+      "command": "az pipelines pool show",
+      "children": [],
+      "flags": [
+        "--action",
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--pool-id"
+      ]
+    },
+    {
+      "command": "az pipelines queue list",
+      "children": [],
+      "flags": [
+        "--action",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--queue-name"
+      ]
+    },
+    {
+      "command": "az pipelines queue show",
+      "children": [],
+      "flags": [
+        "--action",
+        "--detect",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--queue-id"
+      ]
+    },
+    {
+      "command": "az pipelines release definition",
+      "children": [
+        "az pipelines release definition list",
+        "az pipelines release definition show"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines release create",
+      "children": [],
+      "flags": [
+        "--artifact-metadata-list",
+        "--definition-id",
+        "--definition-name",
+        "--description",
+        "--detect",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines release list",
+      "children": [],
+      "flags": [
+        "--definition-id",
+        "--detect",
+        "--max-created-time",
+        "--min-created-time",
+        "--org",
+        "--organization",
+        "--project",
+        "--source-branch",
+        "--status",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines release show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines runs artifact",
+      "children": [
+        "az pipelines runs artifact download",
+        "az pipelines runs artifact list",
+        "az pipelines runs artifact upload"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines runs tag",
+      "children": [
+        "az pipelines runs tag add",
+        "az pipelines runs tag delete",
+        "az pipelines runs tag list"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines runs list",
+      "children": [],
+      "flags": [
+        "--branch",
+        "--detect",
+        "--org",
+        "--organization",
+        "--pipeline-ids",
+        "--project",
+        "--query-order",
+        "--reason",
+        "--requested-for",
+        "--result",
+        "--status",
+        "--tags",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines runs show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines variable create",
+      "children": [],
+      "flags": [
+        "--allow-override",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--pipeline-id",
+        "--pipeline-name",
+        "--project",
+        "--secret",
+        "--value"
+      ]
+    },
+    {
+      "command": "az pipelines variable delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--pipeline-id",
+        "--pipeline-name",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az pipelines variable list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--pipeline-id",
+        "--pipeline-name",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines variable update",
+      "children": [],
+      "flags": [
+        "--allow-override",
+        "--detect",
+        "--name",
+        "--new-name",
+        "--org",
+        "--organization",
+        "--pipeline-id",
+        "--pipeline-name",
+        "--project",
+        "--prompt-value",
+        "--secret",
+        "--value"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group variable",
+      "children": [
+        "az pipelines variable-group variable create",
+        "az pipelines variable-group variable delete",
+        "az pipelines variable-group variable list",
+        "az pipelines variable-group variable update"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az pipelines variable-group create",
+      "children": [],
+      "flags": [
+        "--authorize",
+        "--description",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--variables"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--id",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group list",
+      "children": [],
+      "flags": [
+        "--action",
+        "--action-filter",
+        "--continuation-token",
+        "--detect",
+        "--group-name",
+        "--org",
+        "--organization",
+        "--project",
+        "--query-order",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--id",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group update",
+      "children": [],
+      "flags": [
+        "--authorize",
+        "--description",
+        "--detect",
+        "--group-id",
+        "--id",
+        "--name",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines build definition list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--repository",
+        "--repository-type",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines build definition show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines build tag add",
+      "children": [],
+      "flags": [
+        "--build-id",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--tags"
+      ]
+    },
+    {
+      "command": "az pipelines build tag delete",
+      "children": [],
+      "flags": [
+        "--build-id",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--tag"
+      ]
+    },
+    {
+      "command": "az pipelines build tag list",
+      "children": [],
+      "flags": [
+        "--build-id",
+        "--detect",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines release definition list",
+      "children": [],
+      "flags": [
+        "--artifact-source-id",
+        "--artifact-type",
+        "--detect",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--top"
+      ]
+    },
+    {
+      "command": "az pipelines release definition show",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--id",
+        "--name",
+        "--open",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines runs artifact download",
+      "children": [],
+      "flags": [
+        "--artifact-name",
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--run-id"
+      ]
+    },
+    {
+      "command": "az pipelines runs artifact list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--run-id"
+      ]
+    },
+    {
+      "command": "az pipelines runs artifact upload",
+      "children": [],
+      "flags": [
+        "--artifact-name",
+        "--detect",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--run-id"
+      ]
+    },
+    {
+      "command": "az pipelines runs tag add",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--run-id",
+        "--tags"
+      ]
+    },
+    {
+      "command": "az pipelines runs tag delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--run-id",
+        "--tag"
+      ]
+    },
+    {
+      "command": "az pipelines runs tag list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--org",
+        "--organization",
+        "--project",
+        "--run-id"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group variable create",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--id",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--secret",
+        "--value"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group variable delete",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--id",
+        "--name",
+        "--org",
+        "--organization",
+        "--project",
+        "--yes"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group variable list",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--id",
+        "--org",
+        "--organization",
+        "--project"
+      ]
+    },
+    {
+      "command": "az pipelines variable-group variable update",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--group-id",
+        "--id",
+        "--name",
+        "--new-name",
+        "--org",
+        "--organization",
+        "--project",
+        "--prompt-value",
+        "--secret",
+        "--value"
+      ]
+    },
+    {
+      "command": "az artifacts",
+      "children": [
+        "az artifacts universal"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az artifacts universal",
+      "children": [
+        "az artifacts universal download",
+        "az artifacts universal publish"
+      ],
+      "flags": []
+    },
+    {
+      "command": "az artifacts universal download",
+      "children": [],
+      "flags": [
+        "--detect",
+        "--feed",
+        "--file-filter",
+        "--name",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--scope",
+        "--version"
+      ]
+    },
+    {
+      "command": "az artifacts universal publish",
+      "children": [],
+      "flags": [
+        "--description",
+        "--detect",
+        "--feed",
+        "--name",
+        "--org",
+        "--organization",
+        "--path",
+        "--project",
+        "--scope",
+        "--version"
+      ]
+    }
+  ]
+}

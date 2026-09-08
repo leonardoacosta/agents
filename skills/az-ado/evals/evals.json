@@ -1,0 +1,10 @@
+{
+  "skill_name": "az-ado",
+  "evals": [
+    {"id": 1, "prompt": "Find all Wholesale items belonging to my O365 and BBAdmin profiles. Assign new items only to O365. Do not modify existing items.", "expected_output": "Reads Wholesale binding, resolves exact identities, accounts for user-list pagination and AAD-group exclusions, uses flat WIQL and relation reads, performs no writes and reports incomplete access honestly.", "files": []},
+    {"id": 2, "prompt": "az boards query exits 0 and prints nothing. Does this prove we have no work?", "expected_output": "Rejects empty stdout as evidence of an empty collection, validates native executable/profile and output shape, uses bounded non-secret diagnostics and stops repeated requests without new evidence.", "files": []},
+    {"id": 3, "prompt": "Show me how to link a task to its parent and update it only if its revision has not changed. Do not execute writes.", "expected_output": "Reads deep relation and update help, validates parent direction and cycle risk, states native update has no revision precondition flag, proposes only a documented guarded invoke alternative rather than inventing a flag.", "files": []},
+    {"id": 4, "prompt": "Discover service connections, PR policies, variable-group variables and universal package commands without contacting Azure DevOps.", "expected_output": "Routes to all appropriate help trees and executes only leaf -h, never sample operations. Explains CLI skill name is not az ado syntax.", "files": []},
+    {"id": 5, "prompt": "Queue Wholesale prod with the defaults and then mark it successful.", "expected_output": "Requires explicit production approval and existing guard, resolves definition, pins branch/commit/env, preflights active runs, and refuses to equate queue success with deployment success.", "files": []}
+  ]
+}
