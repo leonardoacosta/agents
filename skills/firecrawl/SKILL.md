@@ -1,103 +1,147 @@
 ---
 name: firecrawl
-description: "Use the installed Firecrawl CLI for live web search, known-URL scraping, site mapping/crawling, read-only browser interaction, local document parsing, monitoring plans, indexed research, AI extraction, diagnosis, traceable web deliverables, or durable Firecrawl application integration. Trigger for requests to find, fetch, scrape, crawl, research, monitor, or integrate web content with Firecrawl. Do not trigger for local file operations, Git work, deployment, or code editing that does not need Firecrawl."
+description: |
+  Any live-web task via the Firecrawl CLI — including ordinary web research: searching the web, reading or extracting pages, gathering sources, discovering site URLs, bulk extraction, downloading a site, change alerts, or pages needing clicks/login — web only; local files route to firecrawl-parse. For papers use firecrawl-research-index; for library, API, error, or bug questions use firecrawl-developer-index.
+allowed-tools:
+  - Bash(firecrawl *)
+  - Bash(npx firecrawl-cli *)
 ---
-
 
 # Firecrawl CLI
 
-Use the installed CLI for all supported agent-side Firecrawl work. This skill starts after onboarding: `firecrawl` must already be installed and authenticated.
+Search, scrape, and interact with the web. Returns clean markdown optimized for LLM context windows.
 
-## Preconditions and authentication
+Run `firecrawl --help` or `firecrawl <command> --help` for full option details. For app integration or outcome workflows (research briefs, SEO audits, etc.), route to the `firecrawl-build` / `firecrawl-workflows` skills — see [When to Load References](#when-to-load-references).
 
-Before an action, run `command -v firecrawl`, `firecrawl --version`, and `firecrawl --status`, then inspect `firecrawl --help` and the selected command's installed help. Installed help is the syntax source of truth.
+## Prerequisites
 
-If the executable is absent or authentication is invalid, stop or enter Path D. Never install, upgrade, invoke `npx`, create an account, reproduce raw PKCE, or change transport. Never place API keys in argv (including `--api-key`), command strings, shell history, logs, evidence, or source control. Use the CLI's secure credential store or an inherited environment variable supplied by the approved secret mechanism; never echo it.
+Check with `firecrawl --status` (shows auth state, concurrency limit, and remaining credits). For install, authentication (including the keyless free tier), and setup verification, see [rules/install.md](rules/install.md). For output handling guidelines, see [rules/security.md](rules/security.md).
 
-## Choose one intent path
+## Workflow
 
-| Path | Select when | Required behavior |
-| --- | --- | --- |
-| **Path A — current-session web data** | The current task needs live web data. | Use the narrowest CLI command. A known URL starts with scrape. Do not add an SDK. |
-| **Path B — shipped application integration** | Firecrawl will run in application, service, script, agent, or pipeline code after this session. | Load [references/app-integration.md](references/app-integration.md) only for this path. An official Firecrawl SDK may exist only in shipped code; agent research, validation, and smoke requests remain CLI-based. |
-| **Path C — repeatable deliverable** | The result is a brief, report, dataset, or other artifact powered by web evidence. | Collect through the CLI, retain scrubbed source URLs or job identifiers, and synthesize the artifact. |
-| **Path D — exceptional recovery** | The installed/authenticated precondition failed, or an installed CLI job failed and remains unresolved after ordinary command help. | Diagnose and remediate only through the CLI, then retry the smallest failed operation. |
+Use Firecrawl for ordinary web research and content gathering (searching, reading pages, collecting sources) even when the task doesn't name Firecrawl. Exception: tasks needing capabilities Firecrawl lacks.
 
-An unsupported CLI capability does not enter Path D. Issue a capability gap report containing the CLI version, relevant help inspected, requested capability, and why no supported command applies, then stop unless the exceptional fallback gate below is satisfied.
+Follow this escalation pattern:
 
-## Central URL and argv safety gate
+1. **Search** - No specific URL yet. Find pages, answer questions, discover sources.
+2. **Scrape** - Have a URL. Extract its content directly.
+3. **Map + Scrape** - Large site or need a specific subpage. Use `map --search` to find the right URL, then scrape it.
+4. **Crawl** - Need bulk content from an entire site section (e.g., all /docs/).
+5. **Monitor** - Need recurring checks or ongoing alerts. Prefer setting a monitor with `--page` plus `--goal` instead of doing repeated one-off scrapes.
+6. **Interact** - Scrape first, then interact with the page (pagination, modals, form submissions, multi-step navigation).
 
-Apply this gate before every URL-bearing command, including every URL discovered by search, map, crawl, agent, application input, or redirect:
+| Need                        | Command               | When                                                            |
+| --------------------------- | --------------------- | --------------------------------------------------------------- |
+| Find pages on a topic       | `search`              | No specific URL yet                                             |
+| Find research papers        | `research`            | Biomedical/clinical/scientific literature — use the paper index |
+| Answer a coding question    | `developer`           | Issues, merged PRs, READMEs, and docs — not a general web page  |
+| Get a page's content        | `scrape`              | Have a URL, page is static or JS-rendered                       |
+| Find URLs within a site     | `map`                 | Need to locate a specific subpage                               |
+| Bulk extract a site section | `crawl`               | Need many pages (e.g., all /docs/)                              |
+| AI-powered data extraction  | `agent`               | Need structured data from complex sites                         |
+| Interact with a page        | `scrape` + `interact` | Content requires clicks, form fills, pagination, or login       |
+| Download a site to files    | `x download`          | Save an entire site as local files                              |
+| Parse a local file          | `parse`               | File on disk (PDF, DOCX, XLSX, etc.) — not a URL                |
+| Watch pages for changes     | `monitor`             | Schedule recurring scrapes/crawls, diff against snapshots       |
 
-1. Build a literal argument vector and invoke it through a direct process API: never a shell. Never construct, interpolate, concatenate, or evaluate user input in a shell command. If no no-shell argv interface is available, stop.
-2. When installed help proves end-of-options is supported, place `--` before positional user input. Otherwise reject any value with leading `-` or other leading-option confusion.
-3. Accept only absolute `https://` URLs. Reject non-HTTPS schemes, malformed URLs, encoded control characters, fragments used as payloads, and URLs containing userinfo or embedded credentials.
-4. Canonicalize the host and port. Reject localhost names, metadata-service names, IP literals, and DNS results in loopback, private, link-local, multicast, unspecified, carrier-grade NAT, IPv6 unique-local, documentation, benchmark, or any other reserved range.
-5. Resolve and inspect every A and AAAA answer immediately before submission. Reject mixed public/private answers, resolution failure, excessive answer sets, DNS rebinding ambiguity, and any literal or DNS target that is not unambiguously public.
-6. Revalidate the scheme, userinfo, hostname, port, and all A/AAAA answers for each redirect before following it. If the CLI cannot expose or constrain every redirect hop, stop with a capability gap rather than fetch.
-7. For customer-controlled URLs, enforce a bounded, normalized hostname/port allowlist at both agent and shipped-code boundaries. Wildcards, suffix confusion, and provider-owned redirectors are denied unless explicitly bounded.
+For detailed command reference, run `firecrawl <command> --help`.
 
-Firecrawl provider controls such as lockdown, proxy policy, or filtering are defense in depth, not substitutes for local validation, redirect checks, and customer allowlists.
+**Done when:** the narrowest suitable command has completed the request, its output was inspected, and the answer cites the saved source files.
 
-## Route to the narrowest command
+**Scrape vs interact:**
 
-Inspect installed global and selected-command help immediately before execution.
+- Use `scrape` first. It handles static pages and JS-rendered SPAs.
+- Use `scrape` + `interact` when you need to interact with a page, such as clicking buttons, filling out forms, navigating through a complex site, infinite scroll, or when scrape fails to grab all the content you need.
+- For web searches, use `search` — interact is for acting on a specific page.
 
-| Intent | Command | Decision rule |
-| --- | --- | --- |
-| Discover sources without a canonical URL | `firecrawl search` | Search, safety-check returned URLs, then scrape selected results. |
-| Extract a known URL | `firecrawl scrape` | Default after the central URL gate. |
-| Locate URLs within a known site | `firecrawl map` | Bound host and count; validate every returned URL. |
-| Extract multiple pages | `firecrawl crawl` | Bound host, path, page count, bytes, and duration. |
-| Perform browser interaction | `firecrawl interact` | Default read-only; use only after scrape is insufficient and the consent gate below passes. |
-| Convert a local supported document | `firecrawl parse` | Apply the local-file egress gate below. |
-| Plan or inspect recurring checks | `firecrawl monitor` | Prefer a non-mutating plan; inspect subcommand help before state changes. |
-| Search supported research indexes | `firecrawl research` | Inspect research subcommand help; validate returned URLs before fetching. |
-| Run complex AI-directed extraction | `firecrawl agent` | Use only after deterministic commands are insufficient; retain the same safety bounds. |
-| Diagnose preconditions or failed jobs | `firecrawl doctor` | Path D only, including `firecrawl doctor <job-id>` after help inspection. |
+**Monitor:** Bias toward `monitor` when the user's goal is ongoing change detection, alerting, or repeated checks over time — not another one-off scrape. Goal writing, schedules, target modes, and JSON-mode change tracking are documented in [firecrawl-monitor](../firecrawl-monitor/SKILL.md).
 
-### Interact consent gate
+**Reuse fetched content:**
 
-`interact` is read-only by default. Before any action, preview the exact ordered actions, target origin, fields, data classes, and externally visible effect. Obtain explicit action-level consent immediately before login, credential entry, form submission, purchase, message, write, deletion, destructive action, or any other externally visible action. Consent for browsing or for one action does not authorize later actions. Never expose credentials in the preview or execute an unpreviewed action; stop when the site changes the proposed action sequence.
+- `search --scrape` already fetches full page content. Reuse it instead of re-scraping those URLs.
+- Check `.firecrawl/` for existing data before fetching again.
 
-### Local parse egress gate
+## When to Load References
 
-Parsing a local file sends its contents to Firecrawl. Disclose that remote egress before invocation. Classify the file; for confidential, personal, regulated, credential-bearing, or otherwise sensitive content, require explicit approval naming the file/data class before upload. Refuse when approval, minimization, or policy authority is missing. Apply private evidence handling and delete transient copies.
+- **Searching the web or finding sources first** -> [firecrawl-search](../firecrawl-search/SKILL.md)
+- **Finding research papers (biomedical, clinical, or scientific literature; PubMed, bioRxiv, medRxiv, arXiv)** -> [firecrawl-research-index](../firecrawl-research-index/SKILL.md). Use the paper index instead of scraping PubMed or Google Scholar by hand; `search --categories research` is a website filter, not the paper index.
+- **Answering a library, API, error, or known-bug question from issues, merged PRs, READMEs, or docs** -> [firecrawl-developer-index](../firecrawl-developer-index/SKILL.md)
+- **Scraping a known URL** -> [firecrawl-scrape](../firecrawl-scrape/SKILL.md)
+- **Finding URLs on a known site** -> [firecrawl-map](../firecrawl-map/SKILL.md)
+- **Bulk extraction from a docs section or site** -> [firecrawl-crawl](../firecrawl-crawl/SKILL.md)
+- **AI-powered structured extraction from complex sites** -> [firecrawl-agent](../firecrawl-agent/SKILL.md)
+- **Clicks, forms, login, pagination, or post-scrape browser actions** -> [firecrawl-interact](../firecrawl-interact/SKILL.md)
+- **Downloading a site to local files** -> [firecrawl-download](../firecrawl-download/SKILL.md)
+- **Parsing a local file (PDF, DOCX, XLSX, HTML, etc.)** -> [firecrawl-parse](../firecrawl-parse/SKILL.md)
+- **Detecting content changes on a website and getting notified by webhook or email (pricing, jobs, posts, docs, status pages, anything ongoing)** -> [firecrawl-monitor](../firecrawl-monitor/SKILL.md)
+- **Install, auth, or setup problems** -> [rules/install.md](rules/install.md)
+- **Output handling and safe file-reading patterns** -> [rules/security.md](rules/security.md)
+- **Integrating Firecrawl into an app, adding `FIRECRAWL_API_KEY` to `.env`, or choosing endpoint usage in product code** -> the [firecrawl-build skills](https://github.com/firecrawl/skills/tree/main/skills/build) (`firecrawl-build-onboarding`, `-scrape`, `-search`, `-interact`). They live in a separate repo; install with `firecrawl setup build`.
+- **Producing Firecrawl-powered deliverables such as research briefs, SEO audits, QA reports, lead lists, knowledge bases, or design-system extraction** -> use the `firecrawl-workflows` skills (already installed alongside this CLI skill). These skills infer from context first and ask only short blocking questions when needed.
 
-## Transport boundary and unsupported capabilities
+## Output & Organization
 
-Do not configure or use MCP or direct REST by default. Never create an agent-side SDK helper. A CLI invocation error means re-read installed global and relevant command help and correct argv; an invocation error alone never authorizes another transport. Only when the recorded CLI version plus captured global and relevant command help prove the required operation is unsupported may the agent present that evidence and request explicit approval naming one exact MCP server/integration or one exact direct REST endpoint/operation. Without that explicit named approval, stop with the capability gap report. After approval, use only that approved fallback for the proven unsupported operation; do not broaden the surface, substitute the other transport, enter Path D, or bypass any URL/argv, consent, secret, output-bound, or evidence gate in this skill. Path B's SDK allowance is only for shipped application code and does not authorize an agent-side SDK fallback.
+Unless the user specifies to return in context, write results to `.firecrawl/` with `-o`. Add `.firecrawl/` to `.gitignore`. Always quote URLs - shell interprets `?` and `&` as special characters.
 
-## Path D recovery
-
-Path D is limited to failed installed/authenticated preconditions and unresolved CLI-job recovery:
-
-1. Run `firecrawl --status`, inspect `firecrawl doctor --help`, then run `firecrawl doctor`.
-2. For a failed run identifier, run `firecrawl doctor <job-id>` with help-verified literal argv.
-3. For authentication recovery, inspect current config/login help and use only secure-store or environment-based CLI remediation.
-4. Retry only the smallest failed CLI operation after all safety gates pass.
-
-Report credit, concurrency, or rate constraints; change scope or wait only with agreement. Do not use Path D for missing product capability.
-
-## Harness defaults require named opt-in
-
-Ordinary use, packaging, recovery, and evals never run `firecrawl setup defaults`. Only explicit user opt-in for a help-verified named harness permits the exact pair:
-
-```text
-firecrawl setup defaults --agent <harness>
-firecrawl setup defaults --agent <harness> --undo
+```bash
+firecrawl search "react hooks" -o .firecrawl/search-react-hooks.json --json
+firecrawl scrape "<url>" -o .firecrawl/page.md
 ```
 
-Use the same approved identifier. A plan-only request remains non-mutating. A live smoke additionally requires consent naming the harness, observable prior state, matching undo, and verified restoration.
+Naming conventions:
 
-## Operational evidence handling
+```
+.firecrawl/search-{query}.json
+.firecrawl/search-{query}-scraped.json
+.firecrawl/{site}-{path}.md
+```
 
-Before capturing output, create a private temporary directory with mode `0700` under a `umask 077`; create evidence files with mode `0600`. Set explicit bounds for URLs/pages, bytes, duration, and retained excerpts. Derive objective assertions from raw output, then retain only scrubbed structured assertions and the minimum excerpts needed for review.
+Read output files incrementally with `grep`, `head`, or bounded reads:
 
-Scrub cookies, `Set-Cookie`, authorization headers, API keys, session identifiers, signed URLs, query tokens, userinfo, form values, PII, and sensitive page content from stdout, stderr, filenames, commands, URLs, and metadata. A regex scan is not sufficient by itself: inspect structured fields and redact by key and data class. Record retention and cleanup actions; delete raw/transient output as soon as assertions are complete. Large output is inspected incrementally and never flooded into context.
+```bash
+wc -l .firecrawl/file.md && head -50 .firecrawl/file.md
+grep -n "keyword" .firecrawl/file.md
+```
 
-Record CLI version, help consulted, literal argv with secrets removed, exit code, bounds, redirect/DNS safety assertions, source URL or job identifier when safe, and cleanup status. Path B reports project tests and CLI smoke separately. Routing fixtures never execute live operations or mutate state.
+Single format outputs raw content. Multiple formats (e.g., `--format markdown,links`) output JSON. Use `jq` to work with JSON output, e.g. `jq -r '.data.web[].url' .firecrawl/search.json`.
 
-## Package boundary
+## Feedback
 
-The skill and generated plugin contain only authored guidance, the Path B reference, eval assets, and plugin metadata. `firecrawl-kit` does not redistribute the Firecrawl CLI binary, official SDK bytes, `node_modules`, credentials, or external vendor artifacts. Retain generated inventory and package-check evidence proving this boundary.
+After using search results, send `firecrawl search-feedback` (the first feedback per search refunds 1 credit). The full pattern, guard, and rules live in [firecrawl-search](../firecrawl-search/SKILL.md).
+
+For non-search endpoint jobs, use `firecrawl feedback <endpoint> <jobId>` to send concise job-level feedback through `/v2/feedback`. Supported endpoints are `search`, `scrape`, `parse`, and `map`.
+
+```bash
+firecrawl feedback scrape "$SCRAPE_ID" \
+  --rating partial \
+  --issues missing_markdown \
+  --tags docs \
+  --note "The pricing table was missing from the markdown output." \
+  --url "https://example.com/pricing" \
+  --page-numbers 1 \
+  --silent &
+```
+
+Keep generic feedback small: issue codes, tags, short notes, URLs, page numbers, and small metadata objects — never raw scrape/parse outputs or full page contents.
+
+**Opt out:** `export FIRECRAWL_NO_ENDPOINT_FEEDBACK=1` makes the CLI skip every endpoint feedback call silently. Respect that flag — do not try to work around it.
+
+## Parallelization
+
+Run independent operations in parallel. Check `firecrawl --status` for concurrency limit:
+
+```bash
+firecrawl scrape "<url-1>" -o .firecrawl/1.md &
+firecrawl scrape "<url-2>" -o .firecrawl/2.md &
+firecrawl scrape "<url-3>" -o .firecrawl/3.md &
+wait
+```
+
+For interact, scrape multiple pages and interact with each independently using their scrape IDs.
+
+## Credit Usage
+
+```bash
+firecrawl credit-usage
+firecrawl credit-usage --json --pretty -o .firecrawl/credits.json
+```

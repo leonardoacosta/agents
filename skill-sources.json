@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "firecrawl": {
+    "repository": "https://github.com/firecrawl/skills.git",
+    "revision": "bab52f95ea1c95293fc4f551802c285d525bf654",
+    "license": "licenses/firecrawl-skills-ISC.txt",
+    "install": "npx -y skills add https://github.com/firecrawl/skills/tree/bab52f95ea1c95293fc4f551802c285d525bf654 --skill \"*\" --full-depth --global --agent claude-code codex cursor github-copilot opencode -y",
+    "skills": {
+      "firecrawl-build": {
+        "family": "build",
+        "path": "skills/build/firecrawl-build",
+        "files": {
+          "SKILL.md": "6c52fd79c4322ba9f0cf560fc28c9c9ee961d1cd0d930b7656b61449ff693d2b",
+          "references/auth-and-env.md": "52b6c6b71d07793c22ba086e3b960da7a7d0389127a774ea4463e5a330d3cdf1",
+          "references/endpoint-selection.md": "b28e17c14acae09952930d3da1f19097641aa7227de2bd6b3ad73b677f614558",
+          "references/integration-patterns.md": "091abeb8c33a3aefbea4c4b55ff976b72ff8ffc3627b286f325bb240742ad331",
+          "references/project-intake.md": "45f9ced747180dfed65d3c2e17c5eb2a4105c2bf0756a3e4cccf78db608d6198",
+          "references/sdk-installation.md": "d3eb2bff5144b4e5d92aa2229b6e1ac98553b7cc0c608454be6b630f2d5e4af8",
+          "references/verification.md": "d3247aa542fe87676e8aba5934a9193148c365d60a1ae47a5054b61ebfe4da18"
+        }
+      },
+      "firecrawl-build-interact": {
+        "family": "build",
+        "path": "skills/build/firecrawl-build-interact",
+        "files": {
+          "SKILL.md": "cb28225617a633afef90b03a928c4d22b64dd1672b5c41f98792577df1c2bf84"
+        }
+      },
+      "firecrawl-build-onboarding": {
+        "family": "build",
+        "path": "skills/build/firecrawl-build-onboarding",
+        "files": {
+          "SKILL.md": "cc8b77a25f924343f6363bacb2ac6f0fafa00780ea94165dac86ab83f688626c",
+          "references/auth-flow.md": "401a3bb5a63bab7577d06c1eeb4c360e134bf5461e2bcafdd59d5c7b878e7d78",
+          "references/project-setup.md": "446096a353b0dae066bd35517fdc98a7b749a3f990cfe23f4904b9428571f8dd",
+          "references/sdk-installation.md": "27e186a31e5ebea6d6dc7a973af3a4e3ea3487100f456bc4903bddf39759a254"
+        }
+      },
+      "firecrawl-build-scrape": {
+        "family": "build",
+        "path": "skills/build/firecrawl-build-scrape",
+        "files": {
+          "SKILL.md": "d8cf8df8221b8d8216346ea4b70ea714f89bc62c4686ab406b115c34227386d1",
+          "references/freshness-and-liveness.md": "b6446a697db511210a05c674f18e6c52f9a4df93e76be590871cfbfdf1ad7a6b"
+        }
+      },
+      "firecrawl-build-search": {
+        "family": "build",
+        "path": "skills/build/firecrawl-build-search",
+        "files": {
+          "SKILL.md": "3a59f9b9686b786e080a7a8aee5092e0587f2180cea3618f1435343969987dff"
+        }
+      },
+      "firecrawl": {
+        "family": "core",
+        "path": "skills/core/firecrawl",
+        "files": {
+          "SKILL.md": "d9e3c7fd90bc64ef6782f730c6775d96a84226404729c6ca9ed566f03e0479d1",
+          "rules/install.md": "30b9ce217ce10bc58f1374a0673fc586e5137d6d693bf9d0502945919945d612",
+          "rules/security.md": "ca9bf923a60147f5c4852ad04de37c5deb46e53e954da5ccf4982531a59d0ccb"
+        }
+      },
+      "firecrawl-agent": {
+        "family": "core",
+        "path": "skills/core/firecrawl-agent",
+        "files": {
+          "SKILL.md": "06a98afae501172e0fc68d279ad9d157dd092672c54cfc667020fc184e540e51"
+        }
+      },
+      "firecrawl-crawl": {
+        "family": "core",
+        "path": "skills/core/firecrawl-crawl",
+        "files": {
+          "SKILL.md": "f4f2b262564c1532fa210b29fe783213fd41c5a1169b0a7b43c3dfb5dbdd706c"
+        }
+      },
+      "firecrawl-developer-index": {
+        "family": "core",
+        "path": "skills/core/firecrawl-developer-index",
+        "files": {
+          "SKILL.md": "724d69f12fad2b6db2d55394d15baffb464a7b71a342ccb884aad185fe31f664"
+        }
+      },
+      "firecrawl-download": {
+        "family": "core",
+        "path": "skills/core/firecrawl-download",
+        "files": {
+          "SKILL.md": "1127c7d3977794bcb8618e218d0d07a1cfda59da5ab4d9f52a731c45292807f4"
+        }
+      },
+      "firecrawl-interact": {
+        "family": "core",
+        "path": "skills/core/firecrawl-interact",
+        "files": {
+          "SKILL.md": "548d891f416070c22d8dfb2347b1a5baf92b3fc3b2ee676e6fd09295b8344a57"
+        }
+      },
+      "firecrawl-map": {
+        "family": "core",
+        "path": "skills/core/firecrawl-map",
+        "files": {
+          "SKILL.md": "0697e27b5cafa11987235415c556b625e04dd562a295468041d792ea42af06b8"
+        }
+      },
+      "firecrawl-monitor": {
+        "family": "core",
+        "path": "skills/core/firecrawl-monitor",
+        "files": {
+          "SKILL.md": "78547a04d0481497d0ad5ed7e8006b66a0f9168367f70ead75838240c470ffa1",
+          "goals.md": "dd4388577a8d3f78676b10fbfd39ffa0f68b723fb73057a5a722151825b62038",
+          "json-tracking.md": "351cc357831e17fd093804a268f7a704079e064bb856c2f3d848557fed3834ee"
+        }
+      },
+      "firecrawl-parse": {
+        "family": "core",
+        "path": "skills/core/firecrawl-parse",
+        "files": {
+          "SKILL.md": "bb6a1aba463de0b11314e3a63067f8c414a85019248f3de3f753de07e1fad700"
+        }
+      },
+      "firecrawl-research-index": {
+        "family": "core",
+        "path": "skills/core/firecrawl-research-index",
+        "files": {
+          "SKILL.md": "39c6a6cff3fdb1c684c3212834e68bc6168f374b57d3acd002523b8c4fe3d07a"
+        }
+      },
+      "firecrawl-scrape": {
+        "family": "core",
+        "path": "skills/core/firecrawl-scrape",
+        "files": {
+          "SKILL.md": "46ba76f60d9371e0bd91b8873c5570e9b689883cd4cc709893bf16dc62783ea7"
+        }
+      },
+      "firecrawl-search": {
+        "family": "core",
+        "path": "skills/core/firecrawl-search",
+        "files": {
+          "SKILL.md": "2d782f5da2f905178f7773c9d3b18b15331b0892d6d1cb678d166dc672ac41f5"
+        }
+      },
+      "firecrawl-company-directories": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-company-directories",
+        "files": {
+          "SKILL.md": "a270d3d9172e0048879a6e703f3815f85b90dbfff72a059a864b82ebb3fa2e95"
+        }
+      },
+      "firecrawl-competitive-intel": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-competitive-intel",
+        "files": {
+          "SKILL.md": "a73942c75fa84a520b858ad5eff72550e1d8a21824be27e36d5ba544e2c18d15"
+        }
+      },
+      "firecrawl-dashboard-reporting": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-dashboard-reporting",
+        "files": {
+          "SKILL.md": "ab9605d8576967f0203fa60379ba87ff4876a866f43d227998da473ee6d0815e"
+        }
+      },
+      "firecrawl-deep-research": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-deep-research",
+        "files": {
+          "SKILL.md": "dfd224ee3eed753bde0f4eb1e4854e4f430a3c17a6c1b4a81664986eabe2dcb3"
+        }
+      },
+      "firecrawl-demo-walkthrough": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-demo-walkthrough",
+        "files": {
+          "SKILL.md": "8d32a50f6b2b66a78db69e1bf68f9e7e9fd51e5cc5ea62bdad025ddd79745a8b"
+        }
+      },
+      "firecrawl-knowledge-base": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-knowledge-base",
+        "files": {
+          "SKILL.md": "33ec3a6223b07f7dd486e08d829ed3be68bf5e4ad29ccdfcdf26d2058f043723"
+        }
+      },
+      "firecrawl-knowledge-ingest": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-knowledge-ingest",
+        "files": {
+          "SKILL.md": "2b8cbf4b0faeac3941c9a8ad73677ebdea5f10058b4d630b20b05c150d8ce2b7"
+        }
+      },
+      "firecrawl-lead-gen": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-lead-gen",
+        "files": {
+          "SKILL.md": "f009c55a3f4d3b2cb11205cea485be26277be832a6c956c8aefa1fd5b97c3309"
+        }
+      },
+      "firecrawl-lead-research": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-lead-research",
+        "files": {
+          "SKILL.md": "1b52c42404c564aeb3a6a221165792f1194470b8159a6e89f9578d72c820ee84"
+        }
+      },
+      "firecrawl-market-research": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-market-research",
+        "files": {
+          "SKILL.md": "9ec1040c5abdead2efd5cd5c996e41a3ae36b7716f558c0aa9444c1944cbc5dd"
+        }
+      },
+      "firecrawl-qa": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-qa",
+        "files": {
+          "SKILL.md": "f8f0c23d22f0440c0486fdfed27d82a06cfda7eb62da1d0ba21b2416595d0280"
+        }
+      },
+      "firecrawl-research-papers": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-research-papers",
+        "files": {
+          "SKILL.md": "e93996e2209ad5927fdccac011c7b68c596cae70d17334f3e48cb880015088cd"
+        }
+      },
+      "firecrawl-seo-audit": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-seo-audit",
+        "files": {
+          "SKILL.md": "a04bf7f3806fef718e48ad05ad20d38548410b2d51b92a4ad43cd8838068e0bc"
+        }
+      },
+      "firecrawl-shop": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-shop",
+        "files": {
+          "SKILL.md": "aafea0f0ecdf3a098492635b5f1a24ff4b8cf339945170beee8b75ce12ff4f0c"
+        }
+      },
+      "firecrawl-website-design-clone": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-website-design-clone",
+        "files": {
+          "SKILL.md": "94b1beac10274c974396a9289d4ae6e28e6cd0f09cd7d273dd0e85c2dd2f7787"
+        }
+      },
+      "firecrawl-workflows": {
+        "family": "workflows",
+        "path": "skills/workflows/firecrawl-workflows",
+        "files": {
+          "SKILL.md": "eb2ec7d253afa2cf29ce306f7b4633add06acc4ea32ab8a2a97d8a652eae8790",
+          "references/workflow-authoring.md": "2d985295d17abdeaa5a78f0a773f4632b82cb7163d0e098feb74d3f050e45af2"
+        }
+      }
+    }
+  },
+  "agent-browser": {
+    "source": "installed CLI bundle",
+    "verifiedVersion": "0.37.1",
+    "load": "agent-browser skills get core",
+    "references": "agent-browser skills path core",
+    "policy": "agent-browser-policy",
+    "refresh": "Review installed core and policy conflicts after CLI upgrades. Do not vendor cached command documentation."
+  }
+}

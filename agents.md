@@ -186,36 +186,39 @@ The workflow must enter the terminal state only in this order:
 
 If any state is missing, stale, failed, or unverifiable, the workflow is `blocked` or `in_progress`, never `completed`. A worker report, passing task-local test, clean-looking diff, or uncommitted working tree cannot substitute for the terminal gate. The final review must inspect the commit range and confirm task, proposal, and archive changes are in scope. Harnesses must not expose or honor a normal execution flag that skips verification, independent review, archive, or required commits. User-decision gates may park work, but they do not permit a completion claim.
 
-## Skills and the lock file
+## First-party web skills and local policy
 
-Skills in `skills/<name>/SKILL.md` are loaded by coding agents (Jcode, Claude Code) through
-two independent layers:
+For every `agent-browser` task, load `agent-browser-policy` and the installed CLI's
+first-party `core` skill through the `agent-browser` loader. For every `firecrawl`
+or `firecrawl-*` task, including direct specialized-skill invocation, load
+`firecrawl-policy` alongside the selected official skill. The policy skills supplement
+upstream workflows. They are not replacement command manuals.
 
-1. **Agent-native registry** (e.g. Jcode's `SkillRegistry`): scans `skills/` directories
-   directly and loads every valid `SKILL.md` it finds. This layer is tolerant and loads
-   skills regardless of lock-file state.
+Installed CLI help owns supported syntax. First-party skills own product workflows.
+Local policy owns stricter consent, credential handling, transport, private identity,
+and task-session boundaries. Upstream examples never authorize bypassing those rules.
+If a capability or safeguard is unsupported, report the boundary rather than guessing
+flags, exporting credentials, installing another transport, or changing harness defaults.
 
-2. **Plugin/lock-file layer** (Claude Code's `npx skills` ecosystem): gates skill
-   availability on `.skill-lock.json`. A skill is invisible to the slash-command system
-   (`/skillname`) unless it is registered in the lock file with a valid integrity hash.
+Keep official Firecrawl files unchanged. Record their reviewed catalog revision and
+file digests in `skill-sources.json`, separate from installer-owned locks. Preserve
+learned rules in the policy skills and host-specific identities outside this repository.
+Load only the relevant official skill and references, not the entire installed suite.
 
-### Failure modes
+## Skill discovery and installer provenance
 
-- **Skill not in `.skill-lock.json`**: manually copied or locally created skills are absent
-  from the lock file. Agent registry shows them loaded, but `/skillname` does not work.
-  Fix: `npx skills add --local <name>` or `npx skills lock`.
+Skill discovery and installer provenance are separate concerns. Native registries scan
+`skills/<name>/SKILL.md`; harness-specific directories project selected entries through
+links. Inspect actual discovery and `scripts/verify-skill-projections.sh` output rather
+than assuming a lock entry proves loading or its absence prevents loading.
 
-- **Lock entry has missing hash** (`?`): the lock file has a stale or unvalidated entry.
-  The plugin layer rejects it even though the `SKILL.md` file is valid.
-  Fix: `npx skills lock` to recompute all hashes.
+Use the installed `npx skills --help` for supported intake commands. The current CLI
+owns its global lock at `${XDG_STATE_HOME:-$HOME/.local/state}/skills/.skill-lock.json`.
+Older installations retain `~/.agents/.skill-lock.json`. Read the active lock for source
+facts, never rewrite locks manually, and append governance events to
+`~/.agents/skill-journal.jsonl` using the skill-intake-lifecycle protocol.
 
-- **Skill has no symlink in `~/.claude/skills/`**: Claude Code discovers skills through
-  symlinks in that directory. Missing symlinks silently exclude the skill.
-  Fix: `ln -s ../../agents/skills/<name> ~/.claude/skills/<name>` (relative from
-  `~/.claude/skills/`, accounting for any symlinks in the path chain).
-
-### Verifying state
-
-Run the pre-commit hook or `npx skills lock` to audit the lock file. A skill that exists
-on disk but has no valid lock entry is silently unavailable — agents can list it, but
-users cannot invoke it.
+Record intended projections in `skill-projections.json`. Preserve locally owned paths,
+verify canonical targets before creating missing links, and do not run a broad write
+reconciliation when only one skill suite is authorized. Reload the native registry and
+verify the requested names are discoverable after changing the materialized skill set.
