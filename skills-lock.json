@@ -78,9 +78,9 @@
       "source": "cloudflare/skills",
       "sourceType": "github"
     },
-    "atlas-publish": {
-      "computedHash": "e818aeb0f83a34fbfae644e2ec10bdeb3fff07415a56b7a5a483de5592423749",
-      "skillPath": "skills/atlas-publish/SKILL.md",
+    "atlas": {
+      "computedHash": "36288c3d17f6dd5f940628bc5e75988f8be1b25124ce9b7abe466fd4e20ee488",
+      "skillPath": "skills/atlas/SKILL.md",
       "source": "leonardoacosta/atlas",
       "sourceType": "github"
     }
