@@ -85,15 +85,15 @@
       "sourceType": "github"
     },
     "jcode-personal-setup": {
-      "source": "leonardoacosta/empryo-skills",
+      "source": "leonardoacosta/personal-skills",
       "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/empryo-skills.git",
+      "sourceUrl": "https://github.com/leonardoacosta/personal-skills.git",
       "skillPath": "skills/jcode-personal-setup/SKILL.md",
       "skillFolderHash": "dd905cb4d72c58a6eeafb5cc04fc03f24451c1fc",
       "computedHash": "5fcc198ffd9aa6b17462bc6a4379248e90fd48c9f9d1c57940da41a116843439",
       "installedAt": "2026-09-12T16:37:43.896Z",
-      "updatedAt": "2026-09-12T16:37:43.896Z",
-      "sourceCommit": "01c9197507b7151900b8d7c78e9e9adb0884faeb"
+      "updatedAt": "2026-09-12T16:51:01.951521+00:00",
+      "sourceCommit": "dfa461b1d3f132d1aa34569cfa6229937ed7fc1a"
     }
   },
   "version": 1
