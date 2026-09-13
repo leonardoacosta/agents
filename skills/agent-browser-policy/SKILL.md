@@ -1,6 +1,6 @@
 ---
 name: agent-browser-policy
-description: Apply strict consent, privacy, session ownership, profile, CDP, and harness-versus-CLI rules whenever agent-browser is used.
+description: Apply consent, secret-safe authorized login, session ownership, profile, CDP, and harness-versus-CLI boundaries whenever agent-browser is used, including test-persona reauthentication.
 compatibility: Supplements the installed agent-browser core skill; it does not replace it.
 ---
 
@@ -8,8 +8,11 @@ compatibility: Supplements the installed agent-browser core skill; it does not r
 
 ## Consent and privacy
 
-- An explicit agent-browser request authorizes the managed Chromium runtime. Confirm immediately before an externally visible or account-affecting action, not before ordinary inspection, navigation, snapshots, or reads.
-- Never request, enter, export, inspect, or report passwords, credentials, cookies, tokens, one-time codes, recovery codes, or local-storage credentials. Shared cookies are sensitive state. Use them only through the approved upstream mechanism and never print or copy them.
+- An explicit agent-browser request authorizes the managed Chromium runtime. Confirm immediately before externally visible or account-affecting actions not already explicitly authorized. Ordinary inspection, navigation, snapshots, and reads need no repeated confirmation. Authorized login follows the rule below.
+- Explicit authorization to use an existing test persona permits login and reauthentication to the named application/environment during that task. Prefer a configured credential provider or existing auth profile. If unavailable, a repo-maintained credential reference may be consumed by a bounded local helper and entered into the verified login form. Do not provision a duplicate account because a session expired.
+- The helper must keep credential values out of model/tool output, shell history, tracing, logs, reports and tracked artifacts. Use structured subprocess arguments rather than shell interpolation, suppress output and sanitized failure reporting, and minimize secret lifetime. Raw command arguments can be visible to local processes: use a supported stdin/provider mechanism where available, otherwise use only a trusted local execution environment. Never print source lines or exceptions containing credentials. Record credential references and successful identity checks, not values.
+- Recheck origin before credential entry and authenticated identity, role and tenant/event afterward. Stop on unexpected redirects, login failure, MFA or a profile/membership gate. Login authorization does not approve account creation, password resets, privilege changes, onboarding writes or operational mutations.
+- Never export or report passwords, cookies, tokens, one-time codes, recovery codes or local-storage credentials. Do not extract browser cookies or private session storage to bypass login. Shared-cookie access remains limited to an explicitly approved upstream mechanism.
 - Treat an existing private profile as sensitive. Load a user-approved private context path only when the user names or approves the exact path. Do not copy, migrate, or expose profile data.
 
 ## Runtime boundaries
