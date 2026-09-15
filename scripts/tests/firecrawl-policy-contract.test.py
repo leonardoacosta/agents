@@ -60,6 +60,30 @@ def test_evals_are_retargeted_and_retain_app_integration_cases() -> None:
     assert "redirect" in serialized
 
 
+def test_public_research_redirect_boundary() -> None:
+    text = POLICY.read_text()
+    for marker in (
+        "Provider-managed redirects are permitted without local per-hop visibility",
+        "without `--scrape`",
+        "not a claim that SSRF protection has been independently verified",
+        "the public-research allowance does not apply",
+        "stop that source, discard its content",
+        "self-hosted Firecrawl",
+        "Policy contract tests remain offline",
+    ):
+        assert marker in text, marker
+    assert "This unsupported redirect enforcement limitation is a capability gap, not permission" not in text
+    cases = json.loads(EVALS.read_text())["evals"]
+    assert len({case["id"] for case in cases}) == len(cases)
+    names = {case["name"] for case in cases}
+    for name in (
+        "public-search-without-scrape", "public-docs-redirect",
+        "authenticated-redirect-block", "private-target-still-blocked",
+        "visible-unsafe-final-url",
+    ):
+        assert name in names, name
+
+
 if __name__ == "__main__":
     failures = 0
     for name, test in list(globals().items()):

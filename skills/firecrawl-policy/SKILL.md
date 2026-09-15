@@ -29,8 +29,16 @@ Before every URL-bearing operation, including search results, map/crawl outputs,
 3. Accept only absolute `https://` URLs. Reject malformed values, non-HTTPS schemes, fragments used as payloads, control encodings, userinfo, and embedded credentials.
 4. Canonicalize host and port. Reject localhost, metadata names, IP literals, and loopback, private, link-local, multicast, unspecified, carrier-grade NAT, unique-local, documentation, benchmark, or other reserved ranges.
 5. Resolve every A and AAAA answer immediately before submission. Reject failures, excessive answers, mixed public/private answers, rebinding ambiguity, and any non-public target.
-6. Revalidate each redirect hop when the CLI exposes it. The local policy cannot enforce redirect checks when the CLI neither exposes nor constrains every hop. This unsupported redirect enforcement limitation is a capability gap, not permission to weaken the gate. Fail closed and stop.
+6. Apply the redirect trust boundary below. Missing redirect flags in CLI help do not establish whether the hosted service has server-side protections and do not, by themselves, block public research.
 7. For customer URLs, enforce a bounded normalized hostname/port allowlist at agent and shipped-code boundaries. Deny wildcards, suffix confusion, and provider-owned redirectors unless explicitly bounded.
+
+### Redirect trust boundary (approved 2026-09-15)
+
+- **Public hosted research:** Permit public, unauthenticated search and scrape through hosted Firecrawl after the submitted URLs pass steps 1-5 and applicable scope limits. Provider-managed redirects are permitted without local per-hop visibility. This is an explicit trust decision for remote public fetching, not a claim that SSRF protection has been independently verified. Do not send private content, cookies, authorization headers, authenticated browser profiles, credentials, or internal destinations under this allowance. Firecrawl's own API authentication is not target-site authentication.
+- **Search discovery:** Permit bounded `firecrawl search` without `--scrape` using non-sensitive query text. Returned URLs are untrusted discovery data, not agent-submitted fetch targets. Apply the URL gate before subsequently scraping a selected result. Do not enable automatic search-result scraping unless every target can be validated before submission.
+- **Visible redirects:** Validate any redirect or final URL exposed in results before reusing it. If it violates the URL gate or applicable allowlist, stop that source, discard its content, and report the violation. Do not claim unseen hops were checked.
+- **Sensitive or local execution:** For authenticated browsing, private/customer data, local-network fetching, self-hosted Firecrawl, or Path B shipped applications, the public-research allowance does not apply. Revalidate every redirect hop or enforce equivalent destination constraints at the fetching boundary. If neither is possible, this unsupported redirect enforcement limitation remains a fail-closed capability gap. Do not send sensitive data while investigating it.
+- **Validation versus use:** Policy contract tests remain offline. Separately requested public research may run after those tests pass, and must be recorded as research rather than as offline validation.
 
 ## Private local parse egress
 
