@@ -171,11 +171,12 @@ change the auth integration style.
 
 ## Portless local auth acceptance
 
-When a test run explicitly opts into portless, use its dynamically assigned product-named loopback
-origin consistently for navigation and callback configuration. Before claiming authenticated
+When a test run explicitly opts into portless, use its stable, product-named development origin
+consistently for navigation and callback configuration; the backend port remains dynamically assigned
+on loopback. Before claiming authenticated
 coverage, prove that auth callbacks, cookie scope, and the test URL trust policy accept that origin.
 Keep the normal local command as the default and do not treat portless as a deployed target. Follow
-the [portless opt-in development guide](file:///home/nyaptor/dev/priceless/priceless-internal/docs/guides/portless-opt-in-development.md)
+the [portless opt-in development guide](https://github.com/Priceless-Development/priceless-internal/blob/main/docs/guides/portless-opt-in-development.md#launch-and-verify)
 for the canonical boundary; do not duplicate its setup procedure here.
 
 ## Related

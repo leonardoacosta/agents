@@ -51,11 +51,11 @@ the relevant build; it does not silently bypass validation in production.
 
 Portless is an explicit local-development opt-in. Do not replace the normal `dev` path or move its
 env loader. When the wrapper is enabled, preserve the package-owned `with-env` boundary and the
-watcher graph, and pass the dynamically assigned product-named browser origin while keeping the
-backend target on loopback. Treat that origin as local routing only, not as a production or preview
-deployment URL. Do not add a project dependency when a supported global portless install is used.
+watcher graph, and pass the stable, product-named development origin while keeping the
+backend bound to loopback with its dynamically assigned port. Treat that origin as local routing
+only, not as a production or preview deployment URL. Do not add a project dependency when a supported global portless install is used.
 
-Use the [portless opt-in development guide](file:///home/nyaptor/dev/priceless/priceless-internal/docs/guides/portless-opt-in-development.md)
+Use the [portless opt-in development guide](https://github.com/Priceless-Development/priceless-internal/blob/main/docs/guides/portless-opt-in-development.md#environment-wrappers-and-backend-boundaries)
 for the canonical URL and precedence procedure. Validate any new URL variable at its read boundary;
 do not create an ad hoc unvalidated `process.env` escape hatch.
 
