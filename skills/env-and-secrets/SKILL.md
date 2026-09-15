@@ -47,6 +47,18 @@ Keep `.env.example` synchronized with required schema keys. CI either supplies s
 non-secret values or explicitly uses the framework's documented validation escape hatch for
 the relevant build; it does not silently bypass validation in production.
 
+## Local portless URL boundary
+
+Portless is an explicit local-development opt-in. Do not replace the normal `dev` path or move its
+env loader. When the wrapper is enabled, preserve the package-owned `with-env` boundary and the
+watcher graph, and pass the dynamically assigned product-named browser origin while keeping the
+backend target on loopback. Treat that origin as local routing only, not as a production or preview
+deployment URL. Do not add a project dependency when a supported global portless install is used.
+
+Use the [portless opt-in development guide](file:///home/nyaptor/dev/priceless/priceless-internal/docs/guides/portless-opt-in-development.md)
+for the canonical URL and precedence procedure. Validate any new URL variable at its read boundary;
+do not create an ad hoc unvalidated `process.env` escape hatch.
+
 ## Keep secret material out of code and evidence
 
 - Commit an encrypted application `.env` only when the repository's encryption workflow is

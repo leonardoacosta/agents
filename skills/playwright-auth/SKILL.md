@@ -169,6 +169,15 @@ See `t3-testing-patterns` Rule 13 for the provider-boundary contract. POM versus
 still depends only on whether the login UI itself is under test; provider substitution does not
 change the auth integration style.
 
+## Portless local auth acceptance
+
+When a test run explicitly opts into portless, use its dynamically assigned product-named loopback
+origin consistently for navigation and callback configuration. Before claiming authenticated
+coverage, prove that auth callbacks, cookie scope, and the test URL trust policy accept that origin.
+Keep the normal local command as the default and do not treat portless as a deployed target. Follow
+the [portless opt-in development guide](file:///home/nyaptor/dev/priceless/priceless-internal/docs/guides/portless-opt-in-development.md)
+for the canonical boundary; do not duplicate its setup procedure here.
+
 ## Related
 
 - `webapp-testing` skill -- Playwright setup, selectors, screenshots, server lifecycle

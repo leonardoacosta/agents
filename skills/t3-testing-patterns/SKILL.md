@@ -87,6 +87,18 @@ baseline improves by more than three points or during the quarterly review.
 | Quarantine | Structured owner/reason/issue/expiry metadata, ratcheting debt, and scheduled/manual quarantine execution. |
 | Benchmarks | Target-class-specific, full-suite, unsharded, comparable records; two adjacent clean runs at the proposed worker budget. Retry-pass is not clean. |
 
+### Portless local target
+
+Portless may be used only as an explicit local opt-in. Keep the ordinary `dev` command available and
+preserve the package env wrapper and watcher graph. Browser tests may use the dynamically assigned
+product-named loopback URL, but the backend remains an explicit loopback target. A portless URL is
+local routing evidence, not deployed or production acceptance. Auth callbacks, cookie scope, and
+the test URL trust policy must accept the selected origin before relying on authenticated coverage.
+
+The [portless opt-in development guide](file:///home/nyaptor/dev/priceless/priceless-internal/docs/guides/portless-opt-in-development.md)
+is canonical. Evidence from this lane is limited to the documented no-port trusted HTTP 200/2 and
+HMR-frame checks. It does not establish full-repository auth, persistence, or remote-device coverage.
+
 ## Decision Rules
 
 1. **Mode matrix first.** Select canonical deployed-HTTPS, local loopback, CI loopback, or isolated
