@@ -196,6 +196,18 @@ pnpm with-env node -e 'console.log(new URL(process.env.POSTGRES_URL).host)'  # m
 
 A running dev server caches the bad connection — restart it after fixing.
 
+## 4c. Portless is an opt-in local development wrapper
+
+When a developer explicitly opts into portless, add the wrapper at the pnpm script boundary for
+that app only. Keep the existing `dev` script unchanged, keep the package-owned env wrapper in the
+command chain, and preserve the watcher/Turbo dependency graph. Portless is a local routing layer,
+not a production deployment mechanism, and it may be globally installed; do not add a project
+dependency or manifest entry solely to support this opt-in.
+
+Use the product-named URL that portless assigns for local browser work instead of hard-coding a
+port. Keep the backend loopback target explicit and dynamic. Read the canonical procedure and
+acceptance boundaries before changing a script: [portless opt-in development guide](file:///home/nyaptor/dev/priceless/priceless-internal/docs/guides/portless-opt-in-development.md).
+
 ## 4c. Scripts Package (`@{ws}/scripts`)
 
 Domain scripts (seeders, backfills, mocks, ops actions) live in a dedicated `apps/scripts`
