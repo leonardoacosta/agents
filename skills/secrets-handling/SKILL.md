@@ -1,6 +1,6 @@
 ---
 name: secrets-handling
-description: Doctrine for handling secrets and credentials in any agent workflow — how to pass them, how to report finding one, and what never to write into output. Triggers on secret, credential, API key, token, password, .env, rotation, "found a hardcoded key", redaction, 1Password, op CLI, service accounts, vault access, scrubbing a handoff or export, or passing a credential to a subprocess. Read this BEFORE reporting a discovered secret, provisioning a vault, or writing a credential into any command line. For dotenvx mechanics (encryption, --redact, vault refs), use dotenvx-secrets instead — this skill is the general rule, that one is the tool.
+description: Doctrine for handling secrets and credentials in any agent workflow — how to pass them, how to report finding one, and what never to write into output. Triggers on secret, credential, API key, token, password, .env, rotation, "found a hardcoded key", redaction, 1Password, op CLI, service accounts, vault access, scrubbing a handoff or export, or passing a credential to a subprocess. Read this BEFORE reporting a discovered secret, provisioning a vault, or writing a credential into any command line. For dotenvx mechanics (encryption, --redact, vault refs), use priceless-dotenvx instead — this skill is the general rule, that one is the tool.
 ---
 
 
@@ -67,11 +67,11 @@ Provisioning is not complete until both item metadata and human vault access are
 
 Prefer scoped `op://` references injected into a specific process over an arbitrary
 vault-reader MCP tool. Exact metadata-only commands, access checks, and official sources live
-in `dotenvx-secrets` reference `references/vaults-and-guards.md`.
+in `priceless-dotenvx` reference `references/vaults-and-guards.md`.
 
 ## Related
 
-- `dotenvx-secrets` — the tooling: injection, encryption, `--redact`, vault references,
+- `priceless-dotenvx` — the tooling: injection, encryption, `--redact`, vault references,
   service-account boundaries, and what redaction does *not* protect against.
 - `scripts/bin/security-scan` — `--mcp` / `--staged` / `--code`; ruleset in
   `scripts/config/security-rules.json`.

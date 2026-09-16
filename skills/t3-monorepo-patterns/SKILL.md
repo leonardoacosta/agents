@@ -8,6 +8,8 @@ allowed-tools: Read, Glob, Grep
 
 # T3 Turbo Monorepo Patterns
 
+For Priceless command ownership, root aliases, operational runbooks and safe agent discovery, load `priceless-workspace-commands`. For environment loading and Turbo env hashing, load `priceless-dotenvx`.
+
 ## Structure Reference
 
 ```

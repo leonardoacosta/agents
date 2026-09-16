@@ -1,78 +1,11 @@
 ---
 name: env-and-secrets
-description: Portable T3 coding rules for dotenvx, @t3-oss/env, server/client environment boundaries, and secret-safe scripts, tests, logs, and fixtures. Use when adding or changing environment variables, .env files, dotenvx commands, env.ts, migrations, seeds, integration tests, CI environment setup, or secret-bearing configuration in a T3 project.
+description: Deprecated compatibility redirect. Use priceless-dotenvx for environment schemas, dotenvx precedence, encryption, vault references and redaction.
+disable-model-invocation: true
 ---
 
-# T3 environment and secrets
+# Deprecated: use priceless-dotenvx
 
-This skill owns the application-code boundary. It is intentionally not a vault or
-credential-operations guide: use `dotenvx-secrets` for encryption, redaction limits,
-credential injection, and vault references; use `secrets-handling` for the universal rules
-for discovered credentials and safe reporting.
+This skill is superseded by `priceless-dotenvx`. Load that skill before acting. Its bundled application-env, encryption, redaction and vaults-and-guards references own the migrated guidance. `priceless-ci` owns CI verification and `priceless-deployment` owns release admission. Use `priceless-workspace-commands` for command ownership and discovery.
 
-## One loader boundary per package
-
-Use one package-owned loader command. The canonical shape is:
-
-```json
-{
-  "scripts": {
-    "with-env": "dotenvx run --overload --quiet -f ../../.env --",
-    "db:migrate": "pnpm with-env drizzle-kit migrate",
-    "seed": "pnpm with-env tsx src/seed.ts"
-  }
-}
-```
-
-- `--overload` is mandatory: the selected project file wins over inherited shell values.
-- `--quiet` prevents loader banners from polluting command output.
-- `-f` selects the file; repeated `-f` files are last-wins.
-- Do not nest dotenv loaders or call `dotenv.config()` inside the program. A package invokes
-  its own `with-env` sibling and downstream commands inherit it.
-
-## Validate values where code reads them
-
-`dotenvx` loads values; it does not type or validate them. Every package that reads an
-environment variable owns an `env.ts` schema using `@t3-oss/env`:
-
-- Next.js applications use `@t3-oss/env-nextjs` with explicit `server`, `client`, and
-  `runtimeEnv` declarations.
-- Non-Next packages use `@t3-oss/env-core` with `server` and `runtimeEnv`.
-- New variables enter the schema before code reads them. Do not add a bare
-  `process.env.MY_VALUE` read outside the schema/config boundary.
-- Client variables use the framework's public prefix and are deliberately non-secret.
-  A server secret never belongs in the client schema or browser bundle.
-
-Keep `.env.example` synchronized with required schema keys. CI either supplies satisfying
-non-secret values or explicitly uses the framework's documented validation escape hatch for
-the relevant build; it does not silently bypass validation in production.
-
-## Local portless URL boundary
-
-Portless is an explicit local-development opt-in. Do not replace the normal `dev` path or move its
-env loader. When the wrapper is enabled, preserve the package-owned `with-env` boundary and the
-watcher graph, and pass the stable, product-named development origin while keeping the
-backend bound to loopback with its dynamically assigned port. Treat that origin as local routing
-only, not as a production or preview deployment URL. Do not add a project dependency when a supported global portless install is used.
-
-Use the [portless opt-in development guide](https://github.com/Priceless-Development/priceless-internal/blob/main/docs/guides/portless-opt-in-development.md#environment-wrappers-and-backend-boundaries)
-for the canonical URL and precedence procedure. Validate any new URL variable at its read boundary;
-do not create an ad hoc unvalidated `process.env` escape hatch.
-
-## Keep secret material out of code and evidence
-
-- Commit an encrypted application `.env` only when the repository's encryption workflow is
-  established. Keep `.env.keys` ignored and never place private keys in source control.
-- Never put a secret value in source, command arguments, test fixtures, snapshots, logs,
-  screenshots, artifacts, generated reports, or review text.
-- Use synthetic values in tests. An integration test needing a real credential must follow
-  `dotenvx-secrets` and `secrets-handling`; do not invent a shell, vault, or redaction flow.
-- Do not expose a server value through `NEXT_PUBLIC_`, serialized API data, error messages, or
-  client-side diagnostic output.
-
-## Review checklist
-
-When reviewing a T3 environment change, verify the loader path and package ownership, schema
-entry and server/client placement, `.env.example` parity, test/CI values, and that no literal
-secret or `.env.keys` is introduced. For encryption, redaction, vault, service-account, or
-live-agent credential questions, stop and load the two `leo-security` skills named above.
+Do not apply historical blanket `--overload` rules. The authoritative source depends on variable class and execution phase. If the replacement is unavailable, report the missing skill instead of falling back to retired policy. This redirect grants no credential, deployment or mutation authority.
