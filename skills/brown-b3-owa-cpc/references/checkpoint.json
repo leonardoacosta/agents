@@ -1,0 +1,18 @@
+{
+  "step_id": "M5.2",
+  "case_id": "outlook-read-search",
+  "status": "NOT_RUN",
+  "timestamp_utc": null,
+  "source_sha": null,
+  "template_sha": null,
+  "environment": "local",
+  "host": "Outlook",
+  "action": null,
+  "expected": "Enter and button apply the same readiness gate",
+  "actual": null,
+  "exit_or_status_code": null,
+  "evidence_paths": [],
+  "owned_process_ids": [],
+  "cleanup_result": "NOT_RUN",
+  "blocker": null
+}
