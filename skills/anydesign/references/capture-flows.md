@@ -182,45 +182,7 @@ Mark this in the `design.md`: tokens with ✅ high confidence are those that cam
 
 ---
 
-## Flow 4 — Local video or social-post media
-
-**Typical input:** a local MP4/WebM/MOV, a direct media URL, or a post on X, LinkedIn,
-Instagram, TikTok, or another site that contains a motion reference.
-
-First decide the target mode:
-
-- **Motion analysis only**: capture and sample the media, then use element mode.
-- **Working reconstruction or reusable skill**: read
-  `capture-to-reconstruction.md` and use pipeline mode.
-
-### Step 4.1 — Preserve the original
-
-- For a local file, keep the original bytes. Derive frames from a copy or read-only source.
-- For a public or authenticated post, use an authorized browser session. Preserve the visible post
-  URL and attribution. Download the media only through a permitted surface.
-- If the original media is unavailable, use a screen recording and mark it as lower-confidence
-  evidence.
-- Do not store cookies, authorization headers, or signed media URLs in the study.
-
-### Step 4.2 — Probe and sample
-
-Use `ffprobe` or an equivalent tool to record codec, dimensions, duration, size, frame rate, and
-audio presence. Extract 9 to 15 frames for a short clip, including the initial and final stable
-states. Add frames at important transition boundaries and build a contact sheet.
-
-Keep the source aspect ratio. Record frame timestamps or stable sequence numbers so analysis claims
-can point to evidence.
-
-### Step 4.3 — Continue by scope
-
-- For element mode, analyze stable topology, states, actors, timing, motion channels, controls,
-  semantics, reduced motion, and uncertainty in `element.md`.
-- For pipeline mode, follow all P-steps in `capture-to-reconstruction.md`. That reference owns the
-  HTML, standalone SVG, React, skill-codification, and closed-loop validation contract.
-
----
-
-## Flow 5 — Combinations
+## Flow 4 — Combinations
 
 **Common case:** the user passes a URL **and** a manual screenshot of a specific state
 (e.g., "the site rendered on mobile" or "the modal open").
@@ -246,8 +208,6 @@ implemented what the design defined. In this case the `design.md` can have an ex
 | Figma MCP can't access file | Verify the file is accessible to the logged-in user. |
 | Cookie banner blocks content even after auto-dismiss | Ask the user for a manual screenshot with the banner already closed. |
 | Corrupt or unreadable image | Ask for a new version. |
-| Media cannot be downloaded | Preserve screenshots or a screen recording and mark the fidelity limit. |
-| `ffprobe` or `ffmpeg` is unavailable | Use an equivalent installed media tool or report the missing dependency. Do not guess timing. |
 
 **Principle:** honesty about limitations is part of being professional. An invented analysis is
 worse than an analysis with missing but clear data.

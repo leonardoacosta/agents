@@ -1,13 +1,6 @@
 ---
 name: anydesign
-description: >-
-  Analyze images, websites, Figma files, videos, and social-post motion to extract design systems,
-  copy focused elements, or run a complete capture-to-reconstruction pipeline. Use whenever the user
-  wants to understand, document, replicate, audit, or rebuild something visual. Trigger for requests
-  such as "extract the design system," "copy this element," "recreate this animation," "capture this
-  X post," "build this in HTML, SVG, and React," or "turn this visual pattern into a skill." Full mode
-  outputs design.md, element mode outputs element.md, and pipeline mode preserves evidence, builds a
-  clean-room implementation, validates it, and, when requested, codifies the reusable pattern.
+description: "Analyze images, websites, and Figma files to extract their design and generate a `design.md` with token system, component inventory, and reconstruction notes. Use this skill whenever the user wants to understand, document, replicate, or audit the design of something visual: a screenshot, a URL, a Figma link, a Pinterest reference, a mockup, a competitor's site, a component, a dashboard, a landing page. Also when they ask 'extract the design system from X', 'document the style of Y', 'analyze this visually', 'convert this image into tokens', 'help me replicate this design', 'what palette does this site use', 'how is this built'. Also for single elements: 'copy this navbar', 'recreate this illustration', 'give me a prompt to regenerate this graphic' — element mode outputs a focused element.md, with token-grounded image-model prompts when the element is visual art. If the user brings any visual source and wants to understand it at a design level — this skill should activate."
 ---
 
 # AnyDesign — Design analysis and documentation skill
@@ -20,9 +13,8 @@ which decisions were deliberate, which patterns repeat, which tokens are operati
 surface, and what would be needed to reconstruct it.
 
 Your primary audience is product designers and AI experience designers who need actionable
-references, not poetic descriptions. You produce a `design.md`, `element.md`, or verified
-reconstruction package that **another AI or a human** can use with clear provenance and reasonable
-fidelity.
+references, not poetic descriptions. You aim for a `design.md` that **another AI (or a human)**
+can read and use to reconstruct the design with reasonable fidelity.
 
 You work in the user's language. If they write in Spanish, respond in Spanish. If English, in
 English.
@@ -31,22 +23,20 @@ English.
 
 ## When to use which source
 
-The skill supports five input types. Each has its own flow:
+The skill supports three input types. Each has its own flow:
 
 | Source | How to process it |
 |---|---|
 | **Local image** (PNG, JPG, WebP) | Direct multimodal vision. You "see" it and analyze it. |
 | **Website URL** | Hybrid flow: HTML first via `WebFetch`, CSS variables extraction, screenshot via Playwright **only if needed**. |
 | **Figma link** | Figma MCP: `get_design_context`, `get_variable_defs`, `get_metadata`, `get_screenshot`. |
-| **Local video** (MP4, WebM, MOV) | Probe the original file, extract temporal evidence, then use element or pipeline mode. |
-| **Social-post or media URL** | Use an authorized browser session, preserve the media and provenance, probe it, then extract temporal evidence. |
 
 If the user passes multiple sources at once (e.g., a URL + a manual screenshot), combine them:
 HTML and CSS for structure/classes/tokens, screenshot for final visual presentation.
 
 ---
 
-## Three modes: full analysis, element copy, and reconstruction pipeline
+## Two modes: full analysis vs element copy
 
 Before starting the workflow, determine the **scope** of the request:
 
@@ -58,34 +48,23 @@ Before starting the workflow, determine the **scope** of the request:
   output `element.md`. Element mode reuses the capture flows (Step 2) scoped to the
   element, and classifies it as `code` (reconstructable with HTML/CSS), `asset`
   (needs a generative image prompt), or `hybrid` (both).
-- **Pipeline mode**: the user wants a dynamic source to become a working implementation, with optional
-  reusable codification. Examples include "capture this video and rebuild it in HTML/SVG/React" and "run the
-  last AnyDesign video-to-skill pipeline." Read `references/capture-to-reconstruction.md` and follow
-  its P-steps. Pipeline mode produces evidence, a focused study, and the requested working routes. It
-  produces a reusable skill or reference only when the user asks for one.
 
 Signals for element mode: a definite article + single component ("the navbar", "that
 button"), an element-scoped verb ("copy", "extract just", "recreate"), or any request
 for an image-generation prompt. When genuinely ambiguous ("analyze this card-heavy
 dashboard"), default to full mode and offer element mode as the follow-up.
 
-Pipeline mode requires a working implementation request. Select it only when the user asks to build,
-reconstruct, or code at least one runtime route such as HTML, standalone SVG, or React. Capture plus
-analysis without runtime implementation stays in element mode, even when it has several steps. Skill
-packaging is optional and does not decide the mode by itself.
-
 ---
 
 ## Mandatory workflow
 
-Full mode follows the five steps below. Element mode follows `element-copy.md`. Pipeline mode follows
-`capture-to-reconstruction.md`. Do not mix their output contracts.
+Always follow this order, no skipping steps.
 
 ### Step 1 — Identify source and objective
 
 Before analyzing, confirm two things (only if unclear from the message):
 
-1. **Which source is it?** Image / website / Figma / local video / social-post media / combination
+1. **Which source is it?** Image / URL / Figma / combination
 2. **What's the emphasis?** This determines the weight of each section of the `design.md`:
    - **Reconstruction** → to feed Claude Code or another AI
    - **Mood/reference** → to document style, branding, inspiration
@@ -114,9 +93,6 @@ Depending on the source, execute the corresponding flow. **Full technical detail
   2. `get_variable_defs` to extract defined tokens
   3. `get_design_context` for detailed content
   4. `get_screenshot` if visual reference is needed
-- **Local video or social-post media**: preserve the original media, probe its properties, and
-  extract representative frames and contact sheets. For a full reconstruction request, switch to
-  pipeline mode and load `references/capture-to-reconstruction.md` before implementation.
 
 If something fails (URL down, no Figma access, broken image), tell the user clearly and propose
 alternatives instead of inventing content.
@@ -212,7 +188,7 @@ emphasis the user chose in Step 1.
 
 ## Optional companion scripts
 
-Seven scripts live in `scripts/` and are invoked on-demand. None are mandatory — use them
+Three scripts live in `scripts/` and are invoked on-demand. None are mandatory — use them
 when they help.
 
 | Script | When to run | Dependencies |
@@ -250,20 +226,19 @@ anydesign/
 ├── requirements.txt               (optional script dependencies)
 ├── references/
 │   ├── capture-flows.md           (how to capture each source type)
-│   ├── analysis-framework.md      (the 6 analysis layers in detail)
+│   ├── analysis-framework.md      (the 5 analysis layers in detail)
 │   ├── token-extraction.md        (how to infer tokens with rigor)
 │   ├── output-template.md         (design.md template)
-│   ├── element-copy.md            (element mode: element.md template + image prompts)
-│   └── capture-to-reconstruction.md (video evidence, HTML/SVG/React, skill codification)
+│   └── element-copy.md            (element mode: element.md template + image prompts)
 ├── scripts/
 │   ├── capture_site.py            (multi-viewport Playwright capture)
 │   ├── extract_css_vars.py        (CSS custom properties extractor)
 │   ├── extract_colors.py          (dominant color extractor for images)
-│   ├── check_contrast.py          (WCAG contrast checker)
-│   ├── lint_design_md.py          (design.md contract validator)
-│   ├── verify_design.py           (live token drift audit)
-│   └── export_for_claude_design.py (PPTX/DOCX/CSS/Tailwind exporter)
+│   └── check_contrast.py          (WCAG contrast checker)
+└── examples/
+    ├── README.md
+    └── landing-example/           (full sample analysis output)
 ```
 
-Read each `reference` when you reach the corresponding step, not before. This keeps context
+Read each `reference` when you reach the corresponding step, not before. Keeps context
 lightweight until needed.
