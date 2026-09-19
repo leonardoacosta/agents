@@ -1,0 +1,23 @@
+{
+  "skill_name": "priceless-jev-triage",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "ok so I ran the test categorization on our otaku-odyssey suite and it produced a batch file at docs/audit/test-categorization-batch.json with 14000 classification inputs. I have my TYPESAFE_API_KEY set and the @typesafe-ai/sdk installed. can you run Jev on a sample of 200 first so we can calibrate before hitting the full fleet?",
+      "expected_output": "Jev classification run on 200 randomly sampled tests from the batch. Calibration report showing classification distribution (superfluous/meaningful/critical), confidence distribution, migration candidate count, low-confidence flag count, latency percentiles, and approximate cost. Asks user whether to proceed to full fleet.",
+      "files": ["docs/audit/test-categorization-batch.json"]
+    },
+    {
+      "id": 2,
+      "prompt": "I don't have the Jev SDK installed and honestly I'm not sure if we can get an API key approved by infosec right now. Can you still show me what the classification would look like? Like a dry-run of what Jev would receive for each test? Our batch file is at docs/audit/test-categorization-batch.json with all the test data from the categorization audit",
+      "expected_output": "Dry-run output printing the classification inputs as JSON. Clear message that Jev is not being called, this is a preview of what would be sent. Explanation of what the user needs (TYPESAFE_API_KEY, @typesafe-ai/sdk) to run the real classification.",
+      "files": ["docs/audit/test-categorization-batch.json"]
+    },
+    {
+      "id": 3,
+      "prompt": "we ran the test categorization across our whole fleet but I don't see a batch file anywhere. Can you just use whatever test data you can find in the project — Playwright config, quarantine lifecycle, whatever's available — and send it to Jev? If you can't find enough data then just categorize it with the rules from the methodology",
+      "expected_output": "Attempts to locate classification batch from priceless-test-categorization. If not found, builds minimal classification inputs from available project data (playwright config, quarantine lifecycle, test file inventory). If even minimal data is insufficient, invokes priceless-test-categorization first. Falls back to rule-based categorization if Jev is unavailable.",
+      "files": []
+    }
+  ]
+}

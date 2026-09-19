@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "html-comparison",
+  "prompt": "Create a self-contained HTML page that compares an inline Mermaid diagram with a separate-pane layout, then show it to me on my Mac. I am connected to this headless machine remotely and do not want to manage a preview server or port.",
+  "assertions": [
+    "Uses ropen as the preview transport",
+    "Keeps preview state outside the repository in a private runtime directory",
+    "Does not start or propose a localhost preview server",
+    "Uses self-contained content and requests feedback in chat"
+  ]
+}

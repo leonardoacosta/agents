@@ -5,7 +5,6 @@ impactDescription: prevents forced synchronous layouts and reduces performance b
 tags: javascript, dom, css, performance, reflow, layout-thrashing
 ---
 
-
 ## Avoid Layout Thrashing
 
 Avoid interleaving style writes with layout reads. When you read a layout property (like `offsetWidth`, `getBoundingClientRect()`, or `getComputedStyle()`) between style changes, the browser is forced to trigger a synchronous reflow.

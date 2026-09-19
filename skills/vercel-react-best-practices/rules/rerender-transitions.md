@@ -5,7 +5,6 @@ impactDescription: maintains UI responsiveness
 tags: rerender, transitions, startTransition, performance
 ---
 
-
 ## Use Transitions for Non-Urgent Updates
 
 Mark frequent, non-urgent state updates as transitions to maintain UI responsiveness.

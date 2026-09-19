@@ -1,0 +1,2994 @@
+[
+  {
+    "route": "/",
+    "file": "apps/nextjs/src/app/(pages)/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/__playground__/checkin-redesign",
+    "file": "apps/nextjs/src/app/__playground__/checkin-redesign/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/:slug",
+    "file": "apps/nextjs/src/app/(pages)/[slug]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/about",
+    "file": "apps/nextjs/src/app/(pages)/about/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/access-denied",
+    "file": "apps/nextjs/src/app/access-denied/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin",
+    "file": "apps/nextjs/src/app/(admin)/admin/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/bulk-resend",
+    "file": "apps/nextjs/src/app/(admin)/admin/bulk-resend/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/compose",
+    "file": "apps/nextjs/src/app/(admin)/admin/compose/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/db-explorer",
+    "file": "apps/nextjs/src/app/(admin)/admin/db-explorer/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/email-queue",
+    "file": "apps/nextjs/src/app/(admin)/admin/email-queue/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/fees",
+    "file": "apps/nextjs/src/app/(admin)/admin/fees/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/invoice-explorer",
+    "file": "apps/nextjs/src/app/(admin)/admin/invoice-explorer/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/invoice-explorer/attendees",
+    "file": "apps/nextjs/src/app/(admin)/admin/invoice-explorer/attendees/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/invoice-explorer/stripe-invoices",
+    "file": "apps/nextjs/src/app/(admin)/admin/invoice-explorer/stripe-invoices/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/invoice-explorer/vendors",
+    "file": "apps/nextjs/src/app/(admin)/admin/invoice-explorer/vendors/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/platform-settings",
+    "file": "apps/nextjs/src/app/(admin)/admin/platform-settings/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/provisioning",
+    "file": "apps/nextjs/src/app/(admin)/admin/provisioning/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/reconcile",
+    "file": "apps/nextjs/src/app/(admin)/admin/reconcile/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/admin/webhooks",
+    "file": "apps/nextjs/src/app/(admin)/admin/webhooks/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/announcements",
+    "file": "apps/nextjs/src/app/(pages)/announcements/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply",
+    "file": "apps/nextjs/src/app/(pages)/apply/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/affiliate",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/affiliate/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/media",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/media/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/meetup",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/meetup/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/panelist",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/panelist/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/sponsor",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/sponsor/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/vendor",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/vendor/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/volunteer",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/volunteer/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/apply/volunteer/swaps",
+    "file": "apps/nextjs/src/app/(authenticated)/apply/volunteer/swaps/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/auth/sign-in",
+    "file": "apps/nextjs/src/app/(auth)/auth/sign-in/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/badges",
+    "file": "apps/nextjs/src/app/(pages)/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/badges/:id",
+    "file": "apps/nextjs/src/app/(pages)/badges/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/badges/confirmation",
+    "file": "apps/nextjs/src/app/badges/confirmation/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/cohost-invite/:token",
+    "file": "apps/nextjs/src/app/cohost-invite/[token]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/contact",
+    "file": "apps/nextjs/src/app/(pages)/contact/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/cosplay",
+    "file": "apps/nextjs/src/app/(pages)/cosplay/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/cosplay/contestant",
+    "file": "apps/nextjs/src/app/(authenticated)/cosplay/contestant/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/cosplay/guest",
+    "file": "apps/nextjs/src/app/(authenticated)/cosplay/guest/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/cosplay/runway",
+    "file": "apps/nextjs/src/app/(authenticated)/cosplay/runway/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/account",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/account/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/badges",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/guide/:applicationType",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/guide/[applicationType]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/meetups",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/meetups/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/orders",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/orders/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/orders/badges-transfer/:token",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/orders/badges-transfer/[token]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/orders/transfer/:token",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/orders/transfer/[token]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/questionnaires",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/questionnaires/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/questionnaires/:responseId",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/questionnaires/[responseId]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/vendors",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/vendors/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dashboard/volunteers/leaderboard",
+    "file": "apps/nextjs/src/app/(authenticated)/dashboard/volunteers/leaderboard/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/dev/db-explorer",
+    "file": "apps/nextjs/src/app/(dev)/dev/db-explorer/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/events",
+    "file": "apps/nextjs/src/app/(pages)/events/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/events/:slug",
+    "file": "apps/nextjs/src/app/(pages)/events/[slug]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/faq",
+    "file": "apps/nextjs/src/app/(pages)/faq/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/forgot-password",
+    "file": "apps/nextjs/src/app/(auth)/forgot-password/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/affiliate",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/affiliate/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/cosplay",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/cosplay/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/cosplay/contestant",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/cosplay/contestant/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/cosplay/guest",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/cosplay/guest/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/cosplay/runway",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/cosplay/runway/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/meetup",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/meetup/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/panelist",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/panelist/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/sponsor",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/sponsor/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/vendor",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/vendor/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/get-involved/volunteer",
+    "file": "apps/nextjs/src/app/(pages)/get-involved/volunteer/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/guest-lookup",
+    "file": "apps/nextjs/src/app/guest-lookup/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/guests",
+    "file": "apps/nextjs/src/app/(pages)/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/guests/:id",
+    "file": "apps/nextjs/src/app/(pages)/guests/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/invite/accept",
+    "file": "apps/nextjs/src/app/invite/accept/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/legal/affiliate-terms",
+    "file": "apps/nextjs/src/app/(pages)/legal/affiliate-terms/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/legal/code-of-conduct",
+    "file": "apps/nextjs/src/app/(pages)/legal/code-of-conduct/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/legal/media-guidelines",
+    "file": "apps/nextjs/src/app/(pages)/legal/media-guidelines/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/legal/photography-terms",
+    "file": "apps/nextjs/src/app/(pages)/legal/photography-terms/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/login",
+    "file": "apps/nextjs/src/app/(auth)/login/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/logout",
+    "file": "apps/nextjs/src/app/(auth)/logout/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/map",
+    "file": "apps/nextjs/src/app/(pages)/map/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/meetups",
+    "file": "apps/nextjs/src/app/(pages)/meetups/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/meetups/:id",
+    "file": "apps/nextjs/src/app/(pages)/meetups/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/my-schedule",
+    "file": "apps/nextjs/src/app/(authenticated)/my-schedule/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/my/sponsor/benefits",
+    "file": "apps/nextjs/src/app/(authenticated)/my/sponsor/benefits/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/pay-cancel",
+    "file": "apps/nextjs/src/app/(pages)/pay-cancel/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/pay-success",
+    "file": "apps/nextjs/src/app/(pages)/pay-success/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/privacy",
+    "file": "apps/nextjs/src/app/(pages)/privacy/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/programming",
+    "file": "apps/nextjs/src/app/(pages)/programming/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/programming/:id",
+    "file": "apps/nextjs/src/app/(pages)/programming/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/programming/venues/:slug",
+    "file": "apps/nextjs/src/app/(pages)/programming/venues/[slug]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/promo",
+    "file": "apps/nextjs/src/app/promo/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/purchase",
+    "file": "apps/nextjs/src/app/purchase/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/q/:token",
+    "file": "apps/nextjs/src/app/q/[token]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/questionnaire",
+    "file": "apps/nextjs/src/app/(pages)/questionnaire/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/reset-password",
+    "file": "apps/nextjs/src/app/(auth)/reset-password/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/safety",
+    "file": "apps/nextjs/src/app/(pages)/safety/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/safety/submit",
+    "file": "apps/nextjs/src/app/(pages)/safety/submit/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/safety/submitted/:caseCode",
+    "file": "apps/nextjs/src/app/(pages)/safety/submitted/[caseCode]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/safety/track",
+    "file": "apps/nextjs/src/app/(pages)/safety/track/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/schedule",
+    "file": "apps/nextjs/src/app/(authenticated)/schedule/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/shop",
+    "file": "apps/nextjs/src/app/(pages)/shop/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/shop/:slug",
+    "file": "apps/nextjs/src/app/(pages)/shop/[slug]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/signin",
+    "file": "apps/nextjs/src/app/signin/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/signup",
+    "file": "apps/nextjs/src/app/(auth)/signup/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/sponsors",
+    "file": "apps/nextjs/src/app/(pages)/sponsors/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff",
+    "file": "apps/nextjs/src/app/(staff)/staff/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/admin/intake-programs",
+    "file": "apps/nextjs/src/app/(staff)/staff/admin/intake-programs/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/admission",
+    "file": "apps/nextjs/src/app/(staff)/staff/admission/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/admission/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/admission/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/admission/checkin",
+    "file": "apps/nextjs/src/app/(staff)/staff/admission/checkin/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/analytics",
+    "file": "apps/nextjs/src/app/(staff)/staff/analytics/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/analytics/funnels",
+    "file": "apps/nextjs/src/app/(staff)/staff/analytics/funnels/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/applications/onboarding",
+    "file": "apps/nextjs/src/app/(staff)/staff/applications/onboarding/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/applications/onboarding/:applicationType",
+    "file": "apps/nextjs/src/app/(staff)/staff/applications/onboarding/[applicationType]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/badges/:badgeId",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/badges/[badgeId]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/checkin",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/checkin/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/merch",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/merch/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/merch/pickup-queue",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/merch/pickup-queue/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/orders",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/orders/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/orders/:orderId",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/orders/[orderId]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/attendee/terminals",
+    "file": "apps/nextjs/src/app/(staff)/staff/attendee/terminals/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/commerce",
+    "file": "apps/nextjs/src/app/(staff)/staff/commerce/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/commerce/orders",
+    "file": "apps/nextjs/src/app/(staff)/staff/commerce/orders/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/communications",
+    "file": "apps/nextjs/src/app/(staff)/staff/communications/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/communications/messages",
+    "file": "apps/nextjs/src/app/(staff)/staff/communications/messages/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/content",
+    "file": "apps/nextjs/src/app/(staff)/staff/content/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/content/faq",
+    "file": "apps/nextjs/src/app/(staff)/staff/content/faq/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/content/guests",
+    "file": "apps/nextjs/src/app/(staff)/staff/content/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/content/guests/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/content/guests/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/content/pages",
+    "file": "apps/nextjs/src/app/(staff)/staff/content/pages/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/content/panels",
+    "file": "apps/nextjs/src/app/(staff)/staff/content/panels/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/cosplay/contestants",
+    "file": "apps/nextjs/src/app/(staff)/staff/cosplay/contestants/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/cosplay/guests",
+    "file": "apps/nextjs/src/app/(staff)/staff/cosplay/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/cosplay/runway",
+    "file": "apps/nextjs/src/app/(staff)/staff/cosplay/runway/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/cosplay/schedule",
+    "file": "apps/nextjs/src/app/(staff)/staff/cosplay/schedule/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/cosplay/scoring",
+    "file": "apps/nextjs/src/app/(staff)/staff/cosplay/scoring/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/dev-harness/bulk-message",
+    "file": "apps/nextjs/src/app/(staff)/staff/dev-harness/bulk-message/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/dev-harness/entity-image/avatar-fallback",
+    "file": "apps/nextjs/src/app/(staff)/staff/dev-harness/entity-image/avatar-fallback/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/dev-harness/entity-image/panelist",
+    "file": "apps/nextjs/src/app/(staff)/staff/dev-harness/entity-image/panelist/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/dev-harness/entity-image/room",
+    "file": "apps/nextjs/src/app/(staff)/staff/dev-harness/entity-image/room/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/dev-harness/list-detail",
+    "file": "apps/nextjs/src/app/(staff)/staff/dev-harness/list-detail/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/event-day",
+    "file": "apps/nextjs/src/app/(staff)/staff/event-day/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/finance",
+    "file": "apps/nextjs/src/app/(staff)/staff/finance/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/finance/invoices",
+    "file": "apps/nextjs/src/app/(staff)/staff/finance/invoices/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/finance/reconciliation/orders",
+    "file": "apps/nextjs/src/app/(staff)/staff/finance/reconciliation/orders/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/fulfillment",
+    "file": "apps/nextjs/src/app/(staff)/staff/fulfillment/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/fulfillment/pickup",
+    "file": "apps/nextjs/src/app/(staff)/staff/fulfillment/pickup/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/marketing",
+    "file": "apps/nextjs/src/app/(staff)/staff/marketing/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates/analytics",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/analytics/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates/commissions",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/commissions/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates/payouts",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/payouts/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates/programs",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/programs/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates/programs/new",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/programs/new/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/affiliates/tiers",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/affiliates/tiers/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/booths/assign",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/booths/assign/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/booths/dashboard",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/booths/dashboard/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/booths/manage",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/booths/manage/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/booths/map",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/booths/map/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/booths/setup",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/booths/setup/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay/contestants",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/contestants/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay/guests",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay/runway",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/runway/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay/runway/schedule",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/runway/schedule/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay/schedule",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/schedule/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/cosplay/scoring",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/cosplay/scoring/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/facilities",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/facilities/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/facilities/floor-plans",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/facilities/floor-plans/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/facilities/hotels",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/facilities/hotels/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/facilities/venues",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/facilities/venues/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/guests",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/invoices",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/invoices/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/marketing",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/marketing/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/marketing/mailing-list",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/marketing/mailing-list/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/media",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/media/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/meetups",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/meetups/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/panelists",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/panelists/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/panels",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/panels/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/programming",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/programming/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/programming/approved",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/programming/approved/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/programming/calendar",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/programming/calendar/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/programming/guests",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/programming/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/programming/panelist",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/programming/panelist/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/programming/panelist/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/programming/panelist/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/registration",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/registration/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/review-queue",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/review-queue/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/sponsorships",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/sponsorships/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/sponsorships/applications",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/sponsorships/applications/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/sponsorships/fulfillment",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/sponsorships/fulfillment/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/sponsorships/tiers",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/sponsorships/tiers/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/sponsorships/tiers/new",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/sponsorships/tiers/new/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/staff",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/staff/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/staff/invitations",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/staff/invitations/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/troupes",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/troupes/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors/:id",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors/booths",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/booths/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors/create",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/create/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors/invoices",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/invoices/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/vendors/renewals",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/vendors/renewals/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/volunteers",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/volunteers/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/volunteers/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/volunteers/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/volunteers/checkin",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/volunteers/checkin/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/volunteers/reports",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/volunteers/reports/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/volunteers/schedule",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/volunteers/schedule/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/operations/volunteers/shifts",
+    "file": "apps/nextjs/src/app/(staff)/staff/operations/volunteers/shifts/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/org",
+    "file": "apps/nextjs/src/app/(staff)/staff/org/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/profile",
+    "file": "apps/nextjs/src/app/(staff)/staff/profile/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming/calendar",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/calendar/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming/guests",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/guests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming/meetups",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/meetups/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming/panelists",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/panelists/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming/programs/:programId",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/programs/[programId]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/programming/troupes",
+    "file": "apps/nextjs/src/app/(staff)/staff/programming/troupes/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/questionnaires",
+    "file": "apps/nextjs/src/app/(staff)/staff/questionnaires/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/questionnaires/:id/edit",
+    "file": "apps/nextjs/src/app/(staff)/staff/questionnaires/[id]/edit/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/questionnaires/:id/responses",
+    "file": "apps/nextjs/src/app/(staff)/staff/questionnaires/[id]/responses/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/questionnaires/:id/send",
+    "file": "apps/nextjs/src/app/(staff)/staff/questionnaires/[id]/send/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/questionnaires/attendee",
+    "file": "apps/nextjs/src/app/(staff)/staff/questionnaires/attendee/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/registration",
+    "file": "apps/nextjs/src/app/(staff)/staff/registration/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/reports",
+    "file": "apps/nextjs/src/app/(staff)/staff/reports/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/safety/audit-log",
+    "file": "apps/nextjs/src/app/(staff)/staff/safety/audit-log/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/safety/cases",
+    "file": "apps/nextjs/src/app/(staff)/staff/safety/cases/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/safety/cases/:caseCode",
+    "file": "apps/nextjs/src/app/(staff)/staff/safety/cases/[caseCode]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/safety/subjects",
+    "file": "apps/nextjs/src/app/(staff)/staff/safety/subjects/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/safety/templates",
+    "file": "apps/nextjs/src/app/(staff)/staff/safety/templates/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/safety/triage",
+    "file": "apps/nextjs/src/app/(staff)/staff/safety/triage/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/orders",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/orders/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/orders/:orderId",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/orders/[orderId]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/orders/manage",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/orders/manage/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/payments",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/payments/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/payments/payouts",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/payments/payouts/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/payments/platform-fees",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/payments/platform-fees/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/promo-codes",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/promo-codes/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/refund-requests",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/refund-requests/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/sales/transactions",
+    "file": "apps/nextjs/src/app/(staff)/staff/sales/transactions/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/series/next-edition",
+    "file": "apps/nextjs/src/app/(staff)/staff/series/next-edition/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/badge-types",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/badge-types/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/branding",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/branding/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/events",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/events/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/events/:id",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/events/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/products",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/products/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/spaces",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/spaces/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/spaces/booths",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/spaces/booths/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/spaces/rooms",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/spaces/rooms/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/spaces/rooms/:id",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/spaces/rooms/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/spaces/venues",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/spaces/venues/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/spaces/venues/:id",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/spaces/venues/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/users",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/users/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/settings/users/:userId/modules",
+    "file": "apps/nextjs/src/app/(staff)/staff/settings/users/[userId]/modules/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors/:id",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/[id]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors/badges",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/badges/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors/billing",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/billing/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors/booths",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/booths/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors/create",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/create/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/staff/vendors/renewals",
+    "file": "apps/nextjs/src/app/(staff)/staff/vendors/renewals/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/stay",
+    "file": "apps/nextjs/src/app/(pages)/stay/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/success",
+    "file": "apps/nextjs/src/app/(pages)/success/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/terms",
+    "file": "apps/nextjs/src/app/(pages)/terms/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/ticker-smoke",
+    "file": "apps/nextjs/src/app/(dev)/ticker-smoke/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/vendors",
+    "file": "apps/nextjs/src/app/(pages)/vendors/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/vendors/map",
+    "file": "apps/nextjs/src/app/(pages)/vendors/map/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/verify-email",
+    "file": "apps/nextjs/src/app/(auth)/verify-email/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/verify/:badgeId",
+    "file": "apps/nextjs/src/app/(pages)/verify/[badgeId]/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  },
+  {
+    "route": "/work-with-us",
+    "file": "apps/nextjs/src/app/(pages)/work-with-us/page.tsx",
+    "actions": [],
+    "view_access": {
+      "allow": [
+        "anonymous"
+      ],
+      "deny_default": false
+    }
+  }
+]

@@ -5,7 +5,6 @@ impactDescription: stable subscriptions
 tags: advanced, hooks, refs, event-handlers, optimization
 ---
 
-
 ## Store Event Handlers in Refs
 
 Store callbacks in refs when used in effects that shouldn't re-subscribe on callback changes.

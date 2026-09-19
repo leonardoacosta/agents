@@ -1,0 +1,40 @@
+{
+  "skill_name": "ropen-preview",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a self-contained HTML page that compares an inline Mermaid diagram with a separate-pane layout, then show it to me on my Mac. I am connected to this headless machine remotely and do not want to manage a preview server or port.",
+      "expected_output": "Creates the HTML in a private runtime directory, opens it with ropen, avoids project-local preview state and new servers, and requests feedback in chat.",
+      "assertions": [
+        "Uses ropen as the preview transport",
+        "Keeps preview state outside the repository in a private runtime directory",
+        "Does not start or propose a localhost preview server",
+        "Uses self-contained content and requests feedback in chat"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Update the browser mockup you showed me so the recommended option uses a blue border. Refresh the same preview rather than giving me a new URL.",
+      "expected_output": "Updates the existing artifact path and invokes ropen on that same path so the current browser tab refreshes.",
+      "assertions": [
+        "Updates the existing artifact rather than creating a new preview URL",
+        "Invokes ropen on the same absolute path to refresh the tab",
+        "Does not start another server or alter networking"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Show me this generated HTML report in my browser, but ropen is not installed in this environment.",
+      "expected_output": "Reports the missing ropen precondition and does not start a localhost server, expose a port, or silently choose another transport.",
+      "assertions": [
+        "Reports that ropen is unavailable",
+        "Does not start a localhost server or expose a port",
+        "Does not silently choose another transport",
+        "Leaves the artifact local pending a user decision"
+      ],
+      "files": []
+    }
+  ]
+}

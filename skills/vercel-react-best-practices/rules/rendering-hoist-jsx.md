@@ -5,7 +5,6 @@ impactDescription: avoids re-creation
 tags: rendering, jsx, static, optimization
 ---
 
-
 ## Hoist Static JSX Elements
 
 Extract static JSX outside components to avoid re-creation.

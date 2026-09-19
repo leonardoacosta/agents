@@ -1,0 +1,14 @@
+{
+  "config": "without_skill",
+  "passed": 0,
+  "total": 1,
+  "pass_rate": 0.0,
+  "expectations": [
+    {
+      "id": "produces-output",
+      "passed": false,
+      "text": "0 TS file(s) produced",
+      "evidence": "[]"
+    }
+  ]
+}

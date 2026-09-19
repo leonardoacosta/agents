@@ -1,0 +1,532 @@
+# Markdown Graphs
+
+ASCII-framed React diagrams for MDX. Source is copied via shadcn registry, not npm.
+Agents write JSX (React / importable MDX) or paste an official fenced twin (README, GitHub, Linear). Do not invent ASCII. Do not draw SVG.
+https://mdx-graphs.kshv.me
+
+## When to use
+
+Use Markdown Graphs when an agent is writing or editing a file and a figure would scan faster than a wall of bullets.
+
+Reach for it when the writing is a path or a refactor, an incident or postmortem, a tradeoff, a pull request, overlapping work this week, a migration, or a README / RFC / launch list.
+
+How to call it:
+
+1. React or importable MDX: install with `pnpm dlx shadcn@latest add https://mdx-graphs.kshv.me/r/<slug>.json` and copy JSX from https://mdx-graphs.kshv.me/docs/examples.
+2. Plain Markdown: paste the official fenced twin from ## MDX below. Do not invent ASCII. Do not paste JSX.
+3. Install the skill from https://mdx-graphs.kshv.me/skill.md so the chooser runs without fetching this file every time.
+
+Do not use it for a one-sentence note, a pie chart, or a drawing that needs SVG. At most two figures, with prose between them.
+
+## Machine-readable
+
+- Markdown Graphs Developer API: https://mdx-graphs.kshv.me/developers
+- OpenAPI: https://mdx-graphs.kshv.me/openapi.json
+- API index: https://mdx-graphs.kshv.me/api/v1
+- Health: https://mdx-graphs.kshv.me/api/v1/health
+- JSON catalog: https://mdx-graphs.kshv.me/api/v1/components
+- One graph: https://mdx-graphs.kshv.me/api/v1/components/<slug>
+- agents.md: https://mdx-graphs.kshv.me/agents.md
+- Skill: https://mdx-graphs.kshv.me/skill.md
+- Recipes: https://mdx-graphs.kshv.me/skill/recipes.md
+- Registry item: https://mdx-graphs.kshv.me/r/<slug>.json
+- Deprecation policy: https://mdx-graphs.kshv.me/developers/deprecation
+- Sitemap: https://mdx-graphs.kshv.me/sitemap.xml
+- For agents: https://mdx-graphs.kshv.me/agents
+
+## CLI
+
+Install graphs with the official shadcn CLI (not npm):
+
+pnpm dlx shadcn@latest add https://mdx-graphs.kshv.me/r/<slug>.json
+
+Copy all graphs:
+
+pnpm dlx shadcn@latest add https://mdx-graphs.kshv.me/r/all.json
+
+## Host
+
+- React, or MDX that can import `@/registry/default/...`: copy JSX from https://mdx-graphs.kshv.me/docs/examples. Install via shadcn.
+- Plain Markdown that cannot run React (README, GitHub, Linear, Slack, PR comments, `.md`): paste a fenced twin from ## MDX. Swap labels, keep the frame. Do not invent ASCII. Do not paste JSX.
+- No twin (flow, plot, activity, heatmap, calendar, timer, countdown, frame): pick a graph that has a twin, or skip the figure.
+
+## Rules
+
+- Geist Mono. Dashed frame, + corners, title as [ TITLE ].
+- Charts are made of characters (█ ░ - = + ├ └). Borders are dashes. Do not use SVG, Recharts, or canvas.
+- One accent: --graph-accent. palette="duo" | "multi" is opt-in.
+- Motion is opacity and transform, ~220ms, no loops, no pulsing.
+- Copy the example props exactly. Do not invent extra hues or chart libraries.
+
+## Install
+
+pnpm dlx shadcn@latest add https://mdx-graphs.kshv.me/r/<slug>.json
+
+Files land under @/registry/default.
+
+## Chooser
+
+| Component | Slug | Use for | Not for |
+| --- | --- | --- | --- |
+| GraphTable | graph-table | Good when the numbers belong in a spreadsheet. | Grouped sections are Sheet. Label/value rows are Spec. |
+| GraphSheet | graph-sheet | Good when a table needs section titles — an API, an RFC, a spec with groups. | A flat table is Table. Label/value rows are Spec. |
+| GraphFlow | graph-flow | Good for a pipeline, a request path, or walking through a change. | A dated list is Timeline. A schedule with start and end is Gantt. |
+| GraphBars | graph-bars | Good for a before and after, or any two small histograms. | A ranked list is Rank. |
+| GraphRank | graph-rank | Good for traffic, coverage, or anything you'd sort highest first. | Two histograms side by side is Bars. A table of numbers is Table. |
+| GraphCells | graph-cells | Good for a small grid of filled and empty cells. | A share of a hundred cells is Waffle. A year of days is Activity. |
+| GraphMeter | graph-meter | Good for one value between 0 and 1, shown as a fill. | Actual versus a target is Bullet. Parts of a whole is Stack. |
+| GraphSpark | graph-spark | Good for a handful of numbers when you don't need an axis. | If you need a y-scale, use Plot. |
+| GraphTree | graph-tree | Good for nested files or an org chart. | A timeline or a table. |
+| GraphTimeline | graph-timeline | Good for steps in order, with one marked as current. | A punch list is Check. A schedule with start and end is Gantt. |
+| GraphCheck | graph-check | Good for a punch list. Done is [x], the rest stay [ ]. | Dated steps are Timeline. |
+| GraphStack | graph-stack | Good for parts of a whole on one track. | There is no pie chart. Use Waffle if you want a share of cells. |
+| GraphFunnel | graph-funnel | Good for steps that get narrower as people drop off. | A ranked list is Rank. A process diagram is Flow. |
+| GraphGantt | graph-gantt | Good for work that overlaps on a shared calendar. | A dated log is Timeline. |
+| GraphPlot | graph-plot | Good when the series needs a y-scale. | A handful of points with no axis is Spark. |
+| GraphWaffle | graph-waffle | Good for a share shown as a grid of about a hundred cells. | Labeled parts of a whole is Stack. |
+| GraphDiff | graph-diff | Good for showing what was added, removed, or kept. | A list of numeric before and after is Slope. |
+| GraphInvoice | graph-invoice | Good for from, bill-to, line items, and totals. | A generic table is Table. |
+| GraphCompare | graph-compare | Good for putting two options side by side. | Exact numbers on both axes are Matrix. Numeric ranks are Rank. |
+| GraphMatrix | graph-matrix | Good when both axes are labels and the cells are exact numbers. | Intensities are Heatmap. Yes/no features are Compare. |
+| GraphStat | graph-stat | Good for two to four large numbers, with no sparkline. | One number with a trend is KPI. A live clock is Timer. |
+| GraphKpi | graph-kpi | Good when one number is the headline and the rest is context. | Several numbers with no trend is Stat. |
+| GraphSpec | graph-spec | Good for aligned label and value rows, like a spec sheet. | Large headline numbers are Stat. A table with headers is Table. Grouped sections are Sheet. |
+| GraphActivity | graph-activity | Good for daily counts over months, like a contribution grid. | One month of marks is Calendar. Up or down days is Uptime. |
+| GraphHeatmap | graph-heatmap | Good for a labeled grid of intensities. | Exact numbers on both axes are Matrix. A contribution calendar is Activity. |
+| GraphCalendar | graph-calendar | Good for one month with a few days marked. | A year of activity is Activity. |
+| GraphWaterfall | graph-waterfall | Good for a running total as floating bars. | Parts of a whole is Stack. |
+| GraphUptime | graph-uptime | Good for a status per day, or the blast radius of an outage. | A heatmap or an activity grid. |
+| GraphSlope | graph-slope | Good for a before and after number on each row. | Two bar groups is Bars. A ranked list is Rank. |
+| GraphBullet | graph-bullet | Good when a number has a goal sitting on the same track. | A single fill from 0 to 1 is Meter. |
+| GraphTimer | graph-timer | Good for uptime, last deploy, or a clock in the corner. | Time left until a date is Countdown. A static number is Stat. |
+| GraphCountdown | graph-countdown | Good for a freeze, a launch, or a window that closes. | Elapsed time since a start is Timer. |
+
+## MDX
+
+Official fenced ASCII twins. Paste into plain Markdown. Monospace keeps the frame aligned.
+
+### Table (`GraphTable`, `graph-table`)
+
+https://mdx-graphs.kshv.me/docs/graph-table
+
+```
++----------- [ WHAT THE RESEARCH COST ] -----------+
+|                                                  |
+| Agent                 Tokens  Tool calls  Time   |
+| ----------------------------------------------   |
+| Inks and paper       115,207         120   16m   |
+| Overprint and drift  135,218         164   16m   |
+| Naming the patterns  186,716         112   18m   |
+| ----------------------------------------------   |
+| Total                437,141         396  ~50m   |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Sheet (`GraphSheet`, `graph-sheet`)
+
+https://mdx-graphs.kshv.me/docs/graph-sheet
+
+```
++-------------------- [ RFC ] ---------------------+
+|                                                  |
+| Item              Owner  Status                  |
+| -------------------------------                  |
+| Scope                                            |
+| CLI copies files  priya  done                    |
+| Docs previews     jon    now                     |
+| -------------------------------                  |
+| Out of scope                                     |
+| npm package       —      later                   |
+| Figma kit         —      later                   |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Bars (`GraphBars`, `graph-bars`)
+
+https://mdx-graphs.kshv.me/docs/graph-bars
+
+```
++----------------- [ THROUGHPUT ] -----------------+
+|                                                  |
+| █ █ █ █ █             █                          |
+| █ █ █ █ █         █   █                          |
+|                   █   █                          |
+|                   █ █ █                          |
+|                 █ █ █ █ █                        |
+|                 █ █ █ █ █                        |
+|                 █ █ █ █ █                        |
+|            -->  █ █ █ █ █                        |
+| before          after                            |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Rank (`GraphRank`, `graph-rank`)
+
+https://mdx-graphs.kshv.me/docs/graph-rank
+
+```
++------------------- [ ROUTES ] -------------------+
+|                                                  |
+| /docs     [====================]  12,400         |
+| /install  [=======-------------]   4,100         |
+| /plot     [=-------------------]     860         |
+| /rank     [=-------------------]     420         |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Cells (`GraphCells`, `graph-cells`)
+
+https://mdx-graphs.kshv.me/docs/graph-cells
+
+```
++------------- [ TWO WAYS TO LEARN ] --------------+
+|                                                  |
+| █ · █ · ·   █ █ █ █ █                            |
+| · █ · █ ·   █ █ █ █ █                            |
+| █ · · · █   █ █ █ █ █                            |
+| fragments   a system                             |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Meter (`GraphMeter`, `graph-meter`)
+
+https://mdx-graphs.kshv.me/docs/graph-meter
+
+```
++------------------ [ SHIPPED ] -------------------+
+|                                                  |
+| [=========-----]  67%                            |
+| characters, not a progress bar                   |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Spark (`GraphSpark`, `graph-spark`)
+
+https://mdx-graphs.kshv.me/docs/graph-spark
+
+```
++------------------ [ LATENCY ] -------------------+
+|                                                  |
+| ▂▃▄▃▅▅▇▆▇▅█▇                                     |
+| last point is the accent                         |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Tree (`GraphTree`, `graph-tree`)
+
+https://mdx-graphs.kshv.me/docs/graph-tree
+
+```
++------------------ [ REGISTRY ] ------------------+
+|                                                  |
+| registry/default                                 |
+| ├─ graph-frame                                   |
+| │  ├─ graph-frame.tsx  ui                        |
+| │  └─ graph-motion.ts  lib                       |
+| └─ graph-tree                                    |
+|    └─ graph-tree.tsx   ui                        |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Timeline (`GraphTimeline`, `graph-timeline`)
+
+https://mdx-graphs.kshv.me/docs/graph-timeline
+
+```
++------------------ [ SHIPPED ] -------------------+
+|                                                  |
+| ●  Mar 12  CLI copies the files                  |
+| │                                                |
+| ●  Mar 18  Docs, live previews                   |
+| │                                                |
+| ○  Apr 02  Registry listed                       |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Check (`GraphCheck`, `graph-check`)
+
+https://mdx-graphs.kshv.me/docs/graph-check
+
+```
++------------------- [ LAUNCH ] -------------------+
+|                                                  |
+| [x]  freeze tokens                               |
+| [x]  ship registry json                          |
+| [ ]  write the postmortem  still open            |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Stack (`GraphStack`, `graph-stack`)
+
+https://mdx-graphs.kshv.me/docs/graph-stack
+
+```
++------------------- [ BUNDLE ] -------------------+
+|                                                  |
+| marketing  ████████████▓▓▓▓▓▒▒▒▒▒▒▒              |
+| docs       ███████▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒              |
+|                                                  |
+| █ js  ▓ css  ▒ images                            |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Funnel (`GraphFunnel`, `graph-funnel`)
+
+https://mdx-graphs.kshv.me/docs/graph-funnel
+
+```
++------------------ [ INSTALL ] -------------------+
+|                                                  |
+| docs  ████████████████████  12,400               |
+| copy  ███████-------------   4,100   33%         |
+| ship  █-------------------     860    7%         |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Gantt (`GraphGantt`, `graph-gantt`)
+
+https://mdx-graphs.kshv.me/docs/graph-gantt
+
+```
++------------------- [ LAUNCH ] -------------------+
+|                                                  |
+|                      ▾                           |
+| design  ████████----------------                 |
+| build   -----███████░░░░░░------                 |
+| docs    -------------██░░░░░░░--                 |
+| ship    --------------------░░░░                 |
+|         q1     q2      q3     q4                 |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Waffle (`GraphWaffle`, `graph-waffle`)
+
+https://mdx-graphs.kshv.me/docs/graph-waffle
+
+```
++------------------ [ COVERAGE ] ------------------+
+|                                                  |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ █ █ █ █ █ █ █                              |
+| █ █ █ ░ ░ ░ ░ ░ ░ ░                              |
+| ░ ░ ░ ░ ░ ░ ░ ░ ░ ░                              |
+| ░ ░ ░ ░ ░ ░ ░ ░ ░ ░                              |
+| 73%                                              |
+| 73 of 100 tests green                            |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Diff (`GraphDiff`, `graph-diff`)
+
+https://mdx-graphs.kshv.me/docs/graph-diff
+
+```
++------------------- [ BUNDLE ] -------------------+
+|                                                  |
+|   vendor       84 kb                             |
+| + app          31 kb                             |
+| - sourcemaps   12 kb                             |
+| --------------------                             |
+|   shipped     103 kb                             |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Invoice (`GraphInvoice`, `graph-invoice`)
+
+https://mdx-graphs.kshv.me/docs/graph-invoice
+
+```
++---------------- [ INVOICE 0041 ] ----------------+
+|                                                  |
+| FROM                    BILL TO                  |
+| markdown graphs         Acme Studio              |
+| kshv.me                 14 Market Street         |
+| GSTIN 29AXXXXX1234Z5    San Francisco, CA        |
+|                                                  |
+| No.   Issued        Due                          |
+| 0041  Mar 12, 2026  Apr 11, 2026                 |
+|                                                  |
+| Description    Qty   Rate  Amount                |
+| ---------------------------------                |
+| Design system    1  4,200   4,200                |
+| Motion pass      1  1,800   1,800                |
+| Docs rewrite    8h    180   1,440                |
+| ---------------------------------                |
+|                 Subtotal    7,440                |
+|                 Tax             0                |
+|                 Amount due  7,440                |
+|                                                  |
+| Net 30. Wire to the account on file.             |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Compare (`GraphCompare`, `graph-compare`)
+
+https://mdx-graphs.kshv.me/docs/graph-compare
+
+```
++------------------- [ PLANS ] --------------------+
+|                                                  |
+|                 Solo  Studio                     |
+| Registry           ✓       ✓                     |
+| Accent picker      ✓       ✓                     |
+| Private source     –       ✓                     |
+| Price             $0     $24                     |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Matrix (`GraphMatrix`, `graph-matrix`)
+
+https://mdx-graphs.kshv.me/docs/graph-matrix
+
+```
++------------------- [ DETECT ] -------------------+
+|                                                  |
+|      Pos  Neg                                    |
+| Pos   41    3                                    |
+| Neg    2   54                                    |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Stat (`GraphStat`, `graph-stat`)
+
+https://mdx-graphs.kshv.me/docs/graph-stat
+
+```
++----------------- [ THIS WEEK ] ------------------+
+|                                                  |
+| 12,400   4,100    860                            |
+| docs     copies   shipped                        |
+|                                                  |
++--------------------------------------------------+
+```
+
+### KPI (`GraphKpi`, `graph-kpi`)
+
+https://mdx-graphs.kshv.me/docs/graph-kpi
+
+```
++------------------- [ READS ] --------------------+
+|                                                  |
+| 12,400                                           |
+| this week  +18%                                  |
+| ▃▄▄▄▅▅▆▅▇▆▇█                                     |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Spec (`GraphSpec`, `graph-spec`)
+
+https://mdx-graphs.kshv.me/docs/graph-spec
+
+```
++-------------------- [ TYPE ] --------------------+
+|                                                  |
+| Family    Geist Mono                             |
+| Size      14 / 21                                |
+| Tracking  +0.02em                                |
+| Figures   tabular                                |
+| Accent    --graph-accent                         |
+| Duo       --graph-accent-2                       |
+| Tri       --graph-accent-3                       |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Waterfall (`GraphWaterfall`, `graph-waterfall`)
+
+https://mdx-graphs.kshv.me/docs/graph-waterfall
+
+```
++------------------- [ MARGIN ] -------------------+
+|                                                  |
+| Revenue  ████████████████████████  48            |
+| Refunds  ---------------------███  −6            |
+| Hosting  -------------------██---  −4            |
+| -------------------------------------            |
+| Profit   ███████████████████-----  38            |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Uptime (`GraphUptime`, `graph-uptime`)
+
+https://mdx-graphs.kshv.me/docs/graph-uptime
+
+```
++-------------------- [ API ] ---------------------+
+|                                                  |
+| ██████████████████▒███████████                   |
+| ███████████··█████████████████                   |
+| ▒█████████████████████████████                   |
+| 96%  Jun 1  Aug 29                               |
+| █ up  ▒ slow  · down                             |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Slope (`GraphSlope`, `graph-slope`)
+
+https://mdx-graphs.kshv.me/docs/graph-slope
+
+```
++------------------ [ TRAFFIC ] -------------------+
+|                                                  |
+|        2025       2026                           |
+| docs  8,200  →  12,400                           |
+| copy  5,100  →   4,100                           |
+| ship    640  →     860                           |
+|                                                  |
++--------------------------------------------------+
+```
+
+### Bullet (`GraphBullet`, `graph-bullet`)
+
+https://mdx-graphs.kshv.me/docs/graph-bullet
+
+```
++------------------- [ BUDGET ] -------------------+
+|                                                  |
+| Design  [===================|]  42 / 40          |
+| Motion  [===============----|]  18 / 24          |
+| Docs    [===============----|]   9 / 12          |
+|                                                  |
++--------------------------------------------------+
+```
+
+## Recipes
+
+Two graphs per write-up is enough. Prose between them. Copy the JSX from the examples when the host can import components. Plain Markdown: copy the matching twin from ## MDX above.
+
+- Refactor: Old path, new path, then the weeks. Use flow + timeline. https://mdx-graphs.kshv.me/docs/examples#refactor
+- Incident: What happened, and which days took the hit. Use timeline + uptime. https://mdx-graphs.kshv.me/docs/examples#incident
+- Pick one: A matrix, then the sizes if they matter. Use compare + rank. https://mdx-graphs.kshv.me/docs/examples#pick
+- Pull request: What moved, and what the numbers did. Use diff + slope. https://mdx-graphs.kshv.me/docs/examples#review
+- This week: Overlapping work, then the board counts. Use gantt + stat. https://mdx-graphs.kshv.me/docs/examples#sprint
+- Migration: How far the job is, and the count behind it. Use meter + kpi. https://mdx-graphs.kshv.me/docs/examples#migrate
+
+For agents: https://mdx-graphs.kshv.me/agents
+Skill: https://mdx-graphs.kshv.me/docs/skill

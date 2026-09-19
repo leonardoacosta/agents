@@ -5,7 +5,6 @@ impactDescription: faster initial paint
 tags: async, suspense, streaming, layout-shift
 ---
 
-
 ## Strategic Suspense Boundaries
 
 Instead of awaiting data in async components before returning JSX, use Suspense boundaries to show the wrapper UI faster while data loads.

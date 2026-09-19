@@ -5,7 +5,6 @@ impactDescription: loads after hydration
 tags: bundle, third-party, analytics, defer
 ---
 
-
 ## Defer Non-Critical Third-Party Libraries
 
 Analytics, logging, and error tracking don't block user interaction. Load them after hydration.

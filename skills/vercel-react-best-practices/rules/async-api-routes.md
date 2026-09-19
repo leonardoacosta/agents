@@ -5,7 +5,6 @@ impactDescription: 2-10× improvement
 tags: api-routes, server-actions, waterfalls, parallelization
 ---
 
-
 ## Prevent Waterfall Chains in API Routes
 
 In API routes and Server Actions, start independent operations immediately, even if you don't await them yet.

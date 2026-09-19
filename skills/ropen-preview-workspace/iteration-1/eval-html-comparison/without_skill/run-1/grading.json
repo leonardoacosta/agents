@@ -1,0 +1,9 @@
+{
+  "summary": {"pass_rate": 0.25, "passed": 1, "failed": 3, "total": 4},
+  "expectations": [
+    {"text": "Uses ropen as the preview transport", "passed": false, "evidence": "The baseline does not discover ropen and asks the user to provide a transport."},
+    {"text": "Keeps preview state outside the repository in a private runtime directory", "passed": true, "evidence": "It plans a private temporary directory."},
+    {"text": "Does not start or propose a localhost preview server", "passed": false, "evidence": "It proposes a bounded HTTP server after approval."},
+    {"text": "Uses self-contained content and requests feedback in chat", "passed": false, "evidence": "It proposes self-contained HTML but asks for transport approval instead of preview feedback."}
+  ]
+}

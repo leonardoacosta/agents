@@ -5,7 +5,6 @@ impactDescription: prevents rendering 0 or NaN
 tags: rendering, conditional, jsx, falsy-values
 ---
 
-
 ## Use Explicit Conditional Rendering
 
 Use explicit ternary operators (`? :`) instead of `&&` for conditional rendering when the condition can be `0`, `NaN`, or other falsy values that render.

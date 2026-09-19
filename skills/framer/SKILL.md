@@ -6,10 +6,10 @@ description: >
 allowed-tools:
   - 'Bash(npx @framer/agent:*)'
   - 'Bash(npx @framer/agent@latest:*)'
-  - 'Read(/tmp/framer/*)'
-  - 'Write(/tmp/framer/*)'
-  - 'Read(~/.agents/skills/framer/projects/**)'
-  - 'Read(~/.agents/skills/framer/start-conversation.md)'
+  - 'Read(/home/nyaptor/.jcode/scratch/framer/*)'
+  - 'Write(/home/nyaptor/.jcode/scratch/framer/*)'
+  - 'Read(/home/nyaptor/.agents/skills/framer/projects/**)'
+  - 'Read(/home/nyaptor/.agents/skills/framer/start-conversation.md)'
 ---
 
 If you didn't run this command before loading the skill, run it now:

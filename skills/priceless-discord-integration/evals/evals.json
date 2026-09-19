@@ -1,0 +1,23 @@
+{
+  "skill_name": "priceless-discord-integration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a Discord integration for a multitenant SaaS where each customer uses a custom domain. When a user's application is approved, assign a role in that customer's Discord server. Explain the OAuth flows, tenant isolation, database model, and retries.",
+      "expected_output": "A tenant-bound architecture separating admin guild installation from applicant account linking, with signed OAuth state, explicit installation and role-mapping records, approval outbox events, idempotent reconciliation, and security risks.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "A user linked Discord successfully but did not receive the approved volunteer role. The application has multiple tenants and the user came from a custom domain. Give me a diagnostic plan and the safe remediation order.",
+      "expected_output": "A diagnosis covering tenant scope, mapping, approval state, guild membership, bot permissions and role hierarchy, queue delivery, rate limits, and repair without exposing credentials or removing unmanaged roles.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Should we use Discord Linked Roles or a bot to manage roles when our platform approves vendor and staff applications per event? Compare them and recommend one.",
+      "expected_output": "A comparison that recommends bot-managed roles for precise approval/revocation/audit behavior, while positioning Linked Roles as an optional self-service mode with explicit tradeoffs.",
+      "files": []
+    }
+  ]
+}

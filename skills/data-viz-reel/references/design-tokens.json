@@ -1,0 +1,88 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "name": "Engineering Hierarchy Reel — @abhiramsg",
+  "source": "https://www.instagram.com/reel/Dcq-f-7SUdE/",
+  "captured_at": "2026-09-04",
+  "confidence": {
+    "colors": "high",
+    "typography": "medium",
+    "spacing": "medium",
+    "motion": "medium"
+  },
+  "tokens": {
+    "color": {
+      "surface": { "$value": "#0a0f1a", "$type": "color", "$description": "Primary dark background" },
+      "surface-elevated": { "$value": "#131a2e", "$type": "color", "$description": "Elevated container background" },
+      "text-primary": { "$value": "#ffffff", "$type": "color", "$description": "Primary text on dark surface" },
+      "text-secondary": { "$value": "#8892b0", "$type": "color", "$description": "Muted/secondary text" },
+      "accent-pink": { "$value": "#ff2d78", "$type": "color", "$description": "Category 1 — data encoding" },
+      "accent-green": { "$value": "#00e676", "$type": "color", "$description": "Category 2 — data encoding" },
+      "accent-orange": { "$value": "#ff6b35", "$type": "color", "$description": "Category 3 — data encoding" },
+      "accent-purple": { "$value": "#7c4dff", "$type": "color", "$description": "Category 4 — data encoding" },
+      "accent-cyan": { "$value": "#00bcd4", "$type": "color", "$description": "Category 5 — data encoding" },
+      "accent-gold": { "$value": "#ffc107", "$type": "color", "$description": "Highlight/emphasis values" },
+      "glow-pink": { "$value": "rgba(255,45,120,0.25)", "$type": "color", "$description": "Glow for pink bar animation" },
+      "glow-green": { "$value": "rgba(0,230,118,0.25)", "$type": "color", "$description": "Glow for green bar animation" },
+      "glow-orange": { "$value": "rgba(255,107,53,0.25)", "$type": "color", "$description": "Glow for orange bar animation" },
+      "glow-purple": { "$value": "rgba(124,77,255,0.25)", "$type": "color", "$description": "Glow for purple bar animation" },
+      "glow-cyan": { "$value": "rgba(0,188,212,0.25)", "$type": "color", "$description": "Glow for cyan bar animation" },
+      "border-subtle": { "$value": "#1e2a45", "$type": "color", "$description": "Subtle borders and tree edges" }
+    },
+    "typography": {
+      "title": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "fontSize": "38px",
+          "fontWeight": 700,
+          "letterSpacing": "-0.01em"
+        }
+      },
+      "value": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "monospace",
+          "fontSize": "15px",
+          "fontWeight": 700,
+          "fontVariantNumeric": "tabular-nums"
+        }
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "fontSize": "13px",
+          "fontWeight": 600
+        }
+      },
+      "category": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "fontSize": "12px",
+          "fontWeight": 500,
+          "letterSpacing": "0.02em"
+        }
+      }
+    },
+    "spacing": {
+      "base": { "$value": 4, "$type": "dimension", "$description": "Base spacing unit (px)" },
+      "row-gap": { "$value": 14, "$type": "dimension", "$description": "Gap between bar chart rows" },
+      "bar-height": { "$value": 22, "$type": "dimension", "$description": "Height of bar segments" },
+      "section-vertical": { "$value": 32, "$type": "dimension", "$description": "Vertical padding between sections" }
+    },
+    "radius": {
+      "bar-segment": { "$value": 4, "$type": "dimension", "$description": "Corner radius on bar rectangles" },
+      "tree-node": { "$value": "50%", "$type": "dimension", "$description": "Tree diagram nodes are circles" },
+      "container": { "$value": 12, "$type": "dimension", "$description": "Outer container border radius" }
+    },
+    "motion": {
+      "bar-grow-duration": { "$value": "1200ms", "$type": "duration", "$description": "Duration for bar segment width growth" },
+      "row-stagger-delay": { "$value": "300ms", "$type": "duration", "$description": "Delay between consecutive row reveals" },
+      "slide-enter-duration": { "$value": "400ms", "$type": "duration", "$description": "Row slide-in + fade duration" },
+      "glow-fade-duration": { "$value": "300ms", "$type": "duration", "$description": "Glow box-shadow fade out after bar settles" },
+      "tree-fade-duration": { "$value": "500ms", "$type": "duration", "$description": "Tree diagram fade-out before bar chart" },
+      "bar-growth-easing": { "$value": "cubic-bezier(0.0,0.0,0.2,1.0)", "$type": "other", "$description": "Ease-out for bar width transitions" }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "priceless-resend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The purchase confirmation stopped sending in our Priceless Next.js app. Vercel has RESEND_API_KEY set, but the logs say missing_api_key after we added an Idempotency-Key. Diagnose the likely cause, identify the code-level fix, and list the tests and production evidence needed before redeploying.",
+      "expected_output": "Recognizes Resend request-header replacement, preserves Authorization while merging Idempotency-Key, and proposes focused plus end-to-end verification without exposing secrets.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We changed the production Resend secret in Vercel and redeployed, but users still do not receive order emails. Please investigate in the right order using Vercel and Resend evidence, and tell me what would count as proof that the fix worked.",
+      "expected_output": "Separates runtime environment, handler execution, Resend acceptance, and final delivery; requests safe log/API evidence and does not print secret values.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "A free promo checkout completed, but the browser redirected to a dev success page while the production webhook appears to have run. The customer wants to know whether the confirmation email was sent. Give me a safe production verification plan and a concise evidence report format.",
+      "expected_output": "Does not conflate redirect host with webhook execution, checks Vercel logs and the Resend message final event, and reports deployment, trigger, provider, health, result, and secret handling.",
+      "files": []
+    }
+  ]
+}

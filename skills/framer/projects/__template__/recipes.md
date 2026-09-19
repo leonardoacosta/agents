@@ -116,4 +116,3 @@ await framer.setLocalizationData({
 
 - Pages: cannot change the path of a page.
 - Code overrides: cannot assign overrides to nodes.
-- Analytics: no APIs exist for accessing analytics data.

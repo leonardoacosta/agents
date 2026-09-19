@@ -1,0 +1,9 @@
+{
+  "summary": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4},
+  "expectations": [
+    {"text": "Uses ropen as the preview transport", "passed": true, "evidence": "The response checks ropen and plans `ropen -q` on the generated file."},
+    {"text": "Keeps preview state outside the repository in a private runtime directory", "passed": true, "evidence": "It selects XDG_RUNTIME_DIR or a private mktemp directory and forbids repository state."},
+    {"text": "Does not start or propose a localhost preview server", "passed": true, "evidence": "It explicitly stops instead of starting a fallback server."},
+    {"text": "Uses self-contained content and requests feedback in chat", "passed": true, "evidence": "It specifies inline content without CDNs and asks for the choice in chat."}
+  ]
+}

@@ -5,7 +5,6 @@ impactDescription: avoid redundant computation
 tags: javascript, cache, memoization, performance
 ---
 
-
 ## Cache Repeated Function Calls
 
 Use a module-level Map to cache function results when the same function is called repeatedly with the same inputs during render.

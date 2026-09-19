@@ -1,0 +1,1046 @@
+[
+  {
+    "module": "web",
+    "files": 945,
+    "declared_tests": 5868,
+    "lines": 396272,
+    "skips": 5241,
+    "serial_files": 62,
+    "catch_false": 6101
+  },
+  {
+    "module": "staff",
+    "files": 254,
+    "declared_tests": 591,
+    "lines": 61405,
+    "skips": 467,
+    "serial_files": 4,
+    "catch_false": 568
+  },
+  {
+    "module": "api",
+    "files": 24,
+    "declared_tests": 96,
+    "lines": 5208,
+    "skips": 14,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "apply",
+    "files": 30,
+    "declared_tests": 68,
+    "lines": 6146,
+    "skips": 10,
+    "serial_files": 1,
+    "catch_false": 21
+  },
+  {
+    "module": "wave-4",
+    "files": 11,
+    "declared_tests": 68,
+    "lines": 4389,
+    "skips": 47,
+    "serial_files": 0,
+    "catch_false": 107
+  },
+  {
+    "module": "wave-5",
+    "files": 10,
+    "declared_tests": 54,
+    "lines": 4474,
+    "skips": 17,
+    "serial_files": 0,
+    "catch_false": 81
+  },
+  {
+    "module": "audit-wave1b",
+    "files": 10,
+    "declared_tests": 50,
+    "lines": 3236,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 71
+  },
+  {
+    "module": "wave-6",
+    "files": 7,
+    "declared_tests": 48,
+    "lines": 3438,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 100
+  },
+  {
+    "module": "accessibility",
+    "files": 7,
+    "declared_tests": 45,
+    "lines": 1370,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "wave-3",
+    "files": 12,
+    "declared_tests": 45,
+    "lines": 2727,
+    "skips": 12,
+    "serial_files": 0,
+    "catch_false": 54
+  },
+  {
+    "module": "audit-wave1a",
+    "files": 8,
+    "declared_tests": 41,
+    "lines": 1982,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 31
+  },
+  {
+    "module": "smoke",
+    "files": 6,
+    "declared_tests": 40,
+    "lines": 1171,
+    "skips": 6,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "audit-v4",
+    "files": 19,
+    "declared_tests": 39,
+    "lines": 2231,
+    "skips": 42,
+    "serial_files": 0,
+    "catch_false": 48
+  },
+  {
+    "module": "wave-10",
+    "files": 3,
+    "declared_tests": 36,
+    "lines": 1698,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 26
+  },
+  {
+    "module": "auth",
+    "files": 8,
+    "declared_tests": 33,
+    "lines": 2482,
+    "skips": 5,
+    "serial_files": 0,
+    "catch_false": 37
+  },
+  {
+    "module": "wave-7",
+    "files": 4,
+    "declared_tests": 33,
+    "lines": 3014,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 60
+  },
+  {
+    "module": "admin",
+    "files": 4,
+    "declared_tests": 31,
+    "lines": 1519,
+    "skips": 0,
+    "serial_files": 2,
+    "catch_false": 0
+  },
+  {
+    "module": "specs",
+    "files": 4,
+    "declared_tests": 31,
+    "lines": 1274,
+    "skips": 7,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "wave-9",
+    "files": 2,
+    "declared_tests": 31,
+    "lines": 2285,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 58
+  },
+  {
+    "module": "safety",
+    "files": 17,
+    "declared_tests": 29,
+    "lines": 1513,
+    "skips": 11,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "routing",
+    "files": 4,
+    "declared_tests": 27,
+    "lines": 1754,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 20
+  },
+  {
+    "module": "audit-wave2",
+    "files": 4,
+    "declared_tests": 25,
+    "lines": 1325,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 31
+  },
+  {
+    "module": "wave-8",
+    "files": 4,
+    "declared_tests": 21,
+    "lines": 1516,
+    "skips": 14,
+    "serial_files": 1,
+    "catch_false": 16
+  },
+  {
+    "module": "error-scenarios",
+    "files": 1,
+    "declared_tests": 20,
+    "lines": 716,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 15
+  },
+  {
+    "module": "public",
+    "files": 10,
+    "declared_tests": 20,
+    "lines": 2085,
+    "skips": 24,
+    "serial_files": 0,
+    "catch_false": 17
+  },
+  {
+    "module": "wave-2-small-specs",
+    "files": 5,
+    "declared_tests": 19,
+    "lines": 2153,
+    "skips": 16,
+    "serial_files": 0,
+    "catch_false": 40
+  },
+  {
+    "module": "wave-audit-2026-04-23",
+    "files": 7,
+    "declared_tests": 18,
+    "lines": 1285,
+    "skips": 19,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "db",
+    "files": 2,
+    "declared_tests": 17,
+    "lines": 776,
+    "skips": 4,
+    "serial_files": 1,
+    "catch_false": 0
+  },
+  {
+    "module": "vendor",
+    "files": 8,
+    "declared_tests": 17,
+    "lines": 1631,
+    "skips": 16,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "performance",
+    "files": 3,
+    "declared_tests": 16,
+    "lines": 678,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "helpers",
+    "files": 2,
+    "declared_tests": 12,
+    "lines": 349,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "attendee-questionnaires",
+    "files": 6,
+    "declared_tests": 11,
+    "lines": 1240,
+    "skips": 15,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "operations",
+    "files": 1,
+    "declared_tests": 10,
+    "lines": 981,
+    "skips": 10,
+    "serial_files": 0,
+    "catch_false": 56
+  },
+  {
+    "module": "badges-filter.spec.ts",
+    "files": 1,
+    "declared_tests": 9,
+    "lines": 505,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "public-site-content-refresh",
+    "files": 2,
+    "declared_tests": 9,
+    "lines": 649,
+    "skips": 7,
+    "serial_files": 1,
+    "catch_false": 7
+  },
+  {
+    "module": "cosmetic",
+    "files": 1,
+    "declared_tests": 8,
+    "lines": 759,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 14
+  },
+  {
+    "module": "missing-public-pages.spec.ts",
+    "files": 1,
+    "declared_tests": 8,
+    "lines": 179,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "navigation",
+    "files": 2,
+    "declared_tests": 8,
+    "lines": 486,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "audit-preflight",
+    "files": 5,
+    "declared_tests": 7,
+    "lines": 601,
+    "skips": 6,
+    "serial_files": 1,
+    "catch_false": 0
+  },
+  {
+    "module": "audit-wave3",
+    "files": 1,
+    "declared_tests": 7,
+    "lines": 235,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "image-upload-policy",
+    "files": 5,
+    "declared_tests": 7,
+    "lines": 691,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "purchase",
+    "files": 1,
+    "declared_tests": 7,
+    "lines": 561,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "skeleton-loading-states.spec.ts",
+    "files": 1,
+    "declared_tests": 7,
+    "lines": 373,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "attendee",
+    "files": 3,
+    "declared_tests": 6,
+    "lines": 554,
+    "skips": 10,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "cosplay-content-routing.spec.ts",
+    "files": 1,
+    "declared_tests": 6,
+    "lines": 223,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "finance",
+    "files": 3,
+    "declared_tests": 6,
+    "lines": 773,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 15
+  },
+  {
+    "module": "staff-topbar-h1.spec.ts",
+    "files": 1,
+    "declared_tests": 6,
+    "lines": 490,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 9
+  },
+  {
+    "module": "success-bare-url.spec.ts",
+    "files": 1,
+    "declared_tests": 6,
+    "lines": 203,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "wave-1-typecheck-tenant-cosplay",
+    "files": 4,
+    "declared_tests": 6,
+    "lines": 465,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 8
+  },
+  {
+    "module": "wave-3-small-specs",
+    "files": 2,
+    "declared_tests": 6,
+    "lines": 708,
+    "skips": 8,
+    "serial_files": 0,
+    "catch_false": 16
+  },
+  {
+    "module": "announcements-ssr.spec.ts",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 141,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 1
+  },
+  {
+    "module": "checkout-ux-polish.spec.ts",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 265,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 6
+  },
+  {
+    "module": "contact-form-prefill.spec.ts",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 191,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 1
+  },
+  {
+    "module": "content-placeholders.spec.ts",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 187,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 4
+  },
+  {
+    "module": "cosplay",
+    "files": 3,
+    "declared_tests": 5,
+    "lines": 195,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "entitlements",
+    "files": 5,
+    "declared_tests": 5,
+    "lines": 832,
+    "skips": 12,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "meetup-application",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 417,
+    "skips": 3,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "money-display-regression.spec.ts",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 624,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "schedule",
+    "files": 2,
+    "declared_tests": 5,
+    "lines": 579,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "stripe-checkout.spec.ts",
+    "files": 1,
+    "declared_tests": 5,
+    "lines": 285,
+    "skips": 5,
+    "serial_files": 0,
+    "catch_false": 8
+  },
+  {
+    "module": "stripe-connect-scoping",
+    "files": 2,
+    "declared_tests": 5,
+    "lines": 473,
+    "skips": 11,
+    "serial_files": 0,
+    "catch_false": 13
+  },
+  {
+    "module": "affiliate-terms-v1.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 105,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "analytics",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 361,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 11
+  },
+  {
+    "module": "audit-extras-tier-gate",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 287,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 6
+  },
+  {
+    "module": "bundle-addon-ux",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 622,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 18
+  },
+  {
+    "module": "content",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 429,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "finance-payment-routing.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 186,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "fix-event-content-date-consistency.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 407,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "hydration-redirect.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 259,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "meetup-application.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 363,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "money-convention",
+    "files": 4,
+    "declared_tests": 4,
+    "lines": 575,
+    "skips": 6,
+    "serial_files": 1,
+    "catch_false": 1
+  },
+  {
+    "module": "sponsors",
+    "files": 2,
+    "declared_tests": 4,
+    "lines": 487,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 8
+  },
+  {
+    "module": "staff-faq-admin.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 424,
+    "skips": 0,
+    "serial_files": 1,
+    "catch_false": 8
+  },
+  {
+    "module": "staff-questionnaire-dispatch.spec.ts",
+    "files": 1,
+    "declared_tests": 4,
+    "lines": 553,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "_meta",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 46,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "addon-fulfillment",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 358,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "badge-cart-url-param.spec.ts",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 280,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "home-page-hydration.spec.ts",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 187,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "payments",
+    "files": 2,
+    "declared_tests": 3,
+    "lines": 370,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "prefetch-storm.spec.ts",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 199,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "programming-venue.spec.ts",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 255,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 6
+  },
+  {
+    "module": "rbac-inventory",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 320,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "redirect-loops.spec.ts",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 313,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "revenue-data-discrepancy.spec.ts",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 258,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "staff-questionnaire-review",
+    "files": 3,
+    "declared_tests": 3,
+    "lines": 329,
+    "skips": 4,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "wave-2-comms-hardening",
+    "files": 1,
+    "declared_tests": 3,
+    "lines": 279,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 1
+  },
+  {
+    "module": "audit-journeys",
+    "files": 2,
+    "declared_tests": 2,
+    "lines": 693,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 1
+  },
+  {
+    "module": "badge-list-search.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 295,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 5
+  },
+  {
+    "module": "events-page-error.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 162,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "fix-programming-sub-route-data-regression.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 260,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "fix-schedule-search-input-layout.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 76,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "meetups-public-visibility.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 160,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "missing-routes",
+    "files": 2,
+    "declared_tests": 2,
+    "lines": 181,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 4
+  },
+  {
+    "module": "my-orders-product-name.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 388,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "observability",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 129,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "permissions",
+    "files": 2,
+    "declared_tests": 2,
+    "lines": 275,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "purchase-addon-checkout-price.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 428,
+    "skips": 4,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "purchase-page",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 203,
+    "skips": 5,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "rsc-cache-contamination.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 318,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 11
+  },
+  {
+    "module": "sponsor-info-page-access.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 167,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "sponsor-tier-idempotency.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 214,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "staff-routing-storm-dwell.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 223,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 1
+  },
+  {
+    "module": "vendor-detail-error-regression.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 209,
+    "skips": 3,
+    "serial_files": 0,
+    "catch_false": 7
+  },
+  {
+    "module": "vendor-notification-opt-ins.spec.ts",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 181,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "wave-2-dashboard-distinguishers",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 334,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "webhooks",
+    "files": 1,
+    "declared_tests": 2,
+    "lines": 89,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "cron",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 253,
+    "skips": 1,
+    "serial_files": 1,
+    "catch_false": 0
+  },
+  {
+    "module": "money-display-writer",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 131,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "platform-fee-parity.spec.ts",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 135,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "reconciliation-sponsor-revenue.spec.ts",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 140,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 4
+  },
+  {
+    "module": "rsc-render-error-cluster.spec.ts",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 151,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 3
+  },
+  {
+    "module": "sponsor",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 302,
+    "skips": 1,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "staff-role-access-smoke.spec.ts",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 93,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 2
+  },
+  {
+    "module": "volunteer",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 96,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 0
+  },
+  {
+    "module": "welcome-email-signup.spec.ts",
+    "files": 1,
+    "declared_tests": 1,
+    "lines": 79,
+    "skips": 0,
+    "serial_files": 0,
+    "catch_false": 1
+  },
+  {
+    "module": "orders",
+    "files": 1,
+    "declared_tests": 0,
+    "lines": 92,
+    "skips": 2,
+    "serial_files": 0,
+    "catch_false": 0
+  }
+]

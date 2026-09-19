@@ -1,18 +1,19 @@
 ---
 name: t3-code-patterns
 description: >
-  Project-specific code patterns for T3 Turbo monorepo development. Use when writing or reviewing
-  code in any T3 fleet repo (acme, storefront, operations, backoffice, portal, legacy) and you touch: DB imports / raw SQL
-  (camelCase→snake_case columns, POSTGRES_URL not DATABASE_URL), the Drizzle schema or a
-  migration (drizzle-kit generate, NEVER db:push), placement of a one-off script, null-narrowing
-  a query result, deciding which package owns a type (db→entities, api→DTOs, app→UI), a Stripe
-  SDK call, a Terraform file, an ESLint rule/whitelist decorator, or Better Auth rate-limit
-  policy (deployment-aware preview protection and isolated E2E capacity). Also use when creating a new service / router /
-  script and you need the search-first placement rules.
-  Triggers on: T3 Turbo, drizzle migration, db:push (never), POSTGRES_URL, snake_case column,
-  ctx.db.query, RouterOutputs, DomainError, tenantProtectedProcedure, ROUTER_DB_ALLOWLIST,
-  packages/db, packages/api, @theme-exception, better-auth, rate limit, VERCEL_ENV.
-  Do NOT use for Bun + Effect repositories; that stack is paradigm-divergent.
+  Project-specific code patterns for T3 Turbo monorepo development. Use when
+  writing or reviewing code in any T3 fleet repo (acme, storefront,
+  operations, backoffice, portal, legacy) and you touch: DB imports / raw SQL,
+  the Drizzle schema or a migration, placement of a one-off script,
+  null-narrowing a query result, deciding which package owns a type
+  (db→entities, api→DTOs, app→UI), a Stripe SDK call, a Terraform file, an
+  ESLint rule/whitelist decorator, Better Auth rate-limit policy, or when
+  creating a new service / router / script and you need the search-first
+  placement rules. Triggers on: T3 Turbo, drizzle migration, db:push (never),
+  POSTGRES_URL, snake_case column, ctx.db.query, RouterOutputs, DomainError,
+  tenantProtectedProcedure, ROUTER_DB_ALLOWLIST, packages/db, packages/api,
+  @theme-exception, better-auth, rate limit, VERCEL_ENV. Do NOT use for Bun +
+  Effect repositories; that stack is paradigm-divergent.
 user-invocable: false
 disable-model-invocation: false
 category: Framework
@@ -34,6 +35,10 @@ allowed-tools: Read, Glob, Grep, Bash
 ---
 
 
+<!-- discovery detail (moved out of frontmatter description for length): raw SQL means
+     camelCase→snake_case columns and POSTGRES_URL not DATABASE_URL; migrations means
+     drizzle-kit generate, NEVER db:push; Better Auth rate-limit policy means
+     deployment-aware preview protection and isolated E2E capacity. -->
 # T3 Code Patterns
 
 > Project-specific code patterns for T3 Turbo monorepo development.

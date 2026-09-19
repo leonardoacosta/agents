@@ -1,0 +1,17 @@
+{
+  "skill_name": "priceless-page-inventory",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "i have a Next.js 15 app with the app router and i need to build an inventory of all my pages for test planning. i'm in a monorepo at /home/nyaptor/dev/my-app with apps/nextjs as my frontend. i need a script that walks the app directory and produces a json file with all routes, their source files, and placeholder action/view_access fields i can fill in manually. what's the right schema for this and can you produce the build script?",
+      "expected_output": "A typed schema (TypeScript interfaces) defining ActionInventory, ViewAccess, and PageInventoryEntry. A build-inventory.ts script that walks apps/nextjs/src/app/**/page.tsx, derives canonical routes, handles route groups, dynamic segments, and catch-all params. The script writes a JSON file to a configurable output path. Instructions for wiring into the monorepo and populating actions/view_access per module.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "we just set up a test categorization pipeline and it says we need a page inventory first. we have a nextjs app in apps/web/src/app, what's the minimum data we need per page to make the categorization work? things like route, actions, who can access each page. can you set me up with the schema and a build script?",
+      "expected_output": "Minimum schema: route, file, actions (with procedure/requires/crud/security_critical/side_effects), and view_access (allow/deny_default). Build script for apps/web/src/app. Explanation that actions and view_access need manual population per module — the script only produces routes and file paths.",
+      "files": []
+    }
+  ]
+}

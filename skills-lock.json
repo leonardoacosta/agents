@@ -43,7 +43,7 @@
       "sourceType": "github"
     },
     "recon": {
-      "computedHash": "bf352eee3c6069635d0c4f37116af1c1664068e74c9d0d4d41d956cdaf625647",
+      "computedHash": "99f7125c2e790ebea00faf9c39eb06114f8de7b7310ade811cded3606e540089",
       "skillPath": "packages/recon-kit/skills/recon/SKILL.md",
       "source": "leonardoacosta/recon",
       "sourceType": "github"
@@ -76,6 +76,54 @@
       "computedHash": "42abe11ba6c0cb0c135deed1d591d844838fe0b61fc8c6d675a832435508a61b",
       "skillPath": "skills/wrangler/SKILL.md",
       "source": "cloudflare/skills",
+      "sourceType": "github"
+    },
+    "markdown-graphs": {
+      "computedHash": "e88b21bf140deb051aa92e39138fb11aad32572e497f94363b77d11f6e30100b",
+      "skillPath": ".agents/skills/markdown-graphs/SKILL.md",
+      "source": "kshv/markdown-graphs",
+      "sourceType": "url"
+    },
+    "gk-cli": {
+      "computedHash": "fb553e05cf57aadb4696f164f81e99576299f6706fa1dae093e47c76b9328cff",
+      "skillPath": ".agents/skills/gk-cli/SKILL.md",
+      "source": "gitkraken/gk-cli",
+      "sourceType": "github"
+    },
+    "show-me": {
+      "computedHash": "b245f9a98002700de6bbceb8305cd91b0452a4b5e34aa1eb0f93de413b676c07",
+      "skillPath": ".agents/skills/show-me/SKILL.md",
+      "source": "humanlayer/skills",
+      "sourceType": "github"
+    },
+    "build-iterated-agentic-loop": {
+      "computedHash": "dea5c29e2cb6133896b0bb518775e18863df377ebe0198f8d867e28e52155671",
+      "skillPath": ".agents/skills/build-iterated-agentic-loop/SKILL.md",
+      "source": "humanlayer/skills",
+      "sourceType": "github"
+    },
+    "design-control-loop": {
+      "computedHash": "8ebd113502a4331818c6e77b60051796a598160ba03e2eaa61ff959bd237653c",
+      "skillPath": ".agents/skills/design-control-loop/SKILL.md",
+      "source": "humanlayer/skills",
+      "sourceType": "github"
+    },
+    "gk-personal": {
+      "computedHash": "613d50d515569ddebf3e11408039b76efb60dd803e221fce5f47578778d768a6",
+      "skillPath": "skills/gk-personal/SKILL.md",
+      "source": "local",
+      "sourceType": "local"
+    },
+    "writing-for-agents": {
+      "computedHash": "482e371e48efc2dbb401aef7d124467f523c52b2bf9c486dedf60e2f48a7ce98",
+      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "source": "mattpocock/skills",
+      "sourceType": "github"
+    },
+    "wizard": {
+      "computedHash": "efba4f088d59aa3f3122b6b72702b7f2af6b104277ead5da944699bca3fb847e",
+      "skillPath": "skills/wizard/SKILL.md",
+      "source": "mattpocock/skills",
       "sourceType": "github"
     },
     "atlas": {

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adversarial Code Review"
+  short_description: "Independent evidence-based review of code changes"
+  default_prompt: "Use $adversarial-code-review to review the current code changes against the current effective requirements and exact final diff, including blockers beyond existing comments."

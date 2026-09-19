@@ -5,7 +5,6 @@ impactDescription: enables early returns
 tags: rerender, memo, useMemo, optimization
 ---
 
-
 ## Extract to Memoized Components
 
 Extract expensive work into memoized components to enable early returns before computation.

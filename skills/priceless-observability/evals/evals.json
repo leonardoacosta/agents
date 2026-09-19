@@ -1,0 +1,35 @@
+{
+  "skill_name": "priceless-observability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm adding OpenReplay to the otaku-odyssey checkout flow. Tell me what to implement for Product Analytics, Monitors, Web Analytics, functional events, and technical issue events, and which parts should be enforced versus merely encouraged.",
+      "expected_output": "Uses the Priceless observability canon. Distinguishes OpenReplay project identity from dashboard lenses. Requires base provider/no-op behavior. Enforces critical checkout funnel events and monitor coverage. Encourages Web Analytics unless growth or marketing acceptance depends on it. Uses dot-delimited event names and safe low-cardinality payload guidance.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "A civalent upload flow has sporadic 4xx/5xx requests and users say the page feels slow. I need a cross-tool observability plan using Grafana/Loki and OpenReplay. Include naming conventions and what evidence CI or QA should collect.",
+      "expected_output": "Uses project=civalent, job=vercel-logs, canonical environment values, service naming guidance, bounded LogQL metadata/count checks, OpenReplay Monitors cards for 4xx/5xx and slow requests, technical issue events through tracker.issue, and no raw log bodies or secret-bearing payloads.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We're building an internal preview-only admin route in tribal-cities. Should OpenReplay Product Analytics, Monitors, and Web Analytics be mandatory? I want practical guidance that won't over-enforce low-value dashboards.",
+      "expected_output": "Classifies tribal-cities with repo slug project naming and tc service names. Recommends base provider behavior only if OpenReplay is enabled. Encourages Product Analytics for meaningful workflows, encourages preview-only Monitors rather than hard-enforcing them, treats Web Analytics as optional unless product/ops has a traffic question, and explains the enforcement ladder.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Review these proposed event names for a Priceless app: product_added, payment_error, chat_opened, socket:connected, email.qr_mint_failed. Which should be kept, bridged, or renamed for Grafana and OpenReplay?",
+      "expected_output": "Rejects new snake_case and colon names in favor of dot-delimited taxonomy. Notes OpenReplay docs use snake_case only as API examples, not fleet canon. Suggests canonical replacements such as checkout.product.added, checkout.payment.provider_failed, chat.opened, socket.connected, and email.confirmation.qr_mint_failed or equivalent domain-specific names. Advises bridging legacy names before cleanup.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "An OpenReplay session for otaku-odyssey shows the shop page as plain unstyled HTML even though the live site is styled. Diagnose the likely cause and tell me what we should enforce or encourage in the tracker/deploy config before using the replay as visual QA evidence.",
+      "expected_output": "Uses Firecrawl-researched reliability guidance. Treats the replay as visually unreliable until style capture is proven. Recommends the OpenReplay reliability baseline: HTTPS/CSP, single tracker instance, inlineCss: 3 for private/protected/preview/CDN-risk assets, replay iframe Network smoke for CSS/fonts/icons without 4xx/5xx/CSP/CORS/bot blocks, resourceBaseHref only for a stable public mirrored asset origin, optional css.scanInMemoryCSS for Emotion/MUI/CSS-in-JS gaps, and real-browser or Playwright validation before visual QA conclusions.",
+      "files": []
+    }
+  ]
+}

@@ -1,40 +1,24 @@
 ---
 name: vercel-react-best-practices
-description: React and Next.js performance optimization from Vercel Engineering. Use when diagnosing slow first paint, laggy interactions, excessive re-renders, large JS bundles, or stale data. Triggers on performance review, bundle analysis, waterfall elimination, React.memo decisions, dynamic imports, Suspense streaming, or any "why is this page slow?" investigation.
-source: ~/.agents/skills@2026-07-13
+description: React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.
 license: MIT
 metadata:
   author: vercel
-  version: "2.0.0"
-user-invocable: false
+  version: "1.0.0"
 ---
-
 
 # Vercel React Best Practices
 
-Performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 45 rules across 7 categories, prioritized by impact.
+Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 70 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
 
-## Performance Triage
+## When to Apply
 
-Before optimizing, **measure first**: React DevTools Profiler to identify the bottleneck, then apply the specific rule. NEVER optimize speculatively -- premature optimization wastes time and adds complexity.
-
-```
-Page feels slow?
-├── First paint slow (white screen)?
-│   ├── Large JS bundle? → Read rules/bundle-*.md
-│   │   Start with: bundle-barrel-imports, bundle-dynamic-imports
-│   └── Sequential server fetches (waterfall)? → Read rules/async-*.md
-│       Start with: async-parallel, async-suspense-boundaries
-├── Interactions feel laggy (clicks, typing)?
-│   ├── Component re-renders too often? → Read rules/rerender-*.md
-│   │   Start with: rerender-derived-state-no-effect, rerender-memo
-│   └── Heavy DOM updates (lists, animations)? → Read rules/rendering-*.md
-│       Start with: rendering-content-visibility, rendering-hoist-jsx
-├── Data appears stale?
-│   └── Caching issue → use nextjs-app-router skill instead (not this skill)
-└── Not sure where the problem is?
-    └── Profile first: React DevTools Profiler for renders, Chrome DevTools Performance for JS
-```
+Reference these guidelines when:
+- Writing new React components or Next.js pages
+- Implementing data fetching (client or server-side)
+- Reviewing code for performance issues
+- Refactoring existing React/Next.js code
+- Optimizing bundle size or load times
 
 ## Rule Categories by Priority
 
@@ -46,113 +30,120 @@ Page feels slow?
 | 4 | Client-Side Data Fetching | MEDIUM-HIGH | `client-` |
 | 5 | Re-render Optimization | MEDIUM | `rerender-` |
 | 6 | Rendering Performance | MEDIUM | `rendering-` |
-| 7 | Advanced Patterns | LOW | `advanced-` |
+| 7 | JavaScript Performance | LOW-MEDIUM | `js-` |
+| 8 | Advanced Patterns | LOW | `advanced-` |
 
-## Top 5 Rules (Always Apply)
+## Quick Reference
 
-These 5 rules prevent the most common performance problems. Apply them by default without profiling.
+### 1. Eliminating Waterfalls (CRITICAL)
 
-### 1. async-parallel -- Promise.all for independent fetches
+- `async-cheap-condition-before-await` - Check cheap sync conditions before awaiting flags or remote values
+- `async-defer-await` - Move await into branches where actually used
+- `async-parallel` - Use Promise.all() for independent operations
+- `async-dependencies` - Use better-all for partial dependencies
+- `async-api-routes` - Start promises early, await late in API routes
+- `async-suspense-boundaries` - Use Suspense to stream content
 
-**WHY:** Sequential awaits create a waterfall -- total time = sum of all fetch times. Parallel = max of fetch times.
+### 2. Bundle Size Optimization (CRITICAL)
 
-```typescript
-// ❌ Waterfall: 200ms + 300ms = 500ms
-const user = await getUser(id);
-const orders = await getOrders(id);
+- `bundle-barrel-imports` - Import directly, avoid barrel files
+- `bundle-analyzable-paths` - Prefer statically analyzable import and file-system paths to avoid broad bundles and traces
+- `bundle-dynamic-imports` - Use next/dynamic for heavy components
+- `bundle-defer-third-party` - Load analytics/logging after hydration
+- `bundle-conditional` - Load modules only when feature is activated
+- `bundle-preload` - Preload on hover/focus for perceived speed
 
-// ✅ Parallel: max(200ms, 300ms) = 300ms
-const [user, orders] = await Promise.all([getUser(id), getOrders(id)]);
+### 3. Server-Side Performance (HIGH)
+
+- `server-auth-actions` - Authenticate server actions like API routes
+- `server-cache-react` - Use React.cache() for per-request deduplication
+- `server-cache-lru` - Use LRU cache for cross-request caching
+- `server-dedup-props` - Avoid duplicate serialization in RSC props
+- `server-hoist-static-io` - Hoist static I/O (fonts, logos) to module level
+- `server-no-shared-module-state` - Avoid module-level mutable request state in RSC/SSR
+- `server-serialization` - Minimize data passed to client components
+- `server-parallel-fetching` - Restructure components to parallelize fetches
+- `server-parallel-nested-fetching` - Chain nested fetches per item in Promise.all
+- `server-after-nonblocking` - Use after() for non-blocking operations
+
+### 4. Client-Side Data Fetching (MEDIUM-HIGH)
+
+- `client-swr-dedup` - Use SWR for automatic request deduplication
+- `client-event-listeners` - Deduplicate global event listeners
+- `client-passive-event-listeners` - Use passive listeners for scroll
+- `client-localstorage-schema` - Version and minimize localStorage data
+
+### 5. Re-render Optimization (MEDIUM)
+
+- `rerender-defer-reads` - Don't subscribe to state only used in callbacks
+- `rerender-memo` - Extract expensive work into memoized components
+- `rerender-memo-with-default-value` - Hoist default non-primitive props
+- `rerender-dependencies` - Use primitive dependencies in effects
+- `rerender-derived-state` - Subscribe to derived booleans, not raw values
+- `rerender-derived-state-no-effect` - Derive state during render, not effects
+- `rerender-functional-setstate` - Use functional setState for stable callbacks
+- `rerender-lazy-state-init` - Pass function to useState for expensive values
+- `rerender-simple-expression-in-memo` - Avoid memo for simple primitives
+- `rerender-split-combined-hooks` - Split hooks with independent dependencies
+- `rerender-move-effect-to-event` - Put interaction logic in event handlers
+- `rerender-transitions` - Use startTransition for non-urgent updates
+- `rerender-use-deferred-value` - Defer expensive renders to keep input responsive
+- `rerender-use-ref-transient-values` - Use refs for transient frequent values
+- `rerender-no-inline-components` - Don't define components inside components
+
+### 6. Rendering Performance (MEDIUM)
+
+- `rendering-animate-svg-wrapper` - Animate div wrapper, not SVG element
+- `rendering-content-visibility` - Use content-visibility for long lists
+- `rendering-hoist-jsx` - Extract static JSX outside components
+- `rendering-svg-precision` - Reduce SVG coordinate precision
+- `rendering-hydration-no-flicker` - Use inline script for client-only data
+- `rendering-hydration-suppress-warning` - Suppress expected mismatches
+- `rendering-activity` - Use Activity component for show/hide
+- `rendering-conditional-render` - Use ternary, not && for conditionals
+- `rendering-usetransition-loading` - Prefer useTransition for loading state
+- `rendering-resource-hints` - Use React DOM resource hints for preloading
+- `rendering-script-defer-async` - Use defer or async on script tags
+
+### 7. JavaScript Performance (LOW-MEDIUM)
+
+- `js-batch-dom-css` - Group CSS changes via classes or cssText
+- `js-index-maps` - Build Map for repeated lookups
+- `js-cache-property-access` - Cache object properties in loops
+- `js-cache-function-results` - Cache function results in module-level Map
+- `js-cache-storage` - Cache localStorage/sessionStorage reads
+- `js-combine-iterations` - Combine multiple filter/map into one loop
+- `js-length-check-first` - Check array length before expensive comparison
+- `js-early-exit` - Return early from functions
+- `js-hoist-regexp` - Hoist RegExp creation outside loops
+- `js-min-max-loop` - Use loop for min/max instead of sort
+- `js-set-map-lookups` - Use Set/Map for O(1) lookups
+- `js-tosorted-immutable` - Use toSorted() for immutability
+- `js-flatmap-filter` - Use flatMap to map and filter in one pass
+- `js-request-idle-callback` - Defer non-critical work to browser idle time
+
+### 8. Advanced Patterns (LOW)
+
+- `advanced-effect-event-deps` - Don't put `useEffectEvent` results in effect deps
+- `advanced-event-handler-refs` - Store event handlers in refs
+- `advanced-init-once` - Initialize app once per app load
+- `advanced-use-latest` - useLatest for stable callback refs
+
+## How to Use
+
+Read individual rule files for detailed explanations and code examples:
+
+```
+rules/async-parallel.md
+rules/bundle-barrel-imports.md
 ```
 
-### 2. bundle-barrel-imports -- Import directly, never from barrel files
+Each rule file contains:
+- Brief explanation of why it matters
+- Incorrect code example with explanation
+- Correct code example with explanation
+- Additional context and references
 
-**WHY:** Barrel files (`index.ts` re-exports) defeat tree-shaking -- bundler pulls the entire module graph.
+## Full Compiled Document
 
-```typescript
-// ❌ Pulls entire utils package into client bundle
-import { formatDate } from "@/utils";
-
-// ✅ Only pulls formatDate and its dependencies
-import { formatDate } from "@/utils/date";
-```
-
-### 3. rerender-derived-state-no-effect -- Derive during render
-
-**WHY:** `useState` + `useEffect` for derived values causes an extra render with stale intermediate state.
-
-```typescript
-// ❌ Two renders: first with stale filteredItems, second with correct
-const [filteredItems, setFiltered] = useState(items);
-useEffect(() => setFiltered(items.filter(i => i.active)), [items]);
-
-// ✅ One render, always consistent
-const filteredItems = items.filter(i => i.active);
-// Expensive? const filteredItems = useMemo(() => items.filter(i => i.active), [items]);
-```
-
-### 4. server-cache-react -- React.cache() for per-request dedup
-
-**WHY:** Multiple Server Components in one render tree may fetch the same data. Without cache(), each triggers a separate DB/API call.
-
-```typescript
-import { cache } from "react";
-export const getUser = cache(async (id: string) => {
-  return db.query.user.findFirst({ where: eq(user.id, id) });
-});
-// Called 3 times in one request? Only 1 DB query executes.
-```
-
-### 5. async-suspense-boundaries -- Stream slow content
-
-**WHY:** Without Suspense, the entire page waits for the slowest query. With it, fast content renders immediately.
-
-```tsx
-// ❌ Page blocked on slow orders query
-export default async function Page() {
-  const orders = await getOrders(); // 2 seconds
-  return <><Header /><OrdersList orders={orders} /></>;
-}
-
-// ✅ Header renders instantly, orders stream in
-export default function Page() {
-  return (
-    <>
-      <Header />
-      <Suspense fallback={<OrdersSkeleton />}>
-        <OrdersList /> {/* async Server Component */}
-      </Suspense>
-    </>
-  );
-}
-```
-
-## Performance Anti-Patterns
-
-NEVER:
-- **React.memo on every component** -- adds comparison overhead on every render. Only memo components that: (a) receive complex object props, (b) re-render frequently from parent state changes, (c) are expensive to render (>5ms in profiler)
-- **Optimize without measuring** -- you will optimize the wrong thing. Profile first, then apply the specific rule
-- **Split bundles too aggressively** -- every dynamic import adds a network round-trip. Only split above 50KB or for routes the user may never visit
-- **Cache everything** -- stale data bugs are harder to debug than slow queries. Start with no caching, add targeted caching where profiling shows repeated expensive operations
-- **useCallback/useMemo everywhere** -- the memoization itself costs memory and comparison time. Only use when passing callbacks to memoized children or for genuinely expensive computations (>1ms)
-
-## Loading Rules
-
-Read individual rule files when the triage tree points you there:
-
-```bash
-# Example: triage identified waterfall → load async rules
-Read ~/.agents/skills/vercel-react-best-practices/rules/async-parallel.md
-```
-
-**MANDATORY for performance reviews**: Read the Top 5 rules above (already inline).
-
-**Load on demand** (match to triage result):
-- `rules/async-*.md` -- waterfall elimination (5 rules)
-- `rules/bundle-*.md` -- bundle size (5 rules)
-- `rules/server-*.md` -- server-side perf (7 rules)
-- `rules/rerender-*.md` -- re-render optimization (12 rules)
-- `rules/rendering-*.md` -- DOM rendering perf (9 rules)
-- `rules/advanced-*.md` -- advanced patterns (3 rules)
-
-**Do NOT load** all rule files at once -- pick the category matching your triage result.
+For the complete guide with all rules expanded: `AGENTS.md`

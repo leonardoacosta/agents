@@ -1,6 +1,20 @@
 ---
 name: nextjs-upgrade-audit
-description: Audits a Next.js app's observable repo state — package.json, next.config.*, turbo.json, CI config, and the app tree — against a Next.js 16.2/16.3 capability matrix, and emits ranked findings with concrete fixes. Use when asked to review a Next.js upgrade, audit a repo for unclaimed new-feature wins, check for stale or superseded config flags (prefetchInlining, unstable_catchError, middleware.ts), or evaluate whether cacheComponents/Turbopack/Instant Navigations adoption is available and unclaimed. NOT a Next.js documentation mirror — next dev on 16.3+ already writes version-matched docs into the project's own node_modules/AGENTS.md; this skill only reasons about this repo's delta against that. Triggers on: next.config audit, turbopack audit, cacheComponents, partialPrefetching, unstable_catchError, unstable_retry, middleware.ts vs proxy.ts, turbopackFileSystemCacheForBuild, --webpack flag, Next.js upgrade review, "is our app using Next.js's new features".
+description: >
+  Audits a Next.js app's observable repo state — package.json, next.config.*,
+  turbo.json, CI config, and the app tree — against a Next.js 16.2/16.3
+  capability matrix, and emits ranked findings with concrete fixes. Use when
+  asked to review a Next.js upgrade, audit a repo for unclaimed new-feature
+  wins, check for stale or superseded config flags (prefetchInlining,
+  unstable_catchError, middleware.ts), or evaluate whether
+  cacheComponents/Turbopack/Instant Navigations adoption is available and
+  unclaimed. NOT a Next.js documentation mirror — next dev on 16.3+ already
+  writes version-matched docs into the project's own node_modules/AGENTS.md;
+  this skill only reasons about this repo's delta against that. Triggers on:
+  next.config audit, turbopack audit, cacheComponents, partialPrefetching,
+  unstable_catchError, unstable_retry, middleware.ts vs proxy.ts,
+  turbopackFileSystemCacheForBuild, --webpack flag, Next.js upgrade review,
+  "is our app using Next.js's new features".
 allowed-tools: Read, Glob, Grep, Bash
 ---
 
