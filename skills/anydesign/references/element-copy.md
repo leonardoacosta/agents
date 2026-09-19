@@ -45,6 +45,7 @@ targeting available:
 | **URL** | CSS selector given by user → selector you infer from the fetched HTML → description + cropped Playwright capture |
 | **Local image** | The whole image IS the element → or the user describes a region ("the illustration on the right") and you analyze that region |
 | **Figma** | `node-id` in the URL → node you locate via `get_metadata` |
+| **Local video or social-post media** | The full clip → a time range named by the user → the smallest stable animated region visible across sampled frames |
 
 If the description is ambiguous ("the card" on a page with 12 cards), ask **one** clarifying
 question — element mode is precision work; guessing the wrong target wastes the whole run.
@@ -72,6 +73,11 @@ question — element mode is precision work; guessing the wrong target wastes th
   visual reference. Exported fills/images inside the node usually signal `asset` or
   `hybrid`.
 
+- **Video or social-post media**: follow Flow 4 in `capture-flows.md`. Preserve and probe the
+  original, then extract representative frames and a contact sheet. If the user also wants working
+  HTML, standalone SVG, React, or a reusable skill, switch to pipeline mode and read
+  `capture-to-reconstruction.md`.
+
 ### Step E3 — Classify and analyze
 
 Classify (`code` / `asset` / `hybrid`) using the heuristic above, then run a **scoped**
@@ -82,6 +88,10 @@ analysis — that's what full mode is for.
 One page-level exception: **capture the element's immediate context** (what surface it
 sits on, adjacent spacing, the parent's background color). An element copied without its
 context contract gets rebuilt looking alien.
+
+For a dynamic element, also capture stable topology, start and final states, intermediate stages,
+motion channels, timing, causal order, controls, semantics, reduced motion, and uncertainty. Put this
+temporal model in `element.md`. Do not infer the sequence from one screenshot.
 
 ### Step E4 — Generate `element.md`
 

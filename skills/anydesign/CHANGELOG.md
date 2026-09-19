@@ -11,6 +11,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Pipeline mode for dynamic visual reconstruction**: video files and social-post motion can now
+  flow through preserved source evidence, `ffprobe` metadata, representative frames, contact sheets,
+  a temporal `element.md`, and clean-room working reconstruction. When requested, the standard paired
+  handoff includes a review page, self-contained SVG, typed React, and one shared semantic model.
+- **`references/capture-to-reconstruction.md`**: a P1-P9 workflow for scope and provenance, authorized
+  media capture, temporal evidence, dynamic analysis, HTML/SVG/React implementation, accessibility,
+  reusable skill codification, browser and repository validation, independent review, and remote
+  handoff. It includes strict clean-room, secret-handling, package-boundary, and no-fake-controls rules.
+- **Video and social-post source routing** in `SKILL.md`, `references/capture-flows.md`, and
+  `references/element-copy.md`. Requests such as "capture this X post, rebuild it, and turn the
+  pattern into a skill" now select pipeline mode directly. Motion-analysis-only requests still stop
+  in element mode.
+
 - **`examples/game-asset-pack/`** — the game-dev use case for element mode:
   one extraction → N consistent assets. A toon battle-royale key art becomes a
   **prompt pack** (shared style base + three isolated asset prompts: original
