@@ -33,6 +33,19 @@ rationalizations and specific insufficient-evidence patterns that let a claim sl
 | Agent completed | VCS diff shows changes | Agent reports "success" |
 | Requirements met | Line-by-line checklist | Tests passing |
 
+Every completion claim must cite an observed artifact, such as a log line, URL, commit hash, or
+test output. Keep these states separate:
+
+| State | Required evidence |
+|-------|-------------------|
+| Proposal approved | Recorded approval for the proposal |
+| Implemented | Actual diff or committed code plus implementation checks |
+| Deployed | Deployment result identifying the deployed revision or artifact |
+| Live accepted | Acceptance probe or user-visible result from the live system |
+
+Claiming a later state without evidence for that state is forbidden. Evidence for an earlier state
+does not prove a later state.
+
 ## Red Flags - STOP
 
 - Using "should", "probably", "seems to"
