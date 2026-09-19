@@ -2,8 +2,8 @@
 
 ## Source ownership
 
-- `open-items --json --live-beads` owns Beads classification, active OpenSpec status, plans, and
-  source availability. Live failure is unavailable, never permission to use cached JSONL.
+- `open-items --json` owns active OpenSpec status, plans, and
+  source availability.
 - `triage-list-drafts --json --include-approved` owns proposal approval state and queue metadata.
 - Use producer fields as data. A narrowly scoped detail lookup is allowed only when an item is
   explicitly marked ambiguous or a proposal dependency must be resolved before ownership.
@@ -18,7 +18,7 @@ exactly one owning section.
 Begin with this sentence, including zeros:
 
 ```text
-<unresolved> Beads items remain unresolved: <open> open, <in_progress> in progress, <blocked> blocked.
+<unresolved> items remain unresolved: <open> open, <in_progress> in progress, <blocked> blocked.
 ```
 
 Then emit only non-empty applicable sections in this order:
@@ -52,9 +52,9 @@ second count summary, duplicate descriptions, or render the same item under mult
 Use a table only for a path whose truncation or multiple blocked/human-only reasons cannot fit safely
 in one bullet. Columns are `ID | P | Title`, plus `Blocked by` or `Why | Default action` as applicable.
 Do not also emit compact duplicates for that path. When `truncated` is true, state the visible and
-total counts and identify the full-list command — `open-items --json --live-beads --limit=0` — without
+total counts and identify the full-list command — `open-items --json --limit=0` — without
 silently implying completeness. `item_cap` is the visible-row limit; the headline counts and
-`bucket_counts` always describe every retained bead, so quote them as-is rather than recounting rows.
+`bucket_counts` always describe every retained item, so quote them as-is rather than recounting rows.
 
 ## Proposals and warnings
 

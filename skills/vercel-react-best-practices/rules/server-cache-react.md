@@ -5,6 +5,7 @@ impactDescription: deduplicates within request
 tags: server, cache, react-cache, deduplication
 ---
 
+
 ## Per-Request Deduplication with React.cache()
 
 Use `React.cache()` for server-side request deduplication. Authentication and database queries benefit most.

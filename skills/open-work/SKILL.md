@@ -1,6 +1,6 @@
 ---
 name: open-work
-description: Inspect and optionally act on the current repository's open Beads, OpenSpec changes, and plan rows through one portable inventory and authority-gated workflow. Use when the user asks what work is open, invokes an open-work surface, wants a report of actionable work, or wants to archive, disposition, dispatch, or apply selected tracked work.
+description: Inspect and optionally act on the current repository's OpenSpec changes and plan rows through one portable inventory and authority-gated workflow. Use when the user asks what work is open, invokes an open-work surface, wants a report of actionable work, or wants to archive, disposition, dispatch, or apply selected tracked work.
 ---
 
 # Open Work
@@ -29,7 +29,7 @@ The first two producers are required for a complete inventory. Invoke readable s
 interpreters; executable bits are neither required nor permitted for packaged assets:
 
 ```bash
-python3 "${OPEN_WORK_ROOT}/bin/open-items" --json --live-beads
+python3 "${OPEN_WORK_ROOT}/bin/open-items" --json
 python3 "${OPEN_WORK_ROOT}/bin/triage-list-drafts" --json --include-approved
 ```
 
@@ -37,9 +37,8 @@ Both producers are Python; invoke each under the interpreter its shebang names. 
 `bash` does not merely fail — `bash` reads `import json` as ImageMagick's `import(1)`, emits
 X-server errors, and still exits 0, so the caller cannot tell that garbage from a clean run.
 
-Run each producer once. Never replace failed live Beads data with `.beads/issues.jsonl`. Treat every
-source independently: retain available sources and one bounded warning for each unavailable source.
-Do not invent rows, counts, dependencies, dispositions, or progress.
+Run each producer once. Treat every source independently: retain available sources and one bounded
+warning for each unavailable source. Do not invent rows, counts, dependencies, dispositions, or progress.
 
 ## Render before acting
 

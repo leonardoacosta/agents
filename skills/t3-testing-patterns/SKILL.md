@@ -87,18 +87,6 @@ baseline improves by more than three points or during the quarterly review.
 | Quarantine | Structured owner/reason/issue/expiry metadata, ratcheting debt, and scheduled/manual quarantine execution. |
 | Benchmarks | Target-class-specific, full-suite, unsharded, comparable records; two adjacent clean runs at the proposed worker budget. Retry-pass is not clean. |
 
-### Portless local target
-
-Portless may be used only as an explicit local opt-in. Keep the ordinary `dev` command available and
-preserve the package env wrapper and watcher graph. Browser tests may use the stable, product-named development origin, including an approved network
-route where applicable, while the local backend remains loopback-bound on its dynamically assigned port. A portless URL is
-local routing evidence, not deployed or production acceptance. Auth callbacks, cookie scope, and
-the test URL trust policy must accept the selected origin before relying on authenticated coverage.
-
-The [portless opt-in development guide](https://github.com/Priceless-Development/priceless-internal/blob/main/docs/guides/portless-opt-in-development.md#launch-and-verify)
-is canonical. Evidence from this lane is limited to the documented no-port trusted HTTP 200/2 and
-HMR-frame checks. It does not establish full-repository auth, persistence, or remote-device coverage.
-
 ## Decision Rules
 
 1. **Mode matrix first.** Select canonical deployed-HTTPS, local loopback, CI loopback, or isolated

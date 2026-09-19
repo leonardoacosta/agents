@@ -1,6 +1,6 @@
 ---
 name: change-disposition
-description: Close an OpenSpec change or attached bead without implementing it by recording an exact superseded, deferred, or rejected disposition and archiving without spec merges. Use when a proposal is superseded, should be deferred, is irrelevant or wontfix, must be rejected, needs archive skip-specs, or should be killed without implementation.
+description: Close an OpenSpec change without implementing it by recording an exact superseded, deferred, or rejected disposition and archiving without spec merges. Use when a proposal is superseded, should be deferred, is irrelevant or wontfix, must be rejected, needs archive skip-specs, or should be killed without implementation.
 ---
 
 # Change Disposition
@@ -46,7 +46,8 @@ Also stop when:
 
 ## Capture pre-closure evidence
 
-1. Resolve the active change directory and any attached feature or task beads.
+1. Resolve the active change directory and any attached feature or task bead markers (inert
+   history after the 2026-09 Beads removal; record, do not act on them).
 2. Validate the change using the repository's strict OpenSpec command.
 3. Count checked and total task boxes from the authoritative task artifact. Record the result as
    `tasks-at-closure`; do not check unfinished tasks merely to make the count look complete.
@@ -93,24 +94,16 @@ terminal change.
 When a proposal supersedes other changes, require its own `## Context` to name every superseded
 change. If that lineage is missing and cannot be amended safely, stop before closure.
 
-## Close attached beads
+## Bead markers are inert history
 
-Close attached task and feature beads with the matching structured reason prefix:
-
-```text
-superseded: <replacement-change-id>
-deferred: <reopen-condition>
-rejected: <rationale>
-```
-
-Keep the exact prefix lowercase and include the required value after the colon. Follow repository
-ordering for child, feature, and epic closure. Do not close a long-lived capability epic merely
-because one feature is dispositioned. If the repository has no beads or no attached bead, record
-that explicitly in the completion evidence.
+The `[beads:ID]` markers in a change's tasks.md are historical credits, not live workflow state
+(Beads tooling removed 2026-09). Do not attempt to close, mint, or sync any bead. If a change's
+closure evidence template asks for bead closure, record `beads: inert-history (tooling removed)`
+instead of a closure result.
 
 ## Archive without merging deltas
 
-Archive only after the marker, dependent sweep, and bead updates are complete:
+Archive only after the marker and dependent sweep are complete:
 
 ```bash
 openspec archive "$change_id" --skip-specs -y
@@ -133,6 +126,6 @@ repository's explicit recovery process; do not claim a successful disposition.
 ## Report completion
 
 Report the disposition, marker path, deciding context, task count at closure, dependents amended or
-flagged, bead close reasons, exact archive command, archive location, before/after spec digest,
+flagged, exact archive command, archive location, before/after spec digest,
 validation results, and persistence outcome. A marker without the dependent sweep, non-merging
 archive, or required tracker closure is incomplete.

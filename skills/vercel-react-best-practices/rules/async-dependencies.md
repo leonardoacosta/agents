@@ -5,6 +5,7 @@ impactDescription: 2-10× improvement
 tags: async, parallelization, dependencies, better-all
 ---
 
+
 ## Dependency-Based Parallelization
 
 For operations with partial dependencies, use `better-all` to maximize parallelism. It automatically starts each task at the earliest possible moment.

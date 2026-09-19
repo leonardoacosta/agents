@@ -5,6 +5,7 @@ impactDescription: wasted computation on every render
 tags: rerender, useMemo, optimization
 ---
 
+
 ## Do not wrap a simple expression with a primitive result type in useMemo
 
 When an expression is simple (few logical or arithmetical operators) and has a primitive result type (boolean, number, string), do not wrap it in `useMemo`.

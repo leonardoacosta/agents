@@ -26,7 +26,7 @@ def render(data):
     blocked_count = states.get("blocked", 0)
     unresolved = beads.get("total_open", opened + progress + blocked_count)
     lines = [
-        f"{unresolved} Beads items remain unresolved: {opened} open, "
+        f"{unresolved} items remain unresolved: {opened} open, "
         f"{progress} in progress, {blocked_count} blocked."
     ]
 

@@ -8,8 +8,6 @@ allowed-tools: Read, Glob, Grep
 
 # T3 Turbo Monorepo Patterns
 
-For Priceless command ownership, root aliases, operational runbooks and safe agent discovery, load `priceless-workspace-commands`. For environment loading and Turbo env hashing, load `priceless-dotenvx`.
-
 ## Structure Reference
 
 ```
@@ -197,18 +195,6 @@ pnpm with-env node -e 'console.log(new URL(process.env.POSTGRES_URL).host)'  # m
 > stay-on-dotenv-cli verdict is reversed. See openspec change `adopt-dotenvx-and-t3-env-canon`.
 
 A running dev server caches the bad connection — restart it after fixing.
-
-## 4d. Portless is an opt-in local development wrapper
-
-When a developer explicitly opts into portless, add the wrapper at the pnpm script boundary for
-that app only. Keep the existing `dev` script unchanged, keep the package-owned env wrapper in the
-command chain, and preserve the watcher/Turbo dependency graph. Portless is a local routing layer,
-not a production deployment mechanism, and it may be globally installed; do not add a project
-dependency solely to support this opt-in.
-
-Use the stable, product-named development origin for local browser work instead of hard-coding a
-host port. Keep the backend bound to loopback with its dynamically assigned port. Read the canonical
-procedure and acceptance boundaries before changing a script: [portless opt-in development guide](https://github.com/Priceless-Development/priceless-internal/blob/main/docs/guides/portless-opt-in-development.md#scope-and-non-goals).
 
 ## 4c. Scripts Package (`@{ws}/scripts`)
 

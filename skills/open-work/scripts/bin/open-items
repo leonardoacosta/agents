@@ -2,13 +2,8 @@
 """open-items — all open work for the current project, one JSON object.
 
 Sources (each degrades independently; a missing source is {"available": false}):
-  beads         .beads/issues.jsonl     status in {open, in_progress, blocked}.
-                Excludes epics (active_epics count) and beads still linked to
-                an unarchived proposal (active_proposal_linked count) — the
-                latter are already covered by the proposals section below;
-                once a proposal archives, its lingering task beads (e.g. a
-                [user] rollout step) reappear here since they have no other
-                surface.
+  beads         always unavailable (Beads tooling removed; the source key is
+                kept so downstream consumers keep degrading gracefully)
   proposals     openspec-status --json  everything still under openspec/changes/
   plans         plans/ + advisor-plans/ README table rows whose Status is not
                 DONE / REJECTED / SUPERSEDED / ARCHIVED
@@ -211,184 +206,11 @@ def sh(args, cwd, timeout=20):
         return 1, ""
 
 
-def scan_beads(root, live_beads=False, item_cap=ITEM_CAP):
-    if not os.path.isdir(os.path.join(root, ".beads")):
-        return {"available": False, "source": "live" if live_beads else "cached"}
-    open_states = ("open", "in_progress", "blocked")
-    # Counts AND items both come from the committed JSONL export (instant,
-    # full-fidelity; freshness = last bd flush, which runs on every commit via
-    # the pre-commit hook + every session close via session-closer). A live
-    # `bd list --json` costs ~2s against dolt and silently caps at 50 rows, so
-    # deriving the item table from the same export the counts use keeps the two
-    # consistent and honors the <200ms preprocessor budget.
-    jsonl = os.path.join(root, ".beads", "issues.jsonl")
-    if live_beads:
-        rc, output = sh(["bd", "list", "--all", "--json", "--limit=0"], root, timeout=10)
-        if rc != 0:
-            return {"available": False, "source": "live", "error": "bd list failed"}
-        try:
-            all_records = json.loads(output)
-        except (json.JSONDecodeError, ValueError):
-            return {"available": False, "source": "live", "error": "bd list returned malformed JSON"}
-        if not isinstance(all_records, list):
-            return {"available": False, "source": "live", "error": "bd list returned a non-list result"}
-        all_records = [row for row in all_records if isinstance(row, dict)]
-        counts_source = "bd list --all --json --limit=0 (live)"
-    elif not os.path.isfile(jsonl):
-        # .beads/ exists but no export yet — report availability without items.
-        return {"available": True, "total_open": 0,
-                "counts_source": "issues.jsonl (missing)",
-                "source": "cached",
-                "by_status": {}, "by_priority": {}, "truncated": False,
-                "item_cap": item_cap, "items": [],
-                "bucket_counts": {"open": 0, "in_progress": 0, "blocked": 0, "human_only": 0},
-                "containers": [],
-                "active_epics": 0, "active_proposal_linked": 0, "merge_slot_held": None}
-    else:
-        all_records = []
-        with open(jsonl, encoding="utf-8", errors="replace") as fh:
-            for line in fh:
-                try:
-                    row = json.loads(line)
-                except ValueError:
-                    continue
-                if isinstance(row, dict):
-                    all_records.append(row)
-        counts_source = "issues.jsonl (last bd flush)"
-    by_status, by_priority, total, active_epics = {}, {}, 0, 0
-    containers = []
-    active_proposal_linked = 0
-    merge_slot_held = None
-    records = []
-    changes_dir = os.path.join(root, "openspec", "changes")
-    _spec_dir_cache = {}
-
-    def _spec_still_open(spec_id):
-        # Memoized per spec_id — many task beads share the same spec_id, and
-        # this is a single stat() call, not a directory walk.
-        if spec_id not in _spec_dir_cache:
-            _spec_dir_cache[spec_id] = os.path.isdir(os.path.join(changes_dir, spec_id))
-        return _spec_dir_cache[spec_id]
-
-    # First pass: id -> status across EVERY issue (open or closed), needed to
-    # resolve "blocks"-type dependency edges below — a blocking target that
-    # is itself closed no longer actually blocks anything.
-    id_status = {}
-    for i in all_records:
-        if i.get("id"):
-            id_status[i["id"]] = i.get("status")
-    blocked_by = {}  # issue id -> list of open-blocking issue ids
-    for i in all_records:
-        for dep in i.get("dependencies") or []:
-            if dep.get("type") != "blocks":
-                continue
-            target = dep.get("depends_on_id")
-            if target and id_status.get(target) != "closed":
-                blocked_by.setdefault(i.get("id"), []).append(target)
-
-    for i in all_records:
-        if i.get("status") not in open_states:
-            continue
-        # Capability epics are long-lived containers, not actionable work —
-        # rules/BEADS.md § Capability Epics MUST NOT Be Closed means they stay
-        # open/in_progress indefinitely by design. Counting them alongside real
-        # tasks/bugs/features overstates the backlog and clutters the items
-        # table with rows nobody can "do". Track them separately instead.
-        if i.get("issue_type") == "epic":
-            active_epics += 1
-            containers.append({
-                "id": i.get("id"),
-                "title": (i.get("title") or "")[:110],
-                "status": i.get("status"),
-                "priority": i.get("priority"),
-            })
-            continue
-        # A feature ([PROPOSAL]) bead and its child task beads all carry the
-        # same `spec_id` (set by scripts/bin/spec-sync). While the proposal's
-        # openspec/changes/<spec_id>/ directory still exists (unarchived), its
-        # task-completion state is already surfaced via the Proposals section
-        # (name/state/tasks-done) — listing every child task again here is
-        # pure duplication and buries genuinely standalone beads under spec
-        # machinery. Exclude ONLY while the spec dir still exists: once a
-        # proposal archives, its feature bead closes but a lingering `[user]`
-        # task can stay open with nowhere else to surface (e.g. a post-merge
-        # rollout step) — those MUST keep showing here, so the check is
-        # dir-existence, not just "has a spec_id".
-        spec_id = i.get("spec_id")
-        if spec_id and _spec_still_open(spec_id):
-            active_proposal_linked += 1
-            continue
-        # The merge-slot bead (label gt:slot, repository reference § Beads Merge-Slot
-        # Serialization) is a mutual-exclusion primitive for /apply's Phase 4
-        # trunk-push serialization, not a work item — bd's own `merge-slot
-        # --help` documents status=open as "slot is available" (the healthy,
-        # nothing-to-do state), yet a priority-0 gt:slot bead was surfacing as
-        # the "highest-leverage next action" in /open's rendering, a false
-        # positive. Exclude it from items/counts like epics above; only
-        # surface it (via merge_slot_held) when it is ACTUALLY held
-        # (status=in_progress), which is real state worth knowing about.
-        if "gt:slot" in (i.get("labels") or []):
-            if i.get("status") == "in_progress":
-                merge_slot_held = {
-                    "id": i.get("id"),
-                    "holder": (i.get("metadata") or {}).get("holder"),
-                }
-            continue
-        total += 1
-        by_status[i.get("status", "?")] = by_status.get(i.get("status", "?"), 0) + 1
-        p = f"p{i.get('priority', '?')}"
-        by_priority[p] = by_priority.get(p, 0) + 1
-        records.append(i)
-    # Sort by priority ascending (0 = Broken, most urgent, first). A null/missing
-    # priority falls back to 2 WITHOUT collapsing a legitimate 0 into the default
-    # (`priority or 2` would — 0 is falsy — and bury P0 items in the P2 band), and
-    # without raising TypeError (None < int) that the catch-all would swallow.
-    def _prio(i):
-        p = i.get("priority")
-        return p if isinstance(p, int) else 2
-    records.sort(key=lambda i: (_prio(i), i.get("id") or ""))
-    bucket_counts = {"open": 0, "in_progress": 0, "blocked": 0, "human_only": 0}
-    items = []
-    # Classify EVERY retained bead, then cap only the rendered rows. Counting
-    # buckets off records[:cap] made the headline sentence contradict itself
-    # the moment a repo carried more open beads than the cap ("45 items remain
-    # unresolved: 30 open, 0 blocked" — the 15 truncated rows vanished from the
-    # tally, and since records are priority-sorted the losses were exactly the
-    # low-priority blocked/human-only rows the summary exists to surface).
-    # Classification is regex-over-title plus an in-memory comment scan; no I/O.
-    for idx, i in enumerate(records):
-        bucket, reason, ambiguous, cross_repo, dispositioned = _classify_bucket(i, blocked_by)
-        bucket_counts[bucket] += 1
-        if item_cap and idx >= item_cap:
-            continue
-        items.append({
-            "id": i.get("id"),
-            "priority": i.get("priority"),
-            "type": i.get("issue_type") or i.get("type"),
-            "status": i.get("status"),
-            "title": (i.get("title") or "")[:110],
-            "bucket": bucket,
-            "bucket_reason": reason,
-            "ambiguous": ambiguous,
-            "cross_repo": cross_repo,
-            "dispositioned": dispositioned,
-        })
-    return {
-        "available": True,
-        "source": "live" if live_beads else "cached",
-        "total_open": total,
-        "counts_source": counts_source,
-        "by_status": by_status,
-        "by_priority": by_priority,
-        "active_epics": active_epics,
-        "containers": containers,
-        "active_proposal_linked": active_proposal_linked,
-        "merge_slot_held": merge_slot_held,
-        "truncated": bool(item_cap) and total > item_cap,
-        "item_cap": item_cap,
-        "bucket_counts": bucket_counts,
-        "items": items,
-    }
+def scan_beads(root, item_cap=ITEM_CAP):
+    # Beads tooling was removed from the fleet (2026-09); this source is kept
+    # as a stable "unavailable" shape so the inventory contract and its
+    # consumers degrade gracefully instead of changing schema.
+    return {"available": False, "source": "none"}
 
 
 def resolve_companion(name):
@@ -600,18 +422,16 @@ def scan_docs_plan(root):
 
 
 def _parse_args(argv):
-    """-> (live_beads, item_cap, unknown_args). item_cap 0 means "no cap"."""
-    live_beads, item_cap, unknown_args = False, ITEM_CAP, []
+    """-> (item_cap, unknown_args). item_cap 0 means "no cap"."""
+    item_cap, unknown_args = ITEM_CAP, []
     for arg in argv:
         if arg == "--json":
             continue
-        if arg == "--live-beads":
-            live_beads = True
         elif arg.startswith("--limit=") and arg.split("=", 1)[1].isdigit():
             item_cap = int(arg.split("=", 1)[1])
         else:
             unknown_args.append(arg)
-    return live_beads, item_cap, unknown_args
+    return item_cap, unknown_args
 
 
 def _guarded(scan, fallback):
@@ -627,7 +447,7 @@ def _guarded(scan, fallback):
 
 
 def main():
-    live_beads, item_cap, unknown_args = _parse_args(sys.argv[1:])
+    item_cap, unknown_args = _parse_args(sys.argv[1:])
     if unknown_args:
         print(json.dumps({"error": "unsupported arguments", "arguments": unknown_args}))
         return
@@ -642,8 +462,8 @@ def main():
         "root": root,
         "head": head.strip(),
         "beads": _guarded(
-            lambda: scan_beads(root, live_beads=live_beads, item_cap=item_cap),
-            {"available": False, "source": "live" if live_beads else "cached"},
+            lambda: scan_beads(root, item_cap=item_cap),
+            {"available": False, "source": "none"},
         ),
         "proposals": _guarded(lambda: scan_proposals(root), {"available": False}),
         "plans": _guarded(lambda: scan_plans(root), {"available": False}),

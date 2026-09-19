@@ -5,6 +5,7 @@ impactDescription: reduces expensive I/O
 tags: javascript, localStorage, storage, caching, performance
 ---
 
+
 ## Cache Storage API Calls
 
 `localStorage`, `sessionStorage`, and `document.cookie` are synchronous and expensive. Cache reads in memory.

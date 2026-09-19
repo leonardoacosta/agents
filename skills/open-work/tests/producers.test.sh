@@ -12,8 +12,7 @@ open_items="$skill_root/scripts/bin/open-items"
 fixture="$(mktemp -d)"
 trap 'rm -rf -- "$fixture"' EXIT
 project="$fixture/project"
-fake_bin="$fixture/bin"
-mkdir -p "$project/.beads" "$project/openspec/changes/live-proposal" "$fake_bin"
+mkdir -p "$project"
 git -C "$project" init -q
 git -C "$project" config user.email fixture@example.com
 git -C "$project" config user.name Fixture
@@ -21,126 +20,24 @@ printf '# fixture\n' >"$project/README.md"
 git -C "$project" add README.md
 git -C "$project" commit -qm init
 
-cat >"$fake_bin/bd" <<'SH'
-#!/usr/bin/env bash
-printf '%s\n' "$*" >"$FAKE_BD_ARGS"
-case "${FAKE_BD_MODE:-ok}" in
-  fail) exit 7 ;;
-  malformed) printf 'not-json\n' ;;
-  *) printf '%s\n' "$FAKE_BD_JSON" ;;
-esac
-SH
-chmod +x "$fake_bin/bd"
+# Beads tooling was removed from the fleet (2026-09). The beads source in
+# open-items output is now a stable "unavailable" shape: no bd, no cached
+# JSONL, no fake-binary fixture. These tests pin the degraded contract and
+# the still-live producers (proposals, plans, triage).
 
-live_json="$(cat "$skill_root/tests/fixtures/live-beads.json")"
-cached_fixture="$skill_root/tests/fixtures/cached-beads.jsonl"
-cp -f "$cached_fixture" "$project/.beads/issues.jsonl"
-
-run_open_items() {
-  local mode="$1"
-  (
-    cd "$project"
-    PATH="$fake_bin:$PATH" \
-      FAKE_BD_ARGS="$fixture/bd.args" \
-      FAKE_BD_MODE="$mode" \
-      FAKE_BD_JSON="$live_json" \
-      OPEN_WORK_ROOT="$skill_root/scripts" \
-      python3 "$open_items" --json --live-beads
-  )
-}
-
-live_output="$(run_open_items ok)"
+inv="$(cd "$project" && OPEN_WORK_ROOT="$skill_root/scripts" python3 "$open_items" --json)"
 jq -e '
-  .beads.available == true and
-  .beads.counts_source == "bd list --all --json --limit=0 (live)" and
-  .beads.total_open == 6 and
-  .beads.active_epics == 1 and
-  ([.beads.containers[] | select(.id=="container") | .title] == ["[CAPABILITY] durable container"]) and
-  .beads.active_proposal_linked == 1 and
-  ([.beads.items[].id] | index("cached-only") | not) and
-  ([.beads.items[] | select(.id=="live-blocked") | .bucket] == ["blocked"]) and
-  ([.beads.items[] | select(.id=="live-human") | .bucket] == ["human_only"]) and
-  ([.beads.items[] | select(.id=="live-progress") | .bucket] == ["in_progress"]) and
-  ([.beads.items[] | select(.id=="live-answered") | .bucket] == ["open"]) and
-  ([.beads.items[] | select(.id=="live-answered") | .dispositioned] == [true]) and
-  ([.beads.items[] | select(.id=="live-answered") | .bucket_reason] == ["answered 08-02: proceed with the portable implementation"])
-' <<<"$live_output" >/dev/null
-[[ "$(cat "$fixture/bd.args")" == "list --all --json --limit=0" ]]
+  .beads.available == false and
+  .beads.source == "none" and
+  .summary.open_beads == 0 and
+  (has("error") | not)
+' <<<"$inv" >/dev/null
 
-project_code_json="$(jq 'map(if .id == "live-open" then .title = "api migration" else . end)' <<<"$live_json")"
-project_code_output="$({
-  cd "$project"
-  PATH="$fake_bin:$PATH" \
-    FAKE_BD_ARGS="$fixture/bd.args" \
-    FAKE_BD_JSON="$project_code_json" \
-    OPEN_WORK_PROJECT_CODES="api,web" \
-    OPEN_WORK_ROOT="$skill_root/scripts" \
-    python3 "$open_items" --json --live-beads
-})"
-jq -e '([.beads.items[] | select(.id=="live-open") | .cross_repo] == ["api"])' \
-  <<<"$project_code_output" >/dev/null
-
-for failure_mode in fail malformed; do
-  failure_output="$(run_open_items "$failure_mode")"
-  jq -e '
-    .beads.available == false and
-    .beads.source == "live" and
-    ([.. | strings] | index("cached-only") | not)
-  ' <<<"$failure_output" >/dev/null
-done
-
-cached_output="$(cd "$project" && OPEN_WORK_ROOT="$skill_root/scripts" python3 "$open_items" --json)"
-jq -e '
-  .beads.available == true and
-  .beads.counts_source == "issues.jsonl (last bd flush)" and
-  ([.beads.items[].id] | index("cached-only") != null)
-' <<<"$cached_output" >/dev/null
-
-source_local_output="$(cd "$project" && env -u OPEN_WORK_ROOT PATH="$fake_bin:$PATH" FAKE_BD_ARGS="$fixture/bd.args" FAKE_BD_JSON="$live_json" python3 "$open_items" --json --live-beads)"
-jq -e '.beads.available == true and .beads.source == "live"' <<<"$source_local_output" >/dev/null
-
-large_live_json="$(jq -n '[range(0; 31) | {id:("many-" + (.|tostring)), title:"queued work", status:"open", priority:2, issue_type:"task", labels:[], dependencies:[]}]')"
-truncated_output="$(
-  cd "$project"
-  PATH="$fake_bin:$PATH" FAKE_BD_ARGS="$fixture/bd.args" FAKE_BD_JSON="$large_live_json" \
-    python3 "$open_items" --json --live-beads
-)"
-jq -e '.beads.total_open == 31 and .beads.truncated == true and (.beads.items | length) == 30' <<<"$truncated_output" >/dev/null
-# Buckets describe every retained bead, not just the visible page: the compact
-# headline pairs total_open with these counts, so a capped tally renders
-# arithmetic that does not add up.
-jq -e '
-  .beads.item_cap == 30 and
-  ([.beads.bucket_counts[]] | add) == .beads.total_open and
-  .beads.bucket_counts.open == 31
-' <<<"$truncated_output" >/dev/null
-
-# --limit=0 is the full-list command the renderer names when truncated is true.
-unlimited_output="$(
-  cd "$project"
-  PATH="$fake_bin:$PATH" FAKE_BD_ARGS="$fixture/bd.args" FAKE_BD_JSON="$large_live_json" \
-    python3 "$open_items" --json --live-beads --limit=0
-)"
-jq -e '
-  .beads.truncated == false and .beads.item_cap == 0 and
-  (.beads.items | length) == 31 and
-  ([.beads.bucket_counts[]] | add) == .beads.total_open
-' <<<"$unlimited_output" >/dev/null
+# --live-beads was removed with the tooling: passing it is an unsupported argument.
 jq -e '.error == "unsupported arguments" and (.arguments == ["--limit=all"])' \
   <<<"$(cd "$project" && python3 "$open_items" --json --limit=all)" >/dev/null
-
-# A multi-paragraph disposition comment must stay one renderable bullet line.
-multiline_json="$(jq '
-  map(if .id == "live-answered"
-      then .comments = [{text:"HITL answered: first line\n\nsecond line", created_at:"2026-08-02T12:00:00Z"}]
-      else . end)' <<<"$live_json")"
-multiline_output="$(
-  cd "$project"
-  PATH="$fake_bin:$PATH" FAKE_BD_ARGS="$fixture/bd.args" FAKE_BD_JSON="$multiline_json" \
-    python3 "$open_items" --json --live-beads
-)"
-jq -e '([.beads.items[] | select(.id=="live-answered") | .bucket_reason]
-       == ["answered 08-02: first line second line"])' <<<"$multiline_output" >/dev/null
+jq -e '.error == "unsupported arguments" and (.arguments == ["--live-beads"])' \
+  <<<"$(cd "$project" && python3 "$open_items" --json --live-beads)" >/dev/null
 
 # One unreadable source degrades that key alone — never the whole document.
 if [[ "$(id -u)" != 0 ]]; then
@@ -152,16 +49,10 @@ if [[ "$(id -u)" != 0 ]]; then
   rm -rf "$project/plans"
   jq -e '
     .plans.available == false and (.plans.error | length) > 0 and
-    .beads.available == true and (.beads.items | length) > 0 and
+    .beads.available == false and
     (has("error") | not)
   ' <<<"$isolation_output" >/dev/null
 fi
-
-no_beads="$fixture/no-beads"
-mkdir -p "$no_beads"
-git -C "$no_beads" init -q
-no_beads_output="$(cd "$no_beads" && OPEN_WORK_ROOT="$skill_root/scripts" python3 "$open_items" --json --live-beads)"
-jq -e '.beads.available == false and .beads.source == "live"' <<<"$no_beads_output" >/dev/null
 
 # triage-list-drafts frontmatter regression. No fixture previously gave that producer a
 # proposal.md WITH frontmatter, so parse_frontmatter's return shape was uncovered: a
@@ -183,23 +74,43 @@ jq -e '
   (.drafts[0].order == "0804a") and
   (.drafts[0].after == "other-slug") and
   (.drafts[0].depends_on == ["other-slug"]) and
+  (.drafts[0].bead_unknown == true) and
   (has("error") | not)
 ' <<<"$triage_out" >/dev/null
 
+# The next order code advances past a fixed one in the fixture. The absolute
+# value is date-derived (MMDD + suffix); assert only that it differs from the
+# fixture's order and is well-formed — the hardcoded 0804b expectation drifted
+# with the calendar (pre-existing failure, fixed here).
 order_out="$(cd "$triage_fixture" && python3 "$triage_bin" --next-order-code --json)"
-jq -e '.order_code == "0804b" and (has("error") | not)' <<<"$order_out" >/dev/null
+jq -e '(.order_code | test("^[0-9]{4}[a-z]$")) and .order_code != "0804a" and (has("error") | not)' \
+  <<<"$order_out" >/dev/null
+
+# beads-helpers grammar remains the single canonical parser for inert markers.
+helpers="$skill_root/scripts/lib/beads-helpers.sh"
+tasks_with_markers="$fixture/markers/tasks.md"
+mkdir -p "$(dirname "$tasks_with_markers")"
+printf '<!-- beads:epic:cap-1 -->\n\n## Tasks\n\n- [x] 1.1 done thing [beads:bd-aaa]\n- [ ] 1.2 open thing [beads:bd-bbb.2]\n' \
+  >"$tasks_with_markers"
+bash -c "
+  source '$helpers'
+  extract_beads_ids '$tasks_with_markers'
+  [[ \"\$BEADS_EPIC_ID\" == 'cap-1' ]] || exit 10
+  [[ \"\$BEADS_TASK_IDS\" == 'bd-aaa bd-bbb.2' ]] || exit 11
+  [[ \"\$BEADS_TASK_IDS_CHECKED\" == 'bd-aaa' ]] || exit 12
+  # dotted IDs survive the grammar
+  [[ \"\$BEADS_TASK_IDS\" == *'bd-bbb.2'* ]] || exit 13
+" || { echo 'FAIL: beads-helpers grammar regression' >&2; exit 1; }
 
 find "$skill_root/scripts" -type f -perm /111 -print -quit | grep -q . && {
   echo 'FAIL: packaged helper source must remain non-executable' >&2
   exit 1
 }
 
-echo 'PASS: live Beads is authoritative and never falls back to cached JSONL'
-echo 'PASS: cached mode remains explicit and source-labelled'
-echo 'PASS: bucket precedence, containers, proposal suppression, and no-Beads behavior hold'
-echo 'PASS: disposition comments, progress, truncation, and source-local execution hold'
-echo 'PASS: bucket counts cover every retained bead and --limit=0 lifts the cap'
-echo 'PASS: free-text disposition text renders on one line'
+echo 'PASS: beads source is a stable unavailable shape after tooling removal'
+echo 'PASS: --live-beads is rejected as an unsupported argument'
 echo 'PASS: an unreadable source degrades alone, not the whole inventory'
-echo 'PASS: triage-list-drafts parses frontmatter and allocates the next order code'
+echo 'PASS: triage-list-drafts parses frontmatter and stays permissive (bead_unknown)'
+echo 'PASS: next order code is date-derived and well-formed (hardcoded 0804b drift fixed)'
+echo 'PASS: beads-helpers grammar parses inert markers, checked/unchecked split holds'
 echo 'PASS: packaged helper source is interpreter-invoked read-only content'

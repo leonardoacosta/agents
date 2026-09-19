@@ -20,7 +20,7 @@ cmp -s "$scratch/claude.report" "$scratch/pi.report"
 
 report="$(cat "$scratch/claude.report")"
 for exact in \
-  '6 Beads items remain unresolved: 3 open, 2 in progress, 1 blocked.' \
+  '6 items remain unresolved: 3 open, 2 in progress, 1 blocked.' \
   'In progress:' \
   'Only open proposal:' \
   'P1 work:' \

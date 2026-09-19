@@ -21,7 +21,7 @@ done
 grep -Fq 'name: open-work' "$skill_root/SKILL.md"
 grep -Fq 'default to `interactive`' "$skill_root/SKILL.md"
 grep -Fq 'report' "$skill_root/SKILL.md"
-grep -Fq 'python3 "${OPEN_WORK_ROOT}/bin/open-items" --json --live-beads' "$skill_root/SKILL.md"
+grep -Fq 'python3 "${OPEN_WORK_ROOT}/bin/open-items" --json' "$skill_root/SKILL.md"
 grep -Fq 'python3 "${OPEN_WORK_ROOT}/bin/triage-list-drafts" --json --include-approved' "$skill_root/SKILL.md"
 # Both producers carry a python3 shebang. `bash <python-source>` exits 0 while
 # emitting ImageMagick `import` noise, so a wrong interpreter here reaches the
@@ -61,9 +61,9 @@ python3 -B "$skill_root/tests/check-interface.py" "$skill_root"
 # instead of aborting on a missing package.json and reporting nothing.
 if [[ -f "$repo_root/package.json" ]]; then
   jq -e '.authoredStandards.allowlistedSkills["leo-core"] | index("open-work") != null' "$repo_root/package.json" >/dev/null
-  jq -e '.authoredStandards.packages[] | select(.name=="leo-core") | .version == "0.7.0"' "$repo_root/package.json" >/dev/null
-  jq -e '.version == "0.7.0"' "$repo_root/leo-core/.claude-plugin/plugin.json" >/dev/null
-  jq -e '.plugins[] | select(.name=="leo-core") | .version == "0.7.0"' "$repo_root/.claude-plugin/marketplace.json" >/dev/null
+  jq -e '.authoredStandards.packages[] | select(.name=="leo-core") | .version == "0.8.0"' "$repo_root/package.json" >/dev/null
+  jq -e '.version == "0.8.0"' "$repo_root/leo-core/.claude-plugin/plugin.json" >/dev/null
+  jq -e '.plugins[] | select(.name=="leo-core") | .version == "0.8.0"' "$repo_root/.claude-plugin/marketplace.json" >/dev/null
   echo 'PASS: open-work router, references, interface, and release metadata agree'
 else
   echo "SKIP: release metadata (no authoring monorepo at $repo_root)"

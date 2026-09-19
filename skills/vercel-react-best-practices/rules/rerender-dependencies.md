@@ -5,6 +5,7 @@ impactDescription: minimizes effect re-runs
 tags: rerender, useEffect, dependencies, optimization
 ---
 
+
 ## Narrow Effect Dependencies
 
 Specify primitive dependencies instead of objects to minimize effect re-runs.

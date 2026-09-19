@@ -1,109 +1,236 @@
 ---
 name: mcp-builder
-description: >-
-  Build, configure, and register MCP servers for Claude Code. Covers transport
-  selection (stdio / Docker / mcp-remote), `mcp.json` config patterns, tool
-  registration with `@modelcontextprotocol/sdk`, reliability anti-patterns, and
-  when NOT to build MCP (use Bash or WebFetch instead). Use when: wiring up an
-  authenticated external API called >5× per session, adding a new service to
-  `claude mcp list`, implementing OAuth-gated tools, deciding between MCP vs
-  Bash vs WebFetch, configuring `mcp.json`, or building a TypeScript MCP server.
+description: Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).
 license: Complete terms in LICENSE.txt
 ---
 
-# MCP Builder — Claude Code Edition
+# MCP Server Development Guide
 
-## Decision Tree: MCP vs Alternatives
+## Overview
 
-Before building an MCP server, pick the right tool:
+Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. The quality of an MCP server is measured by how well it enables LLMs to accomplish real-world tasks.
 
+---
+
+# Process
+
+## 🚀 High-Level Workflow
+
+Creating a high-quality MCP server involves four main phases:
+
+### Phase 1: Deep Research and Planning
+
+#### 1.1 Understand Modern MCP Design
+
+**API Coverage vs. Workflow Tools:**
+Balance comprehensive API endpoint coverage with specialized workflow tools. Workflow tools can be more convenient for specific tasks, while comprehensive coverage gives agents flexibility to compose operations. Performance varies by client—some clients benefit from code execution that combines basic tools, while others work better with higher-level workflows. When uncertain, prioritize comprehensive API coverage.
+
+**Tool Naming and Discoverability:**
+Clear, descriptive tool names help agents find the right tools quickly. Use consistent prefixes (e.g., `github_create_issue`, `github_list_repos`) and action-oriented naming.
+
+**Context Management:**
+Agents benefit from concise tool descriptions and the ability to filter/paginate results. Design tools that return focused, relevant data. Some clients support code execution which can help agents filter and process data efficiently.
+
+**Actionable Error Messages:**
+Error messages should guide agents toward solutions with specific suggestions and next steps.
+
+#### 1.2 Study MCP Protocol Documentation
+
+**Navigate the MCP specification:**
+
+Start with the sitemap to find relevant pages: `https://modelcontextprotocol.io/sitemap.xml`
+
+Then fetch specific pages with `.md` suffix for markdown format (e.g., `https://modelcontextprotocol.io/specification/draft.md`).
+
+Key pages to review:
+- Specification overview and architecture
+- Transport mechanisms (streamable HTTP, stdio)
+- Tool, resource, and prompt definitions
+
+#### 1.3 Study Framework Documentation
+
+**Recommended stack:**
+- **Language**: TypeScript (high-quality SDK support and good compatibility in many execution environments e.g. MCPB. Plus AI models are good at generating TypeScript code, benefiting from its broad usage, static typing and good linting tools)
+- **Transport**: Streamable HTTP for remote servers, using stateless JSON (simpler to scale and maintain, as opposed to stateful sessions and streaming responses). stdio for local servers.
+
+**Load framework documentation:**
+
+- **MCP Best Practices**: [📋 View Best Practices](./reference/mcp_best_practices.md) - Core guidelines
+
+**For TypeScript (recommended):**
+- **TypeScript SDK**: Use WebFetch to load `https://raw.githubusercontent.com/modelcontextprotocol/typescript-sdk/main/README.md`
+- [⚡ TypeScript Guide](./reference/node_mcp_server.md) - TypeScript patterns and examples
+
+**For Python:**
+- **Python SDK**: Use WebFetch to load `https://raw.githubusercontent.com/modelcontextprotocol/python-sdk/main/README.md`
+- [🐍 Python Guide](./reference/python_mcp_server.md) - Python patterns and examples
+
+#### 1.4 Plan Your Implementation
+
+**Understand the API:**
+Review the service's API documentation to identify key endpoints, authentication requirements, and data models. Use web search and WebFetch as needed.
+
+**Tool Selection:**
+Prioritize comprehensive API coverage. List endpoints to implement, starting with the most common operations.
+
+---
+
+### Phase 2: Implementation
+
+#### 2.1 Set Up Project Structure
+
+See language-specific guides for project setup:
+- [⚡ TypeScript Guide](./reference/node_mcp_server.md) - Project structure, package.json, tsconfig.json
+- [🐍 Python Guide](./reference/python_mcp_server.md) - Module organization, dependencies
+
+#### 2.2 Implement Core Infrastructure
+
+Create shared utilities:
+- API client with authentication
+- Error handling helpers
+- Response formatting (JSON/Markdown)
+- Pagination support
+
+#### 2.3 Implement Tools
+
+For each tool:
+
+**Input Schema:**
+- Use Zod (TypeScript) or Pydantic (Python)
+- Include constraints and clear descriptions
+- Add examples in field descriptions
+
+**Output Schema:**
+- Define `outputSchema` where possible for structured data
+- Use `structuredContent` in tool responses (TypeScript SDK feature)
+- Helps clients understand and process tool outputs
+
+**Tool Description:**
+- Concise summary of functionality
+- Parameter descriptions
+- Return type schema
+
+**Implementation:**
+- Async/await for I/O operations
+- Proper error handling with actionable messages
+- Support pagination where applicable
+- Return both text content and structured data when using modern SDKs
+
+**Annotations:**
+- `readOnlyHint`: true/false
+- `destructiveHint`: true/false
+- `idempotentHint`: true/false
+- `openWorldHint`: true/false
+
+---
+
+### Phase 3: Review and Test
+
+#### 3.1 Code Quality
+
+Review for:
+- No duplicated code (DRY principle)
+- Consistent error handling
+- Full type coverage
+- Clear tool descriptions
+
+#### 3.2 Build and Test
+
+**TypeScript:**
+- Run `npm run build` to verify compilation
+- Test with MCP Inspector: `npx @modelcontextprotocol/inspector`
+
+**Python:**
+- Verify syntax: `python -m py_compile your_server.py`
+- Test with MCP Inspector
+
+See language-specific guides for detailed testing approaches and quality checklists.
+
+---
+
+### Phase 4: Create Evaluations
+
+After implementing your MCP server, create comprehensive evaluations to test its effectiveness.
+
+**Load [✅ Evaluation Guide](./reference/evaluation.md) for complete evaluation guidelines.**
+
+#### 4.1 Understand Evaluation Purpose
+
+Use evaluations to test whether LLMs can effectively use your MCP server to answer realistic, complex questions.
+
+#### 4.2 Create 10 Evaluation Questions
+
+To create effective evaluations, follow the process outlined in the evaluation guide:
+
+1. **Tool Inspection**: List available tools and understand their capabilities
+2. **Content Exploration**: Use READ-ONLY operations to explore available data
+3. **Question Generation**: Create 10 complex, realistic questions
+4. **Answer Verification**: Solve each question yourself to verify answers
+
+#### 4.3 Evaluation Requirements
+
+Ensure each question is:
+- **Independent**: Not dependent on other questions
+- **Read-only**: Only non-destructive operations required
+- **Complex**: Requiring multiple tool calls and deep exploration
+- **Realistic**: Based on real use cases humans would care about
+- **Verifiable**: Single, clear answer that can be verified by string comparison
+- **Stable**: Answer won't change over time
+
+#### 4.4 Output Format
+
+Create an XML file with this structure:
+
+```xml
+<evaluation>
+  <qa_pair>
+    <question>Find discussions about AI model launches with animal codenames. One model needed a specific safety designation that uses the format ASL-X. What number X was being determined for the model named after a spotted wild cat?</question>
+    <answer>3</answer>
+  </qa_pair>
+<!-- More qa_pairs... -->
+</evaluation>
 ```
-Does the task require calling an external API?
-├── No → Use Bash (local filesystem, CLI tools, one-off scripts)
-└── Yes
-    ├── Single call, public endpoint, no auth?
-    │   └── Use WebFetch — no server needed
-    ├── Multi-step operation with branching logic?
-    │   └── Use Agent tool — spawn a sub-agent with Bash/WebFetch
-    └── Auth required AND called >5× per session?
-        └── Build MCP ✓
-```
-
-**MCP is warranted when:**
-- External service needs persistent auth (OAuth token, API key injected per call)
-- Same service called repeatedly across a session (e.g., GitHub, Sentry, Slack)
-- The service has a large surface area worth exposing as named tools
-
-**MCP is NOT warranted when:**
-- One-off command (`gh issue list` via Bash beats a GitHub MCP for single queries)
-- Local filesystem ops (Bash + Read/Write/Glob tools are faster)
-- Public read-only APIs (WebFetch is zero overhead)
-- Latency-sensitive operations (MCP round-trip adds ~50–200ms per call)
 
 ---
 
-## Transport Types and Reliability Profiles
+# Reference Files
 
-| Transport | Example | Reliability | Use When |
-|-----------|---------|-------------|----------|
-| **stdio** | Local process | Fast, no isolation | Dev tooling, read-only local services |
-| **Docker + stdio** | `github` MCP | Best isolation, restart-safe | Any server with write access to external systems |
-| **HTTP/SSE via mcp-remote** | `vercel`, `figma`, `posthog` | Good for OAuth flows | Services using browser-based OAuth |
+## 📚 Documentation Library
 
-**Rule of thumb:** If the MCP server can mutate external state (create issues, send messages, deploy), run it in Docker.
+Load these resources as needed during development:
 
----
+### Core MCP Documentation (Load First)
+- **MCP Protocol**: Start with sitemap at `https://modelcontextprotocol.io/sitemap.xml`, then fetch specific pages with `.md` suffix
+- [📋 MCP Best Practices](./reference/mcp_best_practices.md) - Universal MCP guidelines including:
+  - Server and tool naming conventions
+  - Response format guidelines (JSON vs Markdown)
+  - Pagination best practices
+  - Transport selection (streamable HTTP vs stdio)
+  - Security and error handling standards
 
-## Claude Code Config (`~/.claude/mcp.json`)
+### SDK Documentation (Load During Phase 1/2)
+- **Python SDK**: Fetch from `https://raw.githubusercontent.com/modelcontextprotocol/python-sdk/main/README.md`
+- **TypeScript SDK**: Fetch from `https://raw.githubusercontent.com/modelcontextprotocol/typescript-sdk/main/README.md`
 
-**MANDATORY**: Read [`references/config-patterns.md`](references/config-patterns.md) for the config pattern matching your transport (Docker, mcp-remote, or local process).
+### Language-Specific Implementation Guides (Load During Phase 2)
+- [🐍 Python Implementation Guide](./reference/python_mcp_server.md) - Complete Python/FastMCP guide with:
+  - Server initialization patterns
+  - Pydantic model examples
+  - Tool registration with `@mcp.tool`
+  - Complete working examples
+  - Quality checklist
 
-Quick summary of available patterns:
-- **Docker** — write-access servers; provides isolation and restart safety
-- **mcp-remote** — OAuth browser-auth services (Vercel, Figma, Slack)
-- **Local process** — read-only dev tools you build yourself
+- [⚡ TypeScript Implementation Guide](./reference/node_mcp_server.md) - Complete TypeScript guide with:
+  - Project structure
+  - Zod schema patterns
+  - Tool registration with `server.registerTool`
+  - Complete working examples
+  - Quality checklist
 
-Auth tokens always come from env vars via `${VAR}` syntax — never hardcode in `mcp.json`.
-
----
-
-## Reliability Anti-Patterns
-
-- **NEVER** expose latency-sensitive ops via MCP — use Bash instead. File reads, local git ops, and subprocess calls belong in Bash, not MCP.
-- **NEVER** use always-on WebSocket connections — event-driven / request-response only.
-- **NEVER** hardcode auth tokens in `mcp.json` — use env var injection.
-- **NEVER** run a write-access MCP as a local process — use Docker for isolation and restart safety.
-- **NEVER** create a new MCP server for a service that already has a well-maintained public one (GitHub, Sentry, Slack all have official servers).
-- **AVOID** port conflicts with local process servers — always bind to an unused port or use stdio transport.
-
----
-
-## Tool Surface Design
-
-Before registering tools, ask:
-
-- **Granularity**: One coarse tool (params as filters) or many fine tools? Fine tools improve routing accuracy. Rule: match granularity to how a human describes the operation in one sentence.
-- **Description quality**: Claude uses tool descriptions — not names — for selection. Each description must answer: what state does this change? what does it return? when should I NOT use it?
-- **Error surface**: Always include raw API status code and body in errors — MCP errors are opaque by default.
-
----
-
-## Building a New TypeScript MCP Server
-
-**MANDATORY**: Read [`references/ts-template.md`](references/ts-template.md) for the TypeScript template and package setup.
-
-**Do NOT load** `references/ts-template.md` if you are only configuring an existing server.
-
-After building, add the server to `~/.claude/mcp.json` using the appropriate pattern from
-[`references/config-patterns.md`](references/config-patterns.md), then verify with `claude mcp list`.
-
----
-
-## Build Checklist
-
-- [ ] Auth via env var, never hardcoded
-- [ ] Every tool has a clear, one-sentence description (Claude uses this for tool selection)
-- [ ] Errors throw with actionable messages (include status code + response body)
-- [ ] Docker wrapping if server has write access to external systems
-- [ ] Added to `~/.claude/mcp.json` and verified with `claude mcp list`
-- [ ] Test: invoke one tool from a Claude Code session to confirm end-to-end
+### Evaluation Guide (Load During Phase 4)
+- [✅ Evaluation Guide](./reference/evaluation.md) - Complete evaluation creation guide with:
+  - Question creation guidelines
+  - Answer verification strategies
+  - XML format specifications
+  - Example questions and answers
+  - Running an evaluation with the provided scripts

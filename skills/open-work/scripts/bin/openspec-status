@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# openspec-status — scan CWD for unarchived openspec proposals and their beads status
+# openspec-status — scan CWD for unarchived openspec proposals and task state
 # Usage: openspec-status [--json | --closure-check <slug>... | --queue] [--no-enrich]
 # Output: table (default), JSON array (--json), a closure gate (--closure-check), or
 # the computed execution queue (--queue).
@@ -106,15 +106,6 @@ if ! flock -n 9; then
   echo "openspec-status already running, skipping." >&2
   exit 0
 fi
-
-# NOTE: OPENSPEC_STATUS_PARALLEL / MAX_PARALLEL (a bd-show fan-out concurrency
-# cap) no longer exists here as of the 2026-08-06 bd-timeout fix (see PHASE 4
-# below). The per-ID `bd show` fan-out this env var used to throttle was
-# replaced with a single `bd list --id <all-ids>` bulk call, which has no
-# concurrency to cap. The env var name is kept unset intentionally rather
-# than silently ignored -- any caller still setting it gets no error, just no
-# effect, which is the correct behavior for a knob whose target mechanism no
-# longer exists.
 
 JSON_MODE=false
 CLOSURE_MODE=false
@@ -278,8 +269,11 @@ for name in "${SPEC_NAMES[@]}"; do
   fi
 done
 
-# ── PHASE 4: BATCH BEADS QUERY (single bulk call, not per-ID fan-out) ───────
-# Collect all unique IDs
+# ── PHASE 4: BEAD STATUS MAP (bd removed; grammar-only) ───────────────────
+# Beads tooling was removed from the fleet (2026-09). The [beads:id] markers in
+# tasks.md files are kept as inert history, so the ID grammar below still
+# parses them, but no bd lookup happens: every bead status/priority is
+# "unknown" and the enrich path degrades exactly like `--no-enrich` always did.
 declare -A ALL_IDS=()
 for name in "${SPEC_NAMES[@]}"; do
   [[ -n "${SPEC_EPIC[$name]}" ]] && ALL_IDS["${SPEC_EPIC[$name]}"]=1
@@ -289,64 +283,10 @@ for name in "${SPEC_NAMES[@]}"; do
   done
 done
 
-# root-cause investigation (2026-08-06, live on otaku-odyssey): the previous
-# design fanned out ONE `bd show <id>` process per unique ID (xargs -P
-# "$MAX_PARALLEL"), which on a repo with ~26+ open specs means 300+ unique
-# epic/feature/task IDs -- 300+ separate bd process launches, all reading the
-# same `.beads/beads.db`. The earlier "Dolt lock contention" comment here was
-# also WRONG about the mechanism: `.beads/beads.db` is SQLite (`file
-# .beads/beads.db` -> "SQLite 3.x database"), not Dolt -- Dolt only backs the
-# separate `.beads/embeddeddolt/` git-sync store, which `bd show`/`bd list`
-# never touch. The real mechanism: `PRAGMA busy_timeout` is 0 on this DB (bd
-# sets no busy timeout of its own), so a `bd show`/`bd list` call that
-# collides with ANY concurrent writer (another `bd` mutation, an auto-import
-# daemon cycle, another session's hook) fails fast with "failed to search
-# issues: context canceled" on stderr rather than blocking-and-retrying. At
-# N=300+ concurrent readers even with MAX_PARALLEL capped, this repo measured
-# 90-300+s wall time and a 45% observed failure rate (`unknown` status) on a
-# representative real run, timing out the 5-minute `!`-preprocessor budget
-# multiple command invocations rely on (`/apply`, `/explore` via `open-items`).
-# A retry-with-backoff mitigation (tried first, kept as history in the
-# workflow-log/design.md for this investigation) helped but could not close
-# the gap at this ID count, because the exposure window scales with N.
-#
-# `bd list --id <comma-separated>,... --all --json --limit 0` accepts a
-# batch ID filter and returns every match in ONE process -- confirmed live
-# with all 338 real IDs from this repo's open specs: 2.5s total, exit 0, all
-# 338 resolved. This eliminates the fan-out (and therefore the concurrency
-# exposure) entirely rather than tuning around it: 1 bd invocation instead of
-# N. IDs bd doesn't return (deleted/renumbered/stale tasks.md references, or
-# the rare transient collision on this ONE remaining call) fall through to
-# "unknown", same default as before. `--all` is required -- without it `bd
-# list` applies its default status filter and silently omits closed epics/
-# features, which would misclassify every ARCHIVE-eligible spec in Phase 5b.
-# `--limit 0` disables the default 50-row cap (`bd list --help`), otherwise a
-# repo with >50 matched IDs would silently truncate.
-# [beads:bd-timeout]
 declare -A BD_STATUS=() BD_PRIORITY=()
-if ! $NO_ENRICH && [[ ${#ALL_IDS[@]} -gt 0 ]]; then
-  ALL_IDS_CSV=$(printf '%s\n' "${!ALL_IDS[@]}" | paste -sd,)
-  BULK_RESULT=$(timeout 30 bd list --id "$ALL_IDS_CSV" --all --json --limit 0 2>/dev/null || echo "")
-  if [[ -z "$BULK_RESULT" ]] || ! echo "$BULK_RESULT" | jq -e 'type == "array"' >/dev/null 2>&1; then
-    # Single retry -- one bulk call still has a (much smaller) collision
-    # window than the old per-ID fan-out, worth one cheap retry before
-    # falling back to all-unknown for this run.
-    sleep 0.5
-    BULK_RESULT=$(timeout 30 bd list --id "$ALL_IDS_CSV" --all --json --limit 0 2>/dev/null || echo "")
-  fi
-  if [[ -n "$BULK_RESULT" ]] && echo "$BULK_RESULT" | jq -e 'type == "array"' >/dev/null 2>&1; then
-    while IFS=$'\t' read -r bd_id bd_status bd_priority; do
-      [[ -n "$bd_id" ]] || continue
-      BD_STATUS[$bd_id]="${bd_status:-unknown}"
-      BD_PRIORITY[$bd_id]="$bd_priority"
-    done < <(echo "$BULK_RESULT" | jq -r '.[] | [.id, (.status // "unknown"), (.priority // "")] | @tsv')
-  fi
-fi
 for id in "${!ALL_IDS[@]}"; do
-  if [[ -z "${BD_STATUS[$id]+x}" ]]; then
-    BD_STATUS[$id]="unknown"
-    BD_PRIORITY[$id]=""
-  fi
+  BD_STATUS[$id]="unknown"
+  BD_PRIORITY[$id]=""
 done
 
 # ── PHASE 5: CLASSIFY ────────────────────────────────────────────────────────

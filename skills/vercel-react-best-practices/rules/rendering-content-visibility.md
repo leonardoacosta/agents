@@ -5,6 +5,7 @@ impactDescription: faster initial render
 tags: rendering, css, content-visibility, long-lists
 ---
 
+
 ## CSS content-visibility for Long Lists
 
 Apply `content-visibility: auto` to defer off-screen rendering.

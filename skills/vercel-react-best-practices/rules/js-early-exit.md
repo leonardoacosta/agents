@@ -5,6 +5,7 @@ impactDescription: avoids unnecessary computation
 tags: javascript, functions, optimization, early-return
 ---
 
+
 ## Early Return from Functions
 
 Return early when result is determined to skip unnecessary processing.

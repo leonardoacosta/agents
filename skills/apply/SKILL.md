@@ -5,43 +5,33 @@ description: Execute one approved feature or an ordered feature queue through im
 
 # Apply
 
-Use after feature authoring has produced an approved, executable change. The change artifacts define the work; `tasks.md` is authoritative task state.
+Use this skill after proposal authoring has produced approved, executable work. It defines portable
+lifecycle outcomes and safety invariants; the active harness remains responsible for its own tools,
+workers, state, scheduling, and command surface.
 
-## Stages
+## Select the mode
 
-1. Load the approved proposal, requirements, design, and tasks at a pinned repository revision.
-2. Validate readiness: approval, incomplete tasks, explicit dependencies, touched paths, preconditions, and drift.
-3. Build a task graph from declared dependencies and obvious local prerequisites. Do not impose DB/API/UI/E2E phases.
-4. Execute bounded tasks with one accountable owner, exact file scope, and a verification recipe. Parallelize only non-conflicting work.
-5. Invoke `gates` to select and run checks relevant to changed surfaces and proposal requirements. Record fresh command-level evidence.
-6. Invoke `review` independently after the final implementation gates. Review the actual final diff, requirements, edge cases, security, scope, and evidence.
-7. Repair every blocking or actionable finding, then rerun affected gates and the independent review against the repaired revision.
-8. Mark completed tasks in `tasks.md` only from verified results; record blocked or deferred work explicitly.
-9. Commit each bounded implementation unit with scoped staging and a descriptive history entry. Do not leave verified work as an uncommitted working-tree state.
-10. Invoke `close` only after all required tasks, fresh gates, independent review, and required commits pass. `close` must confirm final persistence and archive state.
+- For a single feature, read [references/single.md](references/single.md).
+- For multiple features, read [references/queue.md](references/queue.md) and
+  [references/dependency-and-concurrency.md](references/dependency-and-concurrency.md).
 
-## Mandatory terminal sequence
+Load the remaining references when their concern becomes active:
 
-`apply` cannot report completion or hand control to a completion handler until this sequence has produced durable evidence:
+- [references/work-decomposition-and-accountability.md](references/work-decomposition-and-accountability.md)
+  for capability assignment, ownership, and safe parallel work.
+- [references/recovery.md](references/recovery.md) after interruption or uncertain prior progress.
+- [references/workflow-lease.md](references/workflow-lease.md) when mutable resources need
+  coordinated ownership across sessions or harnesses.
+- [references/completion.md](references/completion.md) before any terminal outcome or completion
+  claim.
 
-```text
-final implementation
-  → fresh gates
-  → independent review
-  → repair and repeat gates/review when needed
-  → task and issue state update
-  → scoped commits with verified history
-  → archive
-  → archive/persistence confirmation and log review
-  → completed
-```
+## Universal invariants
 
-Missing, stale, failed, or unverified evidence leaves the change `in_progress` or `blocked`. A task-local test, worker success message, clean diff, uncommitted worktree, or previous session result is not terminal evidence. The final review must inspect the commit range and confirm implementation, task state, proposal deltas, and archive changes are in scope. Do not add or honor a normal `apply`/`apply:all` option that skips gates, review, archive, or required commits. User-decision gates can park a change, but cannot convert it to `completed`.
-
-## Invariants
-
-- Honor explicit dependencies and isolate mutable-resource conflicts.
-- Reconstruct progress from files, git state, task state, and verification evidence, never conversation memory alone.
-- Never claim completion from worker output without repository evidence.
-- Never mutate unrelated files or silently broaden scope.
-- Do not create or require Beads, vendor issue IDs, telemetry, automatic pushes, or universal stack phases.
+1. Resolve authoritative proposal and issue state before editing.
+2. Honor explicit dependencies and isolate every mutable-resource conflict.
+3. Give each bounded task one accountable owner and an exact verification recipe.
+4. Reconstruct interrupted work from durable evidence, never conversation memory alone.
+5. Require fresh verification, issue-state updates, archive, and persistence when the repository's
+   completion contract requires them.
+6. Preserve harness choice: specialist, generalist, direct, serial, and safely parallel execution
+   can all conform when they produce the same lifecycle outcomes.

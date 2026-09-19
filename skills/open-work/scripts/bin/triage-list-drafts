@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # triage-list-drafts — Scan openspec/changes/<slug>/proposal.md and emit JSON list
-# of candidate proposals in topological order by canonical scheduling sidecars.
+# of candidate proposals in topological order by `depends on:` hints.
 #
 # Convention: scripts-as-data-producers:
 #   * --json on stdout is the only contract.
 #   * Exit 0 on all failures — emit {"error": "..."} instead of non-zero exit.
 #   * No info-level stderr (warnings via `warnings` key in JSON, or per-row flags).
-#   * Warm runtime <200ms (no network, git plumbing only) EXCEPT when bd is invoked
-#     to resolve feature-bead status (retire-status-frontmatter-lifecycle) -- that
-#     adds one batched, timeout-bounded `bd list --id ...` call.
+#   * Warm runtime <200ms (no network, git plumbing only). Beads tooling was
+#     removed from the fleet (2026-09): the feature-bead lookup now always takes
+#     the permissive fallback (bead_unknown), never a bd call.
 #
 # Spec: openspec/changes/add-triage-command/specs/triage-workflow/spec.md
 # (approval mechanism updated by retire-status-frontmatter-lifecycle, 2026-07-16 --
@@ -61,16 +61,15 @@
 #
 # Candidate rule (retire-status-frontmatter-lifecycle): a proposal is a candidate iff its
 # feature bead (resolved from its OWN tasks.md `<!-- beads:feature:bd-xxxx -->` marker) is
-# NOT in_progress/closed. When bd is unavailable OR the marker is missing, the proposal is
-# included anyway (permissive fallback -- never silently dropped) with `"bead": null` and
-# `"bead_unknown": true`.
+# NOT in_progress/closed. With Beads tooling removed, bd can never resolve a marker, so
+# every proposal is included (permissive fallback -- never silently dropped) with
+# `"bead": null` and `"bead_unknown": true`.
 
 import argparse
 import datetime
 import json
 import os
 import re
-import shutil
 import subprocess
 import sys
 import time
@@ -94,42 +93,13 @@ BEADS_TASK_RE = re.compile(r"\[beads:(" + BEADS_ID_RE + r")\]")
 CHECKBOX_RE = re.compile(r"^\s*-\s*\[[ xX]\]", re.MULTILINE)
 ORDER_SUFFIX_RE = re.compile(r"^[a-z]+$")
 
-BD_TIMEOUT_SECONDS = 8  # matches openspec-status's `timeout 8 bd show` bound (bd-timeout)
-
-
-def bd_available():
-    """True iff a `bd` binary is on PATH. Cheap, no subprocess spawned."""
-    return shutil.which("bd") is not None
-
 
 def fetch_bead_statuses(feature_ids):
-    """Batched bd status lookup for a set of feature-bead ids. Returns
-    (status_map, ok) where status_map is {id: status_string} for every id bd
-    actually resolved (missing ids are simply absent from the map -- treat as
-    unknown), and ok is False if bd is unavailable or the call failed/timed
-    out (caller must then fall back to the permissive "bead unknown" path for
-    every id, not just gaps in the map)."""
-    ids = sorted({i for i in feature_ids if i})
-    if not ids:
-        return {}, True
-    if not bd_available():
-        return {}, False
-    try:
-        result = subprocess.run(
-            ["bd", "list", "--id", ",".join(ids), "--all", "--json", "--limit", "0"],
-            capture_output=True, text=True, timeout=BD_TIMEOUT_SECONDS,
-        )
-    except Exception:
-        return {}, False
-    if result.returncode != 0 or not result.stdout.strip():
-        return {}, False
-    try:
-        rows = json.loads(result.stdout)
-    except (json.JSONDecodeError, ValueError):
-        return {}, False
-    if not isinstance(rows, list):
-        return {}, False
-    return {r.get("id"): r.get("status") for r in rows if isinstance(r, dict) and r.get("id")}, True
+    """Beads tooling was removed from the fleet (2026-09). The marker grammar
+    in tasks.md files is kept as inert history, but no bd lookup happens:
+    always returns ({}, False) so the caller takes the permissive
+    bead-unknown path for every proposal."""
+    return {}, False
 
 
 def parse_frontmatter(text):
@@ -359,24 +329,9 @@ def collect_drafts(changes_dir):
         except OSError:
             continue
         fm = parse_frontmatter(text)
-        sidecar_path = os.path.join(slug_dir, ".apply-schedule.json")
-        try:
-            with open(sidecar_path, encoding="utf-8") as sidecar_file:
-                schedule = json.load(sidecar_file)
-        except FileNotFoundError as exc:
-            raise ValueError(f"{entry}: canonical scheduling sidecar is missing; run /feature --continue {entry}") from exc
-        except (OSError, json.JSONDecodeError) as exc:
-            raise ValueError(f"{entry}: invalid canonical scheduling sidecar: {exc}") from exc
-        required = {"schema_version", "sources", "requires", "inputs", "writes", "preferences", "projection", "extensions"}
-        unknown = set(schedule) - required
-        if schedule.get("schema_version") != 1 or not required.issubset(schedule) or unknown:
-            raise ValueError(f"{entry}: unsupported or noncanonical scheduling sidecar")
-        deps = []
-        for requirement in schedule.get("requires", []):
-            change = requirement.get("change") if isinstance(requirement, dict) else None
-            if not isinstance(change, str):
-                raise ValueError(f"{entry}: invalid requires entry in canonical scheduling sidecar")
-            deps.append(change)
+        ctx_match = CONTEXT_RE.search(text)
+        ctx_text = ctx_match.group(1) if ctx_match else ""
+        deps = extract_depends(ctx_text)
         after_slug, after_reason = parse_after(fm)
         sum_match = SUMMARY_RE.search(text)
         summary = first_paragraph(sum_match.group(1) if sum_match else "")
@@ -426,7 +381,7 @@ def apply_bead_gate(drafts, include_approved=False):
     status_map, ok = fetch_bead_statuses(feature_ids)
     if not ok and feature_ids:
         warnings.append(
-            "bd unavailable or unreachable — showing all candidates unfiltered by bead status"
+            "bead status unavailable (Beads tooling removed) — showing all candidates unfiltered"
         )
 
     out = []
