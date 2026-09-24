@@ -1,1568 +1,701 @@
 {
   "version": 3,
   "skills": {
-    "agent-architecture": {
-      "computedHash": "583d15e65b2d90657d7f2a4ba743201a916ad88e22d4ce93e91234ddc46cb3ca"
-    },
-    "agent-browser": {
-      "computedHash": "5a911b4777147b861b86b47fc99724fedd433762d81aabedd6a98b3766ce751d"
-    },
-    "agent-instruction-pairing": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "meta/skills/agent-instruction-pairing/SKILL.md",
-      "skillFolderHash": "1df92d5a660a9e71e0ab0a173b38898bd33fe148",
-      "installedAt": "2026-08-02T22:12:51.450Z",
-      "updatedAt": "2026-08-02T22:12:51.450Z",
-      "computedHash": "150d58608ae092ab24b81b35a47fc9b99e49327c642531d0e088c5f2b9ebb9b4"
-    },
-    "agent-tooling": {
-      "computedHash": "08bdc3d009e768f291a97151bba48d558252f790cc6f444916509adf37f1e376"
-    },
-    "agents-sdk": {
-      "computedHash": "a05244d3cfb23330daff956ec28a990241f5dbbe489cd7fd6489c8f76bb60877"
-    },
-    "algorithmic-art": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/anthropics/skills.git",
-      "skillPath": "skills/algorithmic-art/SKILL.md",
-      "skillFolderHash": "22db2d12091c56340987a877047435ba84a1cdb2",
-      "installedAt": "2026-02-06T19:51:37.652Z",
-      "updatedAt": "2026-02-06T19:51:37.652Z",
-      "computedHash": "3bc4092c09804853186524c826bc0621b940bb6122c05b84496dff95388e6eef"
-    },
-    "animation-vocabulary": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-design/skills/animation-vocabulary/SKILL.md",
-      "skillFolderHash": "d3126b9d367a80152b56dbc5402e5df18b4f449b",
-      "installedAt": "2026-08-02T22:12:51.448Z",
-      "updatedAt": "2026-08-02T22:12:51.448Z",
-      "computedHash": "67040fc686445b4a86e138964acfb8ab0df0cae64f14a2d243eb5f0634061dc3"
-    },
-    "animejs": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/animejs/SKILL.md",
-      "skillFolderHash": "394a03486f34c5f8601d9a7fb599c59b680f6e2a",
-      "installedAt": "2026-08-02T22:12:51.455Z",
-      "updatedAt": "2026-08-02T22:12:51.455Z",
-      "computedHash": "0e251b33e0b175e53c4bba94ed530ddeadd05a21d0638b5122e6942528c1f21b"
-    },
-    "anydesign": {
-      "computedHash": "e18c2d587bf674b809ea58ce89d2ef969acbbf851088a50243595668c6b08c42"
-    },
-    "app-service-worker-observability": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "azure-kit/skills/app-service-worker-observability/SKILL.md",
-      "skillFolderHash": "64c935bbfbffc2d19cdb1c844d8ffcbdc99de5d5",
-      "installedAt": "2026-08-02T22:12:51.466Z",
-      "updatedAt": "2026-08-02T22:12:51.466Z",
-      "computedHash": "cd0f16a28176f68ff85f6f9c244c98e6e336eb37f313868e6139848f55e5d060"
-    },
-    "apply": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/apply/SKILL.md",
-      "skillFolderHash": "68ee40a8ca32dc11736cc69a731cc28a2beaf705",
-      "installedAt": "2026-08-02T22:12:51.459Z",
-      "updatedAt": "2026-08-02T22:12:51.459Z",
-      "computedHash": "bfb3e667192960b1747f014e50c484ad9522819923aad38adb9ffb8c7f026287"
-    },
-    "apply-all": {
-      "computedHash": "87538fc24d063ecebccb82a2cf5e042e35edb5747425ba6667895ccb822b314b"
-    },
-    "ascii-wireframe": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-design/skills/ascii-wireframe/SKILL.md",
-      "skillFolderHash": "2c7067ebbcf12bd7d49298dd36694f1e008fc386",
-      "installedAt": "2026-08-02T22:12:51.449Z",
-      "updatedAt": "2026-08-02T22:12:51.449Z",
-      "computedHash": "8f7fe8bef08dd88f6ade6fd383d15307188eb735953b7f5792f8a496b913862d"
-    },
-    "autoresearch-loop": {
-      "computedHash": "70ae22d25e28ae0be69a162b446426de9820ad6a14b55648284a503d0ff51f40"
-    },
-    "azure-diagnostics": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "azure-kit/skills/azure-diagnostics/SKILL.md",
-      "skillFolderHash": "48a17618b4ac3699d52a2f6e86c9e43cad899565",
-      "installedAt": "2026-08-02T22:12:51.466Z",
-      "updatedAt": "2026-08-02T22:12:51.466Z",
-      "computedHash": "f30ee3ab91843f31b247d9d08b7259ac9edb311976f1d4961f8a32ba4258a895"
-    },
-    "azure-topology-style": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "azure-kit/skills/azure-topology-style/SKILL.md",
-      "skillFolderHash": "f30d24273f4c14775d538b8b1cf1eff71237b6df",
-      "installedAt": "2026-08-02T22:12:51.467Z",
-      "updatedAt": "2026-08-02T22:12:51.467Z",
-      "computedHash": "d1c4654b5799df02722fae92ef115c4eabb7e03965d17d86e462abcad2b74b8d"
-    },
-    "better-accessibility": {
-      "computedHash": "f07ca17ccb78950cb8bf913af3f4c49bf383fc3d9ae5644fff3b7550716447f1"
-    },
-    "better-auth-best-practices": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/better-auth-best-practices/SKILL.md",
-      "skillFolderHash": "56b55380a43df9bbcf8eee3e31936224bb22dff9",
-      "installedAt": "2026-08-02T22:12:51.452Z",
-      "updatedAt": "2026-08-02T22:12:51.452Z",
-      "computedHash": "ebb30f07a7b5c1f045e6d7033f67ef132ee143cc4b6a93f3a7f216407ff813a8"
-    },
-    "better-colors": {
-      "computedHash": "f2f1a376376ac6fba6ec92d25fe052d39913b21c2fdf435374eca00d402bf994"
-    },
-    "better-interface": {
-      "computedHash": "e4d664467c5fd05b5f7d0feb1c24b1a81d49d04f48aa5bca4c051edb1dbf051e"
-    },
-    "better-layout": {
-      "computedHash": "2597bbd7e39dd2b74cdd9fefda1062e4492c3c2d64f31b74846bdc8d8b8e7bb3"
-    },
-    "better-typography": {
-      "computedHash": "551ef128ded6071163ebba6cd74e519dbfbf646dbee6ccaad2c98fa158effbde"
-    },
-    "better-ui": {
-      "computedHash": "3da5341327a7c0f0b14b12ed0fb7ac63b5bd9bcd8b0c91dffeb8a7caf380c961"
-    },
-    "better-writing": {
-      "computedHash": "413b41c7ef5f9614fa96716d47065ad6bb28e9338441e064e538cf2d472f659c"
-    },
-    "bicep-best-practices": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "azure-kit/skills/bicep-best-practices/SKILL.md",
-      "skillFolderHash": "7476b98f6228e1b3146e4621d33e8b71b5c207f9",
-      "installedAt": "2026-08-02T22:12:51.467Z",
-      "updatedAt": "2026-08-02T22:12:51.467Z",
-      "computedHash": "dc9ddf2580c3df7b13d05876196abbe9e3c0dedc5a6b8a68033a98152f49202c"
-    },
-    "blueprint": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/blueprint/SKILL.md",
-      "skillFolderHash": "d0a311558cea8d5245303842c62aff85b6397c05",
-      "installedAt": "2026-08-02T22:12:51.459Z",
-      "updatedAt": "2026-08-02T22:12:51.459Z",
-      "computedHash": "05efcc5e5f046ceaf2062caaaa6e4d57764c4cdf1107b8013fc5e363d18524e7"
-    },
-    "brainstorming": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/brainstorming/SKILL.md",
-      "skillFolderHash": "7c7f8b59eb29d645bd96d236afee56496fb1f044",
-      "installedAt": "2026-08-02T22:12:51.459Z",
-      "updatedAt": "2026-08-02T22:12:51.459Z",
-      "computedHash": "0099385b282abdb7357cb8ef660cd12dcd909f31b66146d4a6707f903c19c508"
-    },
-    "build-iterated-agentic-loop": {
-      "computedHash": "dea5c29e2cb6133896b0bb518775e18863df377ebe0198f8d867e28e52155671"
-    },
-    "bun": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "bun-effect-kit/skills/bun/SKILL.md",
-      "skillFolderHash": "e5af176c0b8a12e9ab06ce66d6a8f78d62f76574",
-      "installedAt": "2026-08-02T22:12:51.468Z",
-      "updatedAt": "2026-08-02T22:12:51.468Z",
-      "computedHash": "df8810dcef3ee156e06d5a4956e4d0c77789e152014b977c30bda504c3bdd21d"
-    },
-    "c4-architecture": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-design/skills/c4-architecture/SKILL.md",
-      "skillFolderHash": "d588eed6c573dd6b266cd24dd0176eea4c89ca3f",
-      "installedAt": "2026-08-02T22:12:51.449Z",
-      "updatedAt": "2026-08-02T22:12:51.449Z",
-      "computedHash": "f0d626f35f09ad498f052d61b99de28404465cf08552da91938ce6a9ffdda361"
-    },
-    "change-disposition": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/change-disposition/SKILL.md",
-      "skillFolderHash": "0d68bc69c9b88a7c016b9e31babfabd28507d2cd",
-      "installedAt": "2026-08-02T22:12:51.460Z",
-      "updatedAt": "2026-08-02T22:12:51.460Z",
-      "computedHash": "ec37715732e334d6e7ddfaf75af50ba1b6246f7a30245488dbaa0530bc78a60d"
-    },
-    "close": {
-      "computedHash": "ae285b50cc845dd6af0e48f0a71ef79a78a54b4b5650538c69fff5435397d3fd"
-    },
-    "cloudflare": {
-      "computedHash": "89bcccbb0b6dc77bec5e348f54a5ed8f1943d6ce56c33231a71fd2cd6bb05714"
-    },
-    "cloudflare-email-service": {
-      "computedHash": "a62531900a08f9f6c352061d42e8b10a35009f5e1c6f91bbf18752feedad5a79"
-    },
-    "cloudflare-one": {
-      "computedHash": "605336f84979367b6235a57da8ea43e4f3b856a97efd2c95d9e7f90e41bf17ec"
-    },
-    "cloudflare-one-migrations": {
-      "computedHash": "50ed246b92a3f82c7afac864201093269fad8de24e4ce7ea18929103a26adad8"
-    },
-    "crafting-effective-readmes": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/crafting-effective-readmes/SKILL.md",
-      "skillFolderHash": "f8462a4362f133b01ab0605a3c19e3476e45b350",
-      "installedAt": "2026-08-02T22:12:51.461Z",
-      "updatedAt": "2026-08-02T22:12:51.461Z",
-      "computedHash": "5f4e8898c923f1e9350e4d0a2ad648745c670367e64658533c8ea802448469ef"
-    },
-    "database-schema-designer": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/database-schema-designer/SKILL.md",
-      "skillFolderHash": "dca3bceaa96afdea0d6cb36be8bad92a8d113bfa",
-      "installedAt": "2026-08-02T22:12:51.452Z",
-      "updatedAt": "2026-08-02T22:12:51.452Z",
-      "computedHash": "bd97ba014747a8c4275fd10246a97f0c23c8b71ae68bdce78cd0caaec4bb6b95"
-    },
-    "datadog-cli": {
-      "source": "softaworks/agent-toolkit",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
-      "skillPath": "skills/datadog-cli/SKILL.md",
-      "skillFolderHash": "",
-      "installedAt": "2026-02-06T19:51:50.928Z",
-      "updatedAt": "2026-02-06T19:51:50.928Z",
-      "computedHash": "e9a30c51c52fffdff4b2b0780eb1f01e461e9e15f76b4c3372822447313eef3b"
-    },
-    "depot-github-actions": {
-      "computedHash": "0ba39df24ff21dd7023194d0a30237ef81ea15683072448a35a6ef9d5a3c6571"
-    },
-    "design-control-loop": {
-      "computedHash": "8ebd113502a4331818c6e77b60051796a598160ba03e2eaa61ff959bd237653c"
-    },
-    "design-system-starter": {
-      "source": "softaworks/agent-toolkit",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
-      "skillPath": "skills/design-system-starter/SKILL.md",
-      "skillFolderHash": "",
-      "installedAt": "2026-02-06T19:51:51.099Z",
-      "updatedAt": "2026-02-06T19:51:51.099Z",
-      "computedHash": "f5efbd8477895d0f995359a6236029e8ec26ad90f8040fbc3cf98cf4aa8d3170"
-    },
-    "docker": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "runtime-kit/skills/docker/SKILL.md",
-      "skillFolderHash": "ae1a629c32df4f59e1b88bf48a84266948cdffdb",
-      "installedAt": "2026-08-02T22:12:51.467Z",
-      "updatedAt": "2026-08-02T22:12:51.467Z",
-      "computedHash": "7981245c03733b38742205de7b042158a30b139fa7c96f15dcb9fcd75ea60086"
-    },
-    "documentation-writer": {
-      "computedHash": "44bbaf85391b95256e177a96554e758bd4dfdfe2a69e005cf0a791a3e5b0c10d"
-    },
-    "dotenvx-secrets": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-security/skills/dotenvx-secrets/SKILL.md",
-      "skillFolderHash": "c8109e4cb75cfb9c77ea204024600c278405e421",
-      "installedAt": "2026-08-02T22:12:51.465Z",
-      "updatedAt": "2026-08-02T22:12:51.465Z",
-      "computedHash": "34bf2a7b125937747b19b70c155a157877d54df7141018f2b1a9638d2a3e76d3"
-    },
-    "dotnet": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "dotnet-kit/skills/dotnet/SKILL.md",
-      "skillFolderHash": "e9d64339c3a5db7fd8baedfb906a71425034385c",
-      "installedAt": "2026-08-02T22:12:51.466Z",
-      "updatedAt": "2026-08-02T22:12:51.466Z",
-      "computedHash": "b04fab1837a4648a00625e1399c0597a0649a682dba38b41bc8175c95f91417b"
-    },
-    "drizzle": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/drizzle/SKILL.md",
-      "skillFolderHash": "cfd4870ebcc7f44ce3b79c91eae83f80f961112b",
-      "installedAt": "2026-08-02T22:12:51.453Z",
-      "updatedAt": "2026-08-02T22:12:51.453Z",
-      "computedHash": "f2185bce9e6d4318e37d56d10d965f2641286e7f0cdaebef6a129f43791701be"
-    },
-    "drizzle-best-practices": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/drizzle-best-practices/SKILL.md",
-      "skillFolderHash": "9008a40ff252cb1735c54ade0a240d9def35e095",
-      "installedAt": "2026-08-02T22:12:51.453Z",
-      "updatedAt": "2026-08-02T22:12:51.453Z",
-      "computedHash": "64d0367fcdb7cedd0ed3ab959859e2ea02e3fca9d8efa804d16e029e6132a44b"
-    },
-    "durable-objects": {
-      "computedHash": "cd6797cb18f3ae8f721dfd2e5cb27b73a0aa8636683f1a38163dab2fd51a8dfb"
-    },
-    "effect": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "bun-effect-kit/skills/effect/SKILL.md",
-      "skillFolderHash": "290007465a992bf4c7608e7da7610552da5d12ed",
-      "installedAt": "2026-08-02T22:12:51.468Z",
-      "updatedAt": "2026-08-02T22:12:51.468Z",
-      "computedHash": "7523714f8db38bd27af3e8bb9d48f1cbb213ac7859a436ab50e2acaff776e1bc"
-    },
-    "env-and-secrets": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/env-and-secrets/SKILL.md",
-      "skillFolderHash": "1d45fc3b50b41205b917469191ed3f6172ef8fa4",
-      "installedAt": "2026-08-02T22:12:51.453Z",
-      "updatedAt": "2026-08-02T22:12:51.453Z",
-      "computedHash": "9899a2a3a0a17b675a42591abcd33088be96778a7377838df386d4e6e2db7682"
-    },
-    "eslint-audit": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/eslint-audit/SKILL.md",
-      "skillFolderHash": "d5ca135cb72b775e384f2117d0bc1264cc4cc1f7",
-      "installedAt": "2026-08-02T22:12:51.453Z",
-      "updatedAt": "2026-08-02T22:12:51.453Z",
-      "computedHash": "ae24a360552d282e10fbac50f5f67ea27cb5c48b58493c6c57022843c57c5133"
-    },
-    "evaluation-domains": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "meta/skills/evaluation-domains/SKILL.md",
-      "skillFolderHash": "051ebe583204ca52c4fbb838dc7573589b3e8a99",
-      "installedAt": "2026-08-02T22:12:51.450Z",
-      "updatedAt": "2026-08-02T22:12:51.450Z",
-      "computedHash": "5da08aff9da064dd5ae8ff630b5bba2a1fec60ded26ba9b925f33b13c6b8d045"
-    },
-    "explain-brief": {
-      "computedHash": "e8bff6003634bf132bafc89ec420dc441deed82f574053a4a8da2819d1f8ebc0"
-    },
-    "explain-help": {
-      "computedHash": "3398d203e867128b269a07da2aced33eb75a53879eadcd959523a409e9d60719"
-    },
-    "explain-mild": {
-      "computedHash": "f13b15497ec6a506700d2902cc4349012328f6b571484874e1bbb042aee78177"
-    },
-    "explain-options": {
-      "computedHash": "d7559dc75d2f487ffbb2400ad90ecf0c87bdfb9e399d618a3853543c15737538"
-    },
-    "explain-quick": {
-      "computedHash": "3b41424260e808d00438798563a8c58c093341d21e4aeebf34c5e4860ca42e8a"
-    },
-    "explain-simply": {
-      "computedHash": "3348b482cc57dcada8ed0dc08bd61e30ea286ea9c3dc673f86c73a847f676970"
-    },
-    "explain-status": {
-      "computedHash": "8d7b2b91e7f90aabf1bac222b05ac4364c413ad3e8cfa1e221d9c91326a263aa"
-    },
-    "explain-tts": {
-      "computedHash": "1a4bbde6b1981e1f2d7a4949aade31e83c4d79948801803bacde4aa56e64d1f6"
-    },
-    "explore": {
-      "computedHash": "756967e181885c2c7d7eed605129654411fdd084c063e854312264738793aca8"
-    },
-    "extend-before-create": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/extend-before-create/SKILL.md",
-      "skillFolderHash": "efba8a4db37c8d5a777e39cc512d70ebdc1ae502",
-      "installedAt": "2026-08-02T22:12:51.461Z",
-      "updatedAt": "2026-08-02T22:12:51.461Z",
-      "computedHash": "442344d0ecbecb4c4adbe240401f5beea17e52aa3ea0ecf65b3a2199ef645409"
-    },
-    "fallow": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/fallow/SKILL.md",
-      "skillFolderHash": "2dfbae45a5522e43b8011423d2012eebeff51e4b",
-      "installedAt": "2026-08-02T22:12:51.461Z",
-      "updatedAt": "2026-08-02T22:12:51.461Z",
-      "computedHash": "4e750d9ebd8b359614f5ab7927b9b8d261d240ac8bd31ffc680ff4656b0ece3c"
-    },
-    "feature": {
-      "computedHash": "84372e69bf46fc1590fa246848f97322a9ab26b3b2958ca4f2a561d0a6005f2c"
-    },
-    "find-skills": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "meta/skills/find-skills/SKILL.md",
-      "skillFolderHash": "87c89cb6b10ff03253f375219859f1c94a409a78",
-      "installedAt": "2026-08-02T22:12:51.450Z",
-      "updatedAt": "2026-08-02T22:12:51.450Z",
-      "computedHash": "6086e3dd37a04f0755a72460dc38af1645598b4bfa30d2be813a2c9e4b677e19"
-    },
-    "firecrawl": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "firecrawl-kit/skills/firecrawl/SKILL.md",
-      "skillFolderHash": "3afd63f057bf21733a729c2cad29cd7c3c0dc358",
-      "installedAt": "2026-08-02T22:12:51.468Z",
-      "updatedAt": "2026-08-02T22:12:51.468Z",
-      "computedHash": "4b1162816871436001bc1978f15ee171e747db8b3090eeb8e7c2f8ecff884aa6"
-    },
-    "framer": {
-      "computedHash": "aebba0ca77ad6493c09024f7553a43ba2a6171eefdf30e7f709eb6dd33dc0edd"
-    },
-    "framer-code-components": {
-      "computedHash": "5844b82aacf6d5f1e8cd253a08bb90d06f364f3dfb9e251d0307f28d8f428e03"
-    },
-    "frontend-api-contracts": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/frontend-api-contracts/SKILL.md",
-      "skillFolderHash": "4609ed9aacd50c9de8c9d4ae857815e3782dca56",
-      "installedAt": "2026-08-02T22:12:51.453Z",
-      "updatedAt": "2026-08-02T22:12:51.453Z",
-      "computedHash": "9147e1770119621bc47e0187a550f94b30bb62933acb7847aa50e737098e981a"
-    },
-    "frontend-design": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-design/skills/frontend-design/SKILL.md",
-      "skillFolderHash": "11db1e78c619162fc556b073022130dc62a231f0",
-      "installedAt": "2026-08-02T22:12:51.449Z",
-      "updatedAt": "2026-08-02T22:12:51.449Z",
-      "computedHash": "b49ace41f3825e28298f19a3543d2424f7803f1590854edb00db21a07dc30fa1"
-    },
-    "gates": {
-      "computedHash": "f09ebd6b29c7abebcd3e2bd91ea7b5f38140db423c447cc4dbe80cf3accf8298"
-    },
-    "geist-design": {
-      "computedHash": "51c7099d9eda3841dda55d180d1199b116c21cc15b8d619b21b980c332d8ea9d"
-    },
-    "gk-cli": {
-      "computedHash": "fb553e05cf57aadb4696f164f81e99576299f6706fa1dae093e47c76b9328cff"
-    },
-    "improve": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/improve/SKILL.md",
-      "skillFolderHash": "2af057393f5d5b05a2439ef3398ba0621ba860ee",
-      "installedAt": "2026-08-02T22:12:51.461Z",
-      "updatedAt": "2026-08-02T22:12:51.461Z",
-      "computedHash": "08de4ec919cf1af2022b1084b8565673cfd1e49042c6ca35766e148d44ea2365"
-    },
-    "interface-review": {
-      "computedHash": "990922d6e92eb99a2ca0fb77547ccddf4fa4532c6a8fce9f8da736d96171e2ac"
-    },
-    "mcp-builder": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/anthropics/skills.git",
-      "skillPath": "skills/mcp-builder/SKILL.md",
-      "skillFolderHash": "9173e2c2107aac82d4ca6c726d71e89d11760470",
-      "installedAt": "2026-02-06T19:51:37.939Z",
-      "updatedAt": "2026-02-06T19:51:37.939Z",
-      "computedHash": "da2bdb36dda1c37174827d7e3717bf5b689214b3db084c932c528b2a7a2ea5e6"
-    },
-    "merge-to-main": {
-      "computedHash": "98f12915379a346245c10fe1a24aede93ef766ab50051a18e4551b21c76ef0bc"
-    },
-    "mermaid-diagrams": {
-      "source": "softaworks/agent-toolkit",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
-      "skillPath": "skills/mermaid-diagrams/SKILL.md",
-      "skillFolderHash": "",
-      "installedAt": "2026-02-06T19:51:52.283Z",
-      "updatedAt": "2026-02-06T19:51:52.283Z",
-      "computedHash": "79bca3c767a821a28aa7d83a9673010b2066afa4889923ea5946153c8967e824"
-    },
-    "markdown-graphs": {
-      "computedHash": "e88b21bf140deb051aa92e39138fb11aad32572e497f94363b77d11f6e30100b"
-    },
-    "monitor-patterns": {
-      "computedHash": "23aebbecd086750cb6eaf7d983351727b7163774bc05ab85404f98fa11062eb7"
-    },
-    "motion-and-transitions": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-design/skills/motion-and-transitions/SKILL.md",
-      "skillFolderHash": "fcdbb1c15acfaea16099c41ef58b75977f7e1b6e",
-      "installedAt": "2026-08-02T22:12:51.450Z",
-      "updatedAt": "2026-08-02T22:12:51.450Z",
-      "computedHash": "f1bc8d2a817e2d137f7a27a5dadae0027217460d2766b728f8ef0d14dbfc9cdd"
-    },
-    "nextjs-app-router": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/nextjs-app-router/SKILL.md",
-      "skillFolderHash": "75d127a2c43a5eb1edfbda8bc35be5d959fbd3be",
-      "installedAt": "2026-08-02T22:12:51.455Z",
-      "updatedAt": "2026-08-02T22:12:51.455Z",
-      "computedHash": "d8deb6f5ddaeef42e060d404681930709ba6ffd87ba5f679b3c9623866733382"
-    },
-    "nextjs-upgrade-audit": {
-      "computedHash": "2a6aac88fa7fe1196c1d58a2371b0a3c24099b314da8559c7141c49ba6a19eea"
-    },
-    "no-ai-slop": {
-      "computedHash": "16719efd6dc6fe5978be7f6db41a474ca246970e5014acc057e29d7bfbd63b0e"
-    },
-    "no-comments": {
-      "computedHash": "a138164a8b41b828845f2e70b13da977ded2d78ac744a65e1da367ae078581c0"
-    },
-    "open-work": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/open-work/SKILL.md",
-      "skillFolderHash": "3638b168b0d25aed019e2a89c342eed71591e068",
-      "installedAt": "2026-08-02T22:12:51.462Z",
-      "updatedAt": "2026-08-02T22:12:51.462Z",
-      "computedHash": "b5bbf83433a0a3ae596936538a14b18f00fb273a94813e86f9407ed7bc97569d"
-    },
-    "openapi-to-typescript": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/openapi-to-typescript/SKILL.md",
-      "skillFolderHash": "d2ee21f092855bda3277c9eef912eada32d014f6",
-      "installedAt": "2026-08-02T22:12:51.454Z",
-      "updatedAt": "2026-08-02T22:12:51.454Z",
-      "computedHash": "d15375b6906e1b84e1902004f5a2b9c81f99b51b96790f1250703ebfa96009b3"
-    },
-    "playwright-auth": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/playwright-auth/SKILL.md",
-      "skillFolderHash": "757352d3817f514ebd1123fe8eb02690a812d01a",
-      "installedAt": "2026-08-02T22:12:51.456Z",
-      "updatedAt": "2026-08-02T22:12:51.456Z",
-      "computedHash": "7848a4207234f7cf056b78bdd47224aed9d0cebcb1dbcc4ca23cc598b4470850"
-    },
-    "priceless-discord-integration": {
-      "computedHash": "a6706c0dc507aeab7df4e3028dca7710ca98796977618ca11792d7ba99436b9c"
-    },
-    "priceless-observability": {
-      "computedHash": "da9a412ea9a1d97e17ee50de930d8f4a4b57b96d92684b8239f7cb4fc3d892a6"
-    },
-    "priceless-resend": {
-      "computedHash": "03dfea54724b119e30c7583bc3ee0246babd6995bac933c98e74dd10a35795df"
-    },
-    "qa-test-planner": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/qa-test-planner/SKILL.md",
-      "skillFolderHash": "05e3169c977824859572df49531db93337d5cb98",
-      "installedAt": "2026-08-02T22:12:51.457Z",
-      "updatedAt": "2026-08-02T22:12:51.457Z",
-      "computedHash": "053f313a43c335d15418bec84d6b18a5a2e05d89292590e0b66360c7dabe4d49"
-    },
-    "ratchet-ops": {
-      "computedHash": "5533f2b6cc6a05e8b90af27c71cf158888d3345830e35377bf526d0e1ababc9b"
-    },
-    "react-dev": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/react-dev/SKILL.md",
-      "skillFolderHash": "e2cf4ae3ce457fbb5f9810356c12f9e0b2e53a61",
-      "installedAt": "2026-08-02T22:12:51.457Z",
-      "updatedAt": "2026-08-02T22:12:51.457Z",
-      "computedHash": "a24025ba339c29756679063cc3b68b965d3137dbecf49e92de9602a77b8f6153"
-    },
-    "receiving-code-review": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/receiving-code-review/SKILL.md",
-      "skillFolderHash": "460cbb82eaa924943aff857288b4deb8ada4a4b8",
-      "installedAt": "2026-08-02T22:12:51.462Z",
-      "updatedAt": "2026-08-02T22:12:51.462Z",
-      "computedHash": "1af7be73cef81e64b318db0e7f3c9cbf5e6e5b30fd83363a1e1fdb354a20f9ff"
-    },
-    "recon": {
-      "computedHash": "99f7125c2e790ebea00faf9c39eb06114f8de7b7310ade811cded3606e540089"
-    },
-    "recovery": {
-      "computedHash": "3e956663ef12844f812edb26506cdf7954f3365bb29d811ea6dcfc5a2874c146"
-    },
-    "reducing-entropy": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/reducing-entropy/SKILL.md",
-      "skillFolderHash": "d8710ed1e61dbe286bb3b8cbdefeb4f23ebf8ab5",
-      "installedAt": "2026-08-02T22:12:51.462Z",
-      "updatedAt": "2026-08-02T22:12:51.462Z",
-      "computedHash": "a15feef41c13c08e7012134ee9034a0a0a46f42eaeea33bc8236ec0a7801c73a"
-    },
-    "reui-gantt-calendar-patterns": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/reui-gantt-calendar-patterns/SKILL.md",
-      "skillFolderHash": "93c084aa9edf7af79ea6c055609942900f3f7e30",
-      "installedAt": "2026-08-02T22:12:51.457Z",
-      "updatedAt": "2026-08-02T22:12:51.457Z",
-      "computedHash": "30000ca2ba195c41af2347b43d90dab6f3192882dcfee5ee7634d836ed13564a"
-    },
-    "review": {
-      "computedHash": "31c5eea170246dae1c572e96220bd23609ef82286f922216cf1511a832cb644b"
-    },
-    "ropen-preview": {
-      "computedHash": "d6721e46e49bc6115abdf48ce73d24ea178a8e8578d46dd880113a295795ca0d"
-    },
-    "runtime-evidence": {
-      "computedHash": "f7d8f240dd834323a62d1df5d187ebaa90fcbb74ee69ffc46012ac17c2d113b7"
-    },
-    "sandbox-sdk": {
-      "computedHash": "0f3501e6510921401be3f54bcb24d2a432a1b5c63af8f719eded3a087ad88ea9"
-    },
-    "scheduled-jobs": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/scheduled-jobs/SKILL.md",
-      "skillFolderHash": "eae4b79ea91715a853d2e1894ff550ede950417f93a23e7a2857aeef9280ba86",
-      "installedAt": "2026-08-07T04:24:39.000Z",
-      "updatedAt": "2026-08-07T04:24:39.000Z",
-      "computedHash": "8d019e2bd072e1c72de8d104ef5619376e54f64bc9b9fa4cbde19cc9ef42830d"
-    },
-    "secrets-handling": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-security/skills/secrets-handling/SKILL.md",
-      "skillFolderHash": "3fcab757275243ea1164dbbc1ce7554c0826a2b0",
-      "installedAt": "2026-08-02T22:12:51.466Z",
-      "updatedAt": "2026-08-02T22:12:51.466Z",
-      "computedHash": "f28b71152cb5090747bbd7f2b5d9cffd6cf84f410622adac07455026cb3c42e6"
-    },
-    "service-layer-style": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/service-layer-style/SKILL.md",
-      "skillFolderHash": "a7f1619996c49f6cb6aee979641ecd8394e78f29",
-      "installedAt": "2026-08-02T22:12:51.454Z",
-      "updatedAt": "2026-08-02T22:12:51.454Z",
-      "computedHash": "0f27af8649857c5f092f34c85e03c76652f3d461bd69d62d7b9ed21fc2519931"
-    },
-    "shadcn": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/shadcn/SKILL.md",
-      "skillFolderHash": "b4644e0629415e8669e0b57e652b30347358fbe4",
-      "installedAt": "2026-08-02T22:12:51.457Z",
-      "updatedAt": "2026-08-02T22:12:51.457Z",
-      "computedHash": "35e6e51e9ec2ca870b78f8d0bb4e8e7ef51b6d8b626474671f6bdaf5dccedc5a"
-    },
-    "show-me": {
-      "computedHash": "b245f9a98002700de6bbceb8305cd91b0452a4b5e34aa1eb0f93de413b676c07"
-    },
-    "simplify": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/simplify/SKILL.md",
-      "skillFolderHash": "1e4d7614a989dcb022cb0b3a0e74ee5ece479b15",
-      "installedAt": "2026-08-02T22:12:51.462Z",
-      "updatedAt": "2026-08-02T22:12:51.462Z",
-      "computedHash": "c5a32b6df412ae137fafd678dfa3b4c6f65d5782994ed900e5f62350775ba9bd"
-    },
-    "skill-creator": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "meta/skills/skill-creator/SKILL.md",
-      "skillFolderHash": "e93059b1650d103d77baa385a5184ec1e530e241",
-      "installedAt": "2026-08-02T22:12:51.451Z",
-      "updatedAt": "2026-08-02T22:12:51.451Z",
-      "computedHash": "b9003f274efa943f816ef246503c477dc3ff99b89aba110f536b7322d14a043e"
-    },
-    "skill-intake-lifecycle": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "meta/skills/skill-intake-lifecycle/SKILL.md",
-      "skillFolderHash": "084d40dcb3979e1cc58c299a8b1faba79fbb57ef",
-      "installedAt": "2026-08-02T22:12:51.452Z",
-      "updatedAt": "2026-08-02T22:12:51.452Z",
-      "computedHash": "8d973cb7fc4b9f7fa2c7658b16df20382be04c55a7f34e736d49feffee9aa095"
-    },
-    "skill-judge": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "meta/skills/skill-judge/SKILL.md",
-      "skillFolderHash": "8b9a3abf103833965784ee045fcddfdef39b2abf",
-      "installedAt": "2026-08-02T22:12:51.452Z",
-      "updatedAt": "2026-08-02T22:12:51.452Z",
-      "computedHash": "572ab095b35d6d0209261629be1e1bebbe02d5bd256c3056dc294d1a443f242c"
-    },
-    "state-handling": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/state-handling/SKILL.md",
-      "skillFolderHash": "5619944c0ad918bfdde1b63996912ac40a354b9a",
-      "installedAt": "2026-08-02T22:12:51.454Z",
-      "updatedAt": "2026-08-02T22:12:51.454Z",
-      "computedHash": "3598fbd55dff70038e2c05b88a55adabc764c3a3219218c833868c17b0d2110c"
-    },
-    "swift": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "swift-kit/skills/swift/SKILL.md",
-      "skillFolderHash": "006effa82ace32b20d1e19103d0ef7aa9f3477dc",
-      "installedAt": "2026-08-02T22:12:51.466Z",
-      "updatedAt": "2026-08-02T22:12:51.466Z",
-      "computedHash": "11307a3d758ff8e745c4056887168ea333ff66bf70f21c7a6ce8e91fd123d5dc"
-    },
-    "system-architect": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/system-architect/SKILL.md",
-      "skillFolderHash": "e7607085931b931699410b82fac7cd975897fe5a",
-      "installedAt": "2026-08-02T22:12:51.463Z",
-      "updatedAt": "2026-08-02T22:12:51.463Z",
-      "computedHash": "7e085c911b66f5d99155151118434c457eb29ab8492a7360a54156ec25e869ea"
-    },
-    "systematic-debugging": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/systematic-debugging/SKILL.md",
-      "skillFolderHash": "cd39bc0c3907ace2c8ed695e901a665ade489363",
-      "installedAt": "2026-08-02T22:12:51.463Z",
-      "updatedAt": "2026-08-02T22:12:51.463Z",
-      "computedHash": "648771a424d4ef5f5353414e797e15839ba57898eab2c61ab73b4c253df507da"
-    },
-    "t3-code-patterns": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/t3-code-patterns/SKILL.md",
-      "skillFolderHash": "dce4a89f4af3253f3663ae5359ca8fef6ad1ef40",
-      "installedAt": "2026-08-02T22:12:51.454Z",
-      "updatedAt": "2026-08-02T22:12:51.454Z",
-      "computedHash": "a2196f01dd0f6dda05b7b9887e274a960ee4f8eadd34d56129ee79d43c8544b3"
-    },
-    "t3-monorepo-patterns": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/t3-monorepo-patterns/SKILL.md",
-      "skillFolderHash": "734876315ae96c5fa89eefcab7f22d192255dd3e",
-      "installedAt": "2026-08-02T22:12:51.454Z",
-      "updatedAt": "2026-08-02T22:12:51.454Z",
-      "computedHash": "6abaf59be5be1533bb7921a5f50091d5ad284d3449dd91efbf9639fcd310ddca"
-    },
-    "t3-testing-patterns": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/t3-testing-patterns/SKILL.md",
-      "skillFolderHash": "3e8162307ee7376ed299a4908ee1abb8864845d0",
-      "installedAt": "2026-08-02T22:12:51.455Z",
-      "updatedAt": "2026-08-02T22:12:51.455Z",
-      "computedHash": "6e468c4ec4ba05f0333c9aa3a1114dfbe07f08d15d2f84d83c8d02ae4b65d6e3"
-    },
-    "termcast-tui-patterns": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "runtime-kit/skills/termcast-tui-patterns/SKILL.md",
-      "skillFolderHash": "e3ff82c333324d4724c10b866b470a9dac459452",
-      "installedAt": "2026-08-02T22:12:51.467Z",
-      "updatedAt": "2026-08-02T22:12:51.467Z",
-      "computedHash": "08dc512b976d2303a117755f90f4e309fb863d3b74172d4bb2fcfcdb709ccd27"
-    },
-    "terminal-browser": {
-      "computedHash": "787a460e69cbc5639061fb5e7615495b003860c8d25026a02bcc5c7e59910839"
-    },
-    "test-driven-development": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/test-driven-development/SKILL.md",
-      "skillFolderHash": "1acb9f8100a8eb4df068d8ce438d0d61c8663890",
-      "installedAt": "2026-08-02T22:12:51.463Z",
-      "updatedAt": "2026-08-02T22:12:51.463Z",
-      "computedHash": "04e4431015b3e7f8102d770c7eb556dd0bd195b3545ff2024e008b7630d7e1e8"
-    },
-    "trpc-patterns": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "t3-stack-kit/skills/trpc-patterns/SKILL.md",
-      "skillFolderHash": "f375073cca8952398612c53ff901e004f375f732",
-      "installedAt": "2026-08-02T22:12:51.455Z",
-      "updatedAt": "2026-08-02T22:12:51.455Z",
-      "computedHash": "46f5fdbeaa67bc3894e58a844d3ebecb7287292dfe41e2cbfe4cc6ebfb671325"
-    },
-    "turnstile-spin": {
-      "computedHash": "0d8df415c594c96ca5a4d393b70681d95d92365465e0eb14af3ab2eaa76d800b"
-    },
-    "ui-ux-pro-max": {
-      "computedHash": "ea087c341bfb5b23195c7302027268ede86da802554c18a5c4896a6017b439f9"
-    },
-    "unslop": {
-      "computedHash": "aaf04faa9885a0ad588316eb7aa3b08e3c9070510265477be5dede26796bacad"
-    },
-    "vercel": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/vercel/SKILL.md",
-      "skillFolderHash": "a13b100071e894a0107d29da693643b8e4358686",
-      "installedAt": "2026-08-02T22:12:51.458Z",
-      "updatedAt": "2026-08-02T22:12:51.458Z",
-      "computedHash": "c191ea7301ff432c07475028fd8f163c27de65866a7fe504cc173e38e88956e5"
-    },
-    "vercel-platforms": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/vercel-platforms/SKILL.md",
-      "skillFolderHash": "dc47454d9aac02696a7ed6dafd4790bf407e2198",
-      "installedAt": "2026-08-02T22:12:51.458Z",
-      "updatedAt": "2026-08-02T22:12:51.458Z",
-      "computedHash": "0c9e650045e06d7790eb7b6d4fe1a3b5c5067afabed884e571880c7b7c7d3886"
-    },
-    "vercel-react-best-practices": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/vercel-react-best-practices/SKILL.md",
-      "skillFolderHash": "343db72180d05814949fef7d46be96b5c6ee86b3",
-      "installedAt": "2026-08-02T22:12:51.458Z",
-      "updatedAt": "2026-09-11T13:57:24.484Z",
-      "computedHash": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355"
-    },
-    "verification-before-completion": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/verification-before-completion/SKILL.md",
-      "skillFolderHash": "635cb504e0111ce6f73a21e6fad390796a07884d",
-      "installedAt": "2026-08-02T22:12:51.464Z",
-      "updatedAt": "2026-08-02T22:12:51.464Z",
-      "computedHash": "398aa2e00695179dec9a476b82f45fcd532623688b66c9ece18a03061ccfb1fb"
-    },
-    "wayfinder": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-design/skills/wayfinder/SKILL.md",
-      "skillFolderHash": "d5e938241d0ebbfaed7d10106fd39f813c856b8a",
-      "installedAt": "2026-08-02T22:12:51.450Z",
-      "updatedAt": "2026-08-02T22:12:51.450Z",
-      "computedHash": "cd56f3384193f7bf76f54d80608ea114f48643d440f75bea3128f9bf424c11fe"
-    },
-    "web-artifacts-builder": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/anthropics/skills.git",
-      "skillPath": "skills/web-artifacts-builder/SKILL.md",
-      "skillFolderHash": "9ecbeae7c17caa478c5b753ba1bd258688075b5f",
-      "installedAt": "2026-02-06T19:51:38.185Z",
-      "updatedAt": "2026-02-06T19:51:38.185Z",
-      "computedHash": "81c5002c6643b0de7b8710b00e7a9038daa6fb9b68d59870ee6adb12da8d10f8"
-    },
-    "web-perf": {
-      "computedHash": "94c5cb37766676a8321a82861d2ac1072d3dd0ef612f0c946792014ad48fb0c2"
-    },
-    "webapp-testing": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "web-frontend-kit/skills/webapp-testing/SKILL.md",
-      "skillFolderHash": "62863fe0244bbfad8f2debda2d8124f6ff9e6e82",
-      "installedAt": "2026-08-02T22:12:51.459Z",
-      "updatedAt": "2026-08-02T22:12:51.459Z",
-      "computedHash": "4860c5a78a27d2ddca10f0ecc751c5d9d84402562363167c1f6ffee30cca0567"
-    },
-    "workers-best-practices": {
-      "computedHash": "099432ff265ff6080327ef0b392c118b835d2a5bda98a7de07e1afd115ed6458"
-    },
-    "wrangler": {
-      "computedHash": "42abe11ba6c0cb0c135deed1d591d844838fe0b61fc8c6d675a832435508a61b"
-    },
-    "writing-beats": {
-      "computedHash": "ba952c0a94e23ca2c41295dfde7bc0cc0b27d7c0b529157d5aa050f4c8d3ab50"
-    },
-    "writing-fragments": {
-      "computedHash": "e4b43b03cdd131adb0e6f2a2281ce18c04046f63e8bb619dadfa90074881cc32"
-    },
-    "writing-for-agents": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
-      "installedAt": "2026-09-06T14:38:00.000Z",
-      "updatedAt": "2026-09-06T14:38:00.000Z",
-      "computedHash": "482e371e48efc2dbb401aef7d124467f523c52b2bf9c486dedf60e2f48a7ce98"
-    },
-    "writing-plans": {
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git",
-      "skillPath": "leo-core/skills/writing-plans/SKILL.md",
-      "skillFolderHash": "a464654823c6bbe80acd127c6e3047778c74c805",
-      "installedAt": "2026-08-02T22:12:51.465Z",
-      "updatedAt": "2026-08-02T22:12:51.465Z",
-      "computedHash": "889c0cdad28e436e4b826367c4a70d95d55eab0440da50f2d9b2b8bc8436a83e"
-    },
-    "writing-shape": {
-      "computedHash": "43ab317c84a521a022decd5ee855c52e3638bb891579a1177a9d34555d591669"
-    },
-    "gk-personal": {
-      "computedHash": "613d50d515569ddebf3e11408039b76efb60dd803e221fce5f47578778d768a6"
-    },
-    "priceless-deployment": {
-      "computedHash": "a320febe2d474760581090d147513f5ca9c120b950926db1801a118ae9bdd493"
-    },
-    "priceless-dotenvx": {
-      "computedHash": "5906249ad4ef50eb7b7b52dacf62c1c92edddd852a37d42fa50d6d7bba927128"
-    },
-    "priceless-ci": {
-      "computedHash": "cff5ff03d945c8b8848273c2f8c09b0ca9941c8050dfecebca7df83bc046031d"
-    },
-    "priceless-conformance": {
-      "computedHash": "da9f95160058b81a1d111d9b5cbadd9b504bf7e6deb1ec11f2dfdb4dab2d20d7"
-    },
-    "priceless-data-api-auth": {
-      "computedHash": "cf78abedfc133b40eb214f70fe781a74a7f93247f70a7e44760478b895670048"
-    },
-    "priceless-durable-execution": {
-      "computedHash": "36f68322b0aea995ee01f18c9cc27a5429b56ea8edb7234c452d099dcc5bb3ee"
-    },
-    "priceless-forms": {
-      "computedHash": "5e3afe07605ee0019d0e4010f124a0c5705cb735bf88b3886c0695ab4c138cc6"
-    },
-    "priceless-neon-branching": {
-      "computedHash": "4972759a20d4ce4608f641a9d775adb14f7b352d40a04c0dbbb072349baa4e72"
-    },
-    "atlas": {
-      "computedHash": "36288c3d17f6dd5f940628bc5e75988f8be1b25124ce9b7abe466fd4e20ee488",
-      "skillPath": "skills/atlas/SKILL.md",
-      "source": "leonardoacosta/atlas",
-      "sourceType": "github"
-    },
-    "deploy-to-vercel": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/deploy-to-vercel/SKILL.md",
-      "skillFolderHash": "1378aa506439f26c809dbcfc61515cbd70f93d69",
-      "installedAt": "2026-09-11T13:57:24.482Z",
-      "updatedAt": "2026-09-11T13:57:24.482Z",
-      "computedHash": "cfcc3dd479ab2e0ae721ddf39b8af84d977321487672f1487c8d6855f576927b"
-    },
-    "vercel-cli-with-tokens": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/vercel-cli-with-tokens/SKILL.md",
-      "skillFolderHash": "279c8760375cb6a47a4a8a312b652b0745c6d776",
-      "installedAt": "2026-09-11T13:57:24.483Z",
-      "updatedAt": "2026-09-11T13:57:24.483Z",
-      "computedHash": "c06bea99e75eab07fde4fae26069baa002f82f39b53f07981704c2901551dd4c"
-    },
-    "vercel-composition-patterns": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/vercel-composition-patterns/SKILL.md",
-      "skillFolderHash": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
-      "installedAt": "2026-09-11T13:57:24.483Z",
-      "updatedAt": "2026-09-11T13:57:24.483Z",
-      "computedHash": "e38e0eaa609316b10423a9a138ed95e35099accd3f735585295c8a8f165c28a3"
-    },
-    "vercel-optimize": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/vercel-optimize/SKILL.md",
-      "skillFolderHash": "0901aa3667db7a6e5cc40b213327290bf6556373",
-      "installedAt": "2026-09-11T13:57:24.484Z",
-      "updatedAt": "2026-09-11T13:57:24.484Z",
-      "computedHash": "95ae2683b30d892d165af92a350c5628b68106f395a59b448857b654e306ed91"
-    },
-    "vercel-react-native-skills": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/vercel-react-native-skills/SKILL.md",
-      "skillFolderHash": "8b4c6a51914e2111ab6f4f00cb81778652aa241d",
-      "installedAt": "2026-09-11T13:57:24.484Z",
-      "updatedAt": "2026-09-11T13:57:24.484Z",
-      "computedHash": "4012750a5ccbe064ca04af3835d5d1b011979d2d09d9b6df1c8128fac58e0a66"
-    },
-    "vercel-react-view-transitions": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/vercel-react-view-transitions/SKILL.md",
-      "skillFolderHash": "13063dbbfc1b085cbc11b9bd5d4324aa2f41bb3a",
-      "installedAt": "2026-09-11T13:57:24.485Z",
-      "updatedAt": "2026-09-11T13:57:24.485Z",
-      "computedHash": "1520343c8814c972fee001cac6d6185976d6eb3f4edcac33afe95c10f3b3228b"
-    },
-    "web-design-guidelines": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/web-design-guidelines/SKILL.md",
-      "skillFolderHash": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
-      "installedAt": "2026-09-11T13:57:24.485Z",
-      "updatedAt": "2026-09-11T13:57:24.485Z",
-      "computedHash": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f"
-    },
-    "writing-guidelines": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
-      "skillPath": "skills/writing-guidelines/SKILL.md",
-      "skillFolderHash": "17d954cadfb8dec50bf0c707c9e7634be9ae9fe8",
-      "installedAt": "2026-09-11T13:57:24.485Z",
-      "updatedAt": "2026-09-11T13:57:24.485Z",
-      "computedHash": "89a5f581193289b80af58b980090aeed535047c8df2b55ccbaae0de40283a99d"
-    },
-    "moshi-best-practices": {
-      "source": "rjyo/moshi-skill",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/rjyo/moshi-skill.git",
-      "skillPath": "skills/moshi-best-practices/SKILL.md",
-      "skillFolderHash": "0a3c84e6fb5054a083103beb460e4ca14ff9cae5",
-      "installedAt": "2026-09-12T13:58:42.374Z",
-      "updatedAt": "2026-09-12T13:58:42.374Z",
-      "computedHash": "32ef3c6ad930d66734b225c94301c31a16f380ee3f1ea6440328b84c2bc13b78"
-    },
-    "jcode-personal-setup": {
-      "source": "leonardoacosta/personal-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/personal-skills.git",
-      "skillPath": "skills/jcode-personal-setup/SKILL.md",
-      "skillFolderHash": "dd905cb4d72c58a6eeafb5cc04fc03f24451c1fc",
-      "computedHash": "5fcc198ffd9aa6b17462bc6a4379248e90fd48c9f9d1c57940da41a116843439",
-      "installedAt": "2026-09-12T16:37:43.896Z",
-      "updatedAt": "2026-09-12T16:51:01.946209+00:00",
-      "sourceCommit": "dfa461b1d3f132d1aa34569cfa6229937ed7fc1a"
-    },
-    "pdfcn": {
-      "source": "https://www.pdfcn.dev",
-      "sourceType": "well-known",
-      "sourceUrl": "https://www.pdfcn.dev/.well-known/agent-skills/site-skill.md",
-      "skillPath": "SKILL.md",
-      "skillFolderHash": "49e5711db9d4fe2eb6708da281b20536e42dabb12f4af828adf509fc9e1cee9c",
-      "installedAt": "2026-09-12T23:16:07.000Z",
-      "updatedAt": "2026-09-12T23:16:07.000Z",
-      "computedHash": "f87ed17d40a1eac3002dff85879e186a193debe56016a914157e54eb81954df2"
-    },
     "adversarial": {
-      "computedHash": "cd83028d9cb3fcc1a2846cb89daaf8c375ea85cc2c44e504f90fbe172ae001d8",
-      "skillPath": "skills/adversarial",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "isZUVfxPy/Cjff9qZM8rIgkoXTBdVCQAGoprsIIRK5k="
     },
     "adversarial-code-review": {
-      "computedHash": "0a2dd48fe65cad0137526eb877870e33e3f83a8f871369a041a2d05052ab24e1",
-      "skillPath": "skills/adversarial-code-review",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "E2fo0bmR/oftEemi2K6KbZ+GC45oJCMyGhvz/75vpGg="
+    },
+    "agent-architecture": {
+      "computedHash": "pmVnNLSWnrYynbQwXnaiiQSrZc0ACZ7SGWK6TnPkx6Y="
+    },
+    "agent-browser": {
+      "computedHash": "pbiHJAj1SVlmAz5wat+yL8VDWCK8sHMHhn9hlDodyyc="
     },
     "agent-browser-policy": {
-      "computedHash": "2f3ca808f094dd34922836ead1ed1ce2358076d4dad86a2b4f69529cfb030fd1",
-      "skillPath": "skills/agent-browser-policy",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "1Ply3at9n/YfarkBL2Yrw7rj35vxq4D1ZXT4a1jaSpg="
+    },
+    "agent-instruction-pairing": {
+      "computedHash": "0i3+G+RWbHSYZhJB0rJR6yCkuOKVhRsle5zjXZ+kvP8="
+    },
+    "agent-tooling": {
+      "computedHash": "IF9rFjMTIFa48R44zHfmeL/gj7wX07Gxjg380Jy7Ffw="
+    },
+    "agents-sdk": {
+      "computedHash": "R/76Ht8N+qRskVRwKgznr7wWbZArrpPSHYx7W85ul80="
+    },
+    "algorithmic-art": {
+      "computedHash": "ssopXef5yGxETx+iEjniLg63ATztHGUhablALMlv90Q="
+    },
+    "animation-vocabulary": {
+      "computedHash": "RE0WkRWzAFbZZ5r9YppQESioP/pmYE2GXuimc1HXd/o="
+    },
+    "animejs": {
+      "computedHash": "G0DoBrPYo9NMA5Ha+YclwHLUA9b4ss/cLOBMBEXzXfM="
+    },
+    "anydesign": {
+      "computedHash": "yuDgGJe91c4wxdT7g4R5CQqcLSKEVH/LgRll70XYLrc="
+    },
+    "app-service-worker-observability": {
+      "computedHash": "EV+sh8xQ/81Lerc1yM36k4pqw/CqgVGYLpm67/s0mnc="
+    },
+    "apply": {
+      "computedHash": "NwXpOYrjuEsaNuO3b+quzxGMZD9ByJfjs8vD5F7cm+w="
+    },
+    "apply-all": {
+      "computedHash": "GuGwkvZR74qqSgAES9dmWncfuN6KSV6Mr9k+WZah3vE="
     },
     "archify": {
-      "computedHash": "10094272d6d1b4ad0f2c2e0880cb646fe4991454a2dc3d854aecb27e7407ee1f",
-      "skillPath": "skills/archify",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "uMIR1e4gFB7m1D7O69l1/DZ12FWAOBSCXWs6EtM6z1A="
+    },
+    "ascii-wireframe": {
+      "computedHash": "xDAEgCmB0ZIF8Y5FJnds1MrCFWPIyZKw1u6ILU1OFYA="
+    },
+    "atlas": {
+      "computedHash": "A9e+Kko1OtcRZmUIGcd92hXFkrPDKngheyUJEM8GP3w="
+    },
+    "autoresearch-loop": {
+      "computedHash": "OBpFyJ8BMVGlA+YGMREJPIOTF36eFam8jMtDlRyfeIQ="
     },
     "aws-step-functions": {
-      "computedHash": "c0d904aaff1031e2822e2456eb5ff2765b2018296e57ab49f8d41287336230e6",
-      "skillPath": "skills/aws-step-functions",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "cqM5P/J1YKlv1h80/MM3AjbGDabnGJGYnN0jIuCtfEM="
     },
     "az-ado": {
-      "computedHash": "9006d99c3c1210e17039bfa028334a26feb3d975b749e804fa7dcc356eb9bcd2",
-      "skillPath": "skills/az-ado",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "RBkiLVFl0PauT6KIRJyxBvbbRMVYXBZvrcHTqoWZyLs="
+    },
+    "azure-diagnostics": {
+      "computedHash": "wb0J2s1FRqjzQyz3D/Z8LLPILK16qOvaIT8SLD86S1M="
+    },
+    "azure-topology-style": {
+      "computedHash": "W9QIQy8ynvb4gvfWLvA887I9yGjxYVrJi0jtIFYRvbc="
     },
     "bb-azure-ops": {
-      "computedHash": "c7652e6bf13f15d748bbba7a47771dd1e6468af58f41fcc5cddcff02c5f48151",
-      "skillPath": "skills/bb-azure-ops",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "Yk5I5DtI5ZDS+PlRxdd0B+zBQzqCSYr+QkmAdmDRyok="
+    },
+    "better-accessibility": {
+      "computedHash": "Y62wHsD0SXab00iVih2jeBGGnBxaL8L+1u3AbFV63Ec="
+    },
+    "better-auth-best-practices": {
+      "computedHash": "DWIocg2SkWUY7THQslfv/ghmVO6Fo3W0nGO3UKKZsMY="
+    },
+    "better-colors": {
+      "computedHash": "BhXde+TBNlseEsOAsTCcfh5SH0aJ99zN456CHmrFUdU="
+    },
+    "better-interface": {
+      "computedHash": "/I9zgOum/athm3B690LTW+U3aj0aMb73ce8NVFQ0H2k="
+    },
+    "better-layout": {
+      "computedHash": "1h+EuLIyriHOK2Wvw4WCAJ2y9kQOJOQSR++r2Csk0CM="
+    },
+    "better-typography": {
+      "computedHash": "x/RWWgqUXnIkvrfQvNoWVSD9PDNuFr68NAuvMhWM14E="
+    },
+    "better-ui": {
+      "computedHash": "6OMUrVbTszB5Khqw3jKB9N00IblaFI6nbHwnKsvZH7s="
+    },
+    "better-writing": {
+      "computedHash": "x4nNMRl3uKhLB4uQxVAkKf7llCXQSH2War3WTnJjooY="
+    },
+    "bicep-best-practices": {
+      "computedHash": "VCHIDlSlJkDSLTJ3UjyOfHBs/SQ38FcC285Z4vX5O5E="
+    },
+    "blueprint": {
+      "computedHash": "l3+HCIXVKEPoF8KFRFs3gEB49fHSPSotRB8DLC8nqfg="
+    },
+    "brainstorming": {
+      "computedHash": "hyM+WXESmMAH2rHTxLMZ0YYgYVFnlPMc3JK2XB5CE1U="
+    },
+    "breakdown-epic-arch": {
+      "computedHash": "diF5OOlZoqOfG9p2WUFvh7O7Er0P4Jo9hoT4qUysurQ="
     },
     "brown-b3-owa-cpc": {
-      "computedHash": "09c57b1f4b620a02c6e23268a8bb92ec7442cb83fcbdf562d9819f8488a569b4",
-      "skillPath": "skills/brown-b3-owa-cpc",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "ob6fqFQ6k5xZW/ey7+le5MsRmhhJEJlYgfAum7Aa9Rc="
     },
     "brown-decus-postman": {
-      "computedHash": "934d2493025aec9dbfbf10ae0fbe916d25fc7a1094f9d5dbd8bd7e12bf06f8e5",
-      "skillPath": "skills/brown-decus-postman",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "OlqKYPNL67PTamGR8gqHzNeswcYhZaDPdphKUcXU5Xw="
     },
     "brown-nsg-review": {
-      "computedHash": "9f6e12c6ab13f950cdc88c1232148c2d90ccc37481cbdaefaa2cfccd8b3faa87",
-      "skillPath": "skills/brown-nsg-review",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "MiOZTU7OMopQxpkX2F8v2uAI2qYko7x7I3vRoyGRvgo="
+    },
+    "build-iterated-agentic-loop": {
+      "computedHash": "P+DylADFHeK//1QnX2hIQOZ4SKJlrzIVYyeM60PCX3A="
+    },
+    "bun": {
+      "computedHash": "w3q5lwQWLgO9mQaW/xHw5hxnIe9Muhqs9tPphio216o="
+    },
+    "c4-architecture": {
+      "computedHash": "dFvFw7f9t+iz4sktnYJmDn7Tyc9+jThW8TGG/qeeT/Y="
+    },
+    "change-disposition": {
+      "computedHash": "CfSzl4ppMkt1BzG9RKDFFG9lLc4rmY6VbQGSbj6x/Ks="
+    },
+    "clean-architecture": {
+      "computedHash": "iqL9sECfsleLz4kvc99+eKQ+7XxCQcmK0JQRCYlMFg0="
+    },
+    "close": {
+      "computedHash": "PFkVLblWuJK2g9NTtuY6S8QCBVO70D05nAQT8m3na/Q="
+    },
+    "cloudflare": {
+      "computedHash": "oazBSWHs/Br/vOL7/3jngJV3SOFWaBGaDu9jN8+488M="
+    },
+    "cloudflare-email-service": {
+      "computedHash": "Nbsi2eo5DNTSASQDXPmor77sJTEBbldWynepxxAKjB0="
+    },
+    "cloudflare-one": {
+      "computedHash": "dFK2nAJ0yS4TaTLpPK+RUy3QqIhyMOfDlLCk37P9FH0="
+    },
+    "cloudflare-one-migrations": {
+      "computedHash": "/74Z+7QJ0xRNX0ukYem46MGgjkUUzj9YlIXTgVvRxwQ="
+    },
+    "crafting-effective-readmes": {
+      "computedHash": "DotbvFmF8hJtcFpbwluLTVvVyYyS9iAQT6j2EkGGk4g="
     },
     "data-viz-reel": {
-      "computedHash": "f612bf9ed7580a949f9b3d7927c11b0c149ccada3cf9327cd3ec2446bc446a5b",
-      "skillPath": "skills/data-viz-reel",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "vQ86nyK+0DgJfmYvVtf4miobDgL5trb+5Ig+3X8vMqY="
+    },
+    "database-schema-designer": {
+      "computedHash": "kh8vbh1wjuvHLPh/2LWo1nBm1abxCTrPOW+iRbNzN84="
+    },
+    "datadog-cli": {
+      "computedHash": "WK85uq98LxNHJCzlfz4b7bIl0rLYIX8CzRtOoFL2mek="
+    },
+    "deploy-to-vercel": {
+      "computedHash": "IvEc+AUsIKD7zQYktEpk3Kig9innNt7Gz3kBZ5pjaE8="
+    },
+    "depot-github-actions": {
+      "computedHash": "LaREVLFGzwEud6VQ5WANKdSUwK0+U1uth/RPYDs2Cug="
+    },
+    "design-control-loop": {
+      "computedHash": "vI8Bxn1h+ydfZZVIlJHByOlf1bfnouTq4K8+b/dMEBg="
+    },
+    "design-system-starter": {
+      "computedHash": "4gpsbU0jg7fRUfpwTao8cDq1oW0oQ4guzIII2UOxqKM="
+    },
+    "docker": {
+      "computedHash": "aJ6VDF76TdiGwFnX9Z9LrLDvxLxAwrShkACKcNDp5FU="
+    },
+    "documentation-writer": {
+      "computedHash": "dXwXXFPc5qnLJ3rD0QNRm3hzr8nWRsq0pXI56fImzrw="
+    },
+    "dotenvx-secrets": {
+      "computedHash": "5GEbnhCM/2eLLt8kEgOS9apfj++QJKsmMfyI1w+8EOA="
+    },
+    "dotnet": {
+      "computedHash": "WHeq4jnfvS/3TTSD9UYU1eTN1AkCD2ucBMVe6a042OM="
+    },
+    "dotnet-architecture-enforcement": {
+      "computedHash": "jXagD1GkpgkGLgTm5ZHxS+l3LOK4ZVWLQpJFNCtcn4Q="
+    },
+    "drizzle": {
+      "computedHash": "Pf77qvAXgbPygfLoX7/ivegzwOB34QWlCjvynrRGx0E="
+    },
+    "drizzle-best-practices": {
+      "computedHash": "pygtjYIgdaswLKcFX3XajjTX5ALx3d2BVN9Y9dtstRk="
+    },
+    "durable-objects": {
+      "computedHash": "snrq5M1XojjHGrgZA7+kEu4bd3u3yghnWUMJ4xuXr6o="
+    },
+    "effect": {
+      "computedHash": "E8Jz+45yDUmOuNMTRjymV67fqaTORWZEAot3Cs0KIE0="
+    },
+    "env-and-secrets": {
+      "computedHash": "MvgAYQZvQj+k1kE+hLkWxceax6txJj00CwX1bI6h8k8="
+    },
+    "eslint-audit": {
+      "computedHash": "IQPu6p4nn19JMxvadMFPiYrcV6pDQbNRf2GwKR+ZCuw="
+    },
+    "evaluation-domains": {
+      "computedHash": "XU4C67LScXrMELfjBwVdgMpShExbw2peE5gPfMvx/co="
+    },
+    "explain-brief": {
+      "computedHash": "A9f2R+RQBJx0VZbJWgrGfJnaHkWImBtTypJiIcxNqHo="
+    },
+    "explain-help": {
+      "computedHash": "Y72xOtmuMCGYYMaXKfUTGUtKDQO8JywzaNOtovFUPzE="
+    },
+    "explain-mild": {
+      "computedHash": "BOgAII3hLbxjRtavKH6LJS5mThelsptWHr1COkghKXw="
+    },
+    "explain-options": {
+      "computedHash": "jsv1m5cHkTa3ZGEPHxtZnkw7YEasXAYcMSpQzCPQrKM="
+    },
+    "explain-quick": {
+      "computedHash": "T9TGHyPbbUQnFkqxVMOUsqZAN2ibAxKprEW3Lv5Gm8g="
+    },
+    "explain-simply": {
+      "computedHash": "Y2IH28NgfuM8W8BultNoQhYavNCUfbswUfksgW1D9JY="
+    },
+    "explain-status": {
+      "computedHash": "fpuKYiXtS8jH4yrzjGWGz6mf+eeIp0B/cQoHmlPWUwU="
+    },
+    "explain-tts": {
+      "computedHash": "+K4LjMwB/h4/zGZg1MblhfdgpCO7g0U1ozNQ6am4StM="
+    },
+    "explore": {
+      "computedHash": "+1+79knYC5mtDJ8hPzxY6hNrUfmznFOUJ27+jLBGkDk="
+    },
+    "extend-before-create": {
+      "computedHash": "AQ1NJ9e1ffFRa2IT14q4tKYpbgRdor2tN3DJJV1lQjY="
+    },
+    "fallow": {
+      "computedHash": "NuF+zVi5H/PKb7LkCv5MWmYUBUfz2gvkBzrhxbuOnQ8="
+    },
+    "feature": {
+      "computedHash": "NsuncQvUU7MnFufKbtAAMHyo9dAUiA4oEYCC/wM4rRw="
+    },
+    "find-skills": {
+      "computedHash": "QKMTxOodrZaVyKzVmdlAc2pANVm9D2gTsYWI0Lvs0x8="
+    },
+    "firecrawl": {
+      "computedHash": "vFa70JlMiwQxUVVmaEkgb2dUUI+Y3OPRNIu+UMhps/Q="
     },
     "firecrawl-agent": {
-      "computedHash": "06a98afae501172e0fc68d279ad9d157dd092672c54cfc667020fc184e540e51",
-      "skillPath": "skills/firecrawl-agent",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "UmCXMfYcKssMS8qLoiEtB/8D2OFYw45pKkZDHWwIWyg="
     },
     "firecrawl-build": {
-      "computedHash": "6c52fd79c4322ba9f0cf560fc28c9c9ee961d1cd0d930b7656b61449ff693d2b",
-      "skillPath": "skills/firecrawl-build",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "YlKxT4sHmYyNwPHSiVaxIVFVhUXaVleTNoA+iVz9W3U="
     },
     "firecrawl-build-interact": {
-      "computedHash": "cb28225617a633afef90b03a928c4d22b64dd1672b5c41f98792577df1c2bf84",
-      "skillPath": "skills/firecrawl-build-interact",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "GCayieMzincBE+zPnxSHOcwmzB7XvLH3S9IrFO9x3E8="
     },
     "firecrawl-build-onboarding": {
-      "computedHash": "cc8b77a25f924343f6363bacb2ac6f0fafa00780ea94165dac86ab83f688626c",
-      "skillPath": "skills/firecrawl-build-onboarding",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "09qD0vK/WJJ52Vaus77caIIlX2MyN8xfoY4Alk5Rra0="
     },
     "firecrawl-build-scrape": {
-      "computedHash": "d8cf8df8221b8d8216346ea4b70ea714f89bc62c4686ab406b115c34227386d1",
-      "skillPath": "skills/firecrawl-build-scrape",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "Mfvlci+ttuZwtF32cOz2T9cDZ1wKCcY5iueAf9Low5s="
     },
     "firecrawl-build-search": {
-      "computedHash": "3a59f9b9686b786e080a7a8aee5092e0587f2180cea3618f1435343969987dff",
-      "skillPath": "skills/firecrawl-build-search",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "0/BQ77PjNESJ6rZe9ml1FkumsOFHyrhUxZ/niKt+dYk="
     },
     "firecrawl-company-directories": {
-      "computedHash": "a270d3d9172e0048879a6e703f3815f85b90dbfff72a059a864b82ebb3fa2e95",
-      "skillPath": "skills/firecrawl-company-directories",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "nT50s/H2egqSkWVBAjPVfxGylh6RQ1zU38i6GJPxjqo="
     },
     "firecrawl-competitive-intel": {
-      "computedHash": "a73942c75fa84a520b858ad5eff72550e1d8a21824be27e36d5ba544e2c18d15",
-      "skillPath": "skills/firecrawl-competitive-intel",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "b7PNFtLcisXsr5Ix/qPJrQXL6sGpZju5vsnetjrl9sw="
     },
     "firecrawl-crawl": {
-      "computedHash": "f4f2b262564c1532fa210b29fe783213fd41c5a1169b0a7b43c3dfb5dbdd706c",
-      "skillPath": "skills/firecrawl-crawl",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "2xTQkSD8oBuwC7+NT0+9R2I57Qs8zTb625qVlhTJ2to="
     },
     "firecrawl-dashboard-reporting": {
-      "computedHash": "ab9605d8576967f0203fa60379ba87ff4876a866f43d227998da473ee6d0815e",
-      "skillPath": "skills/firecrawl-dashboard-reporting",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "qNTTFVSwBZ5ZmEvTJGQj076nPmaUY0Am02f94jMFdfg="
     },
     "firecrawl-deep-research": {
-      "computedHash": "dfd224ee3eed753bde0f4eb1e4854e4f430a3c17a6c1b4a81664986eabe2dcb3",
-      "skillPath": "skills/firecrawl-deep-research",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "Ib2xE7eJxw1Dm6KME45d96uS9Jg8MjvdpfIwFbiVey8="
     },
     "firecrawl-demo-walkthrough": {
-      "computedHash": "8d32a50f6b2b66a78db69e1bf68f9e7e9fd51e5cc5ea62bdad025ddd79745a8b",
-      "skillPath": "skills/firecrawl-demo-walkthrough",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "OBydIRt4hWschqzWfU6T3Wk2wy3cjH3kwprPNDJoZLA="
     },
     "firecrawl-developer-index": {
-      "computedHash": "724d69f12fad2b6db2d55394d15baffb464a7b71a342ccb884aad185fe31f664",
-      "skillPath": "skills/firecrawl-developer-index",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "xt0IujmMQAs57WuAZhqZwZt04TmzCsqI59Hbbv6O998="
     },
     "firecrawl-download": {
-      "computedHash": "1127c7d3977794bcb8618e218d0d07a1cfda59da5ab4d9f52a731c45292807f4",
-      "skillPath": "skills/firecrawl-download",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "hLw1tbrsvwKbN/JSehRP/jP04n8+qxvY1kCKNdyHt18="
     },
     "firecrawl-interact": {
-      "computedHash": "548d891f416070c22d8dfb2347b1a5baf92b3fc3b2ee676e6fd09295b8344a57",
-      "skillPath": "skills/firecrawl-interact",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "6w7/+0zsEhI5WGGZ5GVIejBQv3sVR4bFqKFEeX6QhxE="
     },
     "firecrawl-knowledge-base": {
-      "computedHash": "33ec3a6223b07f7dd486e08d829ed3be68bf5e4ad29ccdfcdf26d2058f043723",
-      "skillPath": "skills/firecrawl-knowledge-base",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "8VNPMiem/2h8clg31HvtEB9LrQiXuKAKrS4qTbib2DY="
     },
     "firecrawl-knowledge-ingest": {
-      "computedHash": "2b8cbf4b0faeac3941c9a8ad73677ebdea5f10058b4d630b20b05c150d8ce2b7",
-      "skillPath": "skills/firecrawl-knowledge-ingest",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "mSVvbPriRyNAD0wM2FxHDo+S15QLHalfFmULGm1m2Bs="
     },
     "firecrawl-lead-gen": {
-      "computedHash": "f009c55a3f4d3b2cb11205cea485be26277be832a6c956c8aefa1fd5b97c3309",
-      "skillPath": "skills/firecrawl-lead-gen",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "6q8OzTQbF2ML5ODJAgH0J5PykobgdlxmSFR8/Zem+Nw="
     },
     "firecrawl-lead-research": {
-      "computedHash": "1b52c42404c564aeb3a6a221165792f1194470b8159a6e89f9578d72c820ee84",
-      "skillPath": "skills/firecrawl-lead-research",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "kh+SsuGS4gqsN5t8S+/zI0uzpwem+Ekx20URjlZuLuw="
     },
     "firecrawl-map": {
-      "computedHash": "0697e27b5cafa11987235415c556b625e04dd562a295468041d792ea42af06b8",
-      "skillPath": "skills/firecrawl-map",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "UIeRm4QNhlTtE5QCp2bhSpWSHLu3CWdev2kxvsDcU4s="
     },
     "firecrawl-market-research": {
-      "computedHash": "9ec1040c5abdead2efd5cd5c996e41a3ae36b7716f558c0aa9444c1944cbc5dd",
-      "skillPath": "skills/firecrawl-market-research",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "2SL+kyqBS1wzBahjnODMrQEI9G6cPd6mxN7Dl46KhJ4="
     },
     "firecrawl-monitor": {
-      "computedHash": "78547a04d0481497d0ad5ed7e8006b66a0f9168367f70ead75838240c470ffa1",
-      "skillPath": "skills/firecrawl-monitor",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "gIMjTukpF1YaYdoux8JhdWT1zzOrLLIGvZERwSkcpV4="
     },
     "firecrawl-parse": {
-      "computedHash": "bb6a1aba463de0b11314e3a63067f8c414a85019248f3de3f753de07e1fad700",
-      "skillPath": "skills/firecrawl-parse",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "mdy54F+GMj/kYBwCojQ3LvB4FbLTMulBlnAnqId6mTw="
     },
     "firecrawl-policy": {
-      "computedHash": "0ab2768b6f7b9c12d9bd7cfdf3d32c0e869e32120991965b3d4d10b01128831b",
-      "skillPath": "skills/firecrawl-policy",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "yfCDiLI3OwLcOTwkUt+wt5aWQjScjcwNPGxxubTLTFs="
     },
     "firecrawl-qa": {
-      "computedHash": "f8f0c23d22f0440c0486fdfed27d82a06cfda7eb62da1d0ba21b2416595d0280",
-      "skillPath": "skills/firecrawl-qa",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "n6/c9yMCj1wAyBHFeJ1h1Ue/btiW2KtaRzdSsRcOIHM="
     },
     "firecrawl-research-index": {
-      "computedHash": "39c6a6cff3fdb1c684c3212834e68bc6168f374b57d3acd002523b8c4fe3d07a",
-      "skillPath": "skills/firecrawl-research-index",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "+LhZBNUyhyR9TNtXM/O4iwj3D2p1331gbUYMzIVOico="
     },
     "firecrawl-research-papers": {
-      "computedHash": "e93996e2209ad5927fdccac011c7b68c596cae70d17334f3e48cb880015088cd",
-      "skillPath": "skills/firecrawl-research-papers",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "fbvr4o5phOp45XOhcAFRMtcZ053suNn7P17vyG/eWxU="
     },
     "firecrawl-scrape": {
-      "computedHash": "46ba76f60d9371e0bd91b8873c5570e9b689883cd4cc709893bf16dc62783ea7",
-      "skillPath": "skills/firecrawl-scrape",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "p/KmT0EwSyeVtjK/EnEWEZxWNr33gQog0e03XWy3fAc="
     },
     "firecrawl-search": {
-      "computedHash": "2d782f5da2f905178f7773c9d3b18b15331b0892d6d1cb678d166dc672ac41f5",
-      "skillPath": "skills/firecrawl-search",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "zRNXEoW6Hy8aCPDTeG2sRDD1Cs52mFgXt8fdvyduuqk="
     },
     "firecrawl-seo-audit": {
-      "computedHash": "a04bf7f3806fef718e48ad05ad20d38548410b2d51b92a4ad43cd8838068e0bc",
-      "skillPath": "skills/firecrawl-seo-audit",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "VnHXko5UG4/1P/83hx19p6CCzIHXtsoxvY5J+kC1vz4="
     },
     "firecrawl-shop": {
-      "computedHash": "aafea0f0ecdf3a098492635b5f1a24ff4b8cf339945170beee8b75ce12ff4f0c",
-      "skillPath": "skills/firecrawl-shop",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "cTFQmbntHQ64bIG2GUgfmd/jqV5FwaJR9KBbhXX5ClY="
     },
     "firecrawl-website-design-clone": {
-      "computedHash": "94b1beac10274c974396a9289d4ae6e28e6cd0f09cd7d273dd0e85c2dd2f7787",
-      "skillPath": "skills/firecrawl-website-design-clone",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "ZM9cvOvrSIvCL8qS8rSizF2M5Pm0pj7Gnv4GZnQiqO0="
     },
     "firecrawl-workflows": {
-      "computedHash": "eb2ec7d253afa2cf29ce306f7b4633add06acc4ea32ab8a2a97d8a652eae8790",
-      "skillPath": "skills/firecrawl-workflows",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "iP4cZz7LPxeRVDOjJeJgDfIAPMIdzTEHoWiS0JK7v7E="
+    },
+    "framer": {
+      "computedHash": "b621LyQ+/135hpZ84PlZAf+LaTW7BglwSJDmDvixRv8="
+    },
+    "framer-code-components": {
+      "computedHash": "IlPTGILgFb2XQ+oyMuc81IJm3gv7GeX6ZksS6VAItJ8="
+    },
+    "frontend-api-contracts": {
+      "computedHash": "xRyP5Bfd3ijcPWJLSy3DMJg3DpJV/rC8pLght2sopgg="
+    },
+    "frontend-design": {
+      "computedHash": "jCYmVneH6YzxzMM016v0STNz8cwvDJEddrvoScdei1M="
+    },
+    "gates": {
+      "computedHash": "TNixeXfehU4phCa4WT6tYojdDeFDjYHUXpUyNKbz8N0="
+    },
+    "geist-design": {
+      "computedHash": "T1YKNViNDV8mXGAngOCPnFf5dzQduCLbVimqkb6skVo="
+    },
+    "gk-cli": {
+      "computedHash": "f8QF4LLjJKPdBAvWDvxwjmn9799VKNejj4AAmP22s/0="
+    },
+    "gk-personal": {
+      "computedHash": "21tgZem28gUe6mvzTZl2pZ3554nO63HBLWFEVmu4kp0="
+    },
+    "go-architecture-enforcement": {
+      "computedHash": "ndbApblS4visk3vfYrJsLKstuE2qokLVkrAErdz9wNA="
     },
     "godot-state-machine-advanced": {
-      "computedHash": "c495d8d21f4c763dd4aa9f61eeeeb740ab7f23da7a6c245d66456bd92fa26bb1",
-      "skillPath": "skills/godot-state-machine-advanced",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "GEXtmnW/HkdRyzpW7/x9KCBfxP1Q4RIyydifubUF9UE="
     },
     "herdr": {
-      "computedHash": "25a68bc36d9309048db89e7d168f2e04d1689d734c5d72cc3688bf4ff9db1e9f",
-      "skillPath": "skills/herdr",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "x0ETTMIjcsCNovRp1Jqsn5u93U9eHaBVjPETKDb6Moc="
+    },
+    "homelab-postgres-lifecycle": {
+      "computedHash": "L+iRIgOQ9wTAf1rEb2V65qg8WP8oJyN/pEV6o9IBngQ="
+    },
+    "improve": {
+      "computedHash": "dV+EQ74CFJB+y7WniCZ5hpjtS4eImuejcoyQ9Kli4+8="
+    },
+    "interface-review": {
+      "computedHash": "twPopYBX7ht/q4DOa2U4XojvUu0S562NxrzrSUhOmy4="
     },
     "jcode-handoff": {
-      "computedHash": "ea26b6cd4243be74b996de864ef77c9c3983d84746dd5349249c362fc8de197a",
-      "skillPath": "skills/jcode-handoff",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "1xPrTVZvQFosRvtQlWo5jHM/+1HrQvYeoINxnkpTVsE="
     },
     "jcode-orchestration": {
-      "computedHash": "e629708a79aef385cb6b1ab4bd8d0b9bad7e815a37c95f511bd04d7a61cd853e",
-      "skillPath": "skills/jcode-orchestration",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "hvxQk39yqu3F6+fnf5EvgztWZMQ45YbYPmyNxC1o6sM="
+    },
+    "jcode-personal-setup": {
+      "computedHash": "lLdc7aQq2ZuzpspxM/X7jRxHiKikg10b5kwKkzA5+r0="
     },
     "journal": {
-      "computedHash": "1fd6e8820cb3b1e762530cc10253bdc513283286b89bf6b74d40145e22a87fbc",
-      "skillPath": "skills/journal",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "1C0xVGWJpklqRJUaLTeDrBn9BP1k57JIfxP/iTSDx20="
+    },
+    "markdown-graphs": {
+      "computedHash": "q7cmvxL5bs50kMjaaeky2Hh+SoIrOOHWa6ztfuZG7ZI="
+    },
+    "mcp-builder": {
+      "computedHash": "CdvFMEEG+ZkzWB+QtRgWV6PxmBx63d8YgPuOry41c3g="
+    },
+    "mdxcn": {
+      "computedHash": "49oU/4gE+r8aZWddHca3aVkLMXcZ2z0h9Sej4DygUkE="
+    },
+    "merge-to-main": {
+      "computedHash": "VBJBGA6nnrl4sFM67+guFw8iGmASRBJt5zIGxZXnCVg="
+    },
+    "mermaid-diagrams": {
+      "computedHash": "C3Pia4xv1rzpTfsMwrjUplKA9j0mefntRP/yx0Qly1k="
+    },
+    "monitor-patterns": {
+      "computedHash": "JYtZUT/W3g7nl6I67GygY7lpVL6r9XxzCbue5B5Nur4="
+    },
+    "moshi-best-practices": {
+      "computedHash": "LqNC3BnxB7xF5BrY7zRVgiXdEOW14MaF7G6UylCKRpk="
+    },
+    "motion-and-transitions": {
+      "computedHash": "Xh74zYEraYuUTN9wAfyXsCIh0DDm0fUZfmE7CdIvccM="
     },
     "neon": {
-      "computedHash": "baa0dcec420927321b29a915bc67cb0c618f1fe85f3be7fb1dfe78b1d9eae666",
-      "skillPath": "skills/neon",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "KHbrS7n97+fKI4dEA7y8TBD2HD9ofxZeaHvDTvk/QuQ="
+    },
+    "nextjs-app-router": {
+      "computedHash": "cCf9r9vYKfNYly/4IApi2AqeiE6R+XdFaCbwZq4v2+c="
+    },
+    "nextjs-upgrade-audit": {
+      "computedHash": "7LrYkApzJ8nODCaGQkRtSae7/Vfm5Hp1LnnA6EilPTs="
+    },
+    "no-ai-slop": {
+      "computedHash": "xcTEIEV9MLtZGgEdTAwtOjn/coC891oNHG1ZVEM4dpg="
+    },
+    "no-comments": {
+      "computedHash": "vRmDktSF1c7TzTui1nJya/Gn1qcm9u5vMW/aZ8X08Po="
+    },
+    "ntfy-homelab": {
+      "computedHash": "MQSXa53Nbp6QfWUVQs/G/1iafowFAC+GFk8CBYg++3o="
+    },
+    "open-work": {
+      "computedHash": "4TlCCzqbMiKVqRX6dM3dylqBCepahZ39FgYjQ717SCY="
+    },
+    "openapi-to-typescript": {
+      "computedHash": "Z3oUlNSvjam4tKgxeBdFOS6Uef34pH8kXSjj8vjdpg0="
     },
     "optimization": {
-      "computedHash": "fe0427bb421c2ea1089aa7af2b0f0d59242e876926a83b9a73359641e4f7fddd",
-      "skillPath": "skills/optimization",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "2jggyJql42PRjWMsxYgksIr7SFPGz2kwdttrZ4APy6g="
+    },
+    "pdfcn": {
+      "computedHash": "InaSd4yOQYVxfwandgogJRwpbn6bQKwrdq8YXGw48Sw="
+    },
+    "personal-git-deploy": {
+      "computedHash": "3qoeR+h5+MbOLP7iXjSaOzWw0NJiJvTjEbImKNymfbY="
+    },
+    "personal-one-runtime-manager": {
+      "computedHash": "ye0E2/QHLSSSnygmOaBWdfg4BLOZTKW1mtOp97DS57k="
+    },
+    "playwright-auth": {
+      "computedHash": "xvJHaOwtm/3YFBDYhbV7acn/aSMhWAxxpX/zNH56T5I="
     },
     "ponytail": {
-      "computedHash": "4d004a7499245e5a1131b6a5489cf504952d60090776df86ef6fa135f1443a65",
-      "skillPath": "skills/ponytail",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "43ca2nFgMs7yddmZhUdmbGI75MBXe1DLNZmV4XCWfPY="
+    },
+    "priceless-discord-integration": {
+      "computedHash": "iCPlvYMp4cJLAREnngxqpAEdZ+ifqPd2Ldme1skQ/8k="
     },
     "priceless-jev-triage": {
-      "computedHash": "8bf3833db7a4ef776e0eee3666b0209debd450095e426aebd2f6987c1918cb80",
-      "skillPath": "skills/priceless-jev-triage",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "jdmXOSi5xRIODpHKnJyY8GF7b2NoQvTlDq09ik4Axqg="
+    },
+    "priceless-local-development": {
+      "computedHash": "WA8QvK1uOBuNIqnepYl/iAiIHzoKxMl874pTFTkNzwo="
+    },
+    "priceless-observability": {
+      "computedHash": "w5PfjkMNek/rJoLkC79UmGgEVxhiL1FySCCwjOiI04g="
     },
     "priceless-page-inventory": {
-      "computedHash": "cca4e11253445033f11d3d6c78d9b7fec98595f5f7a783f9547fcb1a62b5be40",
-      "skillPath": "skills/priceless-page-inventory",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "Tf2Q0FKPZyEwvH1JKgN6Co91J1JMLUEOHjp5RlgYan8="
+    },
+    "priceless-resend": {
+      "computedHash": "tbLFUSt9A+W5OmiKZqU/m/W+6INadtLT4w1XXMZmylw="
     },
     "priceless-test-categorization": {
-      "computedHash": "64654aa30df6816aaacf1b6a10e8e45399204e6bd04b2ab3c000661c530318b7",
-      "skillPath": "skills/priceless-test-categorization",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "VBGPj3FJR2STUfyY7rNt+uawZZnnUZOT7QVO+vtRnYA="
     },
     "priceless-vercel-tokens": {
-      "computedHash": "28924796076f7f1c746de7506502d9376ca5154447a61da4c12a2338b828f894",
-      "skillPath": "skills/priceless-vercel-tokens",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "yDL47Yn/d55+GxDa3zxm7DceR0sgsunj/8dL1TWZUgQ="
     },
-    "priceless-workspace-commands": {
-      "computedHash": "2fc4d77556d3c1296ea7c7612307d1ac9aebca39f91d0231b382bdde8f31a0e9",
-      "skillPath": "skills/priceless-workspace-commands",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+    "qa-test-planner": {
+      "computedHash": "47vBPdwJdKeylIAM2aE1ztP8rT0In5FBCIfWlEkW8oo="
+    },
+    "ratchet-ops": {
+      "computedHash": "wXGghwH2ADgVLycaxcGznzCVvCHXt41Dvm9ysWx6d3g="
     },
     "rate-my-code": {
-      "computedHash": "6f15bd39116544196459c786992e1f52918671f9c33485a9874de25507480c7d",
-      "skillPath": "skills/rate-my-code",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "PFt1udl/Eb68idvpRCepIWlfGH5PesZd63PEVtrWhdo="
+    },
+    "react-dev": {
+      "computedHash": "xmkXsu48ZQCyAp3usvnsCM5MH751qIDEiySVEgLuZbg="
     },
     "react-state-machine": {
-      "computedHash": "46df5fdb7d8aed0fffc924daca1eee542274a053c9bc77a8434be7d1b86a326e",
-      "skillPath": "skills/react-state-machine",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "J7H0CpZbIjl1sqnGMw0e8AbUNjgAInrmshaI/vlP76c="
+    },
+    "receiving-code-review": {
+      "computedHash": "9GCOSQ1yme4VR0a3epc9ljrUZl8nh5bGaJPlNwKCM7g="
+    },
+    "recon": {
+      "computedHash": "5G6uRZR8FUhf6VQfIXpIc9tT5N69kYBImHj0oaQn6RU="
+    },
+    "recovery": {
+      "computedHash": "skP+Za8yL2+T6rrM8L8NSRlCBxW945FtHHlw5uBuLaY="
+    },
+    "reducing-entropy": {
+      "computedHash": "Ge80VbGkvMTlcQ3w/PpzVAjosMo1viE9nRk1d1eIz7w="
+    },
+    "reui-gantt-calendar-patterns": {
+      "computedHash": "sZFmI0htaemFavWlOyRyp3t5qtQcTC87qBVRWsi16T0="
+    },
+    "review": {
+      "computedHash": "bJphF2JQxevW4N8kaqI2pTe3x8Qz7KvulnYllxvLHfE="
+    },
+    "ropen-preview": {
+      "computedHash": "nD4Q9pE13M7BbJFxEXgzG3XvYZ03DVurypPEZlplBwo="
     },
     "rtk": {
-      "computedHash": "cca8ccf7a002cefc9a323739dde0433dbe2c38d9ac789eeb5b97b7c92fda3973",
-      "skillPath": "skills/rtk",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "HiFqQ1KC3jC2WNnChZqrEPNz1mxk+rpIUtwzX+noj70="
+    },
+    "runtime-evidence": {
+      "computedHash": "tspkWqgCQhgjMMlOOd5rAJbFxW19JrLZDKl+5eF74uM="
+    },
+    "sandbox-sdk": {
+      "computedHash": "qHZLaMzAq8zE0qDewqDdNq8dTyMIffNeu93tT7wm5Ro="
+    },
+    "scheduled-jobs": {
+      "computedHash": "zWKmbXkFePmHZVWuRAzFUk5E2gCkCBxp3NMliHpb38o="
+    },
+    "secrets-handling": {
+      "computedHash": "GQ1M1vLRjLxIV9s5EYhm7dJHuM0Vrc4+s5xlDl0nbAQ="
+    },
+    "service-layer-style": {
+      "computedHash": "mX/ITeDTB32fac1V5VUX1VOCWuPRMfMujBjlWIoyPKA="
+    },
+    "shadcn": {
+      "computedHash": "IujkxPNql9KrIWlPJj1tP7fhLyJZSLKOs9jTFlSYTfw="
+    },
+    "show-me": {
+      "computedHash": "ZfeFUMfSRl3NIVXen6QrKFBspKUOYWR3eBsmvrnl2q4="
     },
     "show-status": {
-      "computedHash": "c48e90fec983109f11eb9efde283c9d1ecf7b56c313b24e819a4660abadd639c",
-      "skillPath": "skills/show-status",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "A3/lRDBAE+VCbkJDwdWzWW961J2OvPkRzAa9ToZz5AY="
+    },
+    "simplify": {
+      "computedHash": "bgMScw78kzpso+lOdu9Iowm6SUEb2uVIxu1Ubbn2Tqs="
+    },
+    "skill-creator": {
+      "computedHash": "HxxwToPbBV+xqimEOAnJwxUtTiJCz0Knp1Lp3P9FmdY="
+    },
+    "skill-intake-lifecycle": {
+      "computedHash": "105YQbQDD1wPp3mRvHKWQ1EastOv+jE1fF5sfTBDyMs="
+    },
+    "skill-judge": {
+      "computedHash": "HueIyXPYMjUgNI+2jRy2RJpa9Ep0D5fmHuMtWoeB0u0="
+    },
+    "state-handling": {
+      "computedHash": "9i11+kcFMdVBTpPUzJ1S0eNKs22wrX3vryjB9Qe1mj8="
     },
     "state-machine": {
-      "computedHash": "549c21f46aba237f6f5f340e7429e5bc69b8cb8f6ddf58c3e7ffeb92437c28bf",
-      "skillPath": "skills/state-machine",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "hJz6/wRq7Ekj6wi+Z33OtzIwfXv88kYdvz2x5sRt8tU="
+    },
+    "swift": {
+      "computedHash": "lCwYNS0uzODj+7tkqTsDSKpZKAj/mFA4hv/zPGPvJds="
+    },
+    "system-architect": {
+      "computedHash": "JO0huG2+i2YL4evYgL+xha5chG8j+8nNj69b3CEEQnA="
+    },
+    "systematic-debugging": {
+      "computedHash": "xZ3HbCRCuo475Vm4mNTELYOfQW4cQjexSO10Zl1Faq8="
+    },
+    "t3-code-patterns": {
+      "computedHash": "67TYBxH/t7Dt8MhH5iSEqdw+kvx71g59qexkTEYjDlg="
+    },
+    "t3-monorepo-patterns": {
+      "computedHash": "KqpX1xZwMxmID1qn8AAiexKkdDzaMIqImbso0t/RyLQ="
+    },
+    "t3-testing-patterns": {
+      "computedHash": "RTzmFUy8SKjOLqhqyn70Q2u5dROnNWgxdSIJiwo/LPg="
+    },
+    "tailscale": {
+      "computedHash": "Zq2KkTBtDBStfl9IYHuBy7fu39FsguwX8uWzzqOXrBo="
+    },
+    "termcast-tui-patterns": {
+      "computedHash": "v1l6Xptb920BkoK2T4R1XlJoaMrYMnNcJfUbjnEO8DU="
+    },
+    "terminal-browser": {
+      "computedHash": "1QNNqMhTt1kqk0vAW0VjrdZGejwQxX+xColhv+C01uo="
+    },
+    "test-driven-development": {
+      "computedHash": "jAvlIRAKbm9tkdmT3e8pPO7nreSCXxOmrrPM19QjX5s="
     },
     "tests-adversarial": {
-      "computedHash": "42ec8c5997b767334f24ea013092cbbb63c9edabf74124c722e8b624cf7f6c15",
-      "skillPath": "skills/tests-adversarial",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "nDg+lPs+088e792LaCDOdMB8LuYOsybeVb7UWMXevw4="
+    },
+    "trpc-patterns": {
+      "computedHash": "La/0pXC+HUIVNyu//HcOwiA8uwu1CNP8IUm0nwYsTB4="
+    },
+    "turnstile-spin": {
+      "computedHash": "WaKTUdcTGFbze6liAA9AMsy5gvtgxTN1mL3qXgCSIuk="
     },
     "ui-review-loop": {
-      "computedHash": "43399f5a0025747f98a56cc87052e58c8d90260543ad281103c90e8be44c940e",
-      "skillPath": "skills/ui-review-loop",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "QPqK0zyUN4IK97NaWTLrKmMSJonvIzpG2FyzQPDUkDw="
+    },
+    "ui-ux-pro-max": {
+      "computedHash": "mXbA3k2vLLDdue7pab/sl8ALtauOWv5KsmP855vNifo="
+    },
+    "unslop": {
+      "computedHash": "keT7Bukio30/l1ZcsPAfALCDk2RY+B9XjJaB6ycYSyI="
+    },
+    "vercel": {
+      "computedHash": "ce3poy47clQ56Hr2NfEX5ijb8RbPR4BlklfAE+Jdfc4="
+    },
+    "vercel-cli-with-tokens": {
+      "computedHash": "ovWWrFFv6JhjhvlWL0yUYEr5+2oPxBfSY8vm3AURe3I="
+    },
+    "vercel-composition-patterns": {
+      "computedHash": "zcUvB+x7xnxPLlMgWk41+Zza5wykJApxTJa6OIlzRng="
+    },
+    "vercel-optimize": {
+      "computedHash": "fiMzl4Cs+/zptzFxxwhHPI3B8I6LeDSz1c3ynSmA8F0="
+    },
+    "vercel-platforms": {
+      "computedHash": "SO4nkRuzNWsQWHY+UveRV/8lN7aoYTVPMRNTri48cR4="
+    },
+    "vercel-react-best-practices": {
+      "computedHash": "fvurXcxCo4ZahGYJ5qw6JOkgijT1HFyWSRyKWfItedk="
+    },
+    "vercel-react-native-skills": {
+      "computedHash": "EpjOlDJSgPflbtKXqrfNKrAi+7tnylPPCxOBpN2CkXg="
+    },
+    "vercel-react-view-transitions": {
+      "computedHash": "ZFi6XIbVYxTRZBNQnL0wEY89G4eBp06mpdevnBwlcoY="
+    },
+    "verification-before-completion": {
+      "computedHash": "2nf+3Gcn0L18uACtbATYwJZAYNa1sWWVejd8RXjtvcQ="
+    },
+    "wayfinder": {
+      "computedHash": "sspue4hvKsYELf2xn2sicmDpCur8dXT9437hkub7I5k="
+    },
+    "web-artifacts-builder": {
+      "computedHash": "TlMr4Y03abjlJJwBWMbzZfgfk75I8bactRcCMWFYNsc="
+    },
+    "web-design-guidelines": {
+      "computedHash": "pqRNVJj36PaCiZAvPe38bziuDO4ellJ8gHJM8n9yfCo="
+    },
+    "web-perf": {
+      "computedHash": "0Iu2W0nNWy669OxN9heJBWDiWHIFFFlqY3xLU4usyII="
+    },
+    "webapp-testing": {
+      "computedHash": "Wbb+e8AoqemKSt+sZVCI3hds+cwBlyBW/3JjbtoSycQ="
     },
     "wholesale-az": {
-      "computedHash": "411a9231e09191647d971c0f28083ae9921dfaa9f1e0bed578a5e92a0669758e",
-      "skillPath": "skills/wholesale-az",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "GaMAgSbux5iXo2lrn/UIC8payfaOXEYbCJuUHHsre1o="
     },
     "wizard": {
-      "computedHash": "efba4f088d59aa3f3122b6b72702b7f2af6b104277ead5da944699bca3fb847e",
-      "skillPath": "skills/wizard",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "ES1QebDBU7etOhQZ9RSeb3vzYJ+AFoyELYd2650ojSQ="
+    },
+    "workers-best-practices": {
+      "computedHash": "IzTDL6a7OeP3QcVAMYMH9RjSUJ6gYa/TJbsV33Cmk5k="
+    },
+    "wrangler": {
+      "computedHash": "qR79gwK7HRMpcaGSQMAPbaO5uNGZmjyyCuaqmBQTiro="
     },
     "writing-ado-items": {
-      "computedHash": "b9d2ce679bddf6b980705feca2f1757afee2930ece7f90803b53276cc65c2738",
-      "skillPath": "skills/writing-ado-items",
-      "source": "leonardoacosta/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/leonardoacosta/skills.git"
+      "computedHash": "l/i/aLT2FzNxKNB763QFVoCJVNycQ6GfGfPWR0eUago="
+    },
+    "writing-beats": {
+      "computedHash": "0Py1aYD0rZLStNy0q38aScb9XbhJf4W8G8ZzI9u5odM="
+    },
+    "writing-for-agents": {
+      "computedHash": "knTFGRSM5RxJnM7IxKWcf8EyHcWjbQdduuFMfaJ7Jks="
+    },
+    "writing-fragments": {
+      "computedHash": "R67hxK/6t3L1Mvc8gFQfSLGt+yKcLVNWcWgK1ONndu4="
+    },
+    "writing-guidelines": {
+      "computedHash": "6QRi1PgB2CNgOxLDRa0P+Rp0iUFSdEMmgdIccSkSPCY="
+    },
+    "writing-plans": {
+      "computedHash": "gAq/jRA9FNuqugM9XDSKb8l6T3DG3yxcUZQBWJEeN1o="
+    },
+    "writing-shape": {
+      "computedHash": "nqzwBMqMQwMH61IsWSF59XFX9t2GrnKnE5pwzeOZ2l4="
     }
   },
   "dismissed": {
