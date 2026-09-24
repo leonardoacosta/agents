@@ -42,16 +42,17 @@ expected="$(mktemp)"
 trap 'rm -f "$expected"' EXIT
 git -C "$source_root" show "$source_revision:packages/recon-kit/skills/recon/SKILL.md" >"$expected" \
   || fail "published Recon skill is absent at $source_revision"
-canonical="$agents_root/.agents/skills/recon/SKILL.md"
-[[ -f "$canonical" && ! -L "$canonical" ]] || fail ".agents/skills/recon/SKILL.md is missing or not a regular file"
-cmp -s "$canonical" "$expected" || fail ".agents/skills/recon/SKILL.md differs from published Recon"
+canonical="$agents_root/skills/recon/SKILL.md"
+canonical_dir="$(dirname "$canonical")"
+[[ -f "$canonical" && ! -L "$canonical" ]] || fail "skills/recon/SKILL.md is missing or not a regular file"
+cmp -s "$canonical" "$expected" || fail "skills/recon/SKILL.md differs from published Recon"
 
 for relative in .claude/skills/recon skills/recon agent/skills/recon; do
   candidate="$agents_root/$relative"
   [[ -L "$candidate" ]] || fail "$relative must be a compatibility symlink"
   resolved="$(realpath -e "$candidate" 2>/dev/null)" || fail "$relative is a dangling symlink"
-  [[ "$resolved" == "$agents_root/.agents/skills/recon" ]] \
-    || fail "$relative resolves outside .agents/skills/recon: $resolved"
+  [[ "$resolved" == "$canonical_dir" ]] \
+    || fail "$relative resolves to $resolved, expected $canonical_dir"
 done
 
 printf 'Recon materialization valid at %s\n' "$source_revision"
