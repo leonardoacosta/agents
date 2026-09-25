@@ -1,0 +1,8 @@
+{
+  "skill_name": "dotnet-architecture-enforcement",
+  "evals": [
+    {"id": 1, "prompt": "Add ArchUnitNET checks to an existing .NET test project using its current Debug build. Do not create four layers or upgrade the runtime. Prove assembly selections are nonempty.", "expected_output": "Existing project reuse, current runtime/build limits, and nonempty assembly selection assertions.", "files": []},
+    {"id": 2, "prompt": "Create an allowed and forbidden namespace dependency example for a .NET architecture test. Keep the forbidden rule active and explain why authorization and writes need behavior tests.", "expected_output": "Real allowed/forbidden examples, no skipped rule, and behavior-test boundary.", "files": []},
+    {"id": 3, "prompt": "ArchUnitNET cannot find the production assembly. Diagnose missing selection or dependency as setup failure instead of making the test pass.", "expected_output": "Clear setup diagnosis and honest reflection/build limitation.", "files": []}
+  ]
+}

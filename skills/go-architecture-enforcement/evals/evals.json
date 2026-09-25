@@ -1,0 +1,9 @@
+{
+  "skill_name": "go-architecture-enforcement",
+  "evals": [
+    {"id": 1, "prompt": "Review this Go repository's architecture rules and add a go-arch-lint gate without forcing a four-layer layout. Verify package selections are nonempty and inspect the installed tool help first.", "expected_output": "Repository-owned rules, observed help/version, nonempty selection checks, and separate actual/proposed findings.", "files": []},
+    {"id": 2, "prompt": "A Go handler imports storage directly. Add an allowed and forbidden architecture example, keep the forbidden check real, and explain what architecture lint cannot prove about authorization and writes.", "expected_output": "Real dependency examples, no policy weakening, and explicit behavior-test boundary.", "files": []},
+    {"id": 3, "prompt": "The proposed Go architecture rule matches zero packages. Diagnose it as setup failure rather than a passing scan and report the limitation honestly.", "expected_output": "Clear missing-selection diagnosis and no invented tool behavior.", "files": []},
+    {"id": 4, "prompt": "An agent repair changes the architecture checker. Verify the repair preserves the policy and gate hashes while keeping all real checker tests active and rerunning the lint gate.", "expected_output": "Repair accepted only when rule and gate hashes remain unchanged and the real checks pass.", "files": []}
+  ]
+}
