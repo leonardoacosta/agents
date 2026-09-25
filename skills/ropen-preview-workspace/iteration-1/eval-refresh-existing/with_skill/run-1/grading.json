@@ -1,8 +1,0 @@
-{
-  "summary": {"pass_rate": 1.0, "passed": 3, "failed": 0, "total": 3},
-  "expectations": [
-    {"text": "Updates the existing artifact rather than creating a new preview URL", "passed": true, "evidence": "It preserves the stable artifact path and states that no new URL is created."},
-    {"text": "Invokes ropen on the same absolute path to refresh the tab", "passed": true, "evidence": "It plans `ropen -q` on the same absolute artifact path."},
-    {"text": "Does not start another server or alter networking", "passed": true, "evidence": "It explicitly forbids server and network changes."}
-  ]
-}

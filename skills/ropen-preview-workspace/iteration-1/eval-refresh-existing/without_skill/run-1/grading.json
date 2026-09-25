@@ -1,8 +1,0 @@
-{
-  "summary": {"pass_rate": 1.0, "passed": 3, "failed": 0, "total": 3},
-  "expectations": [
-    {"text": "Updates the existing artifact rather than creating a new preview URL", "passed": true, "evidence": "The prompt exposes the existing path and the baseline reuses it."},
-    {"text": "Invokes ropen on the same absolute path to refresh the tab", "passed": true, "evidence": "The baseline plans ropen on the same path."},
-    {"text": "Does not start another server or alter networking", "passed": true, "evidence": "The plan contains no server or network changes."}
-  ]
-}
