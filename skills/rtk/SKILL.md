@@ -1,33 +1,44 @@
 ---
 name: rtk
-description: Use RTK to reduce verbose human-facing shell output in Empryo and jcode. Load when the user asks for RTK, token-efficient command output, or an RTK-assisted build/test session. Preserve native structured tools and raw machine-readable output.
+description: Use RTK explicitly to reduce verbose human-facing shell output while preserving structured data, failure evidence, and native command behavior. Load when the user asks for RTK, compact shell output, or an RTK-assisted command session.
+compatibility: RTK 0.49.0 installed by the dots-managed Linux x86_64 launcher. No installation, hooks, shell replacement, or network access occurs when this skill loads.
+metadata:
+  provenance: https://github.com/rtk-ai/rtk/releases/tag/v0.49.0
+  ownership: dots-installs-personal-skills-authors-policy
 ---
 
-# RTK: explicit, opt-in shell compression
+# RTK: explicit, opt-in compression
 
-Use the installed `rtk` executable explicitly; do not install hooks or modify the project. This skill applies only while loaded, not as transparent interception.
+Use the dots-owned `rtk` executable explicitly. Loading this skill never installs software, changes PATH, modifies shell configuration, activates hooks, or rewrites commands automatically.
 
-## Select commands
+## Supported human-facing reads
 
-Keep harness-native search, read, edit, Git, and project verification tools when required or more suitable. RTK complements shell execution; it does not replace structured tools.
+Wrap only a supported read when compact output is useful. Examples:
 
-For an otherwise appropriate human-facing shell command, use a supported wrapper, retaining the original working directory and arguments:
+```text
+rtk git status
+rtk git log -5
+rtk cargo test
+```
 
-- `git status` → `rtk git status`
-- `git log -5` → `rtk git log -5`
-- `cargo check` → `rtk cargo check`
-- `cargo test` → `rtk cargo test`
-
-Check `rtk --version` and relevant subcommand help once per session before unfamiliar usage. Do not guess wrappers: `pnpm test` was unsupported by the installed rewrite probe. Execute unsupported commands normally.
+Check `rtk --version` and relevant help before unfamiliar usage. Keep harness-native search, read, edit, Git, and verification tools when they are more suitable. Do not guess wrappers. Run unsupported commands normally.
 
 ## Preserve correctness
 
-Use the original command without RTK for JSON, porcelain, NUL-delimited output, pipelines consumed by programs, exact file contents, patch application, full-diff review, or complete audit evidence. Never blanket-prefix compound shell expressions or shadow executables through PATH, aliases, or BASH_ENV.
+Run the native command without RTK for:
 
-RTK output is lossy. If failure details are missing, rerun the original command only when safe and repeatable; otherwise capture raw output on the first run. Preserve and report failure exit status. A compressed summary is not proof that all checks passed.
+- JSON, porcelain, NUL-delimited output, patch content, or machine-consumed pipelines.
+- Complete audit evidence or output that another program will parse.
+- Mutations, deployment, authentication, provisioning, or commands whose exact diagnostics matter.
 
-Do not change command permissions, activate production resources, skip environment validation, trust project filters, install integrations, or alter telemetry settings as part of this skill. Avoid wrapping mutations during this pilot.
+RTK output is lossy. Preserve the exit status and report failures as failures. If details are missing, rerun the original command only when it is safe and repeatable. Never repeat a non-repeatable mutation just to recover output.
 
-Do not automate `rtk rewrite`: installed 0.44.2 returned status 3 with rewritten output for some inputs despite help documenting 0/1. `rtk proxy` is raw passthrough, not compression.
+## Failure and missing-tool behavior
 
-Report observed output size separately from token or cost savings; do not claim a percentage without measuring the relevant workload.
+If `rtk` is missing or broken, report that limitation and use the native command as a safe fallback. Do not install or repair it implicitly. If a wrapped command omits needed diagnostics, capture the raw command output before making a claim.
+
+## Verification
+
+For a disposable repository read, compare native `git status --short` with `rtk git status` and confirm both represent the same changes. For a safe failing supported command, confirm RTK preserves the nonzero exit status. When reporting compression, measure observed output bytes for the specific command. Do not infer token, cost, or billing savings from byte reduction.
+
+Read [references/scenarios.md](references/scenarios.md) when evaluating installation ownership, structured-output boundaries, or failure handling.

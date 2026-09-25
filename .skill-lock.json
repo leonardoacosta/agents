@@ -382,9 +382,6 @@
     "herdr": {
       "computedHash": "x0ETTMIjcsCNovRp1Jqsn5u93U9eHaBVjPETKDb6Moc="
     },
-    "homelab-postgres-lifecycle": {
-      "computedHash": "L+iRIgOQ9wTAf1rEb2V65qg8WP8oJyN/pEV6o9IBngQ="
-    },
     "improve": {
       "computedHash": "dV+EQ74CFJB+y7WniCZ5hpjtS4eImuejcoyQ9Kli4+8="
     },
@@ -442,9 +439,6 @@
     "no-comments": {
       "computedHash": "vRmDktSF1c7TzTui1nJya/Gn1qcm9u5vMW/aZ8X08Po="
     },
-    "ntfy-homelab": {
-      "computedHash": "MQSXa53Nbp6QfWUVQs/G/1iafowFAC+GFk8CBYg++3o="
-    },
     "open-work": {
       "computedHash": "4TlCCzqbMiKVqRX6dM3dylqBCepahZ39FgYjQ717SCY="
     },
@@ -456,12 +450,6 @@
     },
     "pdfcn": {
       "computedHash": "InaSd4yOQYVxfwandgogJRwpbn6bQKwrdq8YXGw48Sw="
-    },
-    "personal-git-deploy": {
-      "computedHash": "3qoeR+h5+MbOLP7iXjSaOzWw0NJiJvTjEbImKNymfbY="
-    },
-    "personal-one-runtime-manager": {
-      "computedHash": "ye0E2/QHLSSSnygmOaBWdfg4BLOZTKW1mtOp97DS57k="
     },
     "playwright-auth": {
       "computedHash": "xvJHaOwtm/3YFBDYhbV7acn/aSMhWAxxpX/zNH56T5I="
