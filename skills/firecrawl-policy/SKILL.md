@@ -1,6 +1,6 @@
 ---
 name: firecrawl-policy
-description: "Mandatory supplemental policy for every firecrawl-* core, build, or workflow skill. Adds local transport, consent, secrets, URL, egress, and evidence gates. This is not a comprehensive manual."
+description: "Mandatory supplemental policy for every firecrawl-* core, build, or workflow skill. Adds local transport, consent, secrets, URL, egress, shared output store, and evidence gates. This is not a comprehensive manual."
 ---
 
 # Firecrawl policy supplement
@@ -52,6 +52,19 @@ Before every URL-bearing operation, including search results, map/crawl outputs,
 - Bound pages, hosts, bytes, duration, concurrency, result count, and job scope before search, map, crawl, research, agent, or interact. Treat oversized or unbounded output as a refusal. Use private temporary evidence, scrub secrets and personal data, and delete transient copies.
 - Never place API keys, access tokens, cookies, passwords, session material, or PII in argv, URLs, prompts, logs, snapshots, telemetry, evidence, or source control. Use only the approved secure credential store or inherited secret environment and redact output before retention.
 - Create evidence directories with mode `0700` and files with mode `0600` under `umask 077`. Inspect structured fields by data class, not only regex matches. Retain bounded scrubbed assertions, record CLI version, help, exit code, safety checks, and cleanup, then delete raw transient output. Respect credit and rate limits without silently expanding scope or spend.
+
+## Shared output store
+
+Every project's `.firecrawl` is a symlink to the single store `~/.firecrawl`. Research fetched for one project is therefore visible to and reusable by every project.
+
+- Write fetched content to `.firecrawl/<name>` with `-o`, or with an absolute `~/.firecrawl/<name>` path. Never create a project-local directory, and never replace the symlink with a real directory.
+- Before fetching a URL, check the store: a page already present needs no refetch. This is the main reason the store is shared.
+- `firecrawl scrape <url1> <url2>` and `firecrawl x download` ignore `-o` and write to `./.firecrawl/`, which resolves to the shared store.
+- The store is flat and names collide. Auto-generated names are `{host}-{path}.md` and drop the query string, so URLs differing only by query overwrite each other, last write winning. Use an explicit distinct `-o` name when that matters.
+- The store is ignored by the bare `.firecrawl` rule in `~/.gitignore_global`. Per-repo `.firecrawl/` ignore lines do not cover the symlink, because gitignore trailing-slash patterns match real directories only.
+- Deleting a project's `.firecrawl` symlink removes only the symlink. `rm -rf .firecrawl/` with a trailing slash follows the symlink and destroys the shared store for every project; never do it.
+
+Never delete the shared store to "clean up" a project.
 
 ## Path B: shipped application integration
 
