@@ -13,7 +13,7 @@ Turn a local document into clean markdown on disk. Supports **PDF, DOCX, DOC, OD
 
 ## Quick start
 
-Always save to `.firecrawl/` with `-o` — parsed docs can be hundreds of KB and blow up context if streamed to stdout. `.firecrawl` is a symlink to the shared store `~/.firecrawl`, ignored by the bare `.firecrawl` rule in `~/.gitignore_global`; do not add per-repo ignore lines or create a project-local directory.
+Always save to `.firecrawl/` with `-o` — parsed docs can be hundreds of KB and blow up context if streamed to stdout. Add `.firecrawl/` to `.gitignore`.
 
 ```bash
 mkdir -p .firecrawl

@@ -59,7 +59,7 @@ For detailed command reference, run `firecrawl <command> --help`.
 **Reuse fetched content:**
 
 - `search --scrape` already fetches full page content. Reuse it instead of re-scraping those URLs.
-- `.firecrawl/` is a symlink to the shared store `~/.firecrawl`, so research fetched for one project is visible to every project. Check it before fetching again; a URL already in the store needs no refetch.
+- Check `.firecrawl/` for existing data before fetching again.
 
 ## When to Load References
 
@@ -81,9 +81,7 @@ For detailed command reference, run `firecrawl <command> --help`.
 
 ## Output & Organization
 
-Unless the user specifies to return in context, write results to `.firecrawl/` with `-o`. Here `.firecrawl` is a symlink to the shared store `~/.firecrawl`: every project reads and writes that one store, so do not create a project-local directory of your own. Because the store is flat, prefer `-o` with a descriptive name and never assume a name is free. The symlink is ignored by the bare `.firecrawl` rule in `~/.gitignore_global`. Always quote URLs - shell interprets `?` and `&` as special characters.
-
-`firecrawl scrape <url1> <url2>` and `firecrawl x download` ignore `-o` and always write to `./.firecrawl/`. That is the same shared store, so run them normally and no `cd` is needed.
+Unless the user specifies to return in context, write results to `.firecrawl/` with `-o`. Add `.firecrawl/` to `.gitignore`. Always quote URLs - shell interprets `?` and `&` as special characters.
 
 ```bash
 firecrawl search "react hooks" -o .firecrawl/search-react-hooks.json --json
@@ -97,8 +95,6 @@ Naming conventions:
 .firecrawl/search-{query}-scraped.json
 .firecrawl/{site}-{path}.md
 ```
-
-Because the store is shared and flat, a filename can already exist from another project. Auto-generated `{site}-{path}.md` names drop the query string, so `example.com/docs?page=1` and `?page=2` map to one file and the second write wins. When that matters, pass an explicit distinct `-o` name.
 
 Read output files incrementally with `grep`, `head`, or bounded reads:
 
