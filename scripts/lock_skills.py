@@ -52,12 +52,17 @@ def main() -> int:
     updated = 0
     for name in on_disk:
         ch = hash_skill(name)
-        if name not in locked:
+        entry = locked.get(name)
+        if entry is None:
             locked[name] = {"computedHash": ch}
             added += 1
-        elif not locked[name].get("computedHash") or locked[name]["computedHash"] != ch:
-            locked[name] = {"computedHash": ch}
+            continue
+        if not isinstance(entry, dict):
+            raise SystemExit(f"lock entry for {name} is not an object")
+        if entry.get("computedHash") != ch:
+            entry["computedHash"] = ch
             updated += 1
+        locked[name] = entry
 
     lock["skills"] = dict(sorted(locked.items()))
     with open(LOCK_FILE, "w") as f:

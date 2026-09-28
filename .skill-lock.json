@@ -1,6 +1,17 @@
 {
   "version": 3,
   "skills": {
+    "9router": {
+      "source": "decolua/9router",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/decolua/9router.git",
+      "ref": "39e36d3d0c849e0e01dfeacddf111edf892448fc",
+      "skillPath": "skills/9router/SKILL.md",
+      "skillFolderHash": "c25f82811c865adfccb8e615275391fd9aa41c63",
+      "installedAt": "2026-09-25T14:20:23.438Z",
+      "updatedAt": "2026-09-25T14:20:23.438Z",
+      "computedHash": "ZwoejZsAJ2dKZQmo9GCrEm0clyaKsqz8XWBF24t6+gw="
+    },
     "adversarial": {
       "computedHash": "isZUVfxPy/Cjff9qZM8rIgkoXTBdVCQAGoprsIIRK5k="
     },
@@ -21,6 +32,9 @@
     },
     "agent-tooling": {
       "computedHash": "IF9rFjMTIFa48R44zHfmeL/gj7wX07Gxjg380Jy7Ffw="
+    },
+    "agentmail": {
+      "computedHash": "0EFrWDj2EtUZyVQle3JwX24WxJ30LITPtOkq/8jDlQM="
     },
     "agents-sdk": {
       "computedHash": "R/76Ht8N+qRskVRwKgznr7wWbZArrpPSHYx7W85ul80="
@@ -320,7 +334,7 @@
       "computedHash": "mdy54F+GMj/kYBwCojQ3LvB4FbLTMulBlnAnqId6mTw="
     },
     "firecrawl-policy": {
-      "computedHash": "yfCDiLI3OwLcOTwkUt+wt5aWQjScjcwNPGxxubTLTFs="
+      "computedHash": "L1zFH624jR1aG/NnH7xUz4yet63G+5ry6yLFBJxocpM="
     },
     "firecrawl-qa": {
       "computedHash": "n6/c9yMCj1wAyBHFeJ1h1Ue/btiW2KtaRzdSsRcOIHM="
@@ -362,7 +376,7 @@
       "computedHash": "jCYmVneH6YzxzMM016v0STNz8cwvDJEddrvoScdei1M="
     },
     "gates": {
-      "computedHash": "TNixeXfehU4phCa4WT6tYojdDeFDjYHUXpUyNKbz8N0="
+      "computedHash": "PDcAtDa1pMeV2EewAWp84EDXYP592kAoEuB85WQfIJI="
     },
     "geist-design": {
       "computedHash": "T1YKNViNDV8mXGAngOCPnFf5dzQduCLbVimqkb6skVo="
@@ -378,6 +392,9 @@
     },
     "godot-state-machine-advanced": {
       "computedHash": "GEXtmnW/HkdRyzpW7/x9KCBfxP1Q4RIyydifubUF9UE="
+    },
+    "graft": {
+      "computedHash": "DL99wfIovvAO946mVuQYbBx9rXpqi6n0MyVX3Xxu400="
     },
     "herdr": {
       "computedHash": "x0ETTMIjcsCNovRp1Jqsn5u93U9eHaBVjPETKDb6Moc="
@@ -399,6 +416,9 @@
     },
     "journal": {
       "computedHash": "1C0xVGWJpklqRJUaLTeDrBn9BP1k57JIfxP/iTSDx20="
+    },
+    "komodo": {
+      "computedHash": "wynHF/9vsjK2bysHozpYPcmKIhm+m27zNwLaIsd40AE="
     },
     "markdown-graphs": {
       "computedHash": "q7cmvxL5bs50kMjaaeky2Hh+SoIrOOHWa6ztfuZG7ZI="
@@ -438,6 +458,9 @@
     },
     "no-comments": {
       "computedHash": "vRmDktSF1c7TzTui1nJya/Gn1qcm9u5vMW/aZ8X08Po="
+    },
+    "onepassword-herdr": {
+      "computedHash": "7oZyL2jAeAloDzWjjmh9PsnGxl1CBWIW8pztEMowmLM="
     },
     "open-work": {
       "computedHash": "4TlCCzqbMiKVqRX6dM3dylqBCepahZ39FgYjQ717SCY="
@@ -524,7 +547,7 @@
       "computedHash": "bgMScw78kzpso+lOdu9Iowm6SUEb2uVIxu1Ubbn2Tqs="
     },
     "skill-creator": {
-      "computedHash": "HxxwToPbBV+xqimEOAnJwxUtTiJCz0Knp1Lp3P9FmdY="
+      "computedHash": "qnzf2HckZN7WssebW33HGoPEhflWJbBoKUo8+jlX+v4="
     },
     "skill-intake-lifecycle": {
       "computedHash": "105YQbQDD1wPp3mRvHKWQ1EastOv+jE1fF5sfTBDyMs="
