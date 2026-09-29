@@ -49,7 +49,13 @@
       "computedHash": "RE0WkRWzAFbZZ5r9YppQESioP/pmYE2GXuimc1HXd/o="
     },
     "animejs": {
-      "computedHash": "G0DoBrPYo9NMA5Ha+YclwHLUA9b4ss/cLOBMBEXzXfM="
+      "computedHash": "G0DoBrPYo9NMA5Ha+YclwHLUA9b4ss/cLOBMBEXzXfM=",
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/emilkowalski/skills.git",
+      "skillPath": "skills/animejs/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "anydesign": {
       "computedHash": "yuDgGJe91c4wxdT7g4R5CQqcLSKEVH/LgRll70XYLrc="
@@ -166,7 +172,14 @@
       "computedHash": "/74Z+7QJ0xRNX0ukYem46MGgjkUUzj9YlIXTgVvRxwQ="
     },
     "codebase-design": {
-      "computedHash": "0XYqWUFvQRyqHpo43AfwkUh7BJHBW6YDHB4zvu6OAE0="
+      "computedHash": "0XYqWUFvQRyqHpo43AfwkUh7BJHBW6YDHB4zvu6OAE0=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/codebase-design/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-04T15:41:56.346Z",
+      "updatedAt": "2026-09-04T15:41:56.346Z"
     },
     "crafting-effective-readmes": {
       "computedHash": "DotbvFmF8hJtcFpbwluLTVvVyYyS9iAQT6j2EkGGk4g="
@@ -268,7 +281,14 @@
       "computedHash": "NsuncQvUU7MnFufKbtAAMHyo9dAUiA4oEYCC/wM4rRw="
     },
     "find-skills": {
-      "computedHash": "QKMTxOodrZaVyKzVmdlAc2pANVm9D2gTsYWI0Lvs0x8="
+      "computedHash": "QKMTxOodrZaVyKzVmdlAc2pANVm9D2gTsYWI0Lvs0x8=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/utility/find-skills/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl": {
       "computedHash": "vFa70JlMiwQxUVVmaEkgb2dUUI+Y3OPRNIu+UMhps/Q="
@@ -292,22 +312,52 @@
       "computedHash": "0/BQ77PjNESJ6rZe9ml1FkumsOFHyrhUxZ/niKt+dYk="
     },
     "firecrawl-company-directories": {
-      "computedHash": "nT50s/H2egqSkWVBAjPVfxGylh6RQ1zU38i6GJPxjqo="
+      "computedHash": "nT50s/H2egqSkWVBAjPVfxGylh6RQ1zU38i6GJPxjqo=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-company-directories/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-competitive-intel": {
-      "computedHash": "b7PNFtLcisXsr5Ix/qPJrQXL6sGpZju5vsnetjrl9sw="
+      "computedHash": "b7PNFtLcisXsr5Ix/qPJrQXL6sGpZju5vsnetjrl9sw=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-competitive-intel/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-crawl": {
       "computedHash": "2xTQkSD8oBuwC7+NT0+9R2I57Qs8zTb625qVlhTJ2to="
     },
     "firecrawl-dashboard-reporting": {
-      "computedHash": "qNTTFVSwBZ5ZmEvTJGQj076nPmaUY0Am02f94jMFdfg="
+      "computedHash": "qNTTFVSwBZ5ZmEvTJGQj076nPmaUY0Am02f94jMFdfg=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-dashboard-reporting/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-deep-research": {
-      "computedHash": "Ib2xE7eJxw1Dm6KME45d96uS9Jg8MjvdpfIwFbiVey8="
+      "computedHash": "Ib2xE7eJxw1Dm6KME45d96uS9Jg8MjvdpfIwFbiVey8=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-deep-research/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-demo-walkthrough": {
-      "computedHash": "OBydIRt4hWschqzWfU6T3Wk2wy3cjH3kwprPNDJoZLA="
+      "computedHash": "OBydIRt4hWschqzWfU6T3Wk2wy3cjH3kwprPNDJoZLA=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-demo-walkthrough/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-developer-index": {
       "computedHash": "xt0IujmMQAs57WuAZhqZwZt04TmzCsqI59Hbbv6O998="
@@ -319,22 +369,52 @@
       "computedHash": "6w7/+0zsEhI5WGGZ5GVIejBQv3sVR4bFqKFEeX6QhxE="
     },
     "firecrawl-knowledge-base": {
-      "computedHash": "8VNPMiem/2h8clg31HvtEB9LrQiXuKAKrS4qTbib2DY="
+      "computedHash": "8VNPMiem/2h8clg31HvtEB9LrQiXuKAKrS4qTbib2DY=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-knowledge-base/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-knowledge-ingest": {
-      "computedHash": "mSVvbPriRyNAD0wM2FxHDo+S15QLHalfFmULGm1m2Bs="
+      "computedHash": "mSVvbPriRyNAD0wM2FxHDo+S15QLHalfFmULGm1m2Bs=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-knowledge-ingest/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-lead-gen": {
-      "computedHash": "6q8OzTQbF2ML5ODJAgH0J5PykobgdlxmSFR8/Zem+Nw="
+      "computedHash": "6q8OzTQbF2ML5ODJAgH0J5PykobgdlxmSFR8/Zem+Nw=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-lead-gen/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-lead-research": {
-      "computedHash": "kh+SsuGS4gqsN5t8S+/zI0uzpwem+Ekx20URjlZuLuw="
+      "computedHash": "kh+SsuGS4gqsN5t8S+/zI0uzpwem+Ekx20URjlZuLuw=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-lead-research/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-map": {
       "computedHash": "UIeRm4QNhlTtE5QCp2bhSpWSHLu3CWdev2kxvsDcU4s="
     },
     "firecrawl-market-research": {
-      "computedHash": "2SL+kyqBS1wzBahjnODMrQEI9G6cPd6mxN7Dl46KhJ4="
+      "computedHash": "2SL+kyqBS1wzBahjnODMrQEI9G6cPd6mxN7Dl46KhJ4=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-market-research/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-monitor": {
       "computedHash": "gIMjTukpF1YaYdoux8JhdWT1zzOrLLIGvZERwSkcpV4="
@@ -346,13 +426,25 @@
       "computedHash": "L1zFH624jR1aG/NnH7xUz4yet63G+5ry6yLFBJxocpM="
     },
     "firecrawl-qa": {
-      "computedHash": "n6/c9yMCj1wAyBHFeJ1h1Ue/btiW2KtaRzdSsRcOIHM="
+      "computedHash": "n6/c9yMCj1wAyBHFeJ1h1Ue/btiW2KtaRzdSsRcOIHM=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-qa/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-research-index": {
       "computedHash": "+LhZBNUyhyR9TNtXM/O4iwj3D2p1331gbUYMzIVOico="
     },
     "firecrawl-research-papers": {
-      "computedHash": "fbvr4o5phOp45XOhcAFRMtcZ053suNn7P17vyG/eWxU="
+      "computedHash": "fbvr4o5phOp45XOhcAFRMtcZ053suNn7P17vyG/eWxU=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-research-papers/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-scrape": {
       "computedHash": "p/KmT0EwSyeVtjK/EnEWEZxWNr33gQog0e03XWy3fAc="
@@ -361,16 +453,40 @@
       "computedHash": "zRNXEoW6Hy8aCPDTeG2sRDD1Cs52mFgXt8fdvyduuqk="
     },
     "firecrawl-seo-audit": {
-      "computedHash": "VnHXko5UG4/1P/83hx19p6CCzIHXtsoxvY5J+kC1vz4="
+      "computedHash": "VnHXko5UG4/1P/83hx19p6CCzIHXtsoxvY5J+kC1vz4=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-seo-audit/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-shop": {
-      "computedHash": "cTFQmbntHQ64bIG2GUgfmd/jqV5FwaJR9KBbhXX5ClY="
+      "computedHash": "cTFQmbntHQ64bIG2GUgfmd/jqV5FwaJR9KBbhXX5ClY=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-shop/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-website-design-clone": {
-      "computedHash": "ZM9cvOvrSIvCL8qS8rSizF2M5Pm0pj7Gnv4GZnQiqO0="
+      "computedHash": "ZM9cvOvrSIvCL8qS8rSizF2M5Pm0pj7Gnv4GZnQiqO0=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-website-design-clone/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "firecrawl-workflows": {
-      "computedHash": "iP4cZz7LPxeRVDOjJeJgDfIAPMIdzTEHoWiS0JK7v7E="
+      "computedHash": "iP4cZz7LPxeRVDOjJeJgDfIAPMIdzTEHoWiS0JK7v7E=",
+      "source": "firecrawl/firecrawl-workflows",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl-workflows.git",
+      "skillPath": "skills/firecrawl-workflows/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "framer": {
       "computedHash": "b621LyQ+/135hpZ84PlZAf+LaTW7BglwSJDmDvixRv8="
@@ -382,7 +498,13 @@
       "computedHash": "xRyP5Bfd3ijcPWJLSy3DMJg3DpJV/rC8pLght2sopgg="
     },
     "frontend-design": {
-      "computedHash": "jCYmVneH6YzxzMM016v0STNz8cwvDJEddrvoScdei1M="
+      "computedHash": "jCYmVneH6YzxzMM016v0STNz8cwvDJEddrvoScdei1M=",
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "gates": {
       "computedHash": "PDcAtDa1pMeV2EewAWp84EDXYP592kAoEuB85WQfIJI="
@@ -420,19 +542,52 @@
       "computedHash": "x0ETTMIjcsCNovRp1Jqsn5u93U9eHaBVjPETKDb6Moc="
     },
     "improve": {
-      "computedHash": "dV+EQ74CFJB+y7WniCZ5hpjtS4eImuejcoyQ9Kli4+8="
+      "computedHash": "1U0Rqw1DkPm5t9q6+X9Pm5zAJrb7N7zAccZpdxiw+Wk=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/improve/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "improve-animations": {
-      "computedHash": "7rIZpAfjJbaHr4jbJXccwwGOMUgkVgQRL1rGmQtv15w="
+      "computedHash": "7rIZpAfjJbaHr4jbJXccwwGOMUgkVgQRL1rGmQtv15w=",
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/emilkowalski/skills.git",
+      "skillPath": "skills/improve-animations/SKILL.md",
+      "installedAt": "2026-09-04T15:42:37.575Z",
+      "updatedAt": "2026-09-04T15:42:37.575Z"
     },
     "improve-codebase-architecture": {
-      "computedHash": "dBtAFcDtvNX/uckmq6ts1SlGvSlq8nksRpTHWfS9JVQ="
+      "computedHash": "dBtAFcDtvNX/uckmq6ts1SlGvSlq8nksRpTHWfS9JVQ=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/improve-codebase-architecture/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-04T15:42:45.391Z",
+      "updatedAt": "2026-09-04T15:42:45.391Z"
     },
     "improve-react": {
-      "computedHash": "7mCVRIpRHiUHUoyq57qRxdxGJGS2AxlsWxkx1JJKNxo="
+      "computedHash": "7mCVRIpRHiUHUoyq57qRxdxGJGS2AxlsWxkx1JJKNxo=",
+      "source": "millionco/react-doctor",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/millionco/react-doctor.git",
+      "skillPath": "skills/improve-react/SKILL.md",
+      "installedAt": "2026-09-04T15:42:53.913Z",
+      "updatedAt": "2026-09-04T15:42:53.913Z"
     },
     "interface-design": {
-      "computedHash": "f+QpUloY1BlYRAtYrASuacudN3Y9gjOA1+dbpzJ/43w="
+      "computedHash": "f+QpUloY1BlYRAtYrASuacudN3Y9gjOA1+dbpzJ/43w=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/design/interface-design/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "interface-review": {
       "computedHash": "twPopYBX7ht/q4DOa2U4XojvUu0S562NxrzrSUhOmy4="
@@ -464,7 +619,13 @@
       "computedHash": "LiqOYj7+kUf9ancGUJ1Sl9UHGaHW40BLtqGuD9dpu8s="
     },
     "markdown-graphs": {
-      "computedHash": "q7cmvxL5bs50kMjaaeky2Hh+SoIrOOHWa6ztfuZG7ZI="
+      "computedHash": "q7cmvxL5bs50kMjaaeky2Hh+SoIrOOHWa6ztfuZG7ZI=",
+      "source": "keshav-exe/markdown-graphs",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/keshav-exe/markdown-graphs.git",
+      "skillPath": "skills/markdown-graphs/SKILL.md",
+      "installedAt": "2026-09-06T12:59:00.000Z",
+      "updatedAt": "2026-09-06T12:59:00.000Z"
     },
     "mcp-builder": {
       "computedHash": "CdvFMEEG+ZkzWB+QtRgWV6PxmBx63d8YgPuOry41c3g="
@@ -503,7 +664,14 @@
       "computedHash": "xcTEIEV9MLtZGgEdTAwtOjn/coC891oNHG1ZVEM4dpg="
     },
     "no-comments": {
-      "computedHash": "vRmDktSF1c7TzTui1nJya/Gn1qcm9u5vMW/aZ8X08Po="
+      "computedHash": "vRmDktSF1c7TzTui1nJya/Gn1qcm9u5vMW/aZ8X08Po=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/no-comments/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "onepassword-herdr": {
       "computedHash": "7oZyL2jAeAloDzWjjmh9PsnGxl1CBWIW8pztEMowmLM="
@@ -581,7 +749,13 @@
       "computedHash": "w7c9qi4mhd8+E4F/1H9eCEHfoLnJa1CcpwkjdFq7IL0="
     },
     "openspec-lifecycle": {
-      "computedHash": "+ASJ9k7ZpGAXLJzuRPJIaoQk7aRwxKMJI+uWJPUd0+E="
+      "computedHash": "+ASJ9k7ZpGAXLJzuRPJIaoQk7aRwxKMJI+uWJPUd0+E=",
+      "source": "openspec/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/openspec/openspec.git",
+      "skillPath": "skills/openspec-lifecycle/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "openspec-new-change": {
       "source": "fission-ai/openspec",
@@ -659,7 +833,13 @@
       "computedHash": "xvJHaOwtm/3YFBDYhbV7acn/aSMhWAxxpX/zNH56T5I="
     },
     "ponytail": {
-      "computedHash": "43ca2nFgMs7yddmZhUdmbGI75MBXe1DLNZmV4XCWfPY="
+      "computedHash": "43ca2nFgMs7yddmZhUdmbGI75MBXe1DLNZmV4XCWfPY=",
+      "source": "dietrichgebert/ponytail",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/dietrichgebert/ponytail.git",
+      "skillPath": "skills/ponytail/SKILL.md",
+      "installedAt": "2026-09-06T15:28:00.000Z",
+      "updatedAt": "2026-09-06T15:28:00.000Z"
     },
     "qa-test-planner": {
       "computedHash": "47vBPdwJdKeylIAM2aE1ztP8rT0In5FBCIfWlEkW8oo="
@@ -695,7 +875,14 @@
       "computedHash": "bJphF2JQxevW4N8kaqI2pTe3x8Qz7KvulnYllxvLHfE="
     },
     "ropen-preview": {
-      "computedHash": "nD4Q9pE13M7BbJFxEXgzG3XvYZ03DVurypPEZlplBwo="
+      "computedHash": "nD4Q9pE13M7BbJFxEXgzG3XvYZ03DVurypPEZlplBwo=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/utility/ropen-preview/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "rtk": {
       "computedHash": "HiFqQ1KC3jC2WNnChZqrEPNz1mxk+rpIUtwzX+noj70="
@@ -713,7 +900,13 @@
       "computedHash": "GQ1M1vLRjLxIV9s5EYhm7dJHuM0Vrc4+s5xlDl0nbAQ="
     },
     "self-improvement": {
-      "computedHash": "fvgTkycfatBeBGZH40LX+/AjF3H8DCBhZU+w37+y9Xw="
+      "computedHash": "fvgTkycfatBeBGZH40LX+/AjF3H8DCBhZU+w37+y9Xw=",
+      "source": "pskoett/pskoett-ai-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/pskoett/pskoett-ai-skills.git",
+      "skillPath": "skills/self-improvement/SKILL.md",
+      "installedAt": "2026-09-04T15:42:57.432Z",
+      "updatedAt": "2026-09-04T15:42:57.432Z"
     },
     "service-layer-style": {
       "computedHash": "mX/ITeDTB32fac1V5VUX1VOCWuPRMfMujBjlWIoyPKA="
@@ -752,7 +945,13 @@
       "computedHash": "JO0huG2+i2YL4evYgL+xha5chG8j+8nNj69b3CEEQnA="
     },
     "system-atlas": {
-      "computedHash": "8FufVC2HXD36OF4bHBnE3m1jObHu3O32PALJaIzcR3k="
+      "computedHash": "8FufVC2HXD36OF4bHBnE3m1jObHu3O32PALJaIzcR3k=",
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/system-atlas/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "systematic-debugging": {
       "computedHash": "xZ3HbCRCuo475Vm4mNTELYOfQW4cQjexSO10Zl1Faq8="
@@ -794,10 +993,23 @@
       "computedHash": "QPqK0zyUN4IK97NaWTLrKmMSJonvIzpG2FyzQPDUkDw="
     },
     "ui-ux-pro-max": {
-      "computedHash": "mXbA3k2vLLDdue7pab/sl8ALtauOWv5KsmP855vNifo="
+      "computedHash": "mXbA3k2vLLDdue7pab/sl8ALtauOWv5KsmP855vNifo=",
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+      "skillPath": "skills/ui-ux-pro-max/SKILL.md",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "unslop": {
-      "computedHash": "keT7Bukio30/l1ZcsPAfALCDk2RY+B9XjJaB6ycYSyI="
+      "computedHash": "keT7Bukio30/l1ZcsPAfALCDk2RY+B9XjJaB6ycYSyI=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/writing/unslop/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "vercel": {
       "computedHash": "ce3poy47clQ56Hr2NfEX5ijb8RbPR4BlklfAE+Jdfc4="
@@ -827,7 +1039,14 @@
       "computedHash": "2nf+3Gcn0L18uACtbATYwJZAYNa1sWWVejd8RXjtvcQ="
     },
     "wayfinder": {
-      "computedHash": "sspue4hvKsYELf2xn2sicmDpCur8dXT9437hkub7I5k="
+      "computedHash": "sspue4hvKsYELf2xn2sicmDpCur8dXT9437hkub7I5k=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/design/wayfinder/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "web-artifacts-builder": {
       "computedHash": "TlMr4Y03abjlJJwBWMbzZfgfk75I8bactRcCMWFYNsc="
@@ -857,13 +1076,34 @@
       "computedHash": "l/i/aLT2FzNxKNB763QFVoCJVNycQ6GfGfPWR0eUago="
     },
     "writing-beats": {
-      "computedHash": "0Py1aYD0rZLStNy0q38aScb9XbhJf4W8G8ZzI9u5odM="
+      "computedHash": "nyZJXV4FM9aYXecHqIi5jqd0hVAYDkAOGOLKSu+2uno=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/writing/writing-beats/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "writing-for-agents": {
-      "computedHash": "knTFGRSM5RxJnM7IxKWcf8EyHcWjbQdduuFMfaJ7Jks="
+      "computedHash": "knTFGRSM5RxJnM7IxKWcf8EyHcWjbQdduuFMfaJ7Jks=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/writing/writing-for-agents/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "writing-fragments": {
-      "computedHash": "R67hxK/6t3L1Mvc8gFQfSLGt+yKcLVNWcWgK1ONndu4="
+      "computedHash": "oEce5aqHDtMCXTJO1HGWF0IEUmfSb3SeOVzSloZu3cQ=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/writing/writing-fragments/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "writing-guidelines": {
       "computedHash": "6QRi1PgB2CNgOxLDRa0P+Rp0iUFSdEMmgdIccSkSPCY="
@@ -872,7 +1112,14 @@
       "computedHash": "gAq/jRA9FNuqugM9XDSKb8l6T3DG3yxcUZQBWJEeN1o="
     },
     "writing-shape": {
-      "computedHash": "nqzwBMqMQwMH61IsWSF59XFX9t2GrnKnE5pwzeOZ2l4="
+      "computedHash": "2VVmOnrMj15sGENe+fq+UOl00HxNZOaDEniGRTt8nW0=",
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/writing/writing-shape/SKILL.md",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-06T12:47:00.000Z",
+      "updatedAt": "2026-09-06T12:47:00.000Z"
     }
   },
   "dismissed": {
