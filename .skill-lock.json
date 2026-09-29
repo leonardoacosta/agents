@@ -12,6 +12,9 @@
       "updatedAt": "2026-09-25T14:20:23.438Z",
       "computedHash": "ZwoejZsAJ2dKZQmo9GCrEm0clyaKsqz8XWBF24t6+gw="
     },
+    "adguard": {
+      "computedHash": "uZA3AxpPU3LdeY+sR6LLoIu4xIaUE5aLxzdz2xQFfjM="
+    },
     "adversarial": {
       "computedHash": "isZUVfxPy/Cjff9qZM8rIgkoXTBdVCQAGoprsIIRK5k="
     },
@@ -86,9 +89,6 @@
     },
     "azure-topology-style": {
       "computedHash": "W9QIQy8ynvb4gvfWLvA887I9yGjxYVrJi0jtIFYRvbc="
-    },
-    "bb-azure-ops": {
-      "computedHash": "Yk5I5DtI5ZDS+PlRxdd0B+zBQzqCSYr+QkmAdmDRyok="
     },
     "better-accessibility": {
       "computedHash": "Y62wHsD0SXab00iVih2jeBGGnBxaL8L+1u3AbFV63Ec="
@@ -424,6 +424,9 @@
     },
     "interface-review": {
       "computedHash": "twPopYBX7ht/q4DOa2U4XojvUu0S562NxrzrSUhOmy4="
+    },
+    "jcode-branch-triage": {
+      "computedHash": "sfzRf2RpHdCIT1xYf+PbVtbIqytCdSeWywNaFgYfIQg="
     },
     "jcode-handoff": {
       "computedHash": "1xPrTVZvQFosRvtQlWo5jHM/+1HrQvYeoINxnkpTVsE="
@@ -849,9 +852,6 @@
     },
     "writing-shape": {
       "computedHash": "nqzwBMqMQwMH61IsWSF59XFX9t2GrnKnE5pwzeOZ2l4="
-    },
-    "adguard": {
-      "computedHash": "uZA3AxpPU3LdeY+sR6LLoIu4xIaUE5aLxzdz2xQFfjM="
     }
   },
   "dismissed": {
