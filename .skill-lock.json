@@ -165,6 +165,9 @@
     "cloudflare-one-migrations": {
       "computedHash": "/74Z+7QJ0xRNX0ukYem46MGgjkUUzj9YlIXTgVvRxwQ="
     },
+    "codebase-design": {
+      "computedHash": "0XYqWUFvQRyqHpo43AfwkUh7BJHBW6YDHB4zvu6OAE0="
+    },
     "crafting-effective-readmes": {
       "computedHash": "DotbvFmF8hJtcFpbwluLTVvVyYyS9iAQT6j2EkGGk4g="
     },
@@ -419,8 +422,17 @@
     "improve": {
       "computedHash": "dV+EQ74CFJB+y7WniCZ5hpjtS4eImuejcoyQ9Kli4+8="
     },
+    "improve-animations": {
+      "computedHash": "7rIZpAfjJbaHr4jbJXccwwGOMUgkVgQRL1rGmQtv15w="
+    },
     "improve-codebase-architecture": {
       "computedHash": "dBtAFcDtvNX/uckmq6ts1SlGvSlq8nksRpTHWfS9JVQ="
+    },
+    "improve-react": {
+      "computedHash": "7mCVRIpRHiUHUoyq57qRxdxGJGS2AxlsWxkx1JJKNxo="
+    },
+    "interface-design": {
+      "computedHash": "f+QpUloY1BlYRAtYrASuacudN3Y9gjOA1+dbpzJ/43w="
     },
     "interface-review": {
       "computedHash": "twPopYBX7ht/q4DOa2U4XojvUu0S562NxrzrSUhOmy4="
@@ -568,6 +580,9 @@
       "updatedAt": "2026-09-29T12:54:31.329Z",
       "computedHash": "w7c9qi4mhd8+E4F/1H9eCEHfoLnJa1CcpwkjdFq7IL0="
     },
+    "openspec-lifecycle": {
+      "computedHash": "+ASJ9k7ZpGAXLJzuRPJIaoQk7aRwxKMJI+uWJPUd0+E="
+    },
     "openspec-new-change": {
       "source": "fission-ai/openspec",
       "sourceType": "github",
@@ -697,6 +712,9 @@
     "secrets-handling": {
       "computedHash": "GQ1M1vLRjLxIV9s5EYhm7dJHuM0Vrc4+s5xlDl0nbAQ="
     },
+    "self-improvement": {
+      "computedHash": "fvgTkycfatBeBGZH40LX+/AjF3H8DCBhZU+w37+y9Xw="
+    },
     "service-layer-style": {
       "computedHash": "mX/ITeDTB32fac1V5VUX1VOCWuPRMfMujBjlWIoyPKA="
     },
@@ -732,6 +750,9 @@
     },
     "system-architect": {
       "computedHash": "JO0huG2+i2YL4evYgL+xha5chG8j+8nNj69b3CEEQnA="
+    },
+    "system-atlas": {
+      "computedHash": "8FufVC2HXD36OF4bHBnE3m1jObHu3O32PALJaIzcR3k="
     },
     "systematic-debugging": {
       "computedHash": "xZ3HbCRCuo475Vm4mNTELYOfQW4cQjexSO10Zl1Faq8="
