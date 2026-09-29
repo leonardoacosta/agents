@@ -205,6 +205,24 @@ file digests in `skill-sources.json`, separate from installer-owned locks. Prese
 learned rules in the policy skills and host-specific identities outside this repository.
 Load only the relevant official skill and references, not the entire installed suite.
 
+## Optional local memory and code search tools
+
+- **Graft** is an optional local-first store for reusable agent learnings such as fixes,
+  decisions, and project gotchas. If `graft` is installed, query it for prior solutions
+  before repeating expensive investigation. Use `graft query` for a fast confidence-gated
+  match, `graft retrieve` for ranked hybrid search, and `graft explore` for connected
+  memories. Treat results as leads and confirm them against current source. Do not install,
+  initialize, change profiles, or write memories unless requested.
+- **Blink** (`ellipsis-dev/blink`) is an optional Jev-powered codebase path finder, not
+  persistent memory. If `blink` is installed and a natural-language question asks where
+  code lives, use it when ordinary local search is insufficient. Verify likely paths by
+  reading the files. Recursive/multi-walker searches make hosted TypeSafe Jev calls and
+  can cost tokens. Do not run them without an available, authorized credential and an
+  in-scope network request. Never print or copy API keys into instructions.
+- These are optional assistants, not replacements for repo instructions, tests, `agentgrep`,
+  Jcode memory, or source-of-truth documentation. If either tool is not installed, continue
+  with existing local tools; do not install it automatically.
+
 ## Skill discovery and installer provenance
 
 Skill discovery and installer provenance are separate concerns. Native registries scan
