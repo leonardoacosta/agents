@@ -12,6 +12,7 @@ Quality gates enforce evidence, not a fixed architecture pipeline.
 1. Inspect the proposal, changed files, dependency edges, and risk.
 2. Select checks by changed surface:
    - source/types → format, lint, typecheck
+   - Rust source → use the repository-pinned toolchain and its configured formatter and linter (commonly rustfmt via `cargo fmt` and Clippy via `cargo clippy`). Check `rust-toolchain.toml`, contributor/agent instructions, and CI workflows for the repository's exact commands and flags. Run focused tests for behavior changes.
    - behavior → focused unit/integration tests
    - API or schema contract → contract/integration tests and migration checks
    - UI behavior → focused browser or component tests

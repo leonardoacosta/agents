@@ -1,0 +1,4 @@
+interface:
+  display_name: "1Password + Herdr"
+  short_description: "Manage 1Password CLI vaults from Herdr panes"
+  default_prompt: "Use $onepassword-herdr to inspect or change 1Password vault access safely."

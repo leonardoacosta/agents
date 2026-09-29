@@ -78,6 +78,9 @@
     "az-ado": {
       "computedHash": "RBkiLVFl0PauT6KIRJyxBvbbRMVYXBZvrcHTqoWZyLs="
     },
+    "azure-deploy": {
+      "computedHash": "4YWBFMnuDxN3YsXTOIdfZSbWJw4MJYFu6WRLHqC3CB4="
+    },
     "azure-diagnostics": {
       "computedHash": "wb0J2s1FRqjzQyz3D/Z8LLPILK16qOvaIT8SLD86S1M="
     },
@@ -191,6 +194,9 @@
     },
     "documentation-writer": {
       "computedHash": "dXwXXFPc5qnLJ3rD0QNRm3hzr8nWRsq0pXI56fImzrw="
+    },
+    "domain-modeling": {
+      "computedHash": "Rn9eklKcKkY3RA3OmYQYFLCGSoUocUGI7JG3jZAN9UA="
     },
     "dotenvx-secrets": {
       "computedHash": "5GEbnhCM/2eLLt8kEgOS9apfj++QJKsmMfyI1w+8EOA="
@@ -396,11 +402,25 @@
     "graft": {
       "computedHash": "DL99wfIovvAO946mVuQYbBx9rXpqi6n0MyVX3Xxu400="
     },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/handoff/SKILL.md",
+      "skillFolderHash": "2242e8f05424b8c2ae94194a90d97b88d16108ec",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-09-28T19:02:37.680Z",
+      "updatedAt": "2026-09-28T19:02:37.680Z",
+      "computedHash": "V8OmJE2libqygv3VRkIbCB12fy52sGHNdW8bT9vVdMI="
+    },
     "herdr": {
       "computedHash": "x0ETTMIjcsCNovRp1Jqsn5u93U9eHaBVjPETKDb6Moc="
     },
     "improve": {
       "computedHash": "dV+EQ74CFJB+y7WniCZ5hpjtS4eImuejcoyQ9Kli4+8="
+    },
+    "improve-codebase-architecture": {
+      "computedHash": "dBtAFcDtvNX/uckmq6ts1SlGvSlq8nksRpTHWfS9JVQ="
     },
     "interface-review": {
       "computedHash": "twPopYBX7ht/q4DOa2U4XojvUu0S562NxrzrSUhOmy4="
@@ -418,7 +438,15 @@
       "computedHash": "1C0xVGWJpklqRJUaLTeDrBn9BP1k57JIfxP/iTSDx20="
     },
     "komodo": {
-      "computedHash": "wynHF/9vsjK2bysHozpYPcmKIhm+m27zNwLaIsd40AE="
+      "source": "leonardoacosta/.agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/.agents.git",
+      "ref": "452509e7ddaf9f9ab8c52777efefdf4076a0f2f6",
+      "skillPath": "skills/komodo/SKILL.md",
+      "skillFolderHash": "82009e8627f9ddd1df94fa2c0232c8a573e439c7",
+      "installedAt": "2026-09-28T23:34:37.142Z",
+      "updatedAt": "2026-09-28T23:36:51.422Z",
+      "computedHash": "LiqOYj7+kUf9ancGUJ1Sl9UHGaHW40BLtqGuD9dpu8s="
     },
     "markdown-graphs": {
       "computedHash": "q7cmvxL5bs50kMjaaeky2Hh+SoIrOOHWa6ztfuZG7ZI="
@@ -434,6 +462,9 @@
     },
     "mermaid-diagrams": {
       "computedHash": "C3Pia4xv1rzpTfsMwrjUplKA9j0mefntRP/yx0Qly1k="
+    },
+    "microsoft-foundry": {
+      "computedHash": "5pF8/ULyz01NRXL4SvG/5nSS2zyH/6WW10/nP2t4ctw="
     },
     "monitor-patterns": {
       "computedHash": "JYtZUT/W3g7nl6I67GygY7lpVL6r9XxzCbue5B5Nur4="
@@ -467,6 +498,138 @@
     },
     "openapi-to-typescript": {
       "computedHash": "Z3oUlNSvjam4tKgxeBdFOS6Uef34pH8kXSjj8vjdpg0="
+    },
+    "openspec-apply-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-apply-change/SKILL.md",
+      "skillFolderHash": "23526ac2061f7d11a1896a0bb21ff182a07bc4ba",
+      "installedAt": "2026-09-29T12:54:31.327Z",
+      "updatedAt": "2026-09-29T12:54:31.327Z",
+      "computedHash": "qm+ryNStB0XSdsWNoMTy7kG4X4yGE4/PmYDrB/BkYT8="
+    },
+    "openspec-archive-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-archive-change/SKILL.md",
+      "skillFolderHash": "727bc3a064979ede518fe1ff4e6e23e467a134e6",
+      "installedAt": "2026-09-29T12:54:31.328Z",
+      "updatedAt": "2026-09-29T12:54:31.328Z",
+      "computedHash": "ilF2NPCAKjN530O1oS79xLLOn8osJSbqm9FIqsueAHc="
+    },
+    "openspec-bulk-archive-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-bulk-archive-change/SKILL.md",
+      "skillFolderHash": "64ccb4ff54d9ea27aef119272532f6948ccb8f3f",
+      "installedAt": "2026-09-29T12:54:31.328Z",
+      "updatedAt": "2026-09-29T12:54:31.328Z",
+      "computedHash": "x6GwUhEnEpJqjo5wIZWVb/SeiG/SYTv75lalnqSCuCc="
+    },
+    "openspec-continue-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-continue-change/SKILL.md",
+      "skillFolderHash": "fed2049893d91fc3b7ca5f1e38430c78d5d9d695",
+      "installedAt": "2026-09-29T12:54:31.328Z",
+      "updatedAt": "2026-09-29T12:54:31.328Z",
+      "computedHash": "7dtQtcrzd2dtgtF9WE7tdRsk2AqSurkoDSVb6MnZD7g="
+    },
+    "openspec-explore": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-explore/SKILL.md",
+      "skillFolderHash": "e0f35038ade89dd17e3c2ee893c19ec482520022",
+      "installedAt": "2026-09-29T12:54:31.329Z",
+      "updatedAt": "2026-09-29T12:54:31.329Z",
+      "computedHash": "OgMUfyNJUtf0UmD/2Bc0ZBB9lL5S9JzM6SxviyWSXOY="
+    },
+    "openspec-ff-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-ff-change/SKILL.md",
+      "skillFolderHash": "26e6c71dd45891e19f5030874b49fc8025282349",
+      "installedAt": "2026-09-29T12:54:31.329Z",
+      "updatedAt": "2026-09-29T12:54:31.329Z",
+      "computedHash": "w7c9qi4mhd8+E4F/1H9eCEHfoLnJa1CcpwkjdFq7IL0="
+    },
+    "openspec-new-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-new-change/SKILL.md",
+      "skillFolderHash": "7aed3b13f3198271fc8fb6d9e1b2aa78360c3e09",
+      "installedAt": "2026-09-29T12:54:31.329Z",
+      "updatedAt": "2026-09-29T12:54:31.329Z",
+      "computedHash": "3FA8sXzSwPnYpVxO1Twrp78KIL14+CbC+qx+YzNlZfQ="
+    },
+    "openspec-onboard": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-onboard/SKILL.md",
+      "skillFolderHash": "6fd466cbb22a76005a6c079f05626c969150c72a",
+      "installedAt": "2026-09-29T12:54:31.329Z",
+      "updatedAt": "2026-09-29T12:54:31.329Z",
+      "computedHash": "+9108CdzEld5XB+EKttP3cfqoIlzv1bgn0CnsGk2OB4="
+    },
+    "openspec-propose": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-propose/SKILL.md",
+      "skillFolderHash": "c0565ab613a5191113fd6e296fa23ba954c19634",
+      "installedAt": "2026-09-29T12:54:31.330Z",
+      "updatedAt": "2026-09-29T12:54:31.330Z",
+      "computedHash": "HPJ6Ljb5Mt7kjdH83f3TXEgZJ3eYorNsXw/woEmYCiQ="
+    },
+    "openspec-sync-specs": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-sync-specs/SKILL.md",
+      "skillFolderHash": "4632c00cd2915a3b8ceea483a434fe65800ef7ac",
+      "installedAt": "2026-09-29T12:54:31.330Z",
+      "updatedAt": "2026-09-29T12:54:31.330Z",
+      "computedHash": "HL/vCOLMi5XspOFUKJWpE7cMkJR+1wLxbkUEqYC/4+c="
+    },
+    "openspec-update-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-update-change/SKILL.md",
+      "skillFolderHash": "ed16d9dca57e7fd0e3b0c62a41505575d9bba294",
+      "installedAt": "2026-09-29T12:54:31.330Z",
+      "updatedAt": "2026-09-29T12:54:31.330Z",
+      "computedHash": "9bjsClOWXpoPW1LaAINSRaUuhMxrCMotRLHX2maPAzs="
+    },
+    "openspec-verify-change": {
+      "source": "fission-ai/openspec",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/fission-ai/openspec.git",
+      "ref": "main",
+      "skillPath": "skills/openspec-verify-change/SKILL.md",
+      "skillFolderHash": "d56d23cbcb5269059456fc6c7c9c44c6c95a314b",
+      "installedAt": "2026-09-29T12:54:31.330Z",
+      "updatedAt": "2026-09-29T12:54:31.330Z",
+      "computedHash": "mTprfcE86pgGjJg9kxfcrtxCruq2kX0JcerD6DTWrbU="
     },
     "optimization": {
       "computedHash": "2jggyJql42PRjWMsxYgksIr7SFPGz2kwdttrZ4APy6g="
@@ -581,6 +744,9 @@
     },
     "tailscale": {
       "computedHash": "Zq2KkTBtDBStfl9IYHuBy7fu39FsguwX8uWzzqOXrBo="
+    },
+    "tdd": {
+      "computedHash": "HEKhTBrZexPrd+iiI3qvQBxbtpTjzNjmkQmaRFgqtAI="
     },
     "termcast-tui-patterns": {
       "computedHash": "v1l6Xptb920BkoK2T4R1XlJoaMrYMnNcJfUbjnEO8DU="
