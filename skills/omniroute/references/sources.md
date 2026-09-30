@@ -57,7 +57,7 @@ Many upstream skills are generated. Read their custom sections and check impleme
 
 ## Validation boundary
 
-Packaging validator, local reference links, upstream skill-family paths, API route-file existence, JSON scenario syntax, and skill discovery passed. A bounded Jev evidence check supported the auth split, narrow MCP scope, and source-versus-runtime distinction. Five regression prompts are stored in `../evals/evals.json`; they have not been run as model benchmarks. No live deployment, OAuth flow, billable inference, upgrade, or restore was exercised.
+Packaging validator, local reference links, upstream skill-family paths, API route-file existence, JSON scenario syntax, and skill discovery passed. A bounded Jev evidence check supported the auth split, narrow MCP scope, and source-versus-runtime distinction. Five regression prompts are stored in `../evals/evals.json`. A fresh agent loaded the installed skill and passed three operational acceptance scenarios covering auth, corrected MCP transport/scopes, and SQLite backup safety. See [observed acceptance results](../evals/acceptance.md). This was not a full benchmark or baseline comparison. No live deployment, OAuth flow, billable inference, upgrade, or restore was exercised.
 
 ## Refresh procedure
 
