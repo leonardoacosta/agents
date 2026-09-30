@@ -32,10 +32,12 @@ Compression features such as RTK and Caveman can change prompt content and outpu
 
 ## MCP
 
-There are two deployment surfaces. Do not conflate them:
+Supported transports are stdio, SSE, and streamable HTTP:
 
-- Dedicated server transports documented in `docs/frameworks/MCP-SERVER.md`: stdio, HTTP streamable (documented port `20130`), and WebSocket (documented port `20131`). Inspect actual deployment before assuming either port is listening.
-- Application HTTP transport routes: `/api/mcp/sse` and `/api/mcp/stream`. The latter implements POST/GET/DELETE session lifecycle. Preserve transport session IDs as required by the client.
+- Stdio runs as a client-owned subprocess, documented at `open-sse/mcp-server/server.ts`.
+- HTTP transports run in-process with the dashboard server at `/api/mcp/sse` and `/api/mcp/stream`. The latter implements POST/GET/DELETE session lifecycle using `mcp-session-id`. The actual port follows the application deployment. A documentation example mentions `20130`, but it is not a universal dedicated MCP port. Do not assume a WebSocket MCP transport or port `20131`.
+
+HTTP transports are off by default. Inspect effective `mcpEnabled` and `mcpTransport` settings, or `omniroute mcp status`. Enabling them changes access and requires approval. Transport restart resets active sessions, so it is not a read-only diagnostic.
 
 Default access is local-only. Current management policy permits the narrow `mcp:connect` scope for the `/api/mcp/` transport carve-out, or broader `manage`/`admin` scopes. Older MCP docs describe only `manage`; do not grant broad management access if the installed version supports the narrower scope. This exception does not make every management endpoint remotely accessible.
 
