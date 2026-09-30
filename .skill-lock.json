@@ -674,7 +674,13 @@
       "updatedAt": "2026-09-06T12:47:00.000Z"
     },
     "omniroute": {
-      "computedHash": "CwoflvvOI4DMNTW1v2q06Mc5kWLcoW9K5i2ecZ0cbD0="
+      "computedHash": "3skitzJaAbBioeU/JUAQEHeFlwnyVfqgYONHzokPlm0=",
+      "source": "leonardoacosta/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/.agents.git",
+      "ref": "748e121b643c5d13b0cba40ea188bef746d10d26",
+      "skillPath": "skills/omniroute/SKILL.md",
+      "updatedAt": "2026-09-30T16:11:01.282211+00:00"
     },
     "onepassword-herdr": {
       "computedHash": "7oZyL2jAeAloDzWjjmh9PsnGxl1CBWIW8pztEMowmLM="
