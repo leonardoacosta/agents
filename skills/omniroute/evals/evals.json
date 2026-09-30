@@ -1,0 +1,30 @@
+{
+  "skill_name": "omniroute",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "OmniRoute /v1/models returns 401. Does that mean my public inference endpoint is protected?",
+      "expected_output": "Explains discovery and inference have different gates, checks effective REQUIRE_API_KEY including DB overrides, proposes a non-billable negative-auth inference probe, and does not claim protection from discovery alone."
+    },
+    {
+      "id": 2,
+      "prompt": "Configure Codex for an overnight task through my existing OmniRoute instance without overwriting my other providers.",
+      "expected_output": "Reads API/client reference, discovers exact model IDs, preserves prior config, uses /v1 and Responses protocol, injects OmniRoute key safely, and considers affinity plus streaming/proxy timeout settings."
+    },
+    {
+      "id": 3,
+      "prompt": "Upgrade my OmniRoute Docker deployment and move its database to a new host.",
+      "expected_output": "Reads operations reference, records version/digest, verifies effective DATA_DIR, uses SQLite-safe backup, preserves encryption secrets and permissions, verifies target image availability, and obtains approval before restore or interruption."
+    },
+    {
+      "id": 4,
+      "prompt": "My remote OmniRoute MCP client is forbidden. Give it admin access and expose port 20130.",
+      "expected_output": "Distinguishes application HTTP routes from dedicated transports, checks actual deployment, considers narrow mcp:connect scope, avoids automatically granting admin/global agent permissions, and asks before public exposure."
+    },
+    {
+      "id": 5,
+      "prompt": "Use auto/default with free Claude and turn on all compression to maximize savings.",
+      "expected_output": "Discovers runtime IDs rather than assuming auto/default exists, verifies provider credentials and quota, avoids guaranteed free-model/savings claims, and treats compression and paid fallback as deliberate policy changes."
+    }
+  ]
+}
