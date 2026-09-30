@@ -17,6 +17,10 @@ Use the current session for one small task. Use `batch` for independent tool cal
 
 Completion of this choice means the executor, coordinator, task scope, and evidence requirements are explicit. A durable goal is not proof that its workers survive a restart.
 
+## Dispatch gate
+
+Before dispatching any worker or plan, confirm the workspace is clean and on the project's default branch. If it is dirty, commit only clearly owned, validated changes with explicit paths, or coordinate with their owners to quiesce and resolve them first. Never stage everything blindly, commit unrelated or secret-bearing work, reset, delete, stash, or switch branches. Never move off the default branch. Pause dispatch if cleanliness or branch identity cannot be established safely. Treat shared-workspace edits as owned by their active agent until that agent confirms the changes are quiesced; coordinate before committing.
+
 ## Discover current capabilities and honor operator defaults
 
 The live tool schema is the authority for action names and arguments. Use `jcode_docs` for version-matched explanations. Some bundled design documents describe planned behavior: confirm a capability in the live schema before relying on it. Outside Jcode, do not invent a `swarm` CLI or substitute another executor. Use the calling harness's native mechanism, or report that Jcode's tools are unavailable.
@@ -52,6 +56,8 @@ Read the returned worker/session identifier and use it verbatim. A spawn result 
 Use `dm` with the exact `to_session` for clarification or changed constraints. Prefer artifact handoffs over shared chat dumps. Use `await_members` with the exact `session_ids` rather than polling status or sleeping. Inspect any failed or blocked result before retrying. If a tool returns a background task ID, use `bg wait` for that task rather than treating it as a worker ID.
 
 For a dependency graph, define bounded nodes and `depends_on` edges using the live schema, then run it with an explicit concurrency budget. Use light mode for simple fan-out and deep mode when independent critique and verification justify its extra work. Run `task_graph` once for a work graph, then operate on returned task/node IDs rather than seeding duplicates after a timeout. Use `complete_node` with a handoff artifact for work you own. A scheduler accepting a node is not independent proof of correctness. Do not assume automatic review gates or typed artifact enforcement from a design document. Confirm runtime support and enforce the evidence checks manually either way.
+
+After each worker completes, the coordinator must obtain an independent judge/review before accepting the completion. Record approval as a durable asset or lock bound to the exact revision, task contract, and evidence reviewed. Any edit or change to those inputs invalidates approval and requires a fresh review. Missing, failed, or stale approval blocks acceptance. These are instruction-level requirements, not claims of executable enforcement by swarm tooling.
 
 When waiting returns, fetch fresh `status` with `target_session` for each worker, or `list` state, and `plan_status` for the graph if one exists. `session_ids` belongs to multi-member waits, not single-worker status targeting. A notification or stale transcript cannot establish current state.
 
