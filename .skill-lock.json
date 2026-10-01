@@ -205,6 +205,9 @@
     "design-system-starter": {
       "computedHash": "4gpsbU0jg7fRUfpwTao8cDq1oW0oQ4guzIII2UOxqKM="
     },
+    "design-tokens": {
+      "computedHash": "wZFigt+EgdZ3OzQ2qx0TPsDttTFN901BHnRx9S66qxE="
+    },
     "docker": {
       "computedHash": "aJ6VDF76TdiGwFnX9Z9LrLDvxLxAwrShkACKcNDp5FU="
     },
@@ -596,10 +599,10 @@
       "computedHash": "sfzRf2RpHdCIT1xYf+PbVtbIqytCdSeWywNaFgYfIQg="
     },
     "jcode-handoff": {
-      "computedHash": "1xPrTVZvQFosRvtQlWo5jHM/+1HrQvYeoINxnkpTVsE="
+      "computedHash": "Cfl9QjnWwvgshrBUg+zXfGUfqICvxOp5rrnLu9/Pfro="
     },
     "jcode-orchestration": {
-      "computedHash": "hvxQk39yqu3F6+fnf5EvgztWZMQ45YbYPmyNxC1o6sM="
+      "computedHash": "MdjzusW5Xsy/eOMv9oI6oUjkXDisfj8/kfXEVngwe54="
     },
     "jcode-personal-setup": {
       "computedHash": "lLdc7aQq2ZuzpspxM/X7jRxHiKikg10b5kwKkzA5+r0="
@@ -641,6 +644,9 @@
     },
     "microsoft-foundry": {
       "computedHash": "5pF8/ULyz01NRXL4SvG/5nSS2zyH/6WW10/nP2t4ctw="
+    },
+    "mockup": {
+      "computedHash": "Dq7fGRL7jTsHadAuwU1tYwXwBysuVudtD/1GAFQlQxM="
     },
     "monitor-patterns": {
       "computedHash": "JYtZUT/W3g7nl6I67GygY7lpVL6r9XxzCbue5B5Nur4="
@@ -946,6 +952,17 @@
     },
     "state-machine": {
       "computedHash": "hJz6/wRq7Ekj6wi+Z33OtzIwfXv88kYdvz2x5sRt8tU="
+    },
+    "subagent-driven-development": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/obra/superpowers.git",
+      "ref": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "skillPath": "skills/subagent-driven-development/SKILL.md",
+      "skillFolderHash": "5d44ced88725298e847c62c67a726dcc29e20d00",
+      "installedAt": "2026-10-01T17:13:40.735Z",
+      "updatedAt": "2026-10-01T17:13:40.735Z",
+      "computedHash": "bLfB7Sqj4U16kJ+wUZPRmOgqDmInfnvg0hzhjINrkwc="
     },
     "swift": {
       "computedHash": "lCwYNS0uzODj+7tkqTsDSKpZKAj/mFA4hv/zPGPvJds="
