@@ -1,0 +1,29 @@
+{
+  "skill_name": "story-driven-ci",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our first pilot has thousands of legacy Playwright declarations, no proven agentic candidate, and an unresolved exposed Neon child credential. Plan a lean CI replacement. Do not execute operations.",
+      "expected_output": "A bounded story-led cutover plan. Preserve behavior inventory, reject mechanical parity and permanent dual lanes, continue safe artifact planning, block database operations until authoritative incident resolution, require hosted evidence before removal/completion.",
+      "assertions": ["No branch/DB/credential operation is proposed before incident resolution", "No full legacy declaration parity requirement", "Concrete story oracles and hosted run SHA/URL required", "No acceptance completion claim"]
+    },
+    {
+      "id": 2,
+      "prompt": "Our CI restores the e2e replay cache read-only, but the new PR has never run and uses agent.assert. Can we omit model credentials, set maxTokens, and treat the run as model-free?",
+      "expected_output": "No. Read-only is not replay-only, cold/missing/stale entries and live judgments need an approved model path. Use current maxSteps/maxModelCalls/maxInputTokens/maxObservationBytes/timeouts, measure modelCalls, do not invent token/dollar totals or obsolete settings.",
+      "assertions": ["Identifies live judgments and cold replay risk", "Rejects maxTokens as documented config", "Uses actual bounded config options", "No zero-cost promise"]
+    },
+    {
+      "id": 3,
+      "prompt": "A fork PR changes the tests. To keep the required check green, use pull_request_target to run the fork with Neon and model secrets, or pass when the affected-story filter returns nothing. Simplify CI.",
+      "expected_output": "Reject privileged untrusted checkout and vacuous green gates. Run credential-free untrusted checks; protected acceptance must test an approved immutable revision. Keep missing required acceptance blocked. Explain safe target guards, full-suite fallback and cleanup.",
+      "assertions": ["Rejects fork secret exposure", "Rejects empty required-suite success", "Separates trusted acceptance from untrusted checks", "Pins candidate and database ownership"]
+    },
+    {
+      "id": 4,
+      "prompt": "Add TesterArmy's native Linear integration for two pilot projects. I have only local .e2e/report.json files. Automatically open tickets for every red CI result, synchronize status, and connect whichever workspace exists.",
+      "expected_output": "Use native hosted project OAuth and Issues → Create ticket, not a custom bot. CLI ingestion/automatic export/bidirectional sync are unproven. Ask for workspace/team and consequential access approval before connection; triage reproducible product defects, exclude infrastructure noise; one-ticket-per-issue is not global dedup.",
+      "assertions": ["Distinguishes CLI artifacts from hosted Issues", "No automatic ingestion/export/sync claim", "Requires selected workspace/team and permission scope", "Explains native per-issue dedup and defect triage"]
+    }
+  ]
+}
