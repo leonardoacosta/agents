@@ -64,10 +64,24 @@
       "computedHash": "EV+sh8xQ/81Lerc1yM36k4pqw/CqgVGYLpm67/s0mnc="
     },
     "apply": {
-      "computedHash": "NwXpOYrjuEsaNuO3b+quzxGMZD9ByJfjs8vD5F7cm+w="
+      "source": "leonardoacosta/.agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/.agents.git",
+      "skillPath": "skills/apply/SKILL.md",
+      "skillFolderHash": "97b642e0462715a8e1d1e8d7ec12088462a8e8fa",
+      "installedAt": "2026-10-01T20:01:06.200Z",
+      "updatedAt": "2026-10-01T20:01:06.200Z",
+      "computedHash": "r3LSEsQzKBCNTUtmevlmx1arXU410XYkN8vg4UUpTjc="
     },
     "apply-all": {
-      "computedHash": "GuGwkvZR74qqSgAES9dmWncfuN6KSV6Mr9k+WZah3vE="
+      "source": "leonardoacosta/.agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/.agents.git",
+      "skillPath": "skills/apply-all/SKILL.md",
+      "skillFolderHash": "f44ce71d5e1cbb7cc8a571f07284fdd862b78955",
+      "installedAt": "2026-10-01T20:01:06.202Z",
+      "updatedAt": "2026-10-01T20:01:06.202Z",
+      "computedHash": "Md1VnIB562qWcx/uwwglTwUyVziZIfxtmowLAsHCQIE="
     },
     "archify": {
       "computedHash": "uMIR1e4gFB7m1D7O69l1/DZ12FWAOBSCXWs6EtM6z1A="
@@ -132,6 +146,9 @@
     "breakdown-epic-arch": {
       "computedHash": "diF5OOlZoqOfG9p2WUFvh7O7Er0P4Jo9hoT4qUysurQ="
     },
+    "bro": {
+      "computedHash": "2Pb+HBPFT60hNQBmJWaQ9nrmKws0SGbzEhJba4bGAyU="
+    },
     "brown-b3-owa-cpc": {
       "computedHash": "ob6fqFQ6k5xZW/ey7+le5MsRmhhJEJlYgfAum7Aa9Rc="
     },
@@ -180,6 +197,28 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-09-04T15:41:56.346Z",
       "updatedAt": "2026-09-04T15:41:56.346Z"
+    },
+    "context7-cli": {
+      "source": "upstash/context7",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/upstash/context7.git",
+      "ref": "bfa02ea67b5707fe0e0a673faa49d0f50b28c80b",
+      "skillPath": "skills/context7-cli/SKILL.md",
+      "skillFolderHash": "5eab610de8c871f2b7fe252c5edf13daa2b07fb6",
+      "installedAt": "2026-10-03T18:45:23.124Z",
+      "updatedAt": "2026-10-03T18:45:23.124Z",
+      "computedHash": "Gaca5NemVWmnbsWmtBqwzRSNgl2NOdEUYHo682Lr36w="
+    },
+    "context7-mcp": {
+      "source": "upstash/context7",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/upstash/context7.git",
+      "ref": "bfa02ea67b5707fe0e0a673faa49d0f50b28c80b",
+      "skillPath": "skills/context7-mcp/SKILL.md",
+      "skillFolderHash": "92080dfde0cd06366b451bb4bb567c4d4cb64e68",
+      "installedAt": "2026-10-03T18:45:23.124Z",
+      "updatedAt": "2026-10-03T18:45:23.124Z",
+      "computedHash": "OHKOceR3P3Cz59KiyQsbBGa6eClgPXkLBeCjqxL45Wk="
     },
     "crafting-effective-readmes": {
       "computedHash": "DotbvFmF8hJtcFpbwluLTVvVyYyS9iAQT6j2EkGGk4g="
@@ -275,7 +314,14 @@
       "computedHash": "+K4LjMwB/h4/zGZg1MblhfdgpCO7g0U1ozNQ6am4StM="
     },
     "explore": {
-      "computedHash": "+1+79knYC5mtDJ8hPzxY6hNrUfmznFOUJ27+jLBGkDk="
+      "source": "leonardoacosta/.agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/.agents.git",
+      "skillPath": "skills/explore/SKILL.md",
+      "skillFolderHash": "629ff23862782532f48663bae5b4af40ffe31b73",
+      "installedAt": "2026-10-01T20:01:06.203Z",
+      "updatedAt": "2026-10-01T20:01:06.203Z",
+      "computedHash": "t53FzrpSIicLlu7y5+pQ6JF7m6GFSEgqd+0nYAE6QOM="
     },
     "extend-before-create": {
       "computedHash": "AQ1NJ9e1ffFRa2IT14q4tKYpbgRdor2tN3DJJV1lQjY="
@@ -284,7 +330,25 @@
       "computedHash": "NuF+zVi5H/PKb7LkCv5MWmYUBUfz2gvkBzrhxbuOnQ8="
     },
     "feature": {
-      "computedHash": "NsuncQvUU7MnFufKbtAAMHyo9dAUiA4oEYCC/wM4rRw="
+      "source": "leonardoacosta/.agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/leonardoacosta/.agents.git",
+      "skillPath": "skills/feature/SKILL.md",
+      "skillFolderHash": "13cd0f3bbb71834d144eab00bab263351bdab6bb",
+      "installedAt": "2026-10-01T20:01:06.204Z",
+      "updatedAt": "2026-10-01T20:01:06.204Z",
+      "computedHash": "4BjRv51WqQsIbD0GVr1ebBZM0jKb0tje7DwuUMxH4So="
+    },
+    "find-docs": {
+      "source": "upstash/context7",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/upstash/context7.git",
+      "ref": "bfa02ea67b5707fe0e0a673faa49d0f50b28c80b",
+      "skillPath": "skills/find-docs/SKILL.md",
+      "skillFolderHash": "b635cd66f1414befd36d18646561398de2ddab54",
+      "installedAt": "2026-10-03T18:45:23.126Z",
+      "updatedAt": "2026-10-03T18:45:23.126Z",
+      "computedHash": "k+wtJ4bX6DlzJSODh1xPNFou58u9CKGrOOUgGyFGQO4="
     },
     "find-skills": {
       "computedHash": "QKMTxOodrZaVyKzVmdlAc2pANVm9D2gTsYWI0Lvs0x8=",
@@ -624,6 +688,9 @@
       "updatedAt": "2026-09-28T23:36:51.422Z",
       "computedHash": "LiqOYj7+kUf9ancGUJ1Sl9UHGaHW40BLtqGuD9dpu8s="
     },
+    "linear-management": {
+      "computedHash": "A1UzGVtiaIP3MItkCwAQ9sHz26CG/ax6JvXp97O83oo="
+    },
     "markdown-graphs": {
       "computedHash": "q7cmvxL5bs50kMjaaeky2Hh+SoIrOOHWa6ztfuZG7ZI=",
       "source": "keshav-exe/markdown-graphs",
@@ -661,7 +728,34 @@
       "computedHash": "Xh74zYEraYuUTN9wAfyXsCIh0DDm0fUZfmE7CdIvccM="
     },
     "neon": {
+      "source": "neondatabase/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/neondatabase/agent-skills.git",
+      "skillPath": "skills/neon/SKILL.md",
+      "skillFolderHash": "1f41e6d228847a7f21dec431d9b2d6730e9b06ac",
+      "installedAt": "2026-10-02T11:44:00.025Z",
+      "updatedAt": "2026-10-02T11:44:00.025Z",
       "computedHash": "KHbrS7n97+fKI4dEA7y8TBD2HD9ofxZeaHvDTvk/QuQ="
+    },
+    "neon-postgres": {
+      "source": "neondatabase/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/neondatabase/agent-skills.git",
+      "skillPath": "skills/neon-postgres/SKILL.md",
+      "skillFolderHash": "0f9cc0f4b62774c4c6354978737d75893da233fa",
+      "installedAt": "2026-10-02T11:44:00.026Z",
+      "updatedAt": "2026-10-02T11:44:00.026Z",
+      "computedHash": "Y46qYlqqSlfoiU4AXWo+onEMZoL4XYoRFK9J12daBRg="
+    },
+    "neon-postgres-branches": {
+      "source": "neondatabase/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/neondatabase/agent-skills.git",
+      "skillPath": "skills/neon-postgres-branches/SKILL.md",
+      "skillFolderHash": "6c540149c6c83cbbf4de27b485029dade184f172",
+      "installedAt": "2026-10-02T11:44:00.026Z",
+      "updatedAt": "2026-10-02T11:44:00.026Z",
+      "computedHash": "1rfs/FJQjFe9PIVyp80MWCwlbjZzESTrhZjoskeAqx0="
     },
     "nextjs-app-router": {
       "computedHash": "cCf9r9vYKfNYly/4IApi2AqeiE6R+XdFaCbwZq4v2+c="
@@ -844,6 +938,49 @@
     "optimization": {
       "computedHash": "2jggyJql42PRjWMsxYgksIr7SFPGz2kwdttrZ4APy6g="
     },
+    "orca-cli": {
+      "source": "stablyai/orca",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stablyai/orca.git",
+      "skillPath": "skills/orca-cli/SKILL.md",
+      "skillFolderHash": "572f7952ac451a30a9c2451b472a639b125ee584",
+      "installedAt": "2026-10-02T19:17:37.577Z",
+      "updatedAt": "2026-10-02T19:19:15.370Z",
+      "computedHash": "zNcXrte5hmoFmwsx2aAJZBoo9tsyAXSZQ/u7eXr0oxc="
+    },
+    "orca-emulator": {
+      "source": "stablyai/orca",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stablyai/orca.git",
+      "skillPath": "skills/orca-emulator/SKILL.md",
+      "skillFolderHash": "110f6ab59bd73428d7de28bd4761d1fc332efa20",
+      "installedAt": "2026-10-02T19:27:52.361Z",
+      "updatedAt": "2026-10-02T19:27:52.361Z",
+      "computedHash": "iozLfM5GE5b8uhCZYU0Va/4euFSIYei9B30x1kaChRs="
+    },
+    "orca-per-workspace-env": {
+      "source": "stablyai/orca",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stablyai/orca.git",
+      "skillPath": "skills/orca-per-workspace-env/SKILL.md",
+      "skillFolderHash": "58dfb5dc3ad287a6a42625f9d15c7c0c3dfd02ec",
+      "installedAt": "2026-10-03T03:45:06.858Z",
+      "updatedAt": "2026-10-03T03:45:06.858Z",
+      "computedHash": "jforqX5kAFdx2f56+T5CDmCn545l67ZaL0aBsJpxY0E="
+    },
+    "orchestration": {
+      "source": "stablyai/orca",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stablyai/orca.git",
+      "skillPath": "skills/orchestration/SKILL.md",
+      "skillFolderHash": "b0cd1d58b0c317cf7c3726fef7e6b1197c405246",
+      "installedAt": "2026-10-02T19:20:45.344Z",
+      "updatedAt": "2026-10-02T19:20:45.344Z",
+      "computedHash": "DcBKCjVJdO7VwVEV/Gy3Rh10I+laWxnumVeWzxOD5+0="
+    },
+    "oxlint-oxfmt": {
+      "computedHash": "Io/IPT+sulZPn/YTSzOpxqCqFxfexeV1zwXa8RldLx8="
+    },
     "pdfcn": {
       "computedHash": "InaSd4yOQYVxfwandgogJRwpbn6bQKwrdq8YXGw48Sw="
     },
@@ -956,6 +1093,9 @@
     "state-machine": {
       "computedHash": "hJz6/wRq7Ekj6wi+Z33OtzIwfXv88kYdvz2x5sRt8tU="
     },
+    "story-driven-ci": {
+      "computedHash": "mhhIhL6rYGakdUy3OVG6OUBa239MCThN5GfhOWz4IXE="
+    },
     "subagent-driven-development": {
       "source": "obra/superpowers",
       "sourceType": "github",
@@ -1012,6 +1152,16 @@
     "tests-adversarial": {
       "computedHash": "nDg+lPs+088e792LaCDOdMB8LuYOsybeVb7UWMXevw4="
     },
+    "ticket-writing": {
+      "source": "michaelsvanbeek/personal-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/michaelsvanbeek/personal-agent-skills.git",
+      "skillPath": "skills/ticket-writing/SKILL.md",
+      "skillFolderHash": "369185e867d0a66aca2d292d1855259bd50f6df4",
+      "installedAt": "2026-10-01T18:07:55.887Z",
+      "updatedAt": "2026-10-01T18:07:55.887Z",
+      "computedHash": "Wl7V61UhRwin6ADEoqNqcHP3SInRUUpc5EMXo/ewYSA="
+    },
     "trpc-patterns": {
       "computedHash": "La/0pXC+HUIVNyu//HcOwiA8uwu1CNP8IUm0nwYsTB4="
     },
@@ -1029,6 +1179,9 @@
       "skillPath": "skills/ui-ux-pro-max/SKILL.md",
       "installedAt": "2026-09-06T12:47:00.000Z",
       "updatedAt": "2026-09-06T12:47:00.000Z"
+    },
+    "ultracite": {
+      "computedHash": "Gzg3vHIueMIA0DESeCkjRZcdhfBEC2UbGuEIF2wBGLI="
     },
     "unslop": {
       "computedHash": "keT7Bukio30/l1ZcsPAfALCDk2RY+B9XjJaB6ycYSyI=",
