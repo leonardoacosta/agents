@@ -1,0 +1,14 @@
+{
+  "name": "with-orca",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Install disabled Orca automations and open Orca-owned worktrees in Herdr",
+  "type": "module",
+  "scripts": {
+    "build": "node cli.mjs validate",
+    "validate": "node cli.mjs validate",
+    "install:automations": "node cli.mjs install",
+    "open:herdr": "node cli.mjs open",
+    "test": "node --test"
+  }
+}

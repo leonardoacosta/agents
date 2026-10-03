@@ -1,0 +1,28 @@
+{
+  "name": "agents",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "orca:validate": "pnpm --filter with-orca validate",
+    "orca:install": "pnpm --filter with-orca install:automations",
+    "orca:open": "pnpm --filter with-orca open:herdr",
+    "durable:deploy": "pnpm --filter with-durable deploy",
+    "changeset": "changeset",
+    "version-packages": "changeset version"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.0",
+    "oxfmt": "*",
+    "oxlint": "*",
+    "turbo": "^2.11.6",
+    "ultracite": "7.12.2"
+  },
+  "engines": {
+    "node": ">=24.15.0"
+  },
+  "packageManager": "pnpm@10.32.0"
+}
