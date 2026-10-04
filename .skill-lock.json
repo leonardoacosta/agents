@@ -1302,6 +1302,9 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-09-06T12:47:00.000Z",
       "updatedAt": "2026-09-06T12:47:00.000Z"
+    },
+    "worktree-standard": {
+      "computedHash": "ZnruKxlpO5hVc7MZjUE160grkRv534l1SnpV7H3XahY="
     }
   },
   "dismissed": {
