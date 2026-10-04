@@ -1,0 +1,29 @@
+{
+  "skill_name": "worktree-standard",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We are in Cursor. Create a plan for a parallel onboarding fix in a repo with origin git@github.com:priceless/modern-visa.git. Preserve an existing branch named fix/onboarding, session cursor-123. Do not execute commands. Give exact commands and explain ownership and path selection.",
+      "expected_output": "Use helper with cursor, existing branch preserved, session supplied; ~/worktrees sanitized repo key; use returned path.",
+      "files": [],
+      "assertions": [
+        "Uses shared helper rather than raw git worktree add",
+        "Specifies cursor client and cursor-123 session",
+        "Preserves fix/onboarding using --branch",
+        "Uses returned path instead of guessing unique ID"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Clean up all old worktrees: one is dirty, one has an unpublished commit only on its own branch, one has a broken .git pointer, and one is clean on codex/finished. Explain what can be deleted and exact inspection commands. No mutations allowed.",
+      "expected_output": "Read-only helper assessment and Git inspection; no age/prefix deletion; broken/dirty/unpreserved blocked; clean does not authorize deletion.",
+      "files": [],
+      "assertions": [
+        "No deletion commands or age-based deletion",
+        "Blocks dirty and uniquely unpublished worktrees",
+        "Preserves broken-pointer directory pending recovery",
+        "Clean codex branch is not deletion authorization"
+      ]
+    }
+  ]
+}

@@ -144,10 +144,13 @@ pnpm add zod --filter @workspace/validators
 # Internal deps use workspace:* protocol
 # package.json: "dependencies": { "@workspace/db": "workspace:*" }
 
-# After git worktree add — REQUIRED before any build
-# (subshell: the orchestrator must not persistently cd into .worktrees — gate-enforced)
-git worktree add .worktrees/my-branch origin/base-branch
-( cd .worktrees/my-branch && pnpm install --frozen-lockfile )
+# Create via worktree-standard, then install before any build.
+# Use its returned WORKTREE path; keep the coordinator in its original directory.
+CREATED=$(python3 "$HOME/.agents/skills/worktree-standard/scripts/worktree.py" create \
+  --repo "$REPO" --client "$CLIENT" --task my-task --session "$SESSION_ID" \
+  --base origin/base-branch) && \
+WORKTREE=$(printf '%s' "$CREATED" | python3 -c 'import json,sys; print(json.load(sys.stdin)["path"])') && \
+( cd "$WORKTREE" && pnpm install --frozen-lockfile )
 
 # Scope a command to one package
 pnpm --filter @workspace/web dev

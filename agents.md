@@ -1,5 +1,9 @@
 # Agentic Workflow
 
+## Shared worktrees
+
+For new Git worktrees, read `~/.agents/skills/worktree-standard/SKILL.md` and use its bundled `scripts/worktree.py` helper. The shared path is `~/worktrees/<repo-key>/<client>/<task>--<unique-id>`. Valid creator clients are `jcode`, `pi`, `codex`, `claude`, `orca`, `pi-durable`, and `cursor`. New branches use `<client>/<type>/<task>--<unique-id>`; existing branches keep their names. Use your actual client/session and the path returned by the helper. Preserve legacy paths. Do not delete by age or branch prefix, bypass Git branch protection, or treat clean status as cleanup authorization. Native client UI actions are not covered unless a verified adapter exists.
+
 ## Communication
 
 - Always talk in ASD-STE100 Simplified Technical English. Always read CONTEXT.md files, and use their ubiquitous language
