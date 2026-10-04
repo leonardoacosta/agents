@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create and assess managed Git worktrees without removing any worktree."""
+"""Create, assess, and explicitly remove managed Git worktrees."""
 
 import argparse
 import json
@@ -134,41 +134,55 @@ def do_create(args):
     print(json.dumps({"path": str(path), "branch": branch, "repo_key": key, "id": ident}, indent=2))
 
 
-def do_check(args):
+def assess(args):
     supplied_path = Path(args.path).expanduser().absolute()
     root = Path(args.root).expanduser().absolute()
     path = supplied_path.resolve()
     root_real = root.resolve()
     blockers = []
+    if supplied_path.is_symlink() or root.resolve() != root:
+        blockers.append("target path or managed root ancestry contains a symlink")
     if not supplied_path.is_relative_to(root) or not path.is_relative_to(root_real):
         blockers.append("outside managed root")
     try:
         toplevel = Path(git(path, "rev-parse", "--show-toplevel").stdout.strip()).resolve()
         gd = Path(git(path, "rev-parse", "--absolute-git-dir").stdout.strip()).resolve()
     except Exception as exc:
-        print(json.dumps({"path": str(path), "eligible": False, "blockers": blockers + [f"git status unknown: {exc}"]}, indent=2))
-        return
+        return {"path": str(path), "eligible": False, "blockers": blockers + ["git status unknown"],
+                "removal_performed": False, "note": "Eligibility is an assessment only; remote refs are local snapshots."}
     try:
         metadata = json.loads((gd / META_NAME).read_text(encoding="utf-8"))
     except Exception:
         metadata = None
     parts = path.relative_to(root_real).parts if path.is_relative_to(root_real) else ()
-    if metadata is None:
+    if metadata is None or not isinstance(metadata, dict):
         blockers.append("unknown ownership")
-    else:
+        metadata = None
+    if metadata is not None:
         if metadata.get("path") != str(path) or toplevel != path or not supplied_path.is_relative_to(root):
             blockers.append("ownership/path mismatch")
-        if metadata.get("client") not in CLIENTS or len(parts) < 3 or parts[1] != metadata.get("client"):
-            blockers.append("unknown client or path ownership mismatch")
-    listing = git(path, "worktree", "list", "--porcelain").stdout.splitlines()
+        branch = git(path, "symbolic-ref", "--short", "-q", "HEAD", check=False)
+        if (not isinstance(metadata.get("client"), str) or metadata.get("client") not in CLIENTS or len(parts) < 3 or parts[1] != metadata.get("client")
+                or metadata.get("branch") != branch.stdout.strip()):
+            blockers.append("unknown client or branch/path ownership mismatch")
+        if metadata.get("repo_key") != repo_info(path)[2]:
+            blockers.append("ownership/repository mismatch")
+    listing_result = git(path, "worktree", "list", "--porcelain", "-z", check=False)
+    listing = listing_result.stdout.split("\0") if listing_result.returncode == 0 else []
     current = False
-    for line in listing:
-        if line.startswith("worktree "):
-            current = Path(line[9:]).resolve() == path
-        elif current and (line == "locked" or line.startswith("locked ")):
-            blockers.append("worktree is locked")
-            break
-    status = git(path, "status", "--porcelain=v1", "--untracked-files=all", check=False)
+    registered = False
+    locked = False
+    for record in listing:
+        if record.startswith("worktree "):
+            current = Path(record[9:]).resolve() == path
+            registered |= current
+        elif current and (record == "locked" or record.startswith("locked ")):
+            locked = True
+    if not registered:
+        blockers.append("worktree is not registered")
+    if locked:
+        blockers.append("worktree is locked")
+    status = git(path, "status", "--porcelain=v1", "--untracked-files=all", "--ignored", check=False)
     if status.returncode:
         blockers.append("git status unknown")
     elif status.stdout.strip():
@@ -190,10 +204,56 @@ def do_check(args):
                     break
         if not preserve:
             blockers.append("HEAD commit is not reachable from another local branch or cached remote ref")
+    primary = Path(repo_info(path)[1]).parent.resolve()
+    if path == primary:
+        blockers.append("primary checkout cannot be removed")
     output = {"path": str(path), "eligible": not blockers, "blockers": blockers,
               "removal_performed": False,
               "note": "Eligibility is an assessment only; remote refs are local snapshots."}
+    return output
+
+
+def do_check(args):
+    print(json.dumps(assess(args), indent=2))
+
+
+def do_remove(args):
+    if not args.confirm:
+        raise WorktreeError("explicit --confirm is required; no worktree was removed")
+    output = assess(args)
+    target = Path(output["path"]) if output else Path(args.path).expanduser().absolute().resolve()
+    if not output or not output["eligible"]:
+        if output:
+            print(json.dumps(output, indent=2))
+        raise WorktreeError("worktree is not eligible for removal")
+    common = Path(git(target, "rev-parse", "--git-common-dir").stdout.strip())
+    common = (target / common).resolve() if not common.is_absolute() else common.resolve()
+    survivor = None
+    for record in git(target, "worktree", "list", "--porcelain", "-z").stdout.split("\0"):
+        if record.startswith("worktree "):
+            candidate = Path(record[9:]).resolve()
+            if candidate != target and candidate.exists() and (candidate / ".git").exists():
+                c = Path(git(candidate, "rev-parse", "--git-common-dir", check=False).stdout.strip())
+                c = (candidate / c).resolve() if not c.is_absolute() else c.resolve()
+                if c == common:
+                    survivor = candidate
+                    break
+    if survivor is None:
+        output["error"] = "no surviving checkout available to remove worktree"
+    else:
+        result = git(survivor, "worktree", "remove", str(target), check=False)
+        if result.returncode:
+            output["error"] = f"git worktree remove failed (exit {result.returncode}): {result.stderr.strip()}"
+        elif target.exists() or target.is_symlink():
+            output["error"] = "target path still exists after removal"
+        else:
+            remaining = git(survivor, "worktree", "list", "--porcelain", "-z", check=False)
+            if remaining.returncode or any(r.startswith("worktree ") and Path(r[9:]).resolve() == target for r in remaining.stdout.split("\0")):
+                output["error"] = "target remains registered after removal"
+    output["removal_performed"] = not output.get("error")
     print(json.dumps(output, indent=2))
+    if output.get("error"):
+        raise WorktreeError(output["error"])
 
 
 def parser():
@@ -216,6 +276,11 @@ def parser():
     c.add_argument("--path", required=True)
     c.add_argument("--root", type=Path, default=DEFAULT_ROOT)
     c.set_defaults(func=do_check)
+    c = sub.add_parser("remove")
+    c.add_argument("--path", required=True)
+    c.add_argument("--root", type=Path, default=DEFAULT_ROOT)
+    c.add_argument("--confirm", action="store_true")
+    c.set_defaults(func=do_remove)
     return p
 
 

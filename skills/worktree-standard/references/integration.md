@@ -28,4 +28,4 @@ Read `native-clients.md` for Claude/Codex/Cursor hook contracts, `pi-integration
 
 ## Verification
 
-Run `python3 scripts/worktree.py --help` and `python3 -m unittest discover -s scripts/tests -v` from this skill directory. Tests create real temporary Git repos and check creation/branch protection, provenance, dirty/untracked state, commit preservation, locks, and path escape handling.
+Run `python3 scripts/worktree.py --help` and `python3 -m unittest discover -s scripts/tests -v` from this skill directory. The tests exercise the helper and native hook patterns, including temporary Git repositories; this is not a promise of exhaustive client or integration coverage.

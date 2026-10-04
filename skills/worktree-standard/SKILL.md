@@ -7,7 +7,7 @@ description: Create, resume, audit, and assess cleanup of Git worktrees under th
 
 ## Contract
 
-Apply to new worktrees only. Preserve existing paths and branches. Do not move, rename, prune, remove, or change global Git hooks as part of adoption.
+Apply to new worktrees; preserve existing paths and branches unless the user explicitly authorizes removal of a managed worktree. Do not move, rename, prune, or change global Git hooks as part of adoption. Raw Git worktree mutations remain blocked; the helper's `remove` command is the sole managed-removal route, and its `--confirm` flag does not replace explicit user authorization.
 
 ```text
 ~/worktrees/<repo-key>/<client>/<task>--<unique-id>
@@ -28,6 +28,14 @@ python3 "$HELPER" create --repo "$REPO" --client claude --task fix-onboarding --
 ```
 
 Use `--branch <existing-branch>` to preserve a branch rather than create one. Git retains its native branch checkout protections. No `--force`, `-B`, or automatic branch deletion. Use the returned path, never reconstruct it from the task name. Plan is a preview, not a reservation: create can generate another unique ID.
+
+## Remove
+
+Only remove a helper-managed worktree after explicit user authorization. `--confirm` is a required CLI acknowledgment, not authorization. The helper validates eligibility, removes the worktree directory, preserves its branch, and reports blockers/assessment; do not substitute raw `git worktree remove`, force, prune, or branch deletion. Omit `--root` for the default `~/worktrees`; set it only for a custom managed root.
+
+```bash
+python3 "$HELPER" remove --path "$WORKTREE_PATH" --confirm
+```
 
 Install dependencies and execute project commands in a subshell at the returned path. Keep the coordinator's working directory stable.
 

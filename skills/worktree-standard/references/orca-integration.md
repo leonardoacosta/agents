@@ -18,6 +18,6 @@ The CLI/catalog exposes no Orca-native pre-tool policy hook or global worktree m
 
 ## Enforcement boundary
 
-The shared hook accepts `--client orca` and rejects matching raw Git worktree mutation commands when invoked with JSON stdin. Orca exposes no verified hook-registration route, so no nested Codex hook was added and this is not an Orca-wide native gate. The skill/helper is the documented route; instructions and the helper do not prevent bypass through Orca's native UI or another direct Git invocation.
+The shared hook accepts `--client orca` and rejects matching raw Git worktree mutation commands when invoked with JSON stdin. The documented helper route supports managed removal only after explicit user authorization; `--confirm` alone is not authorization. Orca exposes no verified hook-registration route, so no nested Codex hook was added and this is not an Orca-wide native gate. Instructions and the helper do not prevent bypass through Orca's native UI or another direct Git invocation.
 
 No Orca app source, existing Orca runtime config, or worktree path was modified. The native UI bypass remains untested and unblocked. Native worktree-root behavior remains unverified.

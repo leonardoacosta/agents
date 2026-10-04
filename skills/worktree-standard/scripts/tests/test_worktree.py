@@ -36,6 +36,108 @@ class WorktreeTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0, result.stdout)
         return result
 
+    def test_remove_success(self):
+        created = self.create()
+        path = Path(created["path"])
+        result = self.cli("remove", "--path", path, "--root", self.root, "--confirm")
+        report = json.loads(result.stdout)
+        self.assertTrue(report["removal_performed"])
+        self.assertFalse(path.exists())
+        self.assertNotIn(str(path), git(self.repo, "worktree", "list", "--porcelain"))
+        git(self.repo, "show-ref", "--verify", "refs/heads/" + created["branch"])
+        self.assertTrue((self.repo / "file.txt").exists())
+
+    def test_remove_requires_confirmation_without_mutation(self):
+        created = self.create()
+        path = Path(created["path"])
+        result = self.cli("remove", "--path", path, "--root", self.root, success=False)
+        self.assertTrue(path.exists())
+        self.assertIn(str(path), git(self.repo, "worktree", "list", "--porcelain"))
+        self.assertIn("--confirm", result.stderr)
+
+    def test_remove_refuses_dirty_and_ignored_files(self):
+        for name, contents in (("dirty.txt", "dirty"), ("ignored.txt", "ignored")):
+            created = self.create(task=name.split(".")[0])
+            path = Path(created["path"])
+            if name == "ignored.txt":
+                git(self.repo, "config", "core.excludesfile", str(Path(self.tmp.name) / "global-ignore"))
+                (Path(self.tmp.name) / "global-ignore").write_text("ignored.txt\n")
+                (path / name).write_text(contents)
+                self.assertEqual(git(path, "check-ignore", name), name)
+            else:
+                (path / name).write_text(contents)
+            refusal = self.cli("remove", "--path", path, "--root", self.root, "--confirm", success=False)
+            report = json.loads(refusal.stdout)
+            self.assertFalse(report["eligible"])
+            self.assertFalse(report["removal_performed"])
+            self.assertTrue(path.exists())
+            git(path, "reset", "--hard", "HEAD")
+            (path / name).unlink(missing_ok=True)
+            git(self.repo, "worktree", "remove", str(path))
+
+    def test_remove_refuses_locked_and_primary_worktrees(self):
+        created = self.create()
+        path = Path(created["path"])
+        git(self.repo, "worktree", "lock", str(path))
+        report = json.loads(self.cli("remove", "--path", path, "--root", self.root, "--confirm", success=False).stdout)
+        self.assertIn("worktree is locked", report["blockers"])
+        self.assertTrue(path.exists())
+        git(self.repo, "worktree", "unlock", str(path))
+        primary = json.loads(self.cli("remove", "--path", self.repo, "--root", self.tmp.name, "--confirm", success=False).stdout)
+        self.assertIn("primary checkout cannot be removed", primary["blockers"])
+
+    def test_remove_refuses_metadata_mismatch_and_unregistered_target(self):
+        created = self.create()
+        path = Path(created["path"])
+        gd = Path(git(path, "rev-parse", "--git-dir"))
+        metadata_file = (path / gd / "worktree-standard.json") if not gd.is_absolute() else gd / "worktree-standard.json"
+        metadata = json.loads(metadata_file.read_text())
+        metadata["branch"] = "wrong/branch"
+        metadata_file.write_text(json.dumps(metadata))
+        report = json.loads(self.cli("remove", "--path", path, "--root", self.root, "--confirm", success=False).stdout)
+        self.assertTrue(any("branch/path ownership mismatch" in b for b in report["blockers"]))
+        git(self.repo, "worktree", "remove", "--force", str(path))
+        detached = self.root / "source" / "jcode" / "unregistered"
+        detached.mkdir(parents=True)
+        report = json.loads(self.cli("remove", "--path", detached, "--root", self.root, "--confirm", success=False).stdout)
+        self.assertTrue(any("unknown ownership" in b or "git status unknown" in b for b in report["blockers"]))
+
+    def test_remove_refuses_malformed_client_metadata(self):
+        created = self.create()
+        path = Path(created["path"])
+        gd = Path(git(path, "rev-parse", "--absolute-git-dir"))
+        metadata_file = gd / "worktree-standard.json"
+        metadata = json.loads(metadata_file.read_text())
+        metadata["client"] = []
+        metadata_file.write_text(json.dumps(metadata))
+        self.assertFalse(self.check(path)["eligible"])
+        result = self.cli("remove", "--path", path, "--root", self.root, "--confirm", success=False)
+        self.assertFalse(json.loads(result.stdout)["removal_performed"])
+        self.assertNotIn("Traceback", result.stderr)
+        self.assertTrue(path.exists())
+
+    def test_remove_reports_git_failure_without_force(self):
+        sub = Path(self.tmp.name) / "submodule-source"
+        sub.mkdir()
+        git(sub, "init", "-q")
+        git(sub, "config", "user.name", "Test")
+        git(sub, "config", "user.email", "test@example.invalid")
+        (sub / "content").write_text("submodule\n")
+        git(sub, "add", "content")
+        git(sub, "commit", "-qm", "submodule")
+        git(self.repo, "-c", "protocol.file.allow=always", "submodule", "add", str(sub), "sub")
+        git(self.repo, "commit", "-qm", "add submodule")
+        created = self.create()
+        path = Path(created["path"])
+        git(path, "-c", "protocol.file.allow=always", "submodule", "update", "--init")
+        self.assertTrue(self.check(path)["eligible"])
+        report = json.loads(self.cli("remove", "--path", path, "--root", self.root, "--confirm", success=False).stdout)
+        self.assertIn("git worktree remove failed", report["error"])
+        self.assertFalse(report["removal_performed"])
+        self.assertTrue((path / "sub" / "content").exists())
+        self.assertIn(str(path), git(self.repo, "worktree", "list", "--porcelain"))
+
+
     def create(self, task="sample", **opts):
         args = ["create", "--repo", self.repo, "--client", opts.pop("client", "jcode"),
                 "--task", task, "--session", "session-1", "--root", self.root]

@@ -6,7 +6,7 @@ import re
 import shlex
 import sys
 
-MESSAGE = "Worktree mutation blocked: use ~/.agents/skills/worktree-standard/scripts/worktree.py for plan/create/check. Legacy cleanup, relocation, or unlocking needs explicit authorization and a reviewed exception; do not bypass this gate."
+MESSAGE = "Worktree mutation blocked: use ~/.agents/skills/worktree-standard/scripts/worktree.py for plan/create/check and explicitly authorized managed removal. Raw Git mutations remain blocked; do not bypass this gate."
 
 
 def mutation(command):

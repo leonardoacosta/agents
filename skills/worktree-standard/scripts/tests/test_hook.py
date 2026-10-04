@@ -21,7 +21,7 @@ class HookTests(unittest.TestCase):
                     self.assertEqual(self.run_hook(f"{prefix} worktree {operation} /path").returncode, 2)
 
     def test_readonly_and_helper_allow(self):
-        for command in ("git worktree list --porcelain", "git status --short", 'python3 "$HOME/.agents/skills/worktree-standard/scripts/worktree.py" create --repo /repo --client pi --task fix --session s', "echo hello"):
+        for command in ("git worktree list --porcelain", "git status --short", 'python3 "$HOME/.agents/skills/worktree-standard/scripts/worktree.py" create --repo /repo --client pi --task fix --session s', 'python3 "$HOME/.agents/skills/worktree-standard/scripts/worktree.py" remove --path /tree --root /repo --confirm', "echo hello"):
             self.assertEqual(self.run_hook(command).returncode, 0)
 
     def test_source_examples_allow(self):
@@ -31,6 +31,8 @@ class HookTests(unittest.TestCase):
     def test_wrapped_payloads(self):
         for client in ("claude", "codex", "pi", "pi-durable", "orca"):
             self.assertEqual(self.run_hook("git worktree add /bad", client, True).returncode, 2)
+            self.assertEqual(self.run_hook("git worktree remove /tree", client, True).returncode, 2)
+            self.assertEqual(self.run_hook('python3 "$HOME/.agents/skills/worktree-standard/scripts/worktree.py" remove --path /tree --root /repo --confirm', client, True).returncode, 0)
 
     def test_cursor_response(self):
         result = self.run_hook("git worktree add /bad", "cursor", True)
