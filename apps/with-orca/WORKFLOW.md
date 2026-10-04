@@ -148,7 +148,35 @@ Prechecks must return nonzero when there is no eligible work. An empty successfu
 - Choose providers, schedule/timezone, concurrency, and permitted remote actions. Proposed initial scope: one active lead per repo; disabled hourly definitions; no merge, deploy, permissions changes, or secret exports.
 - Define MCP targets separately if MCP management is required: agent, servers, config surface, credential references. No credentials in prompts or committed files.
 
-## References
+## Bounded Orca → Herdr → Jcode launch POC
+
+Verified locally on 2026-10-04 with Jcode v0.89.3. Orca's public terminal command queues a fixed smoke request. A pre-armed one-shot relay running **inside a real Herdr pane** consumes it, creates a session with an isolated system prompt through `jcode api-bridge --stdio`, then starts the headed client with `jcode --resume <session-id>`. No SDK dependency or shared prompt file. Orca does not directly control Herdr, and `HERDR_ENV` must never be spoofed.
+
+From a dedicated Herdr pane, create a private request directory and arm the relay. Substitute its printed path in the Orca command, run from another shell:
+
+```sh
+cd /home/nyaptor/dev/personal/agents
+request=$(mktemp -d "$JCODE_SCRATCH_DIR/orca-launch-XXXXXX")
+printf '%s\n' "$request"
+node apps/with-orca/cli.mjs relay "$request" \
+  /home/nyaptor/orca/workspaces/tribal-cities/tribal-cities-automation-control
+```
+
+```sh
+orca-ide terminal create \
+  --worktree '6b51f356-3bc3-4659-8d0f-c28de8633d12::/home/nyaptor/orca/workspaces/tribal-cities/tribal-cities-automation-control' \
+  --title 'Jcode launch smoke' \
+  --command 'node /home/nyaptor/dev/personal/agents/apps/with-orca/cli.mjs trigger <printed-request-directory>' \
+  --json
+```
+
+The relay reuses the Orca-owned checkout, opens a project-linked Herdr workspace, creates one headed tab without stealing focus, and sends only a smoke request. `result.json` records session/pane/workspace IDs and the exact assistant response `ORCA_HERDR_JCODE_SMOKE_OK`. The session persists the fixed system prompt. Each private directory is single-use: concurrent or repeated triggers/relays return `duplicate`, and failures retain the claim. Retry with a new directory. The relay waits up to 90 seconds for a trigger and response. API calls have 30-second timeouts. Wrong repos, shared directories, and arbitrary role payloads fail closed. The request directory is trusted same-user storage, not an auth boundary against other processes running as that user.
+
+Acceptance evidence: headed session `session_rhino_1791155183520_a8c9bf0b3abe6946`, Herdr pane `w9J:p5`, workspace `w9J`, exact response, persisted system prompt, zero tool turns, duplicate Orca trigger and relay suppressed. Local logs: `/home/nyaptor/.jcode/scratch/orca-launch-aiaQZi/`.
+
+Limitations: this verifies a one-shot Orca terminal trigger, **not a scheduled automation or a persistent relay service**. Orca reported a background terminal surface because its UI could not adopt the trigger tab. The Jcode client is headed in Herdr and remains open after the relay exits. Its isolated daemon also remains running while the client is in use. Close the owned pane and stop its owned daemon before removing its request directory. Do not stop the shared Jcode daemon. No schedules were enabled, no issue work ran, no pushes occurred. Production roles, issue-event resumption, reviewer gates, and auto-merge remain out of scope. A reviewer should reuse the delivery checkout once ready, not create a separate review worktree by default.
+
+### References
 
 - https://www.onorca.dev/docs/cli/automations
 - https://www.onorca.dev/docs/cli/reference

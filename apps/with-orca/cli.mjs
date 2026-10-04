@@ -1,6 +1,8 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync, realpathSync } from "node:fs";
 
+import { relay, trigger } from "./launch.mjs";
+
 const config = JSON.parse(
   readFileSync(new URL("config/tribal-cities.json", import.meta.url), "utf-8")
 );
@@ -127,6 +129,18 @@ const open = (path, label = "Tribal Cities · Orca") => {
 
 if (process.argv[1] && realpathSync(process.argv[1]) === import.meta.filename) {
   switch (process.argv[2]) {
+    case "trigger": {
+      console.log(JSON.stringify(trigger(process.argv[3])));
+      break;
+    }
+    case "relay": {
+      console.log(
+        JSON.stringify(
+          await relay(process.argv[3], process.argv[4], config.repo)
+        )
+      );
+      break;
+    }
     case "validate": {
       console.log(JSON.stringify(validate(), null, 2));
       break;
@@ -141,7 +155,7 @@ if (process.argv[1] && realpathSync(process.argv[1]) === import.meta.filename) {
     }
     default: {
       throw new Error(
-        "Usage: node cli.mjs validate|install|open [path] [label]"
+        "Usage: node cli.mjs validate|install|open|trigger|relay [path] [label or checkout]"
       );
     }
   }
