@@ -2,17 +2,17 @@
 
 Audit date: 2026-10-05. Base: `75314d9491bf0e05d53cf7b5ed2cc659647d4e53`.
 
-This branch retains the existing repository history. It imports only four prompt/research files from the unrelated local Turborepo. No unrelated-history merge, app scaffolding import, installed-skill rewiring, or remote branch deletion was performed. The decisions below are the initial salvage audit; the current canonical skills migration supersedes rows marked pending.
+This branch retains the existing repository history. It imports only four prompt/research files from the unrelated local Turborepo. No unrelated-history merge, app scaffolding import, installed-skill rewiring, or remote branch deletion was performed. The canonical skills migration is complete; the ledger rows below record the final disposition.
 
 ## Decisions
 
 | Area | Decision | Evidence / reason |
 | --- | --- | --- |
 | Jcode prompt snapshots and PR guidance | Keep | Four files compared byte-for-byte against the approved local artifacts. No automatic synchronization. |
-| Existing skill content, licenses, attribution | Migration in progress | Preserve all divergent variants and wait for canonical worker's source provenance and import commits before removing copied source packages. |
-| Projection reconciler and verifier | Temporarily retain | Remove only after canonical preservation and consumer mapping are verified; current migration does not rewire active harnesses. |
-| Source and lock manifests | Preserve pending migration | Installer-owned files stay intact until canonical provenance is captured. Preserve exact mixed consumer-state snapshots outside the repository before untracking; installer regenerates rather than hand-editing locks. |
-| Harness projections and portable agent contract | Defer removal | Remove stale tracked materializations only after canonical targets and consumers are verified; no live harness rewiring. |
+| Existing skill content, licenses, attribution | Canonical wins | Preserve canonical versions for all 40 shared variants. Archive every remaining source skill directory with SHA-256 manifest under `/home/nyaptor/.jcode/scratch/salvage-preserved/remaining-source-skills`; imported source history/provenance is recorded in canonical inventory and commit history. |
+| Projection reconciler and verifier | Remove | No active consumers remain; exact scripts and manifests are preserved outside the repository under `/home/nyaptor/.jcode/scratch/salvage-preserved/projection-machinery` with SHA-256 manifest. |
+| Source and lock manifests | Remove legacy copies | Archive source manifests and mixed consumer-state lock snapshots externally before untracking. Canonical installer owns current source state and regenerates locks; never hand-edit them. |
+| Harness projections and portable agent contract | Remove stale materializations | No live harness rewiring. Keep canonical skill directories as the sole distributable source. |
 | Framework-style branding | Replace | The repository stores skills/configuration, not an application framework. |
 | Orca/Durable Turborepo apps | Exclude | Separate purpose and unrelated history; original checkout remains intact. |
 
