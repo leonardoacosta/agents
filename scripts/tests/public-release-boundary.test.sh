@@ -8,7 +8,8 @@ fail() {
   exit 1
 }
 
-# Keep the private identifiers out of the public test itself while enforcing their absence.
+# Legacy scan roots catch known boundary violations only. Release acceptance must run this test
+# against a clean export containing every publishable skill via BOUNDARY_SKILLS_ROOT.
 private_pattern="$(printf '\127\110\123')|$(printf '\102\046\102')|$(printf '\102\162\157\167\156\040\046\040\102\162\157\167\156')|$(printf '\142\162\157\167\156\141\156\144\142\162\157\167\156')|$(printf '\142\142\055\141\172\165\162\145\055\157\160\163')|$(printf '\142\162\151\144\147\145\163\160\145\143\151\141\154\164\171')|$(printf '\163\141\164\145\154\154\151\164\145\040\146\154\145\145\164')|$(printf '\143\154\157\165\144\160\143\040\123\117\103\113\123')"
 personal_pattern="$(printf '\154\145\157\156\141\162\144\157\141\143\157\163\164\141')|$(printf '\156\171\141\160\164\157\162')|$(printf '\160\162\151\143\145\154\145\163\163')|$(printf '\164\162\151\142\141\154\055\143\151\164\151\145\163')|$(printf '\156\145\170\165\163\055\151\157\163')|$(printf '\150\157\155\145\154\141\142')|$(printf '\143\154\157\165\144\160\143')"
 machine_pattern='~/dev/[A-Za-z0-9._-]+|~/.ssh/|gui/[0-9]+|uid-[0-9]+|DEVELOPMENT_TEAM=[A-Z0-9]+'
@@ -27,29 +28,33 @@ mail_ident_pattern="[\"\`']${corpus_alias}[\"\`']"
 private_ticket_pattern="$(printf '\143\143')-[[:alnum:]]{5,}([.][0-9]+)?"
 private_project_pattern="(^|[^[:alnum:]_])($(printf '\164\143')|$(printf '\156\170'))-[[:alnum:]]{5,}([.][0-9]+)?|(^|[^[:alnum:]_])$(printf '\155\170')-[0-9][[:alnum:]]{3,}([.][0-9]+)?|(^|[^[:alnum:]_])($(printf '\157\157')|$(printf '\164\154')|$(printf '\163\163')|$(printf '\170\170'))('s|/)"
 
-scan_roots=(
-  "$repo_root/skills/dotnet"
-  "$repo_root/skills/wayfinder"
-  "$repo_root/skills/frontend-design/references/icon-sourcing.md"
-)
+if [[ -n "${BOUNDARY_SKILLS_ROOT:-}" ]]; then
+  publish_roots=("$BOUNDARY_SKILLS_ROOT")
+else
+  publish_roots=(
+    "$repo_root/skills/dotnet"
+    "$repo_root/skills/wayfinder"
+    "$repo_root/skills/frontend-design/references/icon-sourcing.md"
+  )
+fi
 
-matches="$(grep -RIlE "$private_pattern" "${scan_roots[@]}" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlE "$private_pattern" || true)"
 [[ -z "$matches" ]] || fail "organization-specific content remains in: ${matches//$'\n'/, }"
 
-matches="$(grep -RIlEi "$personal_pattern" "$repo_root/skills" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlEi "$personal_pattern" || true)"
 [[ -z "$matches" ]] || fail "personal or project-specific content remains in: ${matches//$'\n'/, }"
 
-matches="$(grep -RIlE "$machine_pattern" "$repo_root/skills" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlE "$machine_pattern" || true)"
 [[ -z "$matches" ]] || fail "machine-specific content remains in: ${matches//$'\n'/, }"
 
-matches="$(grep -RIlE "$personal_author_pattern" "$repo_root/skills" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlE "$personal_author_pattern" || true)"
 [[ -z "$matches" ]] || fail "personal author language remains in: ${matches//$'\n'/, }"
 
-matches="$(grep -RIlE "$named_corpus_pattern" "$repo_root/skills" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlE "$named_corpus_pattern" || true)"
 [[ -z "$matches" ]] || fail "private corpus assumptions remain in: ${matches//$'\n'/, }"
 
 matches="$(
-  grep -RInE "$bare_corpus_pattern" "$repo_root/skills" 2>/dev/null \
+  find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -InE "$bare_corpus_pattern" 2>/dev/null \
     | grep -vE "$mail_key_pattern" \
     | grep -vE "$mail_bcc_pattern" \
     | grep -vEi "${mail_ident_pattern}.*(recipient|mail)|(recipient|mail).*${mail_ident_pattern}" \
@@ -57,10 +62,10 @@ matches="$(
 )"
 [[ -z "$matches" ]] || fail "private corpus assumptions remain in: ${matches//$'\n'/, }"
 
-matches="$(grep -RIlE "$private_ticket_pattern" "$repo_root/skills" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlE "$private_ticket_pattern" || true)"
 [[ -z "$matches" ]] || fail "private ticket identifiers remain in: ${matches//$'\n'/, }"
 
-matches="$(grep -RIlE "$private_project_pattern" "$repo_root/skills" || true)"
+matches="$(find "${publish_roots[@]}" -type f -print0 | xargs -0 -r grep -IlE "$private_project_pattern" || true)"
 [[ -z "$matches" ]] || fail "private project aliases remain in: ${matches//$'\n'/, }"
 
 private_asset_prefix="$(printf '\142\142')-"

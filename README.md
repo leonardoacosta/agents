@@ -2,9 +2,9 @@
 
 This repository retains Personal agent prompts, configuration, research, and migration records.
 Reusable Personal skills belong in [`leonardoacosta/skills`](https://github.com/leonardoacosta/skills),
-which is the canonical authoring source. This repository's copies and tracked harness links are
-migration inputs only; reconciliation is pending provenance capture and canonical import. Jcode
-prompt copies are snapshots, not automatically synced.
+which is the canonical authoring source. This repository's retained copies are migration inputs
+until classified; reconciliation is pending provenance capture and canonical import. Jcode prompt
+copies are snapshots, not automatically synced.
 
 Brown skills remain private Brown-owned content; speech skill `explain-tts` belongs to Herald. They
 must be preserved separately from Personal reusable skills. This repository has no custom installer:
@@ -30,9 +30,11 @@ bash scripts/reconcile-skill-projections.sh --self-test
 bash scripts/verify-skill-projections.sh
 ```
 
-The public-release test rejects organization, project, machine, and personal configuration from
-the portable skill tree. Projection scripts remain temporarily for migration verification; remove
-them only after canonical preservation and consumer mapping are verified.
+The public-release test checks organization, project, machine, and personal identifiers in its
+configured scan roots; that legacy subset is not a clean export of every publishable skill. Full
+release acceptance requires scanning a clean export of all publishable skills. Projection scripts
+remain temporarily for migration verification; remove them only after canonical preservation and
+consumer mapping are verified.
 
 ## First-party web skills
 

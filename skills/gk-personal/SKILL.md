@@ -1,6 +1,6 @@
 ---
 name: gk-personal
-description: Manage the user's GitKraken CLI workspaces across personal GitHub, Priceless, and Brown and Brown Azure DevOps, including bb-mac. Use for gk inventory, repo grouping, workspace renames, cloud synchronization, team sharing, and local clone mapping. Discover native gk state instead of maintaining a duplicate manifest.
+description: Manage GitKraken CLI workspaces, repository inventory, grouping, renames, synchronization, and local clone mapping. Discover native gk state instead of maintaining a duplicate manifest.
 ---
 
 # Personal GitKraken operations
