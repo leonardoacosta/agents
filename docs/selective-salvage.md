@@ -53,4 +53,5 @@ This branch retains the existing repository history. It imports only four prompt
 
 Graph context was attempted, but the available graft index resolved to unrelated ancestor files rather than this repository. Repository inspection therefore used direct reads and searches.
 
-Further work, not silently authorized by this salvage: per-skill content/provenance comparison against `leonardoacosta/skills`, manifest schema consolidation, installed harness repair, removal of uncertain machinery, automatic prompt sync, remote publication, or merging into main.
+- Canonical commit `d33c07039a08557fb900a765e339f76fc64d060b` preserves `skills/firecrawl-qa/`, `skills/firecrawl-research-papers/`, `skills/firecrawl-seo-audit/`, `skills/firecrawl-shop/`, `skills/firecrawl-website-design-clone/`, `skills/firecrawl-workflows/`, `skills/handoff/`, `skills/improve-animations/`, `skills/improve-codebase-architecture/`, and `skills/improve-react/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
+ per-skill content/provenance comparison against `leonardoacosta/skills`, manifest schema consolidation, installed harness repair, removal of uncertain machinery, automatic prompt sync, remote publication, or merging into main.
