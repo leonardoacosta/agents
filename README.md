@@ -1,8 +1,8 @@
-# Agents Standard
+# Personal agent skills and configuration
 
-A public, harness-neutral skill store for AI coding agents. The canonical materialization lives in
-`skills/`; harness-specific paths project selected entries from that store without changing the
-underlying guidance.
+A collection of agent skills, reusable prompts, and source-tracking tools, not an application
+framework. Skills live in `skills/`; optional harness projections expose selected entries
+without changing their guidance. Jcode prompt copies are snapshots, not automatically synced.
 
 The portable package subset is sourced from
 [`leonardoacosta/skills`](https://github.com/leonardoacosta/skills) and pinned in
@@ -11,6 +11,9 @@ metadata in `.skill-lock.json`.
 
 ## Layout
 
+- `prompts/jcode/` — system/swarm snapshots and standalone PR review/response prompt
+- `docs/pr-comment-writing-research.md` — evaluated sources and mined writing guidance
+- `docs/selective-salvage.md` — retention decisions and verification limits
 - `skills/` — canonical materialized skill directories
 - `skill-projections.json` — source revision and per-harness projection policy
 - `scripts/reconcile-skill-projections.sh` — guarded projection reconciler
