@@ -32,7 +32,7 @@ For a Leo-only question, reuse an existing unresolved question when it still app
 
 ## Return to Jcode
 
-End with one JSON object (no Markdown fences). Use empty arrays for genuinely empty categories. Counts describe observed coverage, not an assumed complete board. Use `status: "partial"` for access gaps, time limits or unverified writes; `"blocked"` when the board could not be read; otherwise `"complete"`.
+End with one JSON object (no Markdown fences). Use empty arrays for genuinely empty categories. Counts describe observed coverage, not an assumed complete board. Use `status: "partial"` for any access/history gap, incomplete pagination, time limit, remaining item or unverified write; `"blocked"` when the board could not be read; otherwise `"complete"`.
 
 ```json
 {
