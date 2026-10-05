@@ -127,6 +127,23 @@ Preserve existing contributor attribution when integrating work.
 
 Use non-interactive commands. Do not rely on interactive terminal prompts.
 
+## Issue and external-PR triage
+
+Read original reports and prior decisions before triaging. Search for existing
+implementations, duplicate work, and recorded rejections. Verify reported bugs
+and PR claims before recommending disposition; distinguish confirmed behavior,
+failed verification, and missing information. Do not repeat resolved questions.
+
+Use `linear-management` for personal and Priceless work, `writing-ado-items`
+for Brown work, and `jcode-handoff` for implementation briefs. Use verified
+workspace types, states, and labels, not a skill's generic role names. Preserve
+existing readiness gates; human attention does not imply merge readiness.
+
+Handoffs must state scope, constraints, acceptance criteria, reproduction and
+verification evidence, verification instructions, and unresolved decisions.
+Installing or invoking a triage skill does not authorize posting, relabeling,
+closing, or merging. Obtain explicit authorization for those external actions.
+
 ## Verification
 
 Before claiming work is complete, run the relevant checks for what changed.
