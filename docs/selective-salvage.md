@@ -22,7 +22,8 @@ This branch retains the existing repository history. It imports only four prompt
 - Canonical commit `665241df2be5d3d104d3ea591526dc03b58a848f` preserves `skills/agent-browser/`, `skills/agents-sdk/`, `skills/algorithmic-art/`, `skills/ascii-wireframe/`, `skills/aws-step-functions/`, `skills/better-accessibility/`, `skills/better-colors/`, `skills/better-interface/`, `skills/better-layout/`, and `skills/better-typography/`. The corresponding ten directories were then removed here.
 - Canonical commit `248370ee26308564ee2b905bad82149aa4de1ca7` preserves `skills/better-ui/`, `skills/better-writing/`, `skills/bicep-best-practices/`, `skills/brainstorming/`, `skills/c4-architecture/`, `skills/clean-architecture/`, `skills/close/`, `skills/cloudflare-email-service/`, `skills/cloudflare-one/`, and `skills/cloudflare-one-migrations/`. The corresponding ten directories were then removed here. Focused checks passed: `git diff --check`, boundary-test shell syntax, and both projection self-tests.
 
-No existing executable machinery or skill was removed in this pass. Safe simplification is limited
+- Canonical commit `a4fc769bee6237308faead9994d6ffdf6759eab8` preserves `skills/cloudflare/`, `skills/codebase-design/`, `skills/crafting-effective-readmes/`, `skills/data-viz-reel/`, `skills/database-schema-designer/`, `skills/datadog-cli/`, `skills/deploy-to-vercel/`, `skills/depot-github-actions/`, `skills/design-control-loop/`, and `skills/design-system-starter/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
+
  to branding and explicit repository scope. Any future deletion requires consumer evidence, not an assumption of disuse.
 
 ## Local consumer observations
