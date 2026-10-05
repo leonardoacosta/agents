@@ -31,7 +31,8 @@ This branch retains the existing repository history. It imports only four prompt
 
 - Canonical commit `8030e5a330710ec4abb7c66281bd6f8b709d5a93` preserves the skill content for `skills/framer/`, `skills/framer-code-components/`, `skills/frontend-api-contracts/`, `skills/gates/`, `skills/geist-design/`, `skills/gk-personal/`, `skills/godot-state-machine-advanced/`, `skills/graft/`, `skills/herdr/`, and `skills/interface-review/`. Canonical cleanup commit `7b20262ad36ca159ba18fe29a98f4fb711bea4f5` removes `skills/gk-personal/references/context.local.md` as local employer/workspace data; it is retained locally and archived at `$JCODE_SCRATCH_DIR/salvage-preserved/context.local.md` (SHA-256 `354b2fb3449a6ca95e57c2bfe411a9bcfacfbc6787e44331f103490abff54d98`). The other nine dirs and only the tracked `gk-personal` files were removed here after verifying these commits. Focused checks passed.
 
-- `~/.claude/skills`: three links to other locations, zero resolved into the agents checkout.
+- Canonical commit `7f2827debd252b097193119f7f3dac1fcb163440` preserves `skills/jcode-orchestration/`, `skills/journal/`, `skills/mcp-builder/`, `skills/mdxcn/`, `skills/merge-to-main/`, `skills/mermaid-diagrams/`, `skills/microsoft-foundry/`, `skills/monitor-patterns/`, `skills/moshi-best-practices/`, and `skills/motion-and-transitions/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
+
 - `~/.jcode/skills` and `~/.config/opencode`: no symlinks found at the inspected paths.
 
 These counts describe symlinks only, not actual skill usage or regular-file provenance. They do not establish that the skill store is unused.
