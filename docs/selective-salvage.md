@@ -33,9 +33,11 @@ This branch retains the existing repository history. It imports only four prompt
 
 - Canonical commit `7f2827debd252b097193119f7f3dac1fcb163440` preserves `skills/jcode-orchestration/`, `skills/journal/`, `skills/mcp-builder/`, `skills/mdxcn/`, `skills/merge-to-main/`, `skills/mermaid-diagrams/`, `skills/microsoft-foundry/`, `skills/monitor-patterns/`, `skills/moshi-best-practices/`, and `skills/motion-and-transitions/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
 
-- `~/.jcode/skills` and `~/.config/opencode`: no symlinks found at the inspected paths.
+- Canonical commit `b6e0aa825dab800e5780b9136df5b588d963d731` preserves `skills/nextjs-app-router/`, `skills/no-ai-slop/`, `skills/open-work/`, `skills/openapi-to-typescript/`, `skills/optimization/`, `skills/pdfcn/`, `skills/playwright-auth/`, `skills/qa-test-planner/`, `skills/ratchet-ops/`, and `skills/react-dev/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
 
-These counts describe symlinks only, not actual skill usage or regular-file provenance. They do not establish that the skill store is unused.
+
+- Canonical commit `af96318e8125a1e7e0495b1a5b43d70db54862b3` preserves `skills/react-state-machine/`, `skills/receiving-code-review/`, `skills/recon/`, `skills/recovery/`, `skills/review/`, `skills/sandbox-sdk/`, `skills/scheduled-jobs/`, `skills/secrets-handling/`, `skills/service-layer-style/`, and `skills/show-me/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
+ They do not establish that the skill store is unused.
 
 The manifest-based read-only projection verifier also inspects configured harness roots, including `~/.config/agents/skills`. It reports pre-existing `protected-conflict` entries such as unrecorded local projections. Resolving those conflicts would require a separate ownership/rewiring decision. No reconciliation write was run.
 
