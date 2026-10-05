@@ -2,17 +2,17 @@
 
 Audit date: 2026-10-05. Base: `75314d9491bf0e05d53cf7b5ed2cc659647d4e53`.
 
-This branch retains the existing repository history. It imports only four prompt/research files from the unrelated local Turborepo. No unrelated-history merge, app scaffolding import, installed-skill rewiring, or remote branch deletion was performed.
+This branch retains the existing repository history. It imports only four prompt/research files from the unrelated local Turborepo. No unrelated-history merge, app scaffolding import, installed-skill rewiring, or remote branch deletion was performed. The decisions below are the initial salvage audit; the current canonical skills migration supersedes rows marked pending.
 
 ## Decisions
 
 | Area | Decision | Evidence / reason |
 | --- | --- | --- |
 | Jcode prompt snapshots and PR guidance | Keep | Four files compared byte-for-byte against the approved local artifacts. No automatic synchronization. |
-| Existing skill content, licenses, attribution | Keep pending deeper per-skill triage | 250 top-level SKILL.md entries. Lack of a direct checkout link does not establish disuse: installed materializations can be regular files. |
-| Projection reconciler and verifier | Keep | Reconciler self-test passes; verifier detects protected local conflicts rather than overwriting them. |
-| Source and lock manifests | Defer consolidation | Scripts/tests reference projection and lock metadata. Filenames alone do not prove duplication; preserve provenance until consumers and schema equivalence are established. |
-| Harness projections and portable agent contract | Defer removal | Existing composition and projection contracts may have consumers. Current projections are not healthy enough to justify automatic replacement or deletion. |
+| Existing skill content, licenses, attribution | Migration in progress | Preserve all divergent variants and wait for canonical worker's source provenance and import commits before removing copied source packages. |
+| Projection reconciler and verifier | Temporarily retain | Remove only after canonical preservation and consumer mapping are verified; current migration does not rewire active harnesses. |
+| Source and lock manifests | Preserve pending migration | Installer-owned files stay intact until canonical provenance is captured. Preserve exact mixed consumer-state snapshots outside the repository before untracking; installer regenerates rather than hand-editing locks. |
+| Harness projections and portable agent contract | Defer removal | Remove stale tracked materializations only after canonical targets and consumers are verified; no live harness rewiring. |
 | Framework-style branding | Replace | The repository stores skills/configuration, not an application framework. |
 | Orca/Durable Turborepo apps | Exclude | Separate purpose and unrelated history; original checkout remains intact. |
 

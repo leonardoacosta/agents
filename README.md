@@ -1,20 +1,22 @@
 # Personal agent skills and configuration
 
-A collection of agent skills, reusable prompts, and source-tracking tools, not an application
-framework. Skills live in `skills/`; optional harness projections expose selected entries
-without changing their guidance. Jcode prompt copies are snapshots, not automatically synced.
+This repository retains Personal agent prompts, configuration, research, and migration records.
+Reusable Personal skills belong in [`leonardoacosta/skills`](https://github.com/leonardoacosta/skills),
+which is the canonical authoring source. This repository's copies and tracked harness links are
+migration inputs only; reconciliation is pending provenance capture and canonical import. Jcode
+prompt copies are snapshots, not automatically synced.
 
-The portable package subset is sourced from
-[`leonardoacosta/skills`](https://github.com/leonardoacosta/skills) and pinned in
-`skill-projections.json` to an immutable commit. Additional third-party skills retain their source
-metadata in `.skill-lock.json`.
+Brown skills remain private Brown-owned content; speech skill `explain-tts` belongs to Herald. They
+must be preserved separately from Personal reusable skills. This repository has no custom installer:
+consumers own installation and harness wiring. No active harness rewiring or remote publication is
+part of this migration.
 
 ## Layout
 
 - `prompts/jcode/` — system/swarm snapshots and standalone PR review/response prompt
 - `docs/pr-comment-writing-research.md` — evaluated sources and mined writing guidance
 - `docs/selective-salvage.md` — retention decisions and verification limits
-- `skills/` — canonical materialized skill directories
+- `skills/` — retained migration inputs; Personal canonical skills live in `leonardoacosta/skills`
 - `skill-projections.json` — source revision and per-harness projection policy
 - `scripts/reconcile-skill-projections.sh` — guarded projection reconciler
 - `scripts/verify-skill-projections.sh` — read-only projection health report
@@ -29,8 +31,8 @@ bash scripts/verify-skill-projections.sh
 ```
 
 The public-release test rejects organization, project, machine, and personal configuration from
-the portable skill tree. The reconciler requires matching verified and audited source revisions
-before it writes any managed projection.
+the portable skill tree. Projection scripts remain temporarily for migration verification; remove
+them only after canonical preservation and consumer mapping are verified.
 
 ## First-party web skills
 
