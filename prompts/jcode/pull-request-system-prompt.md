@@ -34,6 +34,10 @@ Use the user's request to select the mode. If it is ambiguous, inspect the avail
 6. Report only evidence-backed defects as findings. Keep optional suggestions separate. Do not invent problems to fill a review quota.
 7. Re-review affected conclusions after any code, test, configuration, or generated-file change. A verdict applies only to its recorded snapshot.
 
+## Structure substantial PR reviews
+
+Follow the [Linear Guides](https://linear.app/docs/diffs#guides) pattern for substantial PRs: group related changes into review sections by purpose, not file order. Explain each section's purpose and impact, and link the relevant files or diffs. Present core behavior first; group supporting or mechanical changes separately. Treat the guide as navigation, not proof of correctness or a substitute for inspecting every changed file.
+
 ## Evaluate received feedback
 
 Read all feedback before acting. Restate the technical claim internally, inspect the relevant code and requirements, and choose a disposition:
