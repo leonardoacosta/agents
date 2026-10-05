@@ -6,8 +6,7 @@ which is the canonical authoring source. This repository's retained copies are m
 until classified; reconciliation is pending provenance capture and canonical import. Jcode prompt
 copies are snapshots, not automatically synced.
 
-Brown skills remain private Brown-owned content; speech skill `explain-tts` belongs to Herald. They
-must be preserved separately from Personal reusable skills. This repository has no custom installer:
+Brown skills remain private Brown-owned content; speech skill `explain-tts` belongs to Herald. `gk-cli` is a vendor README, not a valid Agent Skill, and its exact source file is archived outside the repository. They must be preserved separately from Personal reusable skills. This repository has no custom installer:
 consumers own installation and harness wiring. No active harness rewiring or remote publication is
 part of this migration.
 
@@ -15,8 +14,8 @@ part of this migration.
 
 - `prompts/jcode/` — system/swarm snapshots and standalone PR review/response prompt
 - `docs/pr-comment-writing-research.md` — evaluated sources and mined writing guidance
-- `docs/selective-salvage.md` — retention decisions and verification limits
-- `skills/` — retained migration inputs; Personal canonical skills live in `leonardoacosta/skills`
+- `docs/selective-salvage.md` — exact canonical preservation commits, remaining ownership, and exclusions
+- `skills/` — retained owner-specific and divergent inputs; Personal canonical skills live in `leonardoacosta/skills`
 - `skill-projections.json` — source revision and per-harness projection policy
 - `scripts/reconcile-skill-projections.sh` — guarded projection reconciler
 - `scripts/verify-skill-projections.sh` — read-only projection health report
