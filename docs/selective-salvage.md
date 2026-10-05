@@ -39,7 +39,8 @@ This branch retains the existing repository history. It imports only four prompt
 - Canonical commit `af96318e8125a1e7e0495b1a5b43d70db54862b3` preserves `skills/react-state-machine/`, `skills/receiving-code-review/`, `skills/recon/`, `skills/recovery/`, `skills/review/`, `skills/sandbox-sdk/`, `skills/scheduled-jobs/`, `skills/secrets-handling/`, `skills/service-layer-style/`, and `skills/show-me/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
  They do not establish that the skill store is unused.
 
-The manifest-based read-only projection verifier also inspects configured harness roots, including `~/.config/agents/skills`. It reports pre-existing `protected-conflict` entries such as unrecorded local projections. Resolving those conflicts would require a separate ownership/rewiring decision. No reconciliation write was run.
+- Canonical commit `9dbea38a938f14d4211c938203343eececbaf99e` preserves `skills/simplify/`, `skills/skill-intake-lifecycle/`, `skills/state-handling/`, `skills/state-machine/`, `skills/swift/`, `skills/t3-code-patterns/`, `skills/t3-monorepo-patterns/`, `skills/t3-testing-patterns/`, `skills/tdd/`, and `skills/termcast-tui-patterns/`. The corresponding ten dirs were removed here after SHA/path verification. Focused checks passed: diff check, boundary-test syntax, and both projection self-tests.
+ It reports pre-existing `protected-conflict` entries such as unrecorded local projections. Resolving those conflicts would require a separate ownership/rewiring decision. No reconciliation write was run.
 
 ## Validation and limits
 
