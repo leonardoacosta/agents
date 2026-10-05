@@ -16,7 +16,14 @@ This branch retains the existing repository history. It imports only four prompt
 | Framework-style branding | Replace | The repository stores skills/configuration, not an application framework. |
 | Orca/Durable Turborepo apps | Exclude | Separate purpose and unrelated history; original checkout remains intact. |
 
-No existing executable machinery or skill was removed in this pass. Safe simplification is limited to branding and explicit repository scope. Any future deletion requires consumer evidence, not an assumption of disuse.
+## Canonical preservation ledger
+
+- Canonical commit `d5a8fb7e332ebd5b9591224def0084c46784a5c9` preserves these ten packages before source reduction: `skills/adversarial/`, `skills/agent-architecture/`, `skills/agent-browser-policy/`, `skills/agent-instruction-pairing/`, `skills/agent-tooling/`, `skills/agentmail/`, `skills/animation-vocabulary/`, `skills/breakdown-epic-arch/`, `skills/bun/`, and `skills/change-disposition/`. The corresponding ten directories were then removed here.
+- Canonical commit `665241df2be5d3d104d3ea591526dc03b58a848f` preserves `skills/agent-browser/`, `skills/agents-sdk/`, `skills/algorithmic-art/`, `skills/ascii-wireframe/`, `skills/aws-step-functions/`, `skills/better-accessibility/`, `skills/better-colors/`, `skills/better-interface/`, `skills/better-layout/`, and `skills/better-typography/`. The corresponding ten directories were then removed here.
+- Focused checks after first batch passed: `git diff --check`, boundary-test shell syntax, and both projection script self-tests. This is not a full clean-export or release verdict. Second batch awaits the same focused checks.
+
+No existing executable machinery or skill was removed in this pass. Safe simplification is limited
+ to branding and explicit repository scope. Any future deletion requires consumer evidence, not an assumption of disuse.
 
 ## Local consumer observations
 
