@@ -32,7 +32,7 @@ The manifest-based read-only projection verifier also inspects configured harnes
 
 ## Validation and limits
 
-Baseline public-release-boundary test passed; reconciler self-test passed. Projection health is not clean: protected conflicts exist before these changes. Repeat the same checks after importing and documentation edits, and report projection health separately from test success.
+The public-release-boundary test fails on pre-existing skill content, including organization/project-specific references. The initial combined command obscured its failure; the explicit final run confirmed it. Reconciler self-test passes. Projection health is not clean: six harnesses report protected conflicts, one is not installed, and three have missing entries. These are baseline limitations, not regressions from the imported artifacts. Do not treat this branch as a public-release-ready cleanup. Resolving existing private/workspace-specific skill content requires a separate scope and ownership decision before publication.
 
 The public-release-boundary check covers the portable skill tree, not all personal prompt snapshots. The new artifacts were inspected for credential content; they contain workspace routing and local path references intentionally retained from approved artifacts. No private Brown project content was imported.
 
