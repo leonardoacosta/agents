@@ -90,7 +90,7 @@
       "computedHash": "xDAEgCmB0ZIF8Y5FJnds1MrCFWPIyZKw1u6ILU1OFYA="
     },
     "atlas": {
-      "computedHash": "A9e+Kko1OtcRZmUIGcd92hXFkrPDKngheyUJEM8GP3w="
+      "computedHash": "rFYUp5z7UV/w2eOhzFTyoTt5lZeVQdc5dLTnTT14leo="
     },
     "autoresearch-loop": {
       "computedHash": "OBpFyJ8BMVGlA+YGMREJPIOTF36eFam8jMtDlRyfeIQ="
@@ -649,6 +649,17 @@
       "installedAt": "2026-09-04T15:42:53.913Z",
       "updatedAt": "2026-09-04T15:42:53.913Z"
     },
+    "install-anti-slop": {
+      "source": "dmmulroy/anti-slop",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/dmmulroy/anti-slop.git",
+      "ref": "c44ef22ca116d0ba62a3ff663a0bd13a3f3fa40b",
+      "skillPath": "skills/install-anti-slop/SKILL.md",
+      "skillFolderHash": "89044d21c75a367eac1ddbaf208e650b1a7d5820",
+      "installedAt": "2026-10-06T03:46:23.089Z",
+      "updatedAt": "2026-10-06T03:46:23.089Z",
+      "computedHash": "J7wRavrxaMhrM+tudiEzy8u5iaC3QfVZ4NYLGfxW/aI="
+    },
     "interface-design": {
       "computedHash": "f+QpUloY1BlYRAtYrASuacudN3Y9gjOA1+dbpzJ/43w=",
       "source": "mattpocock/skills",
@@ -666,7 +677,7 @@
       "computedHash": "sfzRf2RpHdCIT1xYf+PbVtbIqytCdSeWywNaFgYfIQg="
     },
     "jcode-handoff": {
-      "computedHash": "Cfl9QjnWwvgshrBUg+zXfGUfqICvxOp5rrnLu9/Pfro="
+      "computedHash": "Zoj+woVkCcyQnosAre34IBrd4DskUVQVImOZYPBUgC0="
     },
     "jcode-orchestration": {
       "computedHash": "MdjzusW5Xsy/eOMv9oI6oUjkXDisfj8/kfXEVngwe54="
@@ -1063,6 +1074,17 @@
       "installedAt": "2026-09-04T15:42:57.432Z",
       "updatedAt": "2026-09-04T15:42:57.432Z"
     },
+    "semantic-compression": {
+      "source": "can1357/oh-my-pi",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/can1357/oh-my-pi.git",
+      "ref": "e0fc1cf4ea354b445a359b37fa5eb58deaa85598",
+      "installedAt": "2026-10-06T21:15:06.954Z",
+      "updatedAt": "2026-10-06T21:15:06.954Z",
+      "skillPath": ".omp/skills/semantic-compression/SKILL.md",
+      "skillFolderHash": "c6eeced1c7c933af372337126a0cac8a5c2bcbfc",
+      "computedHash": "QVCnmNWj0R9mAFs9R4z/YJ93UdyMBAGyHsgvOqMQqKE="
+    },
     "service-layer-style": {
       "computedHash": "mX/ITeDTB32fac1V5VUX1VOCWuPRMfMujBjlWIoyPKA="
     },
@@ -1073,7 +1095,7 @@
       "computedHash": "ZfeFUMfSRl3NIVXen6QrKFBspKUOYWR3eBsmvrnl2q4="
     },
     "show-status": {
-      "computedHash": "A3/lRDBAE+VCbkJDwdWzWW961J2OvPkRzAa9ToZz5AY="
+      "computedHash": "UyQZsROMSoKGabZtyvChihRfyAS5Zu31oZF1AwkAEA8="
     },
     "simplify": {
       "computedHash": "bgMScw78kzpso+lOdu9Iowm6SUEb2uVIxu1Ubbn2Tqs="
@@ -1107,6 +1129,17 @@
       "updatedAt": "2026-10-01T17:13:40.735Z",
       "computedHash": "bLfB7Sqj4U16kJ+wUZPRmOgqDmInfnvg0hzhjINrkwc="
     },
+    "supermemory": {
+      "source": "supermemoryai/supermemory",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/supermemoryai/supermemory.git",
+      "ref": "main",
+      "skillPath": "skills/supermemory/SKILL.md",
+      "skillFolderHash": "6804fddce673389556333b6a896e67f7667163a1",
+      "installedAt": "2026-10-05T14:28:16.456Z",
+      "updatedAt": "2026-10-05T14:28:16.456Z",
+      "computedHash": "b3PDjGWv/86LCo+8RGxUNfMeoL2Tf4nIsZcBXhpaA6Q="
+    },
     "swift": {
       "computedHash": "lCwYNS0uzODj+7tkqTsDSKpZKAj/mFA4hv/zPGPvJds="
     },
@@ -1122,6 +1155,17 @@
       "installedAt": "2026-09-06T12:47:00.000Z",
       "updatedAt": "2026-09-06T12:47:00.000Z"
     },
+    "system-prompts": {
+      "source": "can1357/oh-my-pi",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/can1357/oh-my-pi.git",
+      "ref": "e0fc1cf4ea354b445a359b37fa5eb58deaa85598",
+      "installedAt": "2026-10-06T21:15:06.954Z",
+      "updatedAt": "2026-10-06T21:15:06.954Z",
+      "skillPath": ".omp/skills/system-prompts/SKILL.md",
+      "skillFolderHash": "738f5ba0c2ce47586cf2b5b10c92e28df25d1b17",
+      "computedHash": "loTGdKxQ4DwOTCv6hrXOdQNZRxPus58sL6BEaDS7zzQ="
+    },
     "systematic-debugging": {
       "computedHash": "xZ3HbCRCuo475Vm4mNTELYOfQW4cQjexSO10Zl1Faq8="
     },
@@ -1129,7 +1173,7 @@
       "computedHash": "67TYBxH/t7Dt8MhH5iSEqdw+kvx71g59qexkTEYjDlg="
     },
     "t3-monorepo-patterns": {
-      "computedHash": "KqpX1xZwMxmID1qn8AAiexKkdDzaMIqImbso0t/RyLQ="
+      "computedHash": "xBfZDa4h849Q4ypKnHb4KFw7BEJBY+j7qf4KCoBETZM="
     },
     "t3-testing-patterns": {
       "computedHash": "RTzmFUy8SKjOLqhqyn70Q2u5dROnNWgxdSIJiwo/LPg="
@@ -1162,14 +1206,41 @@
       "updatedAt": "2026-10-01T18:07:55.887Z",
       "computedHash": "Wl7V61UhRwin6ADEoqNqcHP3SInRUUpc5EMXo/ewYSA="
     },
+    "triage": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/triage/SKILL.md",
+      "skillFolderHash": "4cb951d62ecccaed601cdc5f9a1b7b3d8a799635",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-10-05T18:55:05.313Z",
+      "updatedAt": "2026-10-05T18:55:05.313Z",
+      "computedHash": "vwnzf6JKtkMkSXdyoloeCpsi0GzLI4/v0M+xLu5HPD0="
+    },
+    "triage-ado": {
+      "computedHash": "IDjzugvjbHX9C3qb+DtbItM17TgieQxYat9ZnTcT3ZE="
+    },
+    "triage-linear": {
+      "computedHash": "nhproxwncrT50UVz/iR6Lk064n1QMXQHgVFRHLx2dXw="
+    },
     "trpc-patterns": {
       "computedHash": "La/0pXC+HUIVNyu//HcOwiA8uwu1CNP8IUm0nwYsTB4="
+    },
+    "turborepo": {
+      "source": "vercel/turborepo",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel/turborepo.git",
+      "skillPath": "skills/turborepo/SKILL.md",
+      "skillFolderHash": "a1bae26a81bbc79e6eb14b4e7ec4d36694e6e94a",
+      "installedAt": "2026-10-03T21:27:24.676Z",
+      "updatedAt": "2026-10-03T21:27:24.676Z",
+      "computedHash": "yDpv91xiCS9x2pFAgWTtNCbxF0mwMv0j7MhV4nwvtTg="
     },
     "turnstile-spin": {
       "computedHash": "WaKTUdcTGFbze6liAA9AMsy5gvtgxTN1mL3qXgCSIuk="
     },
     "ui-review-loop": {
-      "computedHash": "QPqK0zyUN4IK97NaWTLrKmMSJonvIzpG2FyzQPDUkDw="
+      "computedHash": "BZTxD0FSHPwjBW04IEGkXZRemJGkja9/V/bN/qP61IE="
     },
     "ui-ux-pro-max": {
       "computedHash": "mXbA3k2vLLDdue7pab/sl8ALtauOWv5KsmP855vNifo=",
@@ -1251,6 +1322,9 @@
     "workers-best-practices": {
       "computedHash": "IzTDL6a7OeP3QcVAMYMH9RjSUJ6gYa/TJbsV33Cmk5k="
     },
+    "worktree-standard": {
+      "computedHash": "kqnzbUOGkA3JeIfBNh/b3tZkN3ThKTwlX8FXGG//XkI="
+    },
     "wrangler": {
       "computedHash": "qR79gwK7HRMpcaGSQMAPbaO5uNGZmjyyCuaqmBQTiro="
     },
@@ -1302,9 +1376,6 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-09-06T12:47:00.000Z",
       "updatedAt": "2026-09-06T12:47:00.000Z"
-    },
-    "worktree-standard": {
-      "computedHash": "NrzVjpgkdd7BOBgeVdcarvZXoSgn0pKGSIcLv/ZG97s="
     }
   },
   "dismissed": {
