@@ -134,10 +134,13 @@ implementations, duplicate work, and recorded rejections. Verify reported bugs
 and PR claims before recommending disposition; distinguish confirmed behavior,
 failed verification, and missing information. Do not repeat resolved questions.
 
-Use `linear-management` for personal and Priceless work, `writing-ado-items`
-for Brown work, and `jcode-handoff` for implementation briefs. Use verified
-workspace types, states, and labels, not a skill's generic role names. Preserve
-existing readiness gates; human attention does not imply merge readiness.
+Use `linear-management` for personal and Priceless governance. Route intake
+investigation to `linear-triage` (superseding `triage-linear`), requirements and
+OpenSpec readiness to `linear-refinement`, and evidence-backed reconciliation to
+`linear-cleanup`. Use `writing-ado-items` for Brown work and `jcode-handoff` for
+implementation briefs. Use verified workspace types, states, and labels, not a
+skill's generic role names. Preserve existing readiness gates; human attention
+does not imply merge readiness.
 
 Handoffs must state scope, constraints, acceptance criteria, reproduction and
 verification evidence, verification instructions, and unresolved decisions.
