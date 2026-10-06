@@ -7,7 +7,7 @@
 ## 2. Exercise acceptance
 - [ ] 2.1 Add frozen evaluation cases for both happy paths, cross-workspace rejection, absent mappings, invented labels, unauthorized posting/closure and unverified fix claims.
 - [ ] 2.2 Test focused ID and batch invocation, exact one-bucket classification, wrong-state handling, final attribution and provider branch/commit/PR link formats.
-- [ ] 2.3 Resolve frontmatter/references and run the repository's available skill validation/evaluation tools, recording actual outputs and limits without live tracker mutations.
+- [ ] 2.3 Validate frontmatter/references with a narrow check accepting disable-model-invocation; use the existing evals.json shape and explicitly load skills in native workers with frozen fixtures to grade behavior assertions. Do not use automatic-trigger run_eval.py as behavior evidence or mutate live trackers.
 
 ## 3. Finalize
 - [ ] 3.1 Validate native OpenSpec and map every requirement/scenario to evaluation evidence.
