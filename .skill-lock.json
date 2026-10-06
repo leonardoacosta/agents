@@ -1083,7 +1083,7 @@
       "updatedAt": "2026-10-06T21:15:06.954Z",
       "skillPath": ".omp/skills/semantic-compression/SKILL.md",
       "skillFolderHash": "c6eeced1c7c933af372337126a0cac8a5c2bcbfc",
-      "computedHash": "QVCnmNWj0R9mAFs9R4z/YJ93UdyMBAGyHsgvOqMQqKE="
+      "computedHash": "h1PbDzaEDqCayKaN85iwC9/Qgxz/IzsBFN6TT5Xp2qs="
     },
     "service-layer-style": {
       "computedHash": "mX/ITeDTB32fac1V5VUX1VOCWuPRMfMujBjlWIoyPKA="
@@ -1164,7 +1164,7 @@
       "updatedAt": "2026-10-06T21:15:06.954Z",
       "skillPath": ".omp/skills/system-prompts/SKILL.md",
       "skillFolderHash": "738f5ba0c2ce47586cf2b5b10c92e28df25d1b17",
-      "computedHash": "loTGdKxQ4DwOTCv6hrXOdQNZRxPus58sL6BEaDS7zzQ="
+      "computedHash": "57WydqKYadf6+ob7FVtVdX0tW8jJpWsLaOtmEvZmGrs="
     },
     "systematic-debugging": {
       "computedHash": "xZ3HbCRCuo475Vm4mNTELYOfQW4cQjexSO10Zl1Faq8="

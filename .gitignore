@@ -10,11 +10,5 @@ skills/framer/projects/*/
 # graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
 
-# Harness projection roots. Populated from skill-projections.json by
-# scripts/reconcile-skill-projections.sh, so the entries are generated state.
-# The recon links stay tracked on purpose: scripts/verify-recon-materialization.sh
-# requires .claude/skills/recon, skills/recon, and agent/skills/recon to resolve
-# to the same canonical directory.
-/.agents/
-/.claude/skills/*
-!/.claude/skills/recon
+# Generated private workspace inventory
+/skills/gk-personal/references/context.local.md
