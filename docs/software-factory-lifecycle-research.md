@@ -193,6 +193,20 @@ The role packages include behavioral prompt scenarios for authorization, workspa
 
 Observed checks on 2026-10-06: **284 packages structurally valid**, **120 skills-repository unit tests passed**, **24/24 synthetic behavioral scenarios passed**, and all four adopted skill names loaded through Jcode's skill discovery. Independent canonical-skill assessments using the eight-dimension `skill-judge` rubric scored triage 106/120, refinement 101/120 and cleanup 108/120. These judgments are not runtime certification. Agents tests/build passed with caching bypassed; touched report formatting, eval identities, whitespace and redacted owned-output secret checks passed. The repository-wide `pnpm check` still reports the same pre-existing formatting issues in `prompts/jcode/system-prompt.md` and `prompts/jcode/swarm-prompt.md`; unrelated reformatting was left out of scope.
 
+### Native consumer acceptance, not fixture grading
+
+The actual installed Jcode binary was invoked through its public `run --json` interface against this repository, with only `read`, `ls`, `agentgrep`, `skill_manage` and `jcode_docs` exposed. Three real slash-skill workflows exited successfully. Saved session tool traces, not only the responses' self-reports, confirmed the installed dependencies and repository files were read. No copied sources, invented issue fixtures or mutation tools were used.
+
+| Real invocation | Observed native behavior | Acceptance result |
+| --- | --- | --- |
+| `/linear-refinement` on remaining factory-enablement work | Loaded refinement, `linear-management` and `jcode-handoff`; produced an unreviewed, not-execution-ready handoff with observable workspace, claim/recovery and acceptance gates and accountable next owners | Correct requirements ownership; did not invent an issue/mapping or mark Ready |
+| `/triage-linear` on the repository's actual remaining gaps | Loaded the legacy redirect, then canonical `linear-triage` and both dependencies; classified mapping work as `needs-info`, consequential enablement as `needs-human`, and identified owners and decisions | Actual compatibility route works; evidence-based intake without obsolete policy or tracker writes |
+| `/linear-cleanup` on recorded workflow readiness | Loaded cleanup and both dependencies; identified null mappings and installer-enforced fail-closed guards; recommended keeping automation disabled and withheld issue-level Ready/Done claims | Actual audit produces bounded reconciliation; does not equate recorded setup, merged code or specifications with runtime acceptance |
+
+Across those saved sessions, every invoked tool belonged to the read-only allowlist. Repository checks confirmed no product/configuration changes from acceptance execution. This is acceptance evidence for the installed Jcode skill-use and repository-handoff path, not for tracker mutation, deployment or native OpenHands behavior.
+
+Live integration discovery found **zero connected MCP servers**, no `linear`, `orca-ide` or `openhands` CLI on this execution PATH, and null `team_id`, `project_id` and `states` in the actual target configuration. Thus, a real issue-to-PR-to-acceptance workflow is externally blocked by missing active tool connections and verified workspace mappings. No authentication/setup or remote mutation was authorized to bypass that boundary. Native OpenHands invocation remains unavailable, not silently replaced by Jcode or synthetic evidence.
+
 Still unverified: actual workspace state mappings; live issue/PR automation and plan/visibility-dependent GitHub controls; atomic exclusive claims; native OpenHands invocation; deployed service/incident workflow; any future specialized regulatory requirements. These do not block authoring reusable contracts, but do block claims that the factory is enabled or acceptance-tested end to end.
 
 ## Sources
