@@ -1,0 +1,16 @@
+<h2>Which workflow architecture should the document recommend?</h2>
+<p class="subtitle">The deliverable will explain a lean OpenSpec × Linear × GitHub lifecycle, repo-local policy, delegated PR ownership, and safe cleanup.</p>
+<div class="options">
+  <div class="option" data-choice="native" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content"><h3>Native-first composition <span class="label">recommended</span></h3><p>One root coordinator routes to four stage skills, existing OpenSpec/review skills, native AgentHub and worktree helpers. Keep repo orchestration on the default branch; agents own isolated work branches through PR cleanup.</p></div>
+  </div>
+  <div class="option" data-choice="agenthub-rule" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content"><h3>AgentHub-led policy</h3><p>Put all lifecycle behavior in a global Omp AgentHub rule and let the hub control workers. Strong visibility, but couples governance to one client/runtime and increases always-loaded policy.</p></div>
+  </div>
+  <div class="option" data-choice="automation" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content"><h3>Automation-led controller</h3><p>Make schedules/hooks drive intake, dispatch, checks, and cleanup. Lower manual overhead, but expands into runtime infrastructure, duplicate-claim/retry problems, and irreversible permission boundaries.</p></div>
+  </div>
+</div>
