@@ -12,6 +12,11 @@ Reusable skills are authored in [leonardoacosta/skills](https://github.com/leona
 
 Consumers own installation. Use the existing skills CLI for selected canonical skills; no custom installer or active harness rewiring is included.
 
+## Priceless project router template
+
+The source-controlled template is maintained in the canonical skills repository: [`templates/priceless-project/AGENTS.md`](https://github.com/leonardoacosta/skills/blob/main/templates/priceless-project/AGENTS.md). Copy it to a Priceless project root as `AGENTS.md`, replace project placeholders, and commit the copy with that project. It routes to Priceless skills; local repository docs and configuration remain authoritative for project facts.
+
+
 ## Verification
 
 Run `git diff --check`. Confirm the tracked export contains no skill materializations or machine-local inventory. Canonical skill tests belong in the skills repository, not here. Original variants, generated inventory, and retired maintenance files are preserved in verified local archives. See `docs/selective-salvage.md` for the migration ledger.
